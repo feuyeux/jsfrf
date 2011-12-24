@@ -1,0 +1,15 @@
+body {
+	margin-left: 33px;
+	margin-top: 33px;
+}
+
+.elStyle{
+	color:#{ecss.color};
+}
+
+input,select,textarea,button,keygen,isindex,legend,a {
+	color: #0066CC;
+	font-family: Consolas, Verdana;
+	font-size: 15px;
+	font-style: normal;
+}

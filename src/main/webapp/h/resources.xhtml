@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<h:outputScript library="javascript/js1" name="a.js" target="head" />
+	<h:outputScript library="javascript/js2" name="a.js" target="head" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+</h:head>
+
+<h:body>
+	<h:form id="h-resources-form">
+		<a4j:jsFunction name="elTest" render="ecssText">
+			<a4j:param name="color" assignTo="#{ecss.color}"/>
+		</a4j:jsFunction>
+
+		<h:commandLink value="测试脚本加载顺序" onclick="callA();" />
+		<br />
+		<h:commandLink value="测试脚本名字空间" onclick="rf4js.js1.callA();rf4js.js2.callA();" /><br />
+
+		<h:outputText id="ecssText" value="EL样式展示 #{ecss.color}" styleClass="elStyle"/><br />
+		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');"/>
+		<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');"/><br />
+
+		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="123" width="123" />
+		<h:graphicImage id="logo1" url="/resources/img/vendor2/logo.png" height="123" width="123" />
+	</h:form>
+</h:body>
+</html>

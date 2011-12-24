@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces h标签库</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet name="rf4.css" library="css" />
+	
+	<h:panelGrid columns="3" border="1">
+		<h:outputText styleClass="b" value="组件名称" />
+		<h:outputText styleClass="b" value="组件描述" />
+		<h:outputText styleClass="b" value="组件外观" />
+
+		<h:outputText value="h:inputText" />
+		<h:outputText value="标准输入框" />
+		<h:inputText value="标准输入框" />
+
+		<h:outputText value="h:inputSecret" />
+		<h:outputText value="加密输入框" />
+		<h:inputSecret value="加密输入框" redisplay="true" />
+
+		<h:outputText value="h:inputHidden" />
+		<h:outputText value="输入隐藏域" />
+		<h:inputHidden value="输入隐藏域" />
+
+		<h:outputText value="h:inputTextarea" />
+		<h:outputText value="多行文本输入框" />
+		<h:inputTextarea value="多行文本输入框" />
+
+		<h:outputText value="h:selectBooleanCheckbox" />
+		<h:outputText value="标准选择组件" />
+		<h:panelGroup>
+			<h:selectBooleanCheckbox value="true" />
+			标准选择组件
+		</h:panelGroup>
+
+		<h:outputText value="h:selectManyCheckbox" />
+		<h:outputText value="标准多选组件" />
+		<h:selectManyCheckbox value="#{flash.lists}">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectManyCheckbox>
+
+		<h:outputText value="h:selectManyListbox" />
+		<h:outputText value="多选列表组件" />
+		<h:selectManyListbox value="#{flash.lists}">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectManyListbox>
+
+		<h:outputText value="h:selectManyMenu" />
+		<h:outputText value="多选菜单组件" />
+		<h:selectManyMenu value="#{flash.lists}" style="height:50px">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectManyMenu>
+
+		<h:outputText value="h:selectOneRadio" />
+		<h:outputText value="标准单选组件" />
+		<h:selectOneRadio value="#{flash.lists}">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectOneRadio>
+
+		<h:outputText value="h:selectOneListbox" />
+		<h:outputText value="单选列表组件" />
+		<h:selectOneListbox value="#{flash.lists}">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectOneListbox>
+
+		<h:outputText value="h:selectOneMenu" />
+		<h:outputText value="单选菜单组件" />
+		<h:selectOneMenu value="#{flash.lists}">
+			<f:selectItem itemLabel="one" itemValue="1" />
+			<f:selectItem itemLabel="two" itemValue="2" />
+			<f:selectItem itemLabel="three" itemValue="3" />
+		</h:selectOneMenu>
+	</h:panelGrid>
+
+	<h:link value="Return 2 Index" outcome="/welcome" />
+</h:body>
+</html>

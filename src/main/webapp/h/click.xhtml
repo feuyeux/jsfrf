@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<f:metadata>
+		<f:viewParam id="id" name="id" value="#{flash.id}" required="true">
+			<f:validateLongRange minimum="10" maximum="20" />
+		</f:viewParam>
+	</f:metadata>
+</h:head>
+<h:body>
+	<h:message for="id" />
+	<h:button outcome="click2" value="h:button1">
+		<f:param name="id" value="1" />
+	</h:button>
+	<h:button outcome="click2" value="h:button2">
+		<f:param name="id" value="11" />
+	</h:button>
+
+	<h:link value="Return 2 Index" outcome="/welcome" />
+</h:body>
+</html>
