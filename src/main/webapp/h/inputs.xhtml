@@ -3,11 +3,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JavaServer Faces h标签库</title>
 </h:head>
 <h:body>
-	<h:outputStylesheet name="rf4.css" library="css" />
-	
 	<h:panelGrid columns="3" border="1">
 		<h:outputText styleClass="b" value="组件名称" />
 		<h:outputText styleClass="b" value="组件描述" />
@@ -26,7 +25,7 @@
 		<h:inputHidden value="输入隐藏域" />
 
 		<h:outputText value="h:inputTextarea" />
-		<h:outputText value="多行文本输入框" />
+		<h:link value="多行文本输入框" outcome="input/inputTextarea" />
 		<h:inputTextarea value="多行文本输入框" />
 
 		<h:outputText value="h:selectBooleanCheckbox" />
