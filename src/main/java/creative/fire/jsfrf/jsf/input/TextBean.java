@@ -35,14 +35,15 @@ public class TextBean implements Serializable {
 	}
 
 	public void update(String rendered, String value) {
-		System.out.println(value);
+		System.out.println(this.value);
 		this.value = value;
+		this.rendered = rendered.equals("true");
 	}
 
 	public void update0() {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
-		value = params.get("value");
+		this.value = params.get("textValue");
 		this.rendered = rendered.equals("true");
 	}
 }

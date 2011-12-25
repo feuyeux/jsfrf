@@ -13,3 +13,7 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	font-size: 15px;
 	font-style: normal;
 }
+
+.b{
+	font-weight: bold;
+}

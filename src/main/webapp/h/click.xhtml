@@ -3,21 +3,25 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{flash.id}" required="true">
-			<f:validateLongRange minimum="10" maximum="20" />
-		</f:viewParam>
-	</f:metadata>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
 </h:head>
 <h:body>
-	<h:message for="id" />
-	<h:button outcome="click2" value="h:button1">
-		<f:param name="id" value="1" />
-	</h:button>
-	<h:button outcome="click2" value="h:button2">
-		<f:param name="id" value="11" />
-	</h:button>
+	<h:panelGrid columns="2" border="1">
+		<h:outputText styleClass="b" value="组件名称" />
+		<h:outputText styleClass="b" value="组件描述" />
 
+		<h:outputText value="h:commandButton" />
+		<h:link value="标准按钮" outcome="output/outputFormat" />
+
+		<h:outputText value="h:commandLink" />
+		<h:link value="标准链接" />
+
+		<h:outputText value="h:button" />
+		<h:link value="Get请求按钮" outcome="click/click1" />
+
+		<h:outputText value="h:link" />
+		<h:link value="Get请求连接" />
+	</h:panelGrid>
 	<h:link value="Return 2 Index" outcome="/welcome" />
 </h:body>
 </html>

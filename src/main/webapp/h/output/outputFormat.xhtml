@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>JavaServer Faces h标签库</title>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -10,14 +9,17 @@
 
 <h:body>
 	<h:form id="outputTextForm">
-		<h:outputFormat id="formatText" value="The text value is: {0} {value}." rendered="#{text.rendered}">
+		<h:outputFormat id="formatText" value="The text value is: {0}." rendered="#{text.rendered}">
 			<f:param name="value" value="#{text.value}" />
 		</h:outputFormat>
-		 
-		<a4j:commandButton value="开始测试" action="#text.update0}" render="formatText">
+		<br />
+		<h:commandButton value="开始测试1" action="#{text.update0}" render="formatText">
 			<f:param name="rendered" value="true" />
-			<f:param name="value" value="100" />
-		</a4j:commandButton>
+			<f:param name="textValue" value="100" />
+		</h:commandButton>
+		
+		<h:commandButton value="开始测试2" action="#{text.update('true','200')}" render="formatText" style="margin-left:10px">
+		</h:commandButton>
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/h/outputs" />

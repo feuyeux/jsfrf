@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces h标签库</title>
+	<h:outputScript library="javascript" name="JAVASERVERFACES-1718-Workaround.js"/>
+</h:head>
+<h:body>
+	<h:form id="convertForm">
+		<h:inputText id="in1" value="#{ajaxBean.firstName}">
+			<f:ajax event="keyup" render="out1" />
+		</h:inputText>
+		<h:panelGroup id="p1">
+			<h:outputLabel value="您输入的是：" />
+			<h:outputText id="out1" value="#{ajaxBean.firstName}" />
+		</h:panelGroup>
+	</h:form>
+	
+	<h:form id="convertForm2">
+		<h:inputText id="in1" value="#{ajaxBean.dob}">
+			<f:convertDateTime dateStyle="full" pattern="yyyyMMdd" type="both" timeZone="GMT+8" locale="cn"/>
+			<!-- 
+			 dateStyle timeStyle: "default", "short", "medium", "long", and "full". Default value is "default".
+			 type: "date", "time", and "both". 
+			  -->
+			<f:ajax event="keyup" render="out1" />
+		</h:inputText>
+		<h:panelGroup id="p1">
+			<h:outputLabel value="您输入的是：" />
+			<h:outputText id="out1" value="#{ajaxBean.dob}">
+				<f:convertDateTime dateStyle="full" pattern="yyyy年MM月dd日" type="both" timeZone="GMT+8" locale="cn"/>
+			</h:outputText>
+		</h:panelGroup>
+	</h:form>
+	
+	<h:form id="convertForm3">
+		<h:inputText id="in1" value="#{ajaxBean}">
+			<f:converter converterId="ajaxBeanConverter"/>
+			<f:ajax event="keyup" render="out1" />
+		</h:inputText>
+		<h:panelGroup id="p1">
+			<h:outputLabel value="您输入的是：" />
+			<h:outputText id="out1" value="#{ajaxBean}">
+				<f:converter converterId="ajaxBeanConverter"/>
+			</h:outputText>
+		</h:panelGroup>
+	</h:form>
+	
+</h:body>
+</html>

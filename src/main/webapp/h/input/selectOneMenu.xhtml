@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces h标签库</title>
+</h:head>
+<h:body>
+	<h:form>#{testList.item}
+		<h:selectOneMenu value="#{testList.selected}">
+			<f:selectItems value="#{testList.item}" var="number"
+				itemValue="#{number}" itemLabel="#{number}" />
+			<f:ajax event="change" listener="#{testList.print}" render=":out" />
+		</h:selectOneMenu>
+		<br />
+		<h:commandLink value="submit" action="#{testList.print}" render="out" />
+	</h:form>
+	<br />
+	<h:outputText value="selected=" />
+	<h:outputText id="out" value="#{testList.selected}" />
+	<br />
+	<h:link value="Return 2 Index" outcome="/welcome" />
+</h:body>
+</html>
