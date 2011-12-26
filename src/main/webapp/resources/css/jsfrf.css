@@ -17,3 +17,10 @@ input,select,textarea,button,keygen,isindex,legend,a {
 .b{
 	font-weight: bold;
 }
+
+.dotBorder
+{
+	border-style:dotted;
+	border-color:Red;
+	border-width:1px;	
+}

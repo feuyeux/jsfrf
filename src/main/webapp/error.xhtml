@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>JSFRF错误处理页面</title>
+</h:head>
+<h:body>
+	<h:form id="errorForm">
+		<div style="height:200px;width:80%;margin-left:100px;margin-top:100px;" class="dotBorder">
+			<h:outputText value="出错啦" style="font-weight:bold;font-size: 14px;"/>
+			<div style="margin-left:10px;margin-top:10px;margin-bottom:20px" class="error_message">			
+			<div style="font-size: 14px;">${sessionScope.jsfrf_error}</div>
+			</div>	
+		</div>
+		<h:button value="返回" outcome="welcome" style="width:100px;cursor: pointer;margin-left:80%;margin-top:10px;"/>
+	</h:form>
+</h:body>
+</html>

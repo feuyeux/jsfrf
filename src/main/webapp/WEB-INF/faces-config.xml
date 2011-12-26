@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee" version="2.0">
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	version="2.0">
+	<factory>
+		<exception-handler-factory>creative.fire.jsfrf.jsf.lifecycle.JSFRFExceptionHandlerFactory
+		</exception-handler-factory>
+	</factory>
 
+	<lifecycle>
+		<phase-listener>creative.fire.jsfrf.jsf.lifecycle.JSFRFPhaseListener
+		</phase-listener>
+	</lifecycle>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/error.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<application>
+		<action-listener>
+			creative.fire.jsfrf.jsf.lifecycle.JSFRFActionListener
+		</action-listener>
+	</application>
 </faces-config>
