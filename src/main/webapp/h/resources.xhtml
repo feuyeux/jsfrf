@@ -5,28 +5,14 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>JavaServer Faces 资源引用</title>
-	<h:outputStylesheet name="jsfrf.css" library="css"/>
+	
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
 	<h:outputScript library="javascript/js2" name="a.js" target="head" />
 	<h:outputScript library="javascript" name="xLoad.js" target="head" />
 	
-	<a4j:jsFunction name="elTest" render="ecssText">
+	<a4j:jsFunction name="elTest">
 		<a4j:param name="color" assignTo="#{ecss.color}"/>
 	</a4j:jsFunction>
-	
-	<script>
-	function loadCss(file){
-	    var cssTag = document.getElementById('loadCss');
-	    var head = document.getElementsByTagName('head').item(0);
-	    if(cssTag) head.removeChild(cssTag);
-	    css = document.createElement('link');
-	    css.href = "../css/mi_"+file+".css";
-	    css.rel = 'stylesheet';
-	    css.type = 'text/css';
-	    css.id = 'loadCss';
-	    head.appendChild(css);
-	}
-	</script>
 </h:head>
 
 <h:body>
@@ -37,7 +23,7 @@
 
 		<h:outputText id="ecssText" value="EL样式展示 #{ecss.color}" styleClass="elStyle"/><br />
 		
-		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" oncomplete="loadCss('jsfrf');"/>
+		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" oncomplete="loadCss('loadCss','#{jsfrfEnv.cssPath}jsfrf.css');" render="ecssText"/>
 		<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');"/><br />
 
 		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" /><br />
