@@ -8,8 +8,7 @@
 <h:body>
 	<h:form>#{testList.item}
 		<h:selectOneMenu value="#{testList.selected}">
-			<f:selectItems value="#{testList.item}" var="number"
-				itemValue="#{number}" itemLabel="#{number}" />
+			<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 			<f:ajax event="change" listener="#{testList.print}" render=":out" />
 		</h:selectOneMenu>
 		<br />

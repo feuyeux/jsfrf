@@ -27,7 +27,7 @@ public class JSFRFEnvironment {
 
 	public String getImagePath() {
 		if (imagePath == null) {
-			imagePath = getContextPath() + "/resources/images/";
+			imagePath = getContextPath() + "/resources/img/";
 		}
 		return imagePath;
 	}
