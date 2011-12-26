@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<a4j:poll id="poll" interval="2000" render="out" enabled="#{poll.enabled}" />
+	</h:form>
+
+	<h:form id="pollForm">
+		<h:outputText id="out" value="#{poll.value}"/>
+		<a4j:commandButton value="update" action="#{poll.update}"/>
+	</h:form>
+	<br />
+	<h:link value="返回" outcome="/h/inputs" />
+</h:body>
+</html>
