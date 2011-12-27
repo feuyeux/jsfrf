@@ -7,50 +7,36 @@
 	<title>JavaServer Faces h标签库</title>
 </h:head>
 <h:body>
-	<h:panelGrid columns="3" border="1">
+	<h:panelGrid columns="2" border="1">
 		<h:outputText styleClass="b" value="组件名称"/>
 		<h:outputText styleClass="b" value="组件描述"/>
-		<h:outputText styleClass="b" value="组件外观"/>
 
 		<h:outputText value="h:outputText"/>
-		<h:outputText value="标准输出组件"/>
 		<h:outputText value="标准输出组件"/>
 
 		<h:outputText value="h:outputFormat"/>
 		<h:link value="格式化输出组件" outcome="output/outputFormat" />
-		<h:outputFormat  value="格式化输出组件"/>
  
 		<h:outputText value="h:outputLabel"/>
-		<h:outputText value="label输出组件"/>
 		<h:outputLabel value="label输出组件"/>
 		
 		<h:outputText value="h:message"/>
-		<h:outputText value="消息输出组件"/>
-		<h:message value="消息输出组件"/>
-
+		<h:link value="消息输出组件" outcome="output/message" />
+	
 		<h:outputText value="h:messages"/>
-		<h:outputText value="消息组输出组件"/>
-		<h:messages  value="消息组输出组件"/>
-
-		<!--<h:outputText value="h:outputLink"/>
-		<h:outputText value=超级链接输出组件/>
-	 	<h:outputLink value="超级链接输出组件"/>
+		<h:link value="消息组输出组件" outcome="output/message" />
 
 		<h:outputText value="h:panelGrid"/>
 		<h:outputText value="table输出组件"/>
-		<h:panelGrid value="table输出组件"/>
 		
 		<h:outputText value="h:panelGroup"/>
 		<h:outputText value="组输出组件"/>
-		<h:panelGroup value="组输出组件"/>
 
 		<h:outputText value="h:column"/>
 		<h:outputText value="列输出组件"/>
-		<h:column value="列输出组件"/>
 		
 		<h:outputText value="h:dataTable"/>
 		<h:outputText value="数据表格组件"/>
-		<h:dataTable value="数据表格组件"/>-->
 	</h:panelGrid>
 	<h:link value="返回" outcome="/welcome"/>
 </h:body>

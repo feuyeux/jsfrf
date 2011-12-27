@@ -8,14 +8,17 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "jsfrfEnv")
 @ApplicationScoped
 public class JSFRFEnvironment {
-
+	private String contextPath;
 	private String cssPath;
 	private String imagePath;
 	private String jsPath;
 
 	public String getContextPath() {
-		final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		return externalContext.getRequestContextPath();
+		if (contextPath == null) {
+			final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			contextPath = externalContext.getRequestContextPath();
+		}
+		return contextPath;
 	}
 
 	public String getCssPath() {

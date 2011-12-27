@@ -13,14 +13,18 @@
 		<h:outputText value="h:commandButton" />
 		<h:link value="标准按钮" outcome="output/outputFormat" />
 
-		<h:outputText value="h:commandLink" />
-		<h:link value="标准链接" />
-
 		<h:outputText value="h:button" />
 		<h:link value="Get请求按钮" outcome="click/click1" />
 
+		<h:outputText value="h:commandLink" />
+		<h:link value="标准链接" outcome="click/click3" />
+		
 		<h:outputText value="h:link" />
-		<h:link value="Get请求连接" />
+		<h:link value="Get请求连接" outcome="click/click3" />
+		
+		<h:outputText value="h:outputLink"/>
+		<h:link value="普通链接" outcome="click/click3" />
+		
 	</h:panelGrid>
 	<h:link value="Return 2 Index" outcome="/welcome" />
 </h:body>
