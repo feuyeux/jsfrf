@@ -2,6 +2,7 @@ package creative.fire.jsfrf.global;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -19,6 +20,11 @@ public class JSFRFEnvironment {
 			contextPath = externalContext.getRequestContextPath();
 		}
 		return contextPath;
+	}
+
+	public String getLanguage() {
+		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
+		return viewRoot.getLocale().getLanguage();
 	}
 
 	public String getCssPath() {

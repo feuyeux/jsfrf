@@ -1,15 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-	version="2.0">
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" version="2.0">
 	<factory>
 		<exception-handler-factory>creative.fire.jsfrf.jsf.lifecycle.JSFRFExceptionHandlerFactory
 		</exception-handler-factory>
 	</factory>
 
 	<lifecycle>
-		<phase-listener>creative.fire.jsfrf.jsf.lifecycle.JSFRFPhaseListener
-		</phase-listener>
+		<phase-listener>creative.fire.jsfrf.jsf.lifecycle.JSFRFPhaseListener</phase-listener>
 	</lifecycle>
 
 	<navigation-rule>
@@ -26,5 +24,19 @@
 			creative.fire.jsfrf.jsf.lifecycle.JSFRFActionListener
 		</action-listener>
 	 -->
+	</application>
+
+	<application>
+		<locale-config>
+			<default-locale>zh_CN</default-locale>
+			<supported-locale>en</supported-locale>
+			<default-time-zone-id>Asia/Shanghai</default-time-zone-id>
+		</locale-config>
+	<!-- 
+		<resource-bundle>
+			<base-name>jsfrfMessage</base-name>
+			<var>jsfrfMsg</var>
+		</resource-bundle>
+	-->
 	</application>
 </faces-config>

@@ -11,13 +11,12 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	font-style: normal;
 }
 
-.b{
+.b {
 	font-weight: bold;
 }
 
-.dotBorder
-{
-	border-style:dotted;
-	border-color:Red;
-	border-width:1px;	
+.dotBorder {
+	border-style: dotted;
+	border-color: Red;
+	border-width: 1px;
 }

@@ -7,12 +7,12 @@
 	<h:form id="linkForm">
 		<h:commandLink id="cLink" value="标准链接" action="#{text.foo}" onclick="alert('测试')" />
 	</h:form>
-	<h:link id="hLink" value="Get请求连接" outcome="click3" />
-	<br />
-	<h:outputLink id="oLink" value="#{jsfrfEnv.contextPath}/h/click/click3.jsf">
-	普通链接
-	</h:outputLink>
-	<br />
+	<h:panelGrid>
+		<h:link id="hLink" value="Get请求连接" outcome="click3" />
+		<h:outputLink id="oLink" value="#{jsfrfEnv.contextPath}/h/click/click3.jsf">
+			普通链接
+		</h:outputLink>
+	</h:panelGrid>
 	<h:link value="Return 2 Index" outcome="/welcome" />
 </h:body>
 </html>

@@ -1,17 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>JavaServer Faces 资源引用</title>
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
 	<h:outputScript library="javascript/js2" name="a.js" target="head" />
 	<h:outputScript library="javascript" name="loadJs.js" target="head" />
-	
+
 	<a4j:jsFunction name="elTest">
-		<a4j:param name="color" assignTo="#{ecss.color}"/>
+		<a4j:param name="color" assignTo="#{ecss.color}" />
 	</a4j:jsFunction>
 </h:head>
 
@@ -19,22 +16,23 @@
 	<h:form id="h-resources-form">
 		<h:commandLink value="测试脚本加载顺序" onclick="callA();" />
 		<br />
-		<h:commandLink value="测试脚本名字空间" onclick="rf4js.js1.callA();rf4js.js2.callA();" /><br />
-		
-		<a4j:commandButton value="动态加载样式文件" 
-		onclick="loadJs('loadJavascript','#{jsfrfEnv.jsPath}loadCss.js');" 
-		oncomplete="loadCss('loadStyle','#{jsfrfEnv.cssPath}jsfrf.css');"/>
-		
+		<h:commandLink value="测试脚本名字空间" onclick="rf4js.js1.callA();rf4js.js2.callA();" />
 		<br />
-		<h:outputText id="ecssText" style="color:#{ecss.color}" value="动态样式展示: #{ecss.color}"/>
+
+		<a4j:commandButton value="动态加载样式文件" onclick="loadJs('loadJavascript','#{jsfrfEnv.jsPath}loadCss.js');"
+			oncomplete="loadCss('loadStyle','#{jsfrfEnv.cssPath}jsfrf.css');" />
+
 		<br />
-		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" render="ecssText"/>
-		<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');" render="ecssText"/>
+		<h:outputText id="ecssText" style="color:#{ecss.color}" value="动态样式展示: #{ecss.color}" />
 		<br />
-		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" /><br />
+		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" render="ecssText" />
+		<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');" render="ecssText" />
+		<br />
+		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" />
+		<br />
 		<h:graphicImage id="logo1" url="/resources/img/vendor2/logo.png" height="60" width="60" />
 	</h:form>
-	
+
 	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

@@ -7,7 +7,7 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "a4jBean")
 @ViewScoped
-public class AjaxBean implements Serializable{
+public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 
 	private boolean enabled;

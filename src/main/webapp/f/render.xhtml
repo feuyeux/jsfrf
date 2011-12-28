@@ -1,17 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<h:outputScript library="javascript"
-		name="JAVASERVERFACES-1718-Workaround.js" />
+	<h:outputScript library="javascript" name="JAVASERVERFACES-1718-Workaround.js" />
 </h:head>
 <h:body>
 	<h:form id="form2">
 		<h:inputText id="in1" value="#{ajaxBean.firstName}">
-			<a4j:ajax event="keyup" render="out3,out2,out1" listener="#{ajaxBean.foo}"/>
+			<a4j:ajax event="keyup" render="out3,out2,out1" listener="#{ajaxBean.foo}" />
 		</h:inputText>
 		<br />
 		<h:outputLabel value="1：" />

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces f标签库</title>
+</h:head>
+<h:body>
+	<f:loadBundle basename="jsfrfMessage" var="jrMsg" />
+	<h:form id="localForm">
+		<h:panelGrid id="localTable" columns="2">
+			<h:outputText value="#{jrMsg.jsfrf_currentLanguage}: " />
+			<h:outputText value="#{jsfrfEnv.language}" />
+
+			<h:selectOneRadio value="#{jsfrfLocale.selected}">
+				<f:selectItems value="#{jsfrfLocale.localeList}" var="locale" itemLabel="#{locale.language}" itemValue="#{locale.language}" />
+				<f:ajax event="change" listener="#{jsfrfLocale.updateLocale}" render=":localForm:localTable" />
+			</h:selectOneRadio>
+
+			<h:outputText value="#{jrMsg['jsfrf.helloworld']}" />
+		</h:panelGrid>
+	</h:form>
+	<h:link value="返回" outcome="/welcome" />
+</h:body>
+</html>
