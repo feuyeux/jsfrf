@@ -1,13 +1,16 @@
 package creative.fire.jsfrf.rf.ajax;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean(name = "poll")
+@ManagedBean(name = "a4jBean")
 @ViewScoped
-public class AjaxBean {
+public class AjaxBean implements Serializable{
+	private static final long serialVersionUID = -8466210162305133523L;
 	private boolean enabled;
-	private String value = "Start...";
+	private String value = "初始";
 
 	public boolean isEnabled() {
 		return enabled;
@@ -27,8 +30,18 @@ public class AjaxBean {
 
 	public void update() {
 		if (enabled) {
-			value = "DONE.";
+			this.value = "完毕";
 			enabled = true;
 		}
+	}
+
+	
+	public void walk() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.value = "[" + value + "]";
 	}
 }

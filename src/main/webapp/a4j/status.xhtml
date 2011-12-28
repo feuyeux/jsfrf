@@ -1,24 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 
 </h:head>
 <h:body>
-<h:form>
-	<h:panelGrid>
-		<h:panelGrid columns="3">
-			<h:inputText value="#{ajaxStatusBean.text}" />
-			<a4j:commandButton value="Convert"
-				action="#{ajaxStatusBean.upperCase}" render="upper" />
-			<a4j:status onstart="#{rich:component('statusPanel')}.show();"
-				onstop="#{rich:component('statusPanel')}.hide();" />
+	<h:form id="statusForm">
+		<a4j:status onstart="#{rich:component('statusPanel')}.show();" onstop="#{rich:component('statusPanel')}.hide();" onerror="alert('出错了！');" />
+		<h:panelGrid>
+			<h:inputText value="#{a4jBean.value}" />
+			<a4j:commandButton value="测试status组件1" action="#{a4jBean.update}" render="resultText"/>
+			<a4j:commandButton id="statusButton" value="测试status组件" action="#{a4jBean.walk}" render="resultText" />
+			<h:outputText id="resultText" value="#{a4jBean.value}" />
 		</h:panelGrid>
-		<h:outputText id="upper" value="#{ajaxStatusBean.text}" />
-	</h:panelGrid>
-</h:form>
-<rich:popupPanel id="statusPanel" header="Converting">
-	<h:outputText value="Please wait.." />
-</rich:popupPanel>
+	</h:form>
+	<rich:popupPanel id="statusPanel" header="处理中">
+		<h:graphicImage id="logo2" library="img" name="waiting.gif" height="60" width="60" /><br />
+		<h:outputText value="请等待⋯⋯" />
+	</rich:popupPanel>
+</h:body>
+</html>
