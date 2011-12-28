@@ -41,8 +41,12 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 					ViewExpiredException e = (ViewExpiredException) t;
 					fc.getExternalContext().getFlash().put("currentViewId", e.getViewId());
 					nav.handleNavigation(fc, null, "error");
-					HttpSession session = JSFRFFaces.getSession();
-					session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
+					try{
+						HttpSession session = JSFRFFaces.getSession();
+						session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
+					}catch(Exception se){
+						//TODO
+					}
 					fc.renderResponse();
 				} finally {
 					i.remove();

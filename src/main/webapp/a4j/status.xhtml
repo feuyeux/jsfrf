@@ -6,17 +6,22 @@
 </h:head>
 <h:body>
 	<h:form id="statusForm">
-		<a4j:status onstart="#{rich:component('statusPanel')}.show();" onstop="#{rich:component('statusPanel')}.hide();" onerror="alert('出错了！');" />
+		<a4j:status id="status1" name="status1" onstart="#{rich:component('statusPanel')}.show();" onstop="#{rich:component('statusPanel')}.hide();"
+			onerror="alert('出错了！');" />
 		<h:panelGrid>
 			<h:inputText value="#{a4jBean.value}" />
-			<a4j:commandButton value="测试status组件1" action="#{a4jBean.update}" render="resultText"/>
-			<a4j:commandButton id="statusButton" value="测试status组件" action="#{a4jBean.walk}" render="resultText" />
+			<a4j:commandButton id="statusButton" value="测试status组件" action="#{a4jBean.walk}" render="resultText" status="status1" />
+			<a4j:commandButton id="commonButton" value="对比测试" action="#{a4jBean.forceUpdate}" render="resultText" />
 			<h:outputText id="resultText" value="#{a4jBean.value}" />
 		</h:panelGrid>
 	</h:form>
-	<rich:popupPanel id="statusPanel" header="处理中">
-		<h:graphicImage id="logo2" library="img" name="waiting.gif" height="60" width="60" /><br />
-		<h:outputText value="请等待⋯⋯" />
+	<rich:popupPanel id="statusPanel" header="处理中" width="350">
+		<h:panelGrid style="margin-left:100px">
+			<h:graphicImage id="logo2" library="img" name="processing.gif" height="80" width="80" />
+			<h:outputText value="请等待" />
+		</h:panelGrid>
 	</rich:popupPanel>
+	<br />
+	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>
