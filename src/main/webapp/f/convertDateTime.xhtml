@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces f标签库</title>
+</h:head>
+<h:body>
+	<h:outputText value="当前时区：#{jsfrfEnv.timeZoneId}" />
+	<h:form id="convertForm">
+		<h:inputText id="in1" value="#{flash.date}">
+			<f:convertDateTime pattern="yyyyMMdd-HH:mm:ss"/>
+			<!-- 
+			 dateStyle timeStyle: "default", "short", "medium", "long", 
+			 and "full". Default value is "default".
+			 type: "date", "time", and "both". 
+			  -->
+			<f:ajax event="keyup" render="out1" />
+		</h:inputText>
+		<h:outputText value="格式：20121222-00:00:00" />
+		<h:panelGroup id="p1">
+			<h:outputLabel value="您输入的是：" />
+			<h:outputText id="out1" value="#{flash.date}">
+				<f:convertDateTime dateStyle="short" timeStyle="short" type="both" timeZone="GMT+8" locale="cn" />
+			</h:outputText>
+		</h:panelGroup>
+	</h:form>
+</h:body>
+</html>

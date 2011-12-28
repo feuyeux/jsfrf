@@ -30,7 +30,7 @@
 		<locale-config>
 			<default-locale>zh_CN</default-locale>
 			<supported-locale>en</supported-locale>
-			<default-time-zone-id>Asia/Shanghai</default-time-zone-id>
+			<default-time-zone-id>Asia/Chongqing</default-time-zone-id>
 		</locale-config>
 	<!-- 
 		<resource-bundle>

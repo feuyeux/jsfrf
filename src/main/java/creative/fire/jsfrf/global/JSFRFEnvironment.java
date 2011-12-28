@@ -1,5 +1,7 @@
 package creative.fire.jsfrf.global;
 
+import java.util.TimeZone;
+
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIViewRoot;
@@ -27,6 +29,14 @@ public class JSFRFEnvironment {
 		return viewRoot.getLocale().getLanguage();
 	}
 
+	
+	public String getTimeZoneId() {
+		//String[] ids=TimeZone.getAvailableIDs();
+		String zoneId= TimeZone.getDefault().getID();
+		return zoneId;
+	}
+	
+	
 	public String getCssPath() {
 		if (cssPath == null) {
 			cssPath = getContextPath() + "/resources/css/";

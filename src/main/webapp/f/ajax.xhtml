@@ -4,16 +4,13 @@
 	<title>JavaServer Faces f标签库</title>
 </h:head>
 <h:body>
-	<h:form id="convertForm3">
-		<h:inputText id="in1" value="#{ajaxBean}">
-			<f:converter converterId="ajaxBeanConverter" />
+	<h:form id="ajaxForm">
+		<h:inputText id="in1" value="#{ajaxBean.value}">
 			<f:ajax event="keyup" render="out1" />
 		</h:inputText>
 		<h:panelGroup id="p1">
 			<h:outputLabel value="您输入的是：" />
-			<h:outputText id="out1" value="#{ajaxBean}">
-				<f:converter converterId="ajaxBeanConverter" />
-			</h:outputText>
+			<h:outputText id="out1" value="#{ajaxBean.value}" />
 		</h:panelGroup>
 	</h:form>
 </h:body>
