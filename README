@@ -1,0 +1,21 @@
+12/29 2011
+This project is a demo for study JSF2 and Richfaces4.1
+这是JSF2和Richfaces4.1使用指南的样例项目
+
+git基本命令：
+git clone git@github.com:feuyeux/jsfrf.git
+--
+git remote add origin git@github.com:feuyeux/jsfrf.git
+
+git add -A
+git commit -m ''
+    
+git push origin master
+git pull origin master
+--
+git remote add push git@github.com:feuyeux/jsfrf.git
+git checkout push
+git pull push push
+git fetch push
+--
+git merge push/master

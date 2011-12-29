@@ -20,3 +20,7 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	border-color: Red;
 	border-width: 1px;
 }
+.vtop{
+	vertical-align:top;
+	width:200px;
+}
