@@ -48,6 +48,7 @@ public class AjaxBean implements Serializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		this.enabled=true;
 		this.value = "[" + value + "]";
 	}
 }
