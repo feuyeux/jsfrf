@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces h标签库</title>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+</h:head>
+<h:body>
+	<h:form id="inputForm">
+		<h:panelGrid>
+			<h:inputText  id="text" value="#{text.value}"
+			required="true" requiredMessage="这是必输项,请输入"
+			converter="textConverter" converterMessage="TextBean转换出错"
+			validator="textValidator" validatorMessage="输入内容未通过校验"
+			maxlength="7" size="2"
+			readonly="false" disabled="false" renderd="true"
+			immediate="true" valueChangeListener="#{text.foo0}"
+			title="这是一个标准输入组件"/>
+			
+			<h:commandButton id="inputButton" value="测试"/>
+		</h:panelGrid>
+	</h:form>
+	<br />
+	<h:link value="返回" outcome="/h/inputs" />
+</h:body>
+</html>

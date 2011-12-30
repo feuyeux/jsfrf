@@ -5,7 +5,10 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean(name = "testList")
 @ViewScoped
 public class TestList {

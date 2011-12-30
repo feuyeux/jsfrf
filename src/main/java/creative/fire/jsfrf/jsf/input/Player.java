@@ -1,5 +1,8 @@
 package creative.fire.jsfrf.jsf.input;
-
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 public class Player {
 	private String name;
 	private String number;

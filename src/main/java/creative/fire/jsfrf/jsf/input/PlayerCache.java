@@ -6,7 +6,10 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean
 @SessionScoped
 public class PlayerCache {
