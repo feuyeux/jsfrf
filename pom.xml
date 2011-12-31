@@ -18,8 +18,8 @@
 
 	<repositories>
 		<repository>
-			<id>jboss-public-repository-group</id>
-			<name>JBoss Public Maven Repository Group</name>
+			<id>jboss</id>
+			<name>JBoss</name>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 			<layout>default</layout>
 			<releases>
@@ -31,11 +31,19 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
+		
 		<repository>
-			<id>jvnet-nexus-releases</id>
-			<name>jvnet-nexus-releases</name>
+			<id>jvnet-nexus</id>
+			<name>jvnet-nexus</name>
 			<url>https://maven.java.net/content/repositories/releases/</url>
 		</repository>
+		
+		<repository>
+			<id>repo1</id>
+			<name>repo1</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		
 	</repositories>
 
 	<dependencies>
@@ -62,9 +70,9 @@
 			<version>${jsf.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax</groupId>
+			<groupId>org.apache.openejb</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>6.0-1</version>
 			<scope>provided</scope>
 		</dependency>
 
