@@ -107,6 +107,7 @@
 					<configuration>
 						<downloadSources>false</downloadSources>
 						<wtpversion>1.5</wtpversion>
+						<encoding>utf-8</encoding>
 					</configuration>
 				</plugin>
 			</plugins>

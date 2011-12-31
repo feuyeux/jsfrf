@@ -18,3 +18,8 @@ git pull push push
 git fetch push
 --
 git merge push/master
+
+--
+12/31 2011
+git reset --hard HEAD~2
+git push origin master --force
