@@ -1,9 +1,13 @@
 package creative.fire.jsfrf.jsf.input;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
@@ -17,9 +21,26 @@ import javax.faces.event.ValueChangeEvent;
 public class TextBean implements Serializable {
 	private static final long serialVersionUID = 7515550212656544309L;
 	private String value;
-	private String secretValue="123456";
-	
+	@ManagedProperty(value="123456")
+	private String secretValue;
 	private boolean rendered;
+	private ArrayList<String> testList;
+	private Map<String, String> testMap;
+
+	@PostConstruct
+	public void initialize() {
+		testList = new ArrayList<String>();
+		testMap = new HashMap<String, String>();
+		testList.add("甲");
+		testList.add("乙");
+		testList.add("丙");
+		testList.add("丁");
+
+		testMap.put("a", "甲");
+		testMap.put("b", "乙");
+		testMap.put("c", "丙");
+		testMap.put("d", "丁");
+	}
 
 	public String getValue() {
 		return value;
@@ -35,6 +56,22 @@ public class TextBean implements Serializable {
 
 	public void setSecretValue(String secretValue) {
 		this.secretValue = secretValue;
+	}
+
+	public ArrayList<String> getTestList() {
+		return testList;
+	}
+
+	public void setTestList(ArrayList<String> testList) {
+		this.testList = testList;
+	}
+
+	public Map<String, String> getTestMap() {
+		return testMap;
+	}
+
+	public void setTestMap(Map<String, String> testMap) {
+		this.testMap = testMap;
 	}
 
 	public boolean isRendered() {

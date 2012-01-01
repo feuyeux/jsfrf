@@ -1,17 +1,14 @@
 package creative.fire.jsfrf.rf.ajax;
 
 import java.io.Serializable;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
-@ManagedBean(name = "a4jBean")
-@ViewScoped
+ 
 public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 
 	private boolean enabled;
-	private String value = "初始";
+ 
+	private String value;
+
 	private int increase = 0;
 
 	public boolean isEnabled() {
@@ -48,7 +45,7 @@ public class AjaxBean implements Serializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.enabled=true;
+		this.enabled = true;
 		this.value = "[" + value + "]";
 	}
 }
