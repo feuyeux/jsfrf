@@ -25,16 +25,21 @@
 		<h:link value="消息组输出组件" outcome="output/message" />
 
 		<h:outputText value="h:panelGrid" />
-		<h:outputText value="table输出组件" />
-
+		<h:link value="table输出组件" outcome="inputs.xhtml#pg0" />
+		
 		<h:outputText value="h:panelGroup" />
-		<h:outputText value="组输出组件" />
-
+		<h:panelGroup id="panelGroup1">
+			<a name="pg0"/>
+			<h:outputLink id="oLink" value="#{jsfrfEnv.contextPath}/h/outputs.jsf#pg0">
+			组输出组件
+			</h:outputLink>
+		</h:panelGroup>
+		
 		<h:outputText value="h:column" />
-		<h:outputText value="列输出组件" />
+		<h:link value="列输出组件" outcome="output/datatable" />
 
 		<h:outputText value="h:dataTable" />
-		<h:outputText value="数据表格组件" />
+		<h:link value="数据表格组件" outcome="output/datatable" />
 	</h:panelGrid>
 	<h:link value="返回" outcome="/welcome" />
 </h:body>

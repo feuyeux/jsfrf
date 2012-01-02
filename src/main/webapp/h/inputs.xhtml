@@ -28,17 +28,19 @@
 
 		<h:outputText value="h:selectBooleanCheckbox" />
 		<h:outputText value="标准选择组件" />
+		
 		<h:panelGroup id="checkBoxPG">
+			<a name="pg0">panelGroup</a>
 			<h:selectBooleanCheckbox id="checkbox" value="true"/>
 			<h:outputLabel value="标准选择组件" for="checkbox"/>
 		</h:panelGroup>
 
 		<h:outputText value="h:selectManyCheckbox" />
-		<h:link value="标准多选组件" outcome="input/multiSelection" />
+		<h:link value="标准多选组件" outcome="input/multiSelection" hideNoSelectionOption="true"/>
 		<h:selectManyCheckbox id="mCheckbox" value="#{flash.lists}">
 			<f:selectItem itemLabel="one" itemValue="1" />
 			<f:selectItem itemLabel="two" itemValue="2" />
-			<f:selectItem itemLabel="three" itemValue="3" />
+			<f:selectItem itemLabel="three" itemValue="3" noSelectionOption="true"/>
 		</h:selectManyCheckbox>
 
 		<h:outputText value="h:selectManyListbox" />
@@ -59,26 +61,23 @@
 
 		<h:outputText value="h:selectOneRadio" />
 		<h:outputText value="标准单选组件" />
-		<h:selectOneRadio value="#{flash.lists}">
+		<h:selectOneRadio id="oneRadio" value="#{flash.sel}">
 			<f:selectItem itemLabel="one" itemValue="1" />
 			<f:selectItem itemLabel="two" itemValue="2" />
-			<f:selectItem itemLabel="three" itemValue="3" />
 		</h:selectOneRadio>
 
 		<h:outputText value="h:selectOneListbox" />
 		<h:outputText value="单选列表组件" />
-		<h:selectOneListbox value="#{flash.lists}">
+		<h:selectOneListbox id="oneBox" value="#{flash.sel}">
 			<f:selectItem itemLabel="one" itemValue="1" />
 			<f:selectItem itemLabel="two" itemValue="2" />
-			<f:selectItem itemLabel="three" itemValue="3" />
 		</h:selectOneListbox>
 
 		<h:outputText value="h:selectOneMenu" />
 		<h:link value="单选菜单组件" outcome="input/selectOneMenu" />
-		<h:selectOneMenu value="#{flash.lists}">
+		<h:selectOneMenu id="oneMenu" value="#{flash.sel}">
 			<f:selectItem itemLabel="one" itemValue="1" />
 			<f:selectItem itemLabel="two" itemValue="2" />
-			<f:selectItem itemLabel="three" itemValue="3" />
 		</h:selectOneMenu>
 	</h:panelGrid>
 

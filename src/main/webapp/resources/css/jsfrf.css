@@ -20,7 +20,24 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	border-color: Red;
 	border-width: 1px;
 }
-.vtop{
-	vertical-align:top;
-	width:200px;
+
+.vtop {
+	vertical-align: top;
+	width: 200px;
+}
+
+.oddrow {
+	height: 20px;
+	background: #80c0c0;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.evenrow {
+	height: 20px;
+	background: #00c0c0;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
 }

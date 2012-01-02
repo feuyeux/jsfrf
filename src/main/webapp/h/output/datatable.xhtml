@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces h标签库</title>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<style>
+		.head {
+			align: left;
+			color: red;
+		}
+		.foot {
+			align: right;
+			text-align:right;
+			color: blue;
+		}
+		
+		.firstCol{
+			width:15%;
+		}
+		
+		.secondCol{
+			color:red;
+		}
+	</style>
+</h:head>
+<h:body>
+
+frame
+Code specifying which sides of the frame surrounding this table will be visible. Valid values are: none (no sides, default value); above (top side only); below (bottom side only); hsides (top and bottom sides only); vsides (right and left sides only); lhs (left hand side only); rhs (right hand side only); box (all four sides); and border (all four sides).
+	
+rules
+Code specifying which rules will appear between cells within this table. Valid values are: none (no rules, default value); groups (between row groups); rows (between rows only); cols (between columns only); and all (between all rows and columns).
+
+	<h:form id="tableForm">
+		<h:dataTable id="dt" style="width:80%" rows="10" value="#{playerBean.sList}" var="star" footerClass="foot" headerClass="head"
+			rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol" bgcolor="yellow" border="1" cellpadding="0" cellspacing="0">
+			<h:column id="firstColumn">
+				<f:facet name="header">
+					号码
+				</f:facet>
+				<h:outputText value="#{star.number}" />
+			</h:column>
+
+			<h:column id="secondColumn">
+				<f:facet name="header">
+					姓名
+				</f:facet>
+				<h:outputText value="#{star.name}" />
+			</h:column>
+
+			<f:facet name="footer">
+				<h:outputText value="#{playerBean.pageIndex}/#{playerBean.pageSize}" />
+			</f:facet>
+		</h:dataTable>
+	</h:form>
+	<br />
+	<h:link value="返回" outcome="/h/outputs" />
+</h:body>
+</html>

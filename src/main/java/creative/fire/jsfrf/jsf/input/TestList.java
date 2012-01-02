@@ -1,8 +1,5 @@
 package creative.fire.jsfrf.jsf.input;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 /**
@@ -12,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean(name = "testList")
 @ViewScoped
 public class TestList {
-	private List<String> item = new ArrayList<String>();
+	private java.util.HashSet<String> item = new java.util.HashSet<String>();
 	private String selected;
 
 	public TestList() {
@@ -21,11 +18,11 @@ public class TestList {
 		item.add("111");
 	}
 
-	public List<String> getItem() {
+	public java.util.HashSet<String> getItem() {
 		return item;
 	}
 
-	public void setItem(List<String> item) {
+	public void setItem(java.util.HashSet<String> item) {
 		this.item = item;
 	}
 

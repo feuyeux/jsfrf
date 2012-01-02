@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces EL</title>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+</h:head>
+<h:body>
+	<h:panelGrid styleClass="dotBorder">
+		<h:outputText value="1+1=#{1 + 1}" />
+		<h:outputText value="7-10=#{7 - 10}" />
+		<h:outputText value="9除以4得#{9 div 4} 余数=#{9 mod 4}" />
+		<h:outputText value="10除以4得#{10 / 4} 余数=#{10 % 4}" />
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:inputText id="pound" value="#{flash.value}">
+					<f:ajax event="change" render="kilogram" />
+				</h:inputText>
+				<h:outputText value="磅" />
+				<h:outputText id="kilogram" value="#{flash.value==null?0:flash.value*0.4536}" />
+				<h:outputText value="公斤" />
+
+				<h:inputText id="meter" value="#{flash.value0}">
+					<f:ajax event="change" render="feet" />
+				</h:inputText>
+				<h:outputText value="米" />
+				<h:outputText id="feet" value="#{empty flash.value0?0:flash.value0*3.2808399}" />
+				<h:outputText value="英尺" />
+			</h:panelGrid>
+		</h:form>
+	</h:panelGrid>
+	<br />
+	<h:panelGrid styleClass="dotBorder">
+		<h:outputText value="1.0 等于 1 ? #{1.0 eq 1}" />
+		<h:outputText value="1.0 不等于 1 ? #{1.0 ne 1}" />
+
+		<h:outputText value="1 大于 1 ? #{1 gt 1}" />
+		<h:outputText value="1 小于 1 ? #{1 lt 1}" />
+		<h:outputText value="1 大等于 1 ? #{1 ge 1}" />
+		<h:outputText value="1 小等于 1 ? #{1 le 1}" />
+
+		<h:outputText value="1.0 == 1 ? #{1.0 == 1}" />
+		<h:outputText value="1.0 != 1 ? #{1.0 != 1}" />
+
+		<!-- 
+		<h:outputText value="1 大于 1 ? #{1 > 1}" />
+		<h:outputText value="1 小于 1 ? #{1 < 1}" />
+		<h:outputText value="1 大等于 1 ? #{1 >= 1}" />
+		<h:outputText value="1 小等于 1 ? #{1 <= 1}" />
+		 -->
+	</h:panelGrid>
+	<br />
+	<h:panelGrid styleClass="dotBorder">
+		<h:outputText value=" true and false ? #{true and false}" />
+		<h:outputText value="true or false ? #{true or false}" />
+		<h:outputText value="not true ? #{not true}" />
+		<!-- 
+		<h:outputText value=" true && false ? #{true && false}" />
+		<h:outputText value="true || false ? #{true || false}" />
+		<h:outputText value="!true ? #{!true}" />
+		-->
+	</h:panelGrid>
+
+	<br />
+	<h:link value="返回" outcome="/h/inputs" />
+</h:body>
+</html>
