@@ -5,12 +5,12 @@
 </h:head>
 <h:body>
 	<h:form id="ajaxForm">
-		<h:inputText id="in1" value="#{ajaxBean.value}">
+		<h:inputText id="in1" value="#{a4jBean.value}">
 			<f:ajax event="keyup" render="out1" />
 		</h:inputText>
 		<h:panelGroup id="p1">
 			<h:outputLabel value="您输入的是：" />
-			<h:outputText id="out1" value="#{ajaxBean.value}" />
+			<h:outputText id="out1" value="#{a4jBean.value}" />
 		</h:panelGroup>
 	</h:form>
 </h:body>

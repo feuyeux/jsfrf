@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JSF2和Richfaces4.1使用指南</title>
@@ -13,16 +13,18 @@
 			<h:link value="JSF2输入组件" outcome="h/inputs" />
 			<h:link value="JSF2输出组件" outcome="h/outputs" />
 			<h:link value="JSF2点击组件" outcome="h/click" />
-			<h:link value="值表达式" outcome="el/valueExpression" />
-			<h:link value="操作符表达式" outcome="el/expressionOperators" />
-		</h:panelGrid>
-
-		<h:panelGrid id="fTable">
 			<h:outputText value="JSF2标准核心库 " />
 			<h:link value="多语言组件" outcome="f/loadBundle" />
 			<h:link value="功能组件" outcome="f/functions" />
 			<h:link value="组换组件" outcome="f/converts/convert" />
 			<h:link value="校验组件" outcome="f/validator/validator" />
+		</h:panelGrid>
+
+		<h:panelGrid id="fTable">
+			<h:link value="值表达式" outcome="el/valueExpression" />
+			<h:link value="操作符表达式" outcome="el/expressionOperators" />
+			<h:link value="视图组件" outcome="ui/jsfrfComposition" />
+			<h:link value="分页" outcome="pagination/pagingDatatable" />
 		</h:panelGrid>
 
 		<h:panelGrid id="rfTable">
@@ -48,5 +50,21 @@
 			<h:link value="监听组件" outcome="a4j/actionListener" />
 		</h:panelGrid>
 	</h:panelGrid>
+
+	<!-- 动态分页 开始 -->
+	<h:form>
+		<h:outputScript library="javascript" name="dynamicPagination.js" />
+		<a4j:jsFunction name="updatePageSize">
+			<a4j:param name="pageSize" assignTo="#{displayResolution.pageSize}" />
+		</a4j:jsFunction>
+	</h:form>
+
+	<script language="javascript">
+		var pageSizeInput=getPageSize();
+		updatePageSize(pageSizeInput);
+		//alert(#{displayResolution.pageSize});
+	</script>
+	<!-- 动态分页 结束 -->
+
 </h:body>
 </html>

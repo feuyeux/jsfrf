@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" xmlns:f="http://java.sun.com/jsf/core">
+
+	<rich:panel style="border:none;padding:0;margin-top:2px">
+
+		<a4j:commandButton value="首页" action="#{paginationBean.swichFirstPage}" disabled="#{paginationBean.disabledFirst}" render="#{paginationForm}"
+			style="margin-right:0px;cursor: pointer;" />
+
+		<a4j:commandButton value="前页" action="#{paginationBean.swichPreviousPage}" disabled="#{paginationBean.disabledFirst}" render="#{paginationForm}"
+			style="margin-left:5px;margin-right:5px;cursor: pointer;" />
+
+		<h:panelGroup style="font-weight:bold;#{paginationBean.pageCount==1?'display:none;':''}">
+			<h:selectOneMenu styleClass="shorter_width" value="#{paginationBean.pageIndex}">
+				<f:selectItems value="#{paginationBean.pageNumbers}" />
+				<f:ajax event="change" listener="#{paginationBean.swichPage}" render="#{paginationForm}" />
+			</h:selectOneMenu>
+			<h:outputText value=" / #{paginationBean.pageCount}  页" />
+		</h:panelGroup>
+
+		<a4j:commandButton value="后页" action="#{paginationBean.swichNextPage}" disabled="#{paginationBean.disabledLast}" render="#{paginationForm}"
+			style="margin-left:5px;margin-right:5px;cursor: pointer;" />
+
+		<a4j:commandButton value="尾页" action="#{paginationBean.swichLastPage}" disabled="#{paginationBean.disabledLast}" render="#{paginationForm}"
+			style="margin-left:0px;cursor: pointer;" />
+	</rich:panel>
+</ui:composition>

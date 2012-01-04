@@ -1,7 +1,8 @@
 package creative.fire.jsfrf.rf.ajax;
 
 import java.io.Serializable;
- 
+
+//a4jBean see faces-config.xml
 public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 
