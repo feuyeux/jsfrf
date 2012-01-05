@@ -1,7 +1,9 @@
 package creative.fire.jsfrf.jsf.input;
 
-public class Yijing {
+import java.io.Serializable;
 
+public class Yijing implements Serializable{
+	private static final long serialVersionUID = 8121085939736428628L;
 	private String sequence;
 	private String name;
 	private String pronounce;

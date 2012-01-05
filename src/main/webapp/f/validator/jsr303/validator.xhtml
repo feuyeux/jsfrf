@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces f标签库</title>
+</h:head>
+<h:body>
+	<h:form id="validatorForm">
+		<h:panelGrid columns="3">
+			<h:outputLabel value="证件号" />
+			<h:inputText value="#{jsr303.input.identification}" />
+			<h:outputLabel value="(@NotNull	@Size(min = 10, max = 10, message = 请输入10位有效字符))" />
+
+			<h:outputLabel value="手机号" />
+			<h:inputText value="#{jsr303.input.mobilePhone}" />
+			<h:outputLabel value="(@Max(11)@Min(11))" />
+
+
+			<h:outputLabel value="国籍" />
+			<h:inputText value="#{jsr303.input.country}" />
+			<h:outputLabel value="(@NotEmpty)" />
+
+
+			<h:outputLabel value="电子邮件" />
+			<h:inputText value="#{jsr303.input.email}" />
+			<h:outputLabel value="(@Email)" />
+
+
+			<h:outputLabel value="当前季节" />
+			<h:inputText value="#{jsr303.input.season}" />
+			<h:outputLabel value="(@NotNull @Season)" />
+
+
+			<h:outputLabel value="出生日期" />
+			<h:inputText value="#{jsr303.input.subTextBean.birthDate}">
+				<f:convertDateTime pattern="yyyyMMdd" />
+			</h:inputText>
+			<h:outputLabel value="(@Past)" />
+
+			<h:outputLabel value="下一次雨季开始日期" />
+			<h:inputText value="#{jsr303.input.subTextBean.nextRainy}">
+				<f:convertDateTime pattern="yyyyMMdd" />
+			</h:inputText>
+			<h:outputLabel value="(@Future)" />
+			
+			<h:commandButton value="测试" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

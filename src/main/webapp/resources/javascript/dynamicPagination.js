@@ -3,8 +3,12 @@
  * create time: 12th Dec 2011
  * reference: http://en.wikipedia.org/wiki/Display_resolution
  */
-var SCREENWIDTH = screen.width;
-var SCREENHEIGHT = screen.height;
+
+//var SCREENWIDTH = screen.width;
+//var SCREENHEIGHT = screen.height;
+var SCREENWIDTH = $(document.body).width();
+var SCREENHEIGHT = $(document.body).height();
+
 var SIZE1 = '1';
 var SIZE2 = '2';
 var SIZE3 = '3';
@@ -70,9 +74,6 @@ function getAlternativeType(){
 }
 
 function getPageSize() {
-	// TODO
-	// var width = $(document.body).width();
-	// var height = $(document.body).height();
 	var type = getDisplayResolutionType();
 	if (SIZE1 == type)
 		return 20;

@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author feuyeux@gmail.com
  * @version 1.0
@@ -16,9 +18,10 @@ import javax.faces.context.FacesContext;
 public class DisplayResolution implements Serializable {
 	private static final long serialVersionUID = -4509764560269011152L;
 	private int pageSize;
+	private Logger logger;
 
 	public DisplayResolution() {
-		//System.out.println(pageSize);
+		logger = Logger.getLogger(DisplayResolution.class);
 	}
 
 	public int getPageSize() {
@@ -27,6 +30,7 @@ public class DisplayResolution implements Serializable {
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+		logger.info("当前分页尺度：" + pageSize);
 	}
 
 	public static DisplayResolution getInstance() {
