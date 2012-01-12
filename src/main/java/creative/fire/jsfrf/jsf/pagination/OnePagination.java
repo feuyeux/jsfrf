@@ -2,20 +2,29 @@ package creative.fire.jsfrf.jsf.pagination;
 
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.apache.log4j.Logger;
+
 import creative.fire.jsfrf.jsf.input.Yijing;
 
-@ManagedBean
+@ManagedBean(name = "onePagination")
 @ViewScoped
 public class OnePagination extends BasePagination implements java.io.Serializable {
 	private static final long serialVersionUID = -1494058711078739172L;
+	static Logger log = Logger.getLogger(OnePagination.class);
 	private ArrayList<Yijing> list;
 	private ArrayList<Yijing> showList;
 
 	public OnePagination() {
-		super();
+		log.debug("构造");
+	}
+
+	@PostConstruct
+	public void init() {
+		super.init();
 		initializeList();
 	}
 

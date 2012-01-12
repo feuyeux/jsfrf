@@ -2,13 +2,18 @@ package creative.fire.jsfrf.jsf.pagination;
 
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.model.SelectItem;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author feuyeux@gmail.com
  * @version 1.0
  */
 public abstract class BasePagination implements IPagination {
+	static Logger log = Logger.getLogger(BasePagination.class);
 	protected int pageIndex = 1;// 当前页号
 	protected int pageSize;// 每页显示多少项
 	protected int pageCount;// 共有多少页
@@ -20,15 +25,30 @@ public abstract class BasePagination implements IPagination {
 
 	protected abstract void freshList();
 
+	@ManagedProperty(value = "#{displayResolution}")
+	protected DisplayResolution displayResolution;
+
 	public BasePagination() {
-		DisplayResolution dr = DisplayResolution.getInstance();
-		if (dr == null)
+		log.debug("构造");
+	}
+
+	@PostConstruct
+	public void init() {
+		if (displayResolution == null)
 			pageSize = 20;
 		else {
-			pageSize = dr.getPageSize();
+			pageSize = displayResolution.getPageSize();
 			if (pageSize == 0)
 				pageSize = 20;
 		}
+	}
+
+	public DisplayResolution getDisplayResolution() {
+		return displayResolution;
+	}
+
+	public void setDisplayResolution(DisplayResolution displayResolution) {
+		this.displayResolution = displayResolution;
 	}
 
 	public void setPageIndex(int pageIndex) {
