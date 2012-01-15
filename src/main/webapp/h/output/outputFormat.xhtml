@@ -6,18 +6,27 @@
 </h:head>
 
 <h:body>
-	<h:form id="outputTextForm">
+	<h:form id="f">
 		<h:outputFormat id="formatText" value="The text value is: {0}." rendered="#{text.rendered}">
 			<f:param name="value" value="#{text.value}" />
 		</h:outputFormat>
 		<br />
-		<h:commandButton value="开始测试1" action="#{text.update0}" render="formatText">
+		
+		<h:commandButton id="paBtn" value="测试1" action="#{text.update0}">
 			<f:param name="rendered" value="true" />
-			<f:param name="textValue" value="100" />
+			<f:param name="textValue" value="1" />
 		</h:commandButton>
 
-		<h:commandButton value="开始测试2" action="#{text.update('true','200')}" render="formatText" style="margin-left:10px"/>
-		
+		<h:commandButton id="palBtn" value="测试2" actionListener="#{text.update1}" style="margin-left:10px">
+			<f:param name="rendered" value="false" />
+			<f:param name="textValue" value="2" />
+		</h:commandButton>
+
+		<h:commandButton id="aBtn" value="测试3" action="#{text.update('true','3')}" style="margin-left:10px" />
+	</h:form>
+<br />
+	<h:form id="outputTextForm2">
+		<h:commandButton id="aButton" value="测试4" action="#{text.update('true','4')}"/>
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/h/outputs" />

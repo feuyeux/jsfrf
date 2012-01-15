@@ -6,6 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean(name = "jsr303")
 @ViewScoped
 public class JSR303Bean {

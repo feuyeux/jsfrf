@@ -9,8 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author feuyeux@gmail.com
@@ -20,8 +24,9 @@ import javax.faces.event.ValueChangeEvent;
 @SessionScoped
 public class TextBean implements Serializable {
 	private static final long serialVersionUID = 7515550212656544309L;
+	static Logger logger = Logger.getLogger(TextBean.class);
 	private String value;
-	@ManagedProperty(value="123456")
+	@ManagedProperty(value = "123456")
 	private String secretValue;
 	private boolean rendered;
 	private ArrayList<String> testList;
@@ -91,16 +96,17 @@ public class TextBean implements Serializable {
 		Object newone = e.getOldValue();
 		String oldValue = "";
 		String newValue = "";
-		if (oldone != null)
+		if (oldone != null) {
 			oldValue = oldone.toString();
-		if (newone != null)
+		}
+		if (newone != null) {
 			newValue = newone.toString();
-		System.out.format("原值=%s 新值=%s 周期阶段=%s 来自：%s 组件：%s\t", oldValue, newValue, e.getPhaseId(), e.getSource(), e.getComponent());
-		System.out.println(value);
+		}
+		logger.info(String.format("原值=%s 新值=%s 周期阶段=%s 来自组件：%s\t", oldValue, newValue, e.getPhaseId(), e.getSource().getClass()));
+		logger.debug(value);
 	}
 
 	public void update(String rendered, String value) {
-		System.out.println(this.value);
 		this.value = value;
 		this.rendered = rendered.equals("true");
 	}
@@ -108,7 +114,24 @@ public class TextBean implements Serializable {
 	public void update0() {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
-		this.value = params.get("textValue");
-		this.rendered = rendered.equals("true");
+		value = params.get("textValue");
+		this.rendered = "true".equals(rendered);
+	}
+
+	public void update1(javax.faces.event.ActionEvent event) {
+		logger.info(event.getSource().getClass().getName());
+		UIComponent component = event.getComponent();
+		HtmlCommandButton button1 = (HtmlCommandButton) event.getSource();
+		HtmlCommandButton button2 = (HtmlCommandButton) component;
+		logger.debug(button1.getClientId());
+		logger.debug(button2.getParent().getClientId());
+		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String rendered = params.get("rendered");
+		value = params.get("textValue");
+		this.rendered = "true".equals(rendered);
+	}
+
+	public void update2(javax.faces.event.ActionEvent event) {
+		logger.info(testList.get(0));
 	}
 }

@@ -8,6 +8,10 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean(name = "jsfrfEnv")
 @ApplicationScoped
 public class JSFRFEnvironment {
@@ -29,14 +33,12 @@ public class JSFRFEnvironment {
 		return viewRoot.getLocale().getLanguage();
 	}
 
-	
 	public String getTimeZoneId() {
-		//String[] ids=TimeZone.getAvailableIDs();
-		String zoneId= TimeZone.getDefault().getID();
+		// String[] ids=TimeZone.getAvailableIDs();
+		String zoneId = TimeZone.getDefault().getID();
 		return zoneId;
 	}
-	
-	
+
 	public String getCssPath() {
 		if (cssPath == null) {
 			cssPath = getContextPath() + "/resources/css/";
@@ -52,8 +54,9 @@ public class JSFRFEnvironment {
 	}
 
 	public String getJsPath() {
-		if (jsPath == null)
+		if (jsPath == null) {
 			jsPath = getContextPath() + "/resources/javascript/";
+		}
 		return jsPath;
 	}
 }

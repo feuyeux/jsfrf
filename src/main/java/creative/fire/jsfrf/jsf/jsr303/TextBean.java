@@ -9,6 +9,10 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 public class TextBean {
 	@NotNull
 	@Size(min = 10, max = 10, message = "请输入10位有效字符")

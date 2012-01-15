@@ -4,6 +4,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean(name = "ecss")
 @ApplicationScoped
 public class ECSS {
@@ -12,8 +16,8 @@ public class ECSS {
 
 	@PostConstruct
 	public void init() {
-		this.vendor = "vendor1";
-		this.color = "blue";
+		vendor = "vendor1";
+		color = "blue";
 	}
 
 	public String getVendor() {

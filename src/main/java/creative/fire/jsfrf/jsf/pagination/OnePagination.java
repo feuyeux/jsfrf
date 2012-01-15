@@ -10,6 +10,10 @@ import org.apache.log4j.Logger;
 
 import creative.fire.jsfrf.jsf.input.Yijing;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean(name = "onePagination")
 @ViewScoped
 public class OnePagination extends BasePagination implements java.io.Serializable {
@@ -22,6 +26,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		log.debug("构造");
 	}
 
+	@Override
 	@PostConstruct
 	public void init() {
 		super.init();
@@ -112,14 +117,19 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		freshList();
 	}
 
+	public ArrayList<Yijing> getShowList() {
+		return showList;
+	}
+
 	@Override
 	protected void freshList() {
 		try {
 			int from = (getPageIndex() - 1) * getPageSize();
 			int to = getPageIndex() * getPageSize();
 
-			if (to > totalSize)
+			if (to > totalSize) {
 				to = totalSize;
+			}
 			showList.clear();
 			for (int i = from; i < to; i++) {
 				showList.add(list.get(i));
@@ -128,9 +138,5 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public ArrayList<Yijing> getShowList() {
-		return showList;
 	}
 }

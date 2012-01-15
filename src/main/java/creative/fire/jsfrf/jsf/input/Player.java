@@ -1,4 +1,5 @@
 package creative.fire.jsfrf.jsf.input;
+
 /**
  * @author feuyeux@gmail.com
  * @version 1.0
@@ -53,23 +54,24 @@ public class Player {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
+		}
 
 		if (obj instanceof Player) {
 			Player other = (Player) obj;
-			return this.name.equals(other.getName());
+			return name.equals(other.getName());
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return this.name.hashCode();
+		return name.hashCode();
 	}
 
 	@Override
 	public String toString() {
-		return this.number + ":" + this.name + ":" + this.position;
+		return number + ":" + name + ":" + position;
 	}
 }

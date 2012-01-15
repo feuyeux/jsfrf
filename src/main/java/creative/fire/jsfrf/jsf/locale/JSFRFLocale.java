@@ -8,6 +8,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+
 /**
  * @author feuyeux@gmail.com
  * @version 1.0

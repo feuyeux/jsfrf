@@ -19,11 +19,10 @@ public abstract class BasePagination implements IPagination {
 	protected int pageCount;// 共有多少页
 	protected int totalSize;// 共有多少项
 
-	protected ArrayList<SelectItem> pageNumbers;
 	protected boolean disabledFirst;
 	protected boolean disabledLast;
 
-	protected abstract void freshList();
+	protected ArrayList<SelectItem> pageNumbers;
 
 	@ManagedProperty(value = "#{displayResolution}")
 	protected DisplayResolution displayResolution;
@@ -34,12 +33,32 @@ public abstract class BasePagination implements IPagination {
 
 	@PostConstruct
 	public void init() {
-		if (displayResolution == null)
+		if (displayResolution == null) {
 			pageSize = 20;
-		else {
+		} else {
 			pageSize = displayResolution.getPageSize();
-			if (pageSize == 0)
+			if (pageSize == 0) {
 				pageSize = 20;
+			}
+		}
+	}
+
+	protected abstract void freshList();
+
+	protected void fillItems() {
+		if (pageNumbers == null) {
+			pageNumbers = new ArrayList<SelectItem>();
+		} else {
+			pageNumbers.clear();
+		}
+
+		if (getTotalSize() == 0) {
+			pageNumbers.add(new SelectItem(1 + "", 1 + ""));
+		} else {
+			for (int i = 1; i <= getPageCount(); i++) {
+				String pageNumber = "" + i;
+				pageNumbers.add(new SelectItem(pageNumber, pageNumber));
+			}
 		}
 	}
 
@@ -70,11 +89,13 @@ public abstract class BasePagination implements IPagination {
 	public int getPageCount() {
 		int mod = getTotalSize() % pageSize;
 		pageCount = getTotalSize() / pageSize;
-		if (mod > 0)
+		if (mod > 0) {
 			pageCount++;
+		}
 
-		if (pageCount == 0)
+		if (pageCount == 0) {
 			pageCount = 1;
+		}
 		return pageCount;
 	}
 
@@ -125,20 +146,5 @@ public abstract class BasePagination implements IPagination {
 	public void swichLastPage() {
 		setPageIndex(getPageCount());
 		freshList();
-	}
-
-	protected void fillItems() {
-		if (pageNumbers == null)
-			pageNumbers = new ArrayList<SelectItem>();
-		else
-			pageNumbers.clear();
-
-		if (getTotalSize() == 0) {
-			pageNumbers.add(new SelectItem(1 + "", 1 + ""));
-		} else
-			for (int i = 1; i <= getPageCount(); i++) {
-				String pageNumber = "" + i;
-				pageNumbers.add(new SelectItem(pageNumber, pageNumber));
-			}
 	}
 }

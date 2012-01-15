@@ -2,6 +2,7 @@ package creative.fire.jsfrf.jsf.input;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 /**
  * @author feuyeux@gmail.com
  * @version 1.0
@@ -35,7 +36,7 @@ public class TestList {
 	}
 
 	public void print() {
-		System.out.println(this.selected);
+		System.out.println(selected);
 	}
 
 }

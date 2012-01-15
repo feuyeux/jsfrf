@@ -5,6 +5,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @FacesConverter(value = "ajaxBeanConverter")
 public class AjaxBeanConverter implements Converter {
 
@@ -15,6 +19,6 @@ public class AjaxBeanConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		return (String)value;
+		return (String) value;
 	}
 }

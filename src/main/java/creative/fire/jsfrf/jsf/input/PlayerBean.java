@@ -56,7 +56,7 @@ public class PlayerBean {
 	public String store() {
 		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		PlayerCache cache = (PlayerCache) sessionMap.get("playerCache");
-		
+
 		if (cache == null) {
 			FacesContext context = FacesContext.getCurrentInstance();
 			ELContext elContext = context.getELContext();
@@ -66,11 +66,11 @@ public class PlayerBean {
 			ValueExpression ve = expressionFactory.createValueExpression(elContext, "#{playerCache}", PlayerCache.class);
 			cache = (PlayerCache) ve.getValue(elContext);
 		}
-		
+
 		if (cache != null) {
 			cache.setsList(getsList());
 			cache.settList(gettList());
-		} 
+		}
 		return "/welcome.jsf";
 	}
 

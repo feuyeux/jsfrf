@@ -37,7 +37,7 @@
 	</appender>
 
 	<root>
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="DailyFileAppender" />
 		<appender-ref ref="STDOUT" />
 	</root>

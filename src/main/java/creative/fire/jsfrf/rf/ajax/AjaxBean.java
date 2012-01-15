@@ -2,12 +2,16 @@ package creative.fire.jsfrf.rf.ajax;
 
 import java.io.Serializable;
 
-//a4jBean see faces-config.xml
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
+// a4jBean see faces-config.xml
 public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 
 	private boolean enabled;
- 
+
 	private String value;
 
 	private int increase = 0;
@@ -37,7 +41,7 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void forceUpdate() {
-		this.value = "完毕";
+		value = "完毕";
 	}
 
 	public void walk() {
@@ -46,7 +50,7 @@ public class AjaxBean implements Serializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.enabled = true;
-		this.value = "[" + value + "]";
+		enabled = true;
+		value = "[" + value + "]";
 	}
 }

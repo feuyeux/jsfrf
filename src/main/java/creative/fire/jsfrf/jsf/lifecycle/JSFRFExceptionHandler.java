@@ -15,6 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import creative.fire.jsfrf.global.JSFRFFaces;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 
 	private ExceptionHandler wrapped;
@@ -25,7 +29,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public ExceptionHandler getWrapped() {
-		return this.wrapped;
+		return wrapped;
 	}
 
 	@Override

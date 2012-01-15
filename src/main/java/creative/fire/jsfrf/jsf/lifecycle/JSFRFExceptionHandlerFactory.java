@@ -3,6 +3,10 @@ package creative.fire.jsfrf.jsf.lifecycle;
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 public class JSFRFExceptionHandlerFactory extends ExceptionHandlerFactory {
 
 	private ExceptionHandlerFactory parent;

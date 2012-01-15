@@ -1,13 +1,15 @@
 /*
  * author: feuyeux@gmail.com
  * create time: 12th Dec 2011
- * reference: http://en.wikipedia.org/wiki/Display_resolution
+ * reference: 
+ * http://en.wikipedia.org/wiki/Display_resolution
+ * http://www.w3school.com.cn/htmldom/dom_obj_screen.asp
  */
 
 //var SCREENWIDTH = screen.width;
 //var SCREENHEIGHT = screen.height;
-var SCREENWIDTH = $(document.body).width();
-var SCREENHEIGHT = $(document.body).height();
+var browserWidth = jQuery(document.body).width();
+var browserHeight = jQuery(document.body).height();
 
 var SIZE1 = '1';
 var SIZE2 = '2';
@@ -16,59 +18,59 @@ var SIZE4 = '4';
 var SIZE5 = '5';
 
 function isXGA() {
-	return (SCREENWIDTH == 1024 && SCREENHEIGHT == 768);
+	return (browserWidth == 1024 && browserHeight == 768);
 }
 function isXGAPlus() {
-	return (SCREENWIDTH == 1152 && SCREENHEIGHT == 864);
+	return (browserWidth == 1152 && browserHeight == 864);
 }
 function isWXGA() {
-	return (SCREENWIDTH == 1280 && SCREENHEIGHT == 720);
+	return (browserWidth == 1280 && browserHeight == 720);
 }
 function isWXGA2() {
-	return (SCREENWIDTH == 1280 && SCREENHEIGHT == 800);
+	return (browserWidth == 1280 && browserHeight == 800);
 }
 function isSXGA() {
-	return (SCREENWIDTH == 1280 && SCREENHEIGHT == 960);
+	return (browserWidth == 1280 && browserHeight == 960);
 }
 function isSXGAPlus() {
-	return (SCREENWIDTH == 1280 && SCREENHEIGHT == 1024);
+	return (browserWidth == 1280 && browserHeight == 1024);
 }
 function isHD1() {
-	return (SCREENWIDTH == 1360 && SCREENHEIGHT == 768);
+	return (browserWidth == 1360 && browserHeight == 768);
 }
 function isHD2() {
-	return (SCREENWIDTH == 1366 && SCREENHEIGHT == 768);
+	return (browserWidth == 1366 && browserHeight == 768);
 }
 function isWXGAPlus() {
-	return (SCREENWIDTH == 1440 && SCREENHEIGHT == 900);
+	return (browserWidth == 1440 && browserHeight == 900);
 }
 function isHDPlus() {
-	return (SCREENWIDTH == 1600 && SCREENHEIGHT == 900);
+	return (browserWidth == 1600 && browserHeight == 900);
 }
 function isUXGA() {
-	return (SCREENWIDTH == 1600 && SCREENHEIGHT == 1200);
+	return (browserWidth == 1600 && browserHeight == 1200);
 }
 function isWSXGAPlus() {
-	return (SCREENWIDTH == 1680 && SCREENHEIGHT == 1050);
+	return (browserWidth == 1680 && browserHeight == 1050);
 }
 function isFHD() {
-	return (SCREENWIDTH == 1920 && SCREENHEIGHT == 1080);
+	return (browserWidth == 1920 && browserHeight == 1080);
 }
 function isWUXGAPlus() {
-	return (SCREENWIDTH == 1920 && SCREENHEIGHT == 1200);
+	return (browserWidth == 1920 && browserHeight == 1200);
 }
 function isWQHD() {
-	return (SCREENWIDTH == 2560 && SCREENHEIGHT == 1440);
+	return (browserWidth == 2560 && browserHeight == 1440);
 }
 
 function getAlternativeType(){
-	if(SCREENHEIGHT>=1200)
+	if(browserHeight>=1200)
 		return SIZE5;
-	if(SCREENHEIGHT>=900)
+	if(browserHeight>=900)
 		return SIZE4;
-	if(SCREENHEIGHT>=850)
+	if(browserHeight>=850)
 		return SIZE3;
-	if(SCREENHEIGHT>=800)
+	if(browserHeight>=800)
 		return SIZE2;
 	return SIZE1;
 }

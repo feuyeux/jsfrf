@@ -9,6 +9,10 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @Constraint(validatedBy = { SeasonValidator.class })
 @Documented
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.FIELD })

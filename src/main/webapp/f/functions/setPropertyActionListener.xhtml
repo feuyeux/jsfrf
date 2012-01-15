@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JavaServer Faces f标签库</title>
+</h:head>
+<h:body>
+	<h:form id="aForm">
+		<h:commandButton id="btn" value="测试" actionListener="#{text.update2}">
+			<f:setPropertyActionListener target="#{text.testList[0]}" value="壬"/>
+			<f:setPropertyActionListener target="#{text.testList[1]}" value="癸"/>
+		</h:commandButton>
+		<h:outputText value="#{text.testList[0]}"/>
+		<h:outputText value="#{text.testList[1]}"/>
+	</h:form>
+</h:body>
+</html>

@@ -5,6 +5,10 @@ import java.util.Date;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Past;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 public class SubTextBean {
 
 	@Past

@@ -13,26 +13,26 @@
 </h:head>
 
 <h:body>
-	<h:form id="h-resources-form">
-		<h:commandLink value="测试脚本加载顺序" onclick="callA();" />
-		<br />
-		<h:commandLink value="测试脚本名字空间" onclick="rf4js.js1.callA();rf4js.js2.callA();" />
-		<br />
+	<h:panelGrid>
+		<h:link value="测试脚本加载顺序" onclick="callA();" />
+		<h:link value="测试脚本名字空间" onclick="rf4js.js1.callA();rf4js.js2.callA();" />
+	</h:panelGrid>
 
+	<h:form id="h-resources-form1">
 		<a4j:commandButton value="动态加载样式文件" onclick="loadJs('loadJavascript','#{jsfrfEnv.jsPath}loadCss.js');"
 			oncomplete="loadCss('loadStyle','#{jsfrfEnv.cssPath}jsfrf.css');" />
-
-		<br />
-		<h:outputText id="ecssText" style="color:#{ecss.color}" value="动态样式展示: #{ecss.color}" />
-		<br />
-		<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" render="ecssText" />
-		<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');" render="ecssText" />
-		<br />
-		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" />
-		<br />
-		<h:graphicImage id="logo1" url="/resources/img/vendor2/logo.png" height="60" width="60" />
 	</h:form>
 
+	<h:panelGrid columns="2">
+		<h:graphicImage id="logo2" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" />
+		<h:graphicImage id="logo1" url="/resources/img/vendor2/logo.png" height="60" width="60" />
+	</h:panelGrid>
+
+	<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" render="ecssText" />
+	<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');" render="ecssText" />
+	<h:outputText id="ecssText" style="color:#{ecss.color}" value="动态样式展示: #{ecss.color}" />
+
+	<br />
 	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>
