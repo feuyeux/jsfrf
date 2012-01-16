@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4.1 rich标签库</title>
+	<style>
+		.top {
+			vertical-align: top;
+		}
+	</style>
+</h:head>
+
+<h:body>
+	<a4j:commandButton value="测试 selectionChangeListener" onclick="#{rich:component('treePopup1')}.show()" />
+	<a4j:commandButton value="测试 toggleListener" onclick="#{rich:component('treePopup2')}.show()" />
+
+	<rich:popupPanel id="treePopup1" moveable="true" resizeable="false" autosized="true" minWidth="300" minHeight="200">
+		<f:facet name="controls">
+			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer" onclick="#{rich:component('treePopup1')}.hide()" />
+		</f:facet>
+
+		<rich:panel header="RichFaces tree node selection">
+			<h:panelGrid columns="2" columnClasses="top, top">
+				<h:form>
+					<rich:tree value="#{richFacesTreeNodeBean.rootNode}" var="node" toggleType="client" selectionType="ajax"
+						selectionChangeListener="#{richFacesTreeNodeBean.selectionChanged}">
+						<rich:treeNode>
+						#{node.data} 
+					</rich:treeNode>
+					</rich:tree>
+				</h:form>
+				<a4j:outputPanel layout="block" ajaxRendered="true">
+					<rich:panel header="Current selection:" rendered="#{not empty richFacesTreeNodeBean.selection}">
+						<a4j:repeat value="#{richFacesTreeNodeBean.selection}" var="nodeData">
+					    #{nodeData}
+				    </a4j:repeat>
+					</rich:panel>
+				</a4j:outputPanel>
+			</h:panelGrid>
+		</rich:panel>
+	</rich:popupPanel>
+
+
+	<rich:popupPanel id="treePopup2" moveable="true" resizeable="false" autosized="true">
+		<f:facet name="controls">
+			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer" onclick="#{rich:component('treePopup2')}.hide()" />
+		</f:facet>
+
+		<rich:panel header="RichFaces tree node toggling">
+			<h:panelGrid columns="2" columnClasses="top, top">
+				<h:form>
+					<rich:tree value="#{richFacesTreeNodeBean.rootNode}" var="node" toggleType="ajax" toggleListener="#{richFacesTreeNodeBean.nodeToggled}">
+						<rich:treeNode>
+						#{node.data} 
+					</rich:treeNode>
+					</rich:tree>
+				</h:form>
+
+				<a4j:outputPanel layout="block" ajaxRendered="true">
+					<h:outputText value="#{richFacesTreeNodeBean.toggledNodeData} has the state changed!" rendered="#{not empty richFacesTreeNodeBean.toggledNodeData}" />
+				</a4j:outputPanel>
+			</h:panelGrid>
+		</rich:panel>
+	</rich:popupPanel>
+</h:body>
+</html>
