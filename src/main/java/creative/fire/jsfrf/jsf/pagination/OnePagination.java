@@ -45,6 +45,10 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	public ArrayList<Yijing> getShowList() {
 		return showList;
 	}
+	
+	public ArrayList<Yijing> getList() {
+		return list;
+	}
 
 	@Override
 	protected void freshList() {

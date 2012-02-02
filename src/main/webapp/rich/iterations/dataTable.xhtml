@@ -1,5 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -7,7 +10,68 @@
 </h:head>
 
 <h:body>
-<br />
-		<h:link value="返回列表" outcome="/rich/dataIterations" />
+	<h:form id="richDTForm">
+		<rich:panel style="width:80%;height:580px">
+			<rich:dataTable id="dt" style="width:100%"
+				rows="#{onePagination.pageSize}" value="#{onePagination.list}"
+				var="yi" rowClasses="oddrow,evenrow"
+				columnClasses="firstCol,secondCol,thirdCol" border="1">
+
+				<f:facet name="caption">
+					<h:outputText value="周易64卦" />
+				</f:facet>
+				<f:facet name="header">
+					<h:outputText value="易经列表" />
+				</f:facet>
+
+				<rich:column id="firstColumn">
+					<f:facet name="header">
+					 序号
+				</f:facet>
+					<h:outputText value="#{yi.sequence}" />
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">
+					名称
+				</f:facet>
+					<h:outputText value="#{yi.name}" />
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+					读音
+				</f:facet>
+					<h:outputText value="#{yi.pronounce}" />
+				</rich:column>
+
+				<f:facet name="footer">
+					<h:outputText value="易经列表" />
+				</f:facet>
+			</rich:dataTable>
+		</rich:panel>
+
+		<rich:dataScroller for="dt" fastStep="2">
+			<f:facet name="first">
+				<h:outputText value="首页" />
+			</f:facet>
+			<f:facet name="last">
+				<h:outputText value="尾页" />
+			</f:facet>
+			<f:facet name="next">
+				<h:outputText value="下页" />
+			</f:facet>
+			<f:facet name="previous">
+				<h:outputText value="上页" />
+			</f:facet>
+			<f:facet name="fastForward">
+				<h:outputText value="快进" />
+			</f:facet>
+			<f:facet name="fastRewind">
+				<h:outputText value="快退" />
+			</f:facet>
+		</rich:dataScroller>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/dataIterations" />
 </h:body>
 </html>
