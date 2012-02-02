@@ -20,7 +20,7 @@
 			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer" onclick="#{rich:component('treePopup1')}.hide()" />
 		</f:facet>
 
-		<rich:panel header="RichFaces tree node selection">
+		<rich:panel header="RichFaces tree node selection" rendered="false">
 			<h:panelGrid columns="2" columnClasses="top, top">
 				<h:form>
 					<rich:tree value="#{richFacesTreeNodeBean.rootNode}" var="node" toggleType="client" selectionType="ajax"
@@ -47,7 +47,7 @@
 			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer" onclick="#{rich:component('treePopup2')}.hide()" />
 		</f:facet>
 
-		<rich:panel header="RichFaces tree node toggling">
+		<rich:panel header="RichFaces tree node toggling" rendered="false">
 			<h:panelGrid columns="2" columnClasses="top, top">
 				<h:form>
 					<rich:tree value="#{richFacesTreeNodeBean.rootNode}" var="node" toggleType="ajax" toggleListener="#{richFacesTreeNodeBean.nodeToggled}">

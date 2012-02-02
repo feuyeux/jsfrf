@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
 import org.richfaces.component.UITree;
 import org.richfaces.event.TreeSelectionChangeEvent;
 import org.richfaces.event.TreeToggleEvent;
@@ -18,20 +20,25 @@ import org.richfaces.model.TreeNodeImpl;
 @ManagedBean
 @ViewScoped
 public class RichFacesTreeNodeBean {
-
+	static Logger logger = Logger.getLogger(RichFacesTreeNodeBean.class);
 	private TreeNode rootNode = null;
 	private List<String> selection = new ArrayList<String>();
 	private String toggledNodeData = null;
 
+	@PostConstruct
+	public void init(){
+		logger.info("1234567890-");
+	}
+	
 	public void nodeToggled(TreeToggleEvent event) {
 		UITree uiTree = (UITree) event.getComponent();
 		RichFacesTreeNode richfacesTreeNode = (RichFacesTreeNode) uiTree.getRowData();
 		toggledNodeData = richfacesTreeNode.getData();
 
 		if (event.isCollapsed())
-			System.out.println("The tree:" + uiTree.getClientId() + " is collapsed.");
+			logger.info("The tree:" + uiTree.getClientId() + " is collapsed.");
 		if (event.isExpanded())
-			System.out.println("The tree:" + uiTree.getClientId() + " is expanded.");
+			logger.info("The tree:" + uiTree.getClientId() + " is expanded.");
 	}
 
 	public void selectionChanged(TreeSelectionChangeEvent event) {
@@ -50,7 +57,7 @@ public class RichFacesTreeNodeBean {
 		final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, String> params = externalContext.getRequestParameterMap();
 		String chooseData = params.get("chooseData");
-		System.out.println("The chooseData is: " + chooseData);
+		logger.info("The chooseData is: " + chooseData);
 	}
 
 	public void initNodes() {
