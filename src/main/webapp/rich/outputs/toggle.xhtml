@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4.1 rich标签库</title>
+</h:head>
+
+<h:body>
+	<h:form id="toggleForm">
+		<rich:panel style="width:330px">
+
+			<rich:togglePanel id="toggleP" switchType="ajax">
+				<rich:togglePanelItem id="toggleI1">
+					<h:panelGrid>
+						<h:outputText value="乾" />
+						<h:commandLink value="下一步">
+							<rich:toggleControl targetItem="@next" />
+						</h:commandLink>
+					</h:panelGrid>
+				</rich:togglePanelItem>
+
+				<rich:togglePanelItem id="toggleI2">
+					<h:panelGrid>
+						<h:outputText value="坤" />
+
+
+						<h:commandLink value="上一步">
+							<rich:toggleControl targetItem="@prev" />
+						</h:commandLink>
+
+						<h:commandLink value="下一步">
+							<rich:toggleControl targetItem="@next" />
+						</h:commandLink>
+					</h:panelGrid>
+				</rich:togglePanelItem>
+
+				<rich:togglePanelItem id="toggleI3">
+					<h:panelGrid>
+						<h:outputText value="离" />
+						<h:commandLink value="Next">
+							<rich:toggleControl targetItem="@next" />
+						</h:commandLink>
+					</h:panelGrid>
+				</rich:togglePanelItem>
+			</rich:togglePanel>
+
+			<h:panelGrid columns="3">
+				<h:commandButton value="向前">
+					<rich:toggleControl targetPanel="toggleP" targetItem="@prev" />
+				</h:commandButton>
+				<h:commandButton value="坤">
+					<rich:toggleControl targetPanel="toggleP" targetItem="toggleI2" />
+				</h:commandButton>
+				<h:commandButton value="向后">
+					<rich:toggleControl targetPanel="toggleP" targetItem="@next" />
+				</h:commandButton>
+			</h:panelGrid>
+		</rich:panel>
+	</h:form>
+	<br />
+		<h:link value="返回列表" outcome="/rich/outputs" />
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form id="renderedForm">
+
+		<rich:inplaceSelect value="#{a4jBean.enabled}" defaultLabel="点击开始选择值">
+			<f:selectItem itemValue="true" itemLabel="true" />
+			<f:selectItem itemValue="false" itemLabel="false" />
+			<a4j:ajax event="change" render="outPanel" listener="#{a4jBean.foo}" />
+		</rich:inplaceSelect>
+
+		<br />
+		<!-- a4j:outputPanel 用来解决 rendered 初始为 false 的组件 无法被render的问题-->
+		<a4j:outputPanel id="outPanel">
+			<h:outputText id="out1" value="out1: #{a4jBean.enabled}" rendered="#{a4jBean.enabled}" />
+			<h:outputText id="out2" value="out2: #{a4jBean.enabled}" rendered="#{!a4jBean.enabled}" />
+		</a4j:outputPanel>
+
+	</h:form>
+</h:body>
+</html>

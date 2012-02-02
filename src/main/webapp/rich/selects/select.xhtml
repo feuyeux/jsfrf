@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4.1 rich标签库</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid>
+			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet">
+				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+				<f:ajax event="change" listener="#{testList.print}" render="out" />
+			</h:selectOneMenu>
+
+			<rich:select value="#{testList.selected}" defaultLabel="请选择一项">
+				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+				<a4j:ajax event="change" listener="#{testList.print}" render="out" />
+			</rich:select>
+			<h:outputText id="out" value="selected= #{testList.selected}" />
+		</h:panelGrid>
+	</h:form>
+		<br />
+		<h:link value="返回列表" outcome="/rich/selects" />
+</h:body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<style>
+		.rich-tab-inactive {
+			cursor: pointer;
+		}
+
+		.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top{
+			background:none;
+		}
+	</style>
+	<title>Richfaces4.1 rich标签库 tab组件</title>
+</h:head>
+
+<h:body>
+<h:form id="tabForm">
+			<rich:tabPanel id="callsTab" switchType="ajax" activeItem="乾">
+				<rich:tab name="八卦">
+					<rich:panel id="graphPanel1">
+1
+					</rich:panel>
+				</rich:tab>
+				
+				<rich:tab name="乾">
+					<rich:panel id="graphPanel2">
+2
+					</rich:panel>
+				</rich:tab>
+				
+				<rich:tab name="坤">
+					<rich:panel id="graphPanel3">
+3
+					</rich:panel>
+				</rich:tab>
+				
+				<rich:tab name="离">
+					<rich:panel id="graphPanel4">
+4
+					</rich:panel>
+				</rich:tab>
+				
+					<rich:tab name="坎">
+					<rich:panel id="graphPanel5">
+5
+					</rich:panel>
+				</rich:tab>
+			</rich:tabPanel>
+			</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/outputs" />
+</h:body>
+</html>
