@@ -28,10 +28,12 @@ public class RichFacesTreeNodeBean {
 		RichFacesTreeNode richfacesTreeNode = (RichFacesTreeNode) uiTree.getRowData();
 		toggledNodeData = richfacesTreeNode.getData();
 
-		if (event.isCollapsed())
+		if (event.isCollapsed()) {
 			System.out.println("The tree:" + uiTree.getClientId() + " is collapsed.");
-		if (event.isExpanded())
+		}
+		if (event.isExpanded()) {
 			System.out.println("The tree:" + uiTree.getClientId() + " is expanded.");
+		}
 	}
 
 	public void selectionChanged(TreeSelectionChangeEvent event) {

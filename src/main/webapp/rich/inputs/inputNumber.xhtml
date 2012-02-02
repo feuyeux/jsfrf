@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4.1 rich标签库</title>
+</h:head>
+
+<h:body>
+<!-- 
+RichFaces.ui is undefined
+[Break On This Error] 	
+
+...resources/javax.faces.resource/org.richfaces.staticResource/4.1.0.Final/Packed/D...
+ -->
+	<rich:inputNumberSlider value="#{text.intValue}" minValue="0" maxValue="50" step="2" enableManualInput="false" />
+	<br/>
+	<rich:inputNumberSpinner value="#{text.intValue}" minValue="10" maxValue="50" step="2" enableManualInput="false" />
+<br />
+		<h:link value="返回列表" outcome="/rich/inputs" />
+</h:body>
+</html>

@@ -11,34 +11,23 @@
 		<a4j:jsFunction name="change" render="flashText2">
 			<a4j:param name="eventName" assignTo="#{flash.luhs2}" />
 		</a4j:jsFunction>
-		<a4j:jsFunction name="clear" render="flashText1 flashText2">
-			<a4j:param name="eventName1" assignTo="#{flash.luhs1}" />
-			<a4j:param name="eventName2" assignTo="#{flash.luhs2}" />
-		</a4j:jsFunction>
 	</h:form>
 
 	<rich:panel header="checkbox.">
 		<h:outputText id="flashText1" value="#{flash.luhs1}" />
 		<h:outputText id="flashText2" value="#{flash.luhs2}" />
 		<br />
+		
 		<h:selectBooleanCheckbox value="true" onclick="alert('click')" onchange="alert('change')" /> alert check
-     <br />
+     	<br />
+     	
 		<h:selectBooleanCheckbox value="true">
-			<a4j:ajax event="click" oncomplete="click('click')" onbegin="clear('1','0')" />
-			<a4j:ajax event="change" oncomplete="change('change')" onbegin="clear('0','1')" />
+			<a4j:ajax event="click" oncomplete="click('click')" onbegin="click('')" />
+			<a4j:ajax event="change" oncomplete="change('change')" onbegin="change('')" />
 		</h:selectBooleanCheckbox>print check
-</rich:panel>
-<!-- 
-invoke the method of backing bean:
-<a4j:ajax event="click" listener="#{obj.method1(param1)}" render="comp" />
- 
-class obj{
-     public void method1(String param1){
-          ...
-     }
-}
--->
+	</rich:panel>
+
 	<br />
-	<h:link value="返回" outcome="/h/inputs" />
+	<h:link value="返回" outcome="/a4j/actions" />
 </h:body>
 </html>

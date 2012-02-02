@@ -2,6 +2,8 @@ package creative.fire.jsfrf.rf.ajax;
 
 import java.io.Serializable;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author feuyeux@gmail.com
  * @version 1.0
@@ -9,12 +11,16 @@ import java.io.Serializable;
 // a4jBean see faces-config.xml
 public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
-
+	static Logger logger = Logger.getLogger(AjaxBean.class);
 	private boolean enabled;
 
 	private String value;
 
 	private int increase = 0;
+
+	public AjaxBean(){
+
+	}
 
 	public boolean isEnabled() {
 		return enabled;
@@ -52,5 +58,9 @@ public class AjaxBean implements Serializable {
 		}
 		enabled = true;
 		value = "[" + value + "]";
+	}
+
+	public void foo(){
+		logger.info("enabled="+enabled);
 	}
 }

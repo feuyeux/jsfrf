@@ -2,20 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<title>Richfaces4.1 rich标签库</title>
+	<title>Richfaces4.1 rich标签库 输入组件</title>
 </h:head>
 
 <h:body>
-	 JSF2标准html库 
 	<h:panelGrid>
-		<h:link value="JSF2资源组件" outcome="h/resources" />
-rich:autocomplete
-rich:calendar
-rich:editor
-rich:inputNumberSlider
-rich:inputNumberSpinner
-rich:inplaceInput
-rich:fileUpload
+		<h:link value="rich:autocomplete" outcome="/rich/inputs/autocomplete" />
+		<h:link value="rich:calendar" outcome="/rich/inputs/calendar" />
+		<h:link value="rich:editor" outcome="/rich/inputs/editor" />
+		<h:link value="rich:inputNumberSlider" outcome="/rich/inputs/inputNumber" />
+		<h:link value="rich:inputNumberSpinner" outcome="/rich/inputs/inputNumber" />
+		<h:link value="rich:inplaceInput" outcome="/rich/inputs/inplaceInput" />
+		<h:link value="rich:fileUpload" outcome="/rich/inputs/fileUpload" />
 	</h:panelGrid>
+	<br />
+		<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

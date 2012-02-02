@@ -31,6 +31,7 @@ public class TextBean implements Serializable {
 	private boolean rendered;
 	private ArrayList<String> testList;
 	private Map<String, String> testMap;
+	private int intValue;
 
 	@PostConstruct
 	public void initialize() {
@@ -85,6 +86,14 @@ public class TextBean implements Serializable {
 
 	public void setRendered(boolean rendered) {
 		this.rendered = rendered;
+	}
+
+	public int getIntValue() {
+		return intValue;
+	}
+
+	public void setIntValue(int value) {
+		intValue = value;
 	}
 
 	public void foo() {
