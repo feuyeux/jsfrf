@@ -20,32 +20,36 @@
 
 <h:body>
 <h:form id="tabForm">
-			<rich:tabPanel id="callsTab" switchType="ajax" activeItem="乾">
+			<rich:tabPanel id="callsTab" switchType="ajax" activeItem="qian" headerPosition="top" headerLocation="center">
 				<rich:tab name="八卦">
 					<rich:panel id="graphPanel1">
 1
 					</rich:panel>
 				</rich:tab>
 				
-				<rich:tab name="乾">
+				<rich:tab name="qian">		
+					<f:facet name="header">
+						<a4j:commandLink id="cLink" value="乾" action="#{text.foo}" onclick="alert('测试')" render="@this"/>
+					</f:facet>
+					
 					<rich:panel id="graphPanel2">
-2
+					#{text}
 					</rich:panel>
 				</rich:tab>
 				
-				<rich:tab name="坤">
+				<rich:tab header="坤" name="kun">
 					<rich:panel id="graphPanel3">
-3
+32
 					</rich:panel>
 				</rich:tab>
 				
-				<rich:tab name="离">
+				<rich:tab header="离">
 					<rich:panel id="graphPanel4">
 4
 					</rich:panel>
 				</rich:tab>
 				
-					<rich:tab name="坎">
+					<rich:tab header="坎">
 					<rich:panel id="graphPanel5">
 5
 					</rich:panel>
