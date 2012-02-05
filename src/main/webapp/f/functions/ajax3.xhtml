@@ -4,19 +4,17 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>JavaServer Faces f标签库</title>
-	<h:outputScript library="javascript/offical" name="jquery-1.7.1.js"
-		target="head" />
-	<h:outputScript library="javascript" name="ajax.js" target="head" />
+	<h:outputScript library="javax.faces" name="jsf.js"/>
+	<h:outputScript library="javascript" name="jsf.ajax.js"/>
 </h:head>
 
 <h:body>
 	<h:form id="ajaxForm">
 		<h:panelGrid>
 			<h:inputText id="inputText" value="#{a4jBean.value}">
-				<f:ajax event="keyup" render="outputText" onevent="requestMonitor"
-					onerror="errorHandler" disabled="false" listener="#{a4jBean.walk}"/>
+				<f:ajax event="keyup" render="outputText" listener="#{a4jBean.walk}" />
 			</h:inputText>
-			
+
 			<h:outputText id="outputText" value="#{a4jBean.value}" />
 
 			<h:outputText id="ajaxConsole" />

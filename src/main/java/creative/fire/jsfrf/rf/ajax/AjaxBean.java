@@ -18,7 +18,7 @@ public class AjaxBean implements Serializable {
 
 	private int increase = 0;
 
-	public AjaxBean(){
+	public AjaxBean() {
 
 	}
 
@@ -31,11 +31,16 @@ public class AjaxBean implements Serializable {
 	}
 
 	public String getValue() {
-		return value + increase++;
+		increase++;
+		return value;
 	}
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public int getIncrease() {
+		return increase;
 	}
 
 	public void update(String toggle) {
@@ -60,7 +65,7 @@ public class AjaxBean implements Serializable {
 		value = "[" + value + "]";
 	}
 
-	public void foo(){
-		logger.info("enabled="+enabled);
+	public void foo() {
+		logger.info("enabled=" + enabled);
 	}
 }
