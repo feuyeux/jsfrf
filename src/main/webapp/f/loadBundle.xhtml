@@ -16,6 +16,10 @@
 			</h:selectOneRadio>
 
 			<h:outputText value="#{jrMsg['jsfrf.helloworld']}" />
+			
+			<h:outputFormat id="statisticResult" value="#{jrMsg.usingLanguage}">
+				<f:param value="#{jsfrfLocale.selected}" />
+			</h:outputFormat>
 		</h:panelGrid>
 	</h:form>
 	<h:link value="返回" outcome="/welcome" />
