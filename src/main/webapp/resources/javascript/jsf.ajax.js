@@ -8,7 +8,7 @@ jsfrfEventCallback = function(data) {
 	}
 }
 
-jsf.ajax.addOnEvent(jsfrfEventCallback);
+//jsf.ajax.addOnEvent(jsfrfEventCallback);
 
 jsfrfErrorCallback = function(data) {
 	var componentId = data.source.id;
@@ -25,9 +25,13 @@ jsfrfErrorCallback = function(data) {
 	error = "Ajax Error:\nstatus=" + status + "\nerrorName=" + errorName
 			+ "\nerrorMessage=" + errorMessage + "\ndescription=" + description;
 	if (status == "httpError") {
+		
 	} else if (status == "emptyResponse") {
+		
 	} else if (status == "malformedXML") {
+		
 	} else if (status == "serverError") {
+		
 	} else {
 		error = status;
 	}

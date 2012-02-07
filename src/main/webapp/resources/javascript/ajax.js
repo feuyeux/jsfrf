@@ -37,8 +37,8 @@ function errorHandler(data) {
 	var errorName = data.errorName;
 	var errorMessage = data.errorMessage;
 
-	error = "errorName=" + errorName + " errorMessage=" + errorMessage
-			+ " description=" + description + " status=" + status;
+	error = "Ajax Error:\nstatus=" + status + "\nerrorName=" + errorName
+			+ "\nerrorMessage=" + errorMessage + "\ndescription=" + description;
 	if (status == "httpError") {
 	} else if (status == "emptyResponse") {
 	} else if (status == "malformedXML") {
