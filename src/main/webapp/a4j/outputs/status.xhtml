@@ -13,7 +13,7 @@
 		<h:panelGrid>
 			<h:inputText value="#{a4jBean.value}" />
 			<a4j:commandButton id="statusButton" value="测试status组件" action="#{a4jBean.walk}" render="resultText" status="status1" />
-			<a4j:commandButton id="commonButton" value="对比测试" action="#{a4jBean.forceUpdate}" render="resultText" />
+			<a4j:commandButton id="commonButton" value="对比测试" action="#{a4jBean.forceUpdate}" render="resultText" />		
 			<h:outputText id="resultText" value="#{a4jBean.value}" />
 		</h:panelGrid>
 	</h:form>

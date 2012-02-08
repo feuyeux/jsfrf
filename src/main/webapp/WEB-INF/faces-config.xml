@@ -9,7 +9,7 @@
 		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
 	</lifecycle>
 
-	<managed-bean>
+	<!-- <managed-bean>
 		<description>bean for ajax</description>
 		<managed-bean-name>a4jBean</managed-bean-name>
 		<managed-bean-class>creative.fire.jsfrf.rf.ajax.AjaxBean</managed-bean-class>
@@ -19,7 +19,7 @@
 			<property-class>java.lang.String</property-class>
 			<value>初始</value>
 		</managed-property>
-	</managed-bean>
+	</managed-bean> -->
 
 	<navigation-rule>
 		<navigation-case>

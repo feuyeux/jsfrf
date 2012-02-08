@@ -2,7 +2,6 @@ package creative.fire.jsfrf.jsf.pagination;
 
 import java.util.ArrayList;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.model.SelectItem;
 
@@ -31,7 +30,6 @@ public abstract class BasePagination implements IPagination {
 		log.debug("构造");
 	}
 
-	@PostConstruct
 	public void init() {
 		if (displayResolution == null) {
 			pageSize = 20;

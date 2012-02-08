@@ -30,6 +30,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	@Override
 	@PostConstruct
 	public void init() {
+		log.debug("init");
 		super.init();
 		initializeList();
 	}
