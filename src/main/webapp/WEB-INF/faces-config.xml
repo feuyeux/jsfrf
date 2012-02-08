@@ -30,7 +30,7 @@
 	</navigation-rule>
 
 	<application>
-		<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener>
+		 <!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener>-->
 		
 		<locale-config>
 			<default-locale>zh_CN</default-locale>

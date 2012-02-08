@@ -14,6 +14,6 @@ public class JSFRFActionListener implements ActionListener {
 	static Logger logger = Logger.getLogger(JSFRFActionListener.class);
 
 	public void processAction(ActionEvent actionEvent) throws AbortProcessingException {
-		//logger.info(actionEvent.getClass().getName());
+		logger.info(actionEvent.getPhaseId() +" "+actionEvent.getComponent().getClientId());
 	}
 }

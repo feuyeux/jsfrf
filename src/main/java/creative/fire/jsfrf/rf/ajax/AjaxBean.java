@@ -60,11 +60,6 @@ public class AjaxBean implements Serializable {
 		value = "完毕";
 	}
 
-	public String walk0() {
-		walk();
-		return "";
-	}
-
 	public void walk() {
 		try {
 			logger.info("休眠2秒");
