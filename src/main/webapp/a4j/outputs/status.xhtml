@@ -12,8 +12,9 @@
 			onerror="alert('出错了！');" />
 		<h:panelGrid>
 			<h:inputText value="#{a4jBean.value}" />
-			<a4j:commandButton id="statusButton" value="测试status组件" action="#{a4jBean.walk}" render="resultText" status="status1" />
-			<a4j:commandButton id="commonButton" value="对比测试" action="#{a4jBean.forceUpdate}" render="resultText" />		
+			<a4j:commandButton id="statusButton" value="测试1" action="#{a4jBean.walk}" render="resultText" status="status1" />
+			<a4j:commandButton id="commonButton" value="测试2" action="#{a4jBean.walk}" render="resultText" />		
+			<a4j:status startText="处理中..." stopText="完成" />
 			<h:outputText id="resultText" value="#{a4jBean.value}" />
 		</h:panelGrid>
 	</h:form>

@@ -1,9 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-
 </h:head>
 <h:body>
+	<h:form>
+		<a4j:jsFunction name="click" render="flashText1">
+			<a4j:param name="eventName" assignTo="#{flash.luhs1}" />
+		</a4j:jsFunction>
+		<a4j:jsFunction name="change" render="flashText2">
+			<a4j:param name="eventName" assignTo="#{flash.luhs2}" />
+		</a4j:jsFunction>
+		<a4j:jsFunction name="clear" render="flashText1 flashText2">
+			<a4j:param name="eventName1" assignTo="#{flash.luhs1}" />
+			<a4j:param name="eventName2" assignTo="#{flash.luhs2}" />
+		</a4j:jsFunction>
+	</h:form>
 
+	<rich:panel header="checkbox.">
+		<h:outputText id="flashText1" value="#{flash.luhs1}" />
+		<h:outputText id="flashText2" value="#{flash.luhs2}" />
+		<br />
+		<h:selectBooleanCheckbox value="true" onclick="alert('click')" onchange="alert('change')" /> alert check
+     <br />
+		<h:selectBooleanCheckbox value="true">
+			<a4j:ajax event="click" oncomplete="click('click')" onbegin="clear('1','0')" />
+			<a4j:ajax event="change" oncomplete="change('change')" onbegin="clear('0','1')" />
+		</h:selectBooleanCheckbox>print check
+</rich:panel>
+<!-- 
+invoke the method of backing bean:
+<a4j:ajax event="click" listener="#{obj.method1(param1)}" render="comp" />
+ 
+class obj{
+     public void method1(String param1){
+          ...
+     }
+}
+-->
+	<br />
+	<h:link value="返回" outcome="/h/inputs" />
 </h:body>
 </html>

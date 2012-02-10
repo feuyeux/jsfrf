@@ -16,7 +16,7 @@
 
 			<rich:select value="#{testList.selected}" defaultLabel="请选择一项">
 				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
-				<a4j:ajax event="change" listener="#{testList.print}" render="out" />
+				<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
 			</rich:select>
 			<h:outputText id="out" value="selected= #{testList.selected}" />
 		</h:panelGrid>
