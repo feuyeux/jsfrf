@@ -1,9 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 
 </h:head>
 <h:body>
-a4j:region
+	<h:form id="aForm">
+		<a4j:region id="aRegion">
+			<h:inputText id="in1" value="#{flash.in1}" />
+			<h:inputText id="in2" value="#{flash.in2}" />
+			<a4j:commandButton id="btn" value="region测试" />
+		</a4j:region>
+		<h:inputText id="in3" value="#{flash.in3}" />
+		<a4j:outputPanel ajaxRendered="true">
+			<h:panelGrid>
+				<h:outputText value="1: #{flash.in1}" />
+				<h:outputText value="2: #{flash.in2}" />
+				<h:outputText value="3: #{flash.in3}" />
+			</h:panelGrid>
+		</a4j:outputPanel>
+	</h:form>
+	<br />
+	<h:link value="返回" outcome="/a4j/actions" />
 </h:body>
 </html>

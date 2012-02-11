@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:rich="http://richfaces.org/rich"
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>JavaServer Faces a4j标签库</title>
@@ -12,16 +12,19 @@ xmlns:rich="http://richfaces.org/rich"
 	<h:form id="abtnForm">
 		<h:panelGrid>
 			<h:inputText id="input" value="#{a4jBean.value}" />
-			<a4j:commandButton id="aButton" value="测试1" action="#{a4jBean.foo}" render="resultText1" />
-			
+			<a4j:commandButton id="aButton" value="测试1" action="#{a4jBean.foo}"
+				render="resultText1" />
+
 			<h:commandButton id="hButton" value="测试2" action="#{a4jBean.foo}">
-				<f:ajax render="abtnForm:resultText2" execute="@this input"/>
+				<f:ajax render=":resultText2" execute="@this input" />
 			</h:commandButton>
 		</h:panelGrid>
-	<h:outputText id="resultText2" value="#{a4jBean.value}" />
 	</h:form>
-	<h:outputText id="resultText1" value="#{a4jBean.value}" />
+	<h:panelGrid>
+		<h:outputText id="resultText1" value="#{a4jBean.value}" />
+		<h:outputText id="resultText2" value="#{a4jBean.value}" />
+	</h:panelGrid>
 	<br />
-	<h:link value="返回" outcome="/welcome" />
+	<h:link value="返回" outcome="/a4j/actions" />
 </h:body>
 </html>
