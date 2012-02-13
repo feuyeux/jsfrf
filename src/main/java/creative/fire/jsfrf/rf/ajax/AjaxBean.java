@@ -54,6 +54,7 @@ public class AjaxBean implements Serializable {
 		} else {
 			enabled = false;
 		}
+		logger.info("enabled=" + enabled);
 	}
 
 	public void forceUpdate() {
@@ -72,6 +73,10 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void foo() {
-		logger.info("enabled=" + enabled);
+		logger.info("foo bar baz");
+	}
+
+	public void bar() {
+		increase++;
 	}
 }

@@ -14,16 +14,17 @@
 </h:head>
 <h:body>
 	<h:form id="paramForm">
-		<h:inputText id="p1" />
-		<h:inputText id="p2" />
-		<a4j:commandButton id="testBtn" value="加法计算"
-			render=":paramForm:result">
-			<a4j:param name="param1"
-				value="plus(jQuery('#paramForm\\:p1').val(),jQuery('#paramForm\\:p2').val())"
-				assignTo="#{flash.sum}" noEscape="true" />
-		</a4j:commandButton>
-		<br />
-		<h:outputText id="result" value="#{flash.sum}" />
+		<h:panelGrid>
+			<h:inputText id="p1" />
+			<h:inputText id="p2" />
+			<a4j:commandButton id="testBtn" value="加法计算"
+				render=":paramForm:result">
+				<a4j:param name="param1"
+					value="plus(jQuery('#paramForm\\:p1').val(),jQuery('#paramForm\\:p2').val())"
+					assignTo="#{flash.sum}" noEscape="true" />
+			</a4j:commandButton>
+			<h:outputText id="result" value="#{flash.sum}" />
+		</h:panelGrid>
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/a4j/actions" />

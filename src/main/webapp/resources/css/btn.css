@@ -110,15 +110,10 @@ div.butnDisabled div div {
 .btnText {
 	font-family: Verdana;
 	font-size: 11px;
-	color: white;
 	white-space:nowrap;
+	color: #254117;
 }
 
-.btnTextDisable {
-	font-family: Verdana;
-	font-size: 11px;
-	color: #FFFFFF;
-}
 .shorter_width {
 	min-width: 80px;
 	width: auto;

@@ -4,14 +4,14 @@
 
 </h:head>
 <h:body>
-	<h:form>
-		<a4j:poll id="poll1" interval="2000" render="out" enabled="#{a4jBean.enabled}" />
+	<h:form id="pollForm">
+		<a4j:poll id="poll1" interval="2000" action="#{a4jBean.bar}" render="out" enabled="#{a4jBean.enabled}" />
 	</h:form>
 
-	<h:form id="pollForm">
+	<h:form id="switchForm">
 		<h:panelGrid>
-			<h:outputText id="out" value="#{a4jBean.value}" />
-			<a4j:commandButton value="开始向服务器取值" action="#{a4jBean.update('1')}" render="poll1" />
+			<h:outputText id="out" value="#{a4jBean.increase}" />
+			<a4j:commandButton value="开始向服务器取值" action="#{a4jBean.update('1')}" render="poll1 out" />
 			<a4j:commandButton value="结束向服务器取值" action="#{a4jBean.update('0')}" render="poll1" />
 		</h:panelGrid>
 	</h:form>
