@@ -1,4 +1,4 @@
-div.butn,div.butn_hover {
+div.butn,div.butn:hover {
 	display: inline-block;
 	display: -moz-inline-stack; *
 	display: inline;
@@ -15,54 +15,16 @@ div.butn,div.butn_hover {
 	border: 0 none;
 	background-color: none;
 	vertical-align: middle;
-	color: write;
 }
 
 div.butn {
-	background: url("#{jsfrfEnv.imagePath}button/b_right.png") right
+	background: url("#{jsfrfEnv.imagePath}button/idle/right.png") right
 		no-repeat;
 }
 
-div.butn_hover {
-	background: url("#{jsfrfEnv.imagePath}button/h_right.png") right
+div.butn:hover {
+	background: url("#{jsfrfEnv.imagePath}button/hover/right.png") right
 		no-repeat;
-}
-
-div.butn div,div.butn_hover div {
-	display: inline-block;
-	display: -moz-inline-stack; *
-	display: inline;
-	zoom: 1;
-	padding: 0 0 0 5px;
-	font-weight: normal;
-	height: 25px;
-	line-height: 25px;
-}
-
-div.butn div {
-	background: url("#{jsfrfEnv.imagePath}button/b_left.png") left no-repeat;
-}
-
-div.butn_hover div {
-	background: url("#{jsfrfEnv.imagePath}button/h_left.png") left no-repeat;
-}
-
-div.butn div div,div.butn_hover div div {
-	padding: 0;
-	height: 25px;
-	line-height: 25px;
-	cursor: pointer;
-	white-space: nowrap;
-}
-
-div.butn div div {
-	background: url("#{jsfrfEnv.imagePath}button/b_middle.png") left
-		repeat-x;
-}
-
-div.butn_hover div div {
-	background: url("#{jsfrfEnv.imagePath}button/h_middle.png") left
-		repeat-x;
 }
 
 div.butnDisabled {
@@ -76,7 +38,7 @@ div.butnDisabled {
 	text-align: center;
 	vertical-align: middle;
 	text-decoration: none;
-	background: url("#{jsfrfEnv.imagePath}button/b2_right_disabled.png")
+	background: url("#{jsfrfEnv.imagePath}button/disabled/right.png")
 		right no-repeat;
 	width: auto; *
 	overflow: visible;
@@ -84,6 +46,25 @@ div.butnDisabled {
 	background-color: none;
 	vertical-align: middle;
 	cursor: default;
+}
+
+div.butn div,div.butn:hover div {
+	display: inline-block;
+	display: -moz-inline-stack; *
+	display: inline;
+	zoom: 1;
+	padding: 0 0 0 5px;
+	font-weight: normal;
+	height: 25px;
+	line-height: 25px;
+}
+
+div.butn div {
+	background: url("#{jsfrfEnv.imagePath}button/idle/left.png") left no-repeat;
+}
+
+div.butn:hover div {
+	background: url("#{jsfrfEnv.imagePath}button/hover/left.png") left no-repeat;
 }
 
 div.butnDisabled div {
@@ -96,8 +77,25 @@ div.butnDisabled div {
 	font-weight: normal;
 	height: 25px;
 	line-height: 25px;
-	background: url("#{jsfrfEnv.imagePath}button/b2_left_disabled.png") left
+	background: url("#{jsfrfEnv.imagePath}button/disabled/left.png") left
 		no-repeat;
+}
+
+
+div.butn div div,div.butn:hover div div {
+	padding: 0;
+	height: 25px;
+	line-height: 25px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+div.butn div div {
+	background: url("#{jsfrfEnv.imagePath}button/idle/middle.png") left repeat-x;
+}
+
+div.butn:hover div div {
+	background: url("#{jsfrfEnv.imagePath}button/hover/middle.png") left repeat-x;
 }
 
 div.butnDisabled div div {
@@ -105,11 +103,23 @@ div.butnDisabled div div {
 	height: 25px;
 	line-height: 25px;
 	cursor: default;
-	background: url("#{jsfrfEnv.imagePath}button/b2_middle_disabled.png")
+	background: url("#{jsfrfEnv.imagePath}button/disabled/middle.png")
 		left repeat-x;
 }
 
 .btnText {
-	font-size: 12px;
-	color: write;
+	font-family: Verdana;
+	font-size: 11px;
+	color: white;
+	white-space:nowrap;
+}
+
+.btnTextDisable {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+.shorter_width {
+	min-width: 80px;
+	width: auto;
 }
