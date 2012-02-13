@@ -46,7 +46,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	public ArrayList<Yijing> getShowList() {
 		return showList;
 	}
-	
+
 	public ArrayList<Yijing> getList() {
 		return list;
 	}
@@ -68,5 +68,15 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<Yijing> autocomplete(String prefix) {
+		ArrayList<Yijing> result = new ArrayList<Yijing>();
+		for (Yijing suggestYi : list) {
+			if (suggestYi.getSequence().startsWith(prefix)) {
+				result.add(suggestYi);
+			}
+		}
+		return result;
 	}
 }

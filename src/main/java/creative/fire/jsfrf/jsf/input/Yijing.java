@@ -30,4 +30,8 @@ public class Yijing implements Serializable {
 		return pronounce;
 	}
 
+	@Override
+	public String toString() {
+		return sequence + ":" + name + ":" + pronounce;
+	}
 }

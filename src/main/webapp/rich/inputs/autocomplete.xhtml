@@ -4,10 +4,41 @@
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4.1 rich标签库</title>
+	<script>
+		function browserFilter(prefix, suggestValue) {
+			if (prefix.length >= 1) {
+				if (suggestValue.indexOf(prefix) != -1)//contains
+					return true;
+				else
+					return false;
+			}
+			return true;
+		};
+	</script>
 </h:head>
 
 <h:body>
-<br />
-		<h:link value="返回列表" outcome="/rich/inputs" />
+	<h:form id="autoForm1">
+		<rich:autocomplete id="autoInput" autocompleteMethod="#{onePagination.autocomplete}" layout="list" 
+		mode="ajax" var="yi" fetchValue="#{yi.sequence}" autoFill="true" selectFirst="true">
+		</rich:autocomplete>		
+	</h:form>
+	
+	<h:form id="autoForm2">
+		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="browserFilter" tokens="," var="yi"
+			fetchValue="#{yi.sequence}" layout="table" >
+			<rich:column>
+				<h:outputText id="yiNo" value="#{yi.sequence}" />
+			</rich:column>
+			<rich:column>
+				<h:outputText id="yiName" value="#{yi.name}" />
+			</rich:column>
+			<rich:column>
+				<h:outputText id="yiPron" value="#{yi.pronounce}" />
+			</rich:column>
+		</rich:autocomplete>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/inputs" />
 </h:body>
 </html>
