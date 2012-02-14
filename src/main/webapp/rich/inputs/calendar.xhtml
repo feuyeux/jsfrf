@@ -1,18 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4.1 rich标签库</title>
+	<h:outputStylesheet>
+        .bdc {
+        background-color: gray;
+        }
+ 
+        .wdc {
+        font-weight: bold;
+        font-style: italic;
+        }
+    </h:outputStylesheet>
 </h:head>
 <f:view locale="zh">
 </f:view>
 <h:body>
-	<rich:calendar id="rfCalendar" value="#{calendarBean.datetime}" 
-	 todayControlMode="aainactive" datePattern="dd/M/yy HH:mm:ss" />
+	<rich:calendar id="rfCalendar" value="#{calendarBean.datetime}" locale="#{calendarBean.locale}" todayControlMode="select" datePattern="#{calendarBean.pattern}"
+		showApplyButton="false" popup="true" disabled="#{calendarBean.disabled}" enableManualInput="true" cellWidth="20px" cellHeight="20px" style="width:200px">
+	</rich:calendar>
+	<h:form>
+		<rich:calendar mode="ajax" boundaryDatesMode="scroll" dataModel="#{calendarModel}" />
+	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/inputs" />
 </h:body>
