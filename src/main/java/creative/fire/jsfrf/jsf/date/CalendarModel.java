@@ -10,7 +10,7 @@ import javax.faces.bean.ManagedBean;
 import org.richfaces.model.CalendarDataModel;
 import org.richfaces.model.CalendarDataModelItem;
 
-@ManagedBean
+@ManagedBean(name="cModel")
 @ApplicationScoped
 public class CalendarModel implements CalendarDataModel {
 	private static final String WEEKEND_DAY_CLASS = "wdc";
