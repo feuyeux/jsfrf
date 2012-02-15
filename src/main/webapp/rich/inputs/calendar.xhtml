@@ -5,26 +5,24 @@
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4.1 rich标签库</title>
 	<h:outputStylesheet>
-        .bdc {
-        background-color: gray;
-        }
- 
-        .wdc {
-        font-weight: bold;
-        font-style: italic;
+        .special{
+        	font-weight: bold;
+        	color:red;
         }
     </h:outputStylesheet>
 </h:head>
-<f:view locale="zh">
-</f:view>
-<h:body>
-	<rich:calendar id="rfCalendar" value="#{calendarBean.datetime}" locale="#{calendarBean.locale}" todayControlMode="select" datePattern="#{calendarBean.pattern}"
-		showApplyButton="false" popup="true" disabled="#{calendarBean.disabled}" enableManualInput="true" cellWidth="20px" cellHeight="20px" style="width:200px">
-	</rich:calendar>
-	<h:form>
-		<rich:calendar mode="ajax" boundaryDatesMode="scroll" dataModel="#{cModel}" />
-	</h:form>
-	<br />
-	<h:link value="返回列表" outcome="/rich/inputs" />
-</h:body>
+
+	<h:body>
+		<rich:calendar id="c1" value="#{calendarBean.datetime}" locale="#{calendarBean.locale}" todayControlMode="select" datePattern="#{calendarBean.pattern}"
+			showApplyButton="false" popup="true" disabled="#{calendarBean.disabled}" enableManualInput="true" cellWidth="20px" cellHeight="20px" style="width:200px">
+		</rich:calendar>
+		
+		<h:form id="cForm">
+			<rich:calendar id="c2" mode="ajax" boundaryDatesMode="scroll" dataModel="#{cModel}" />
+		</h:form>
+		
+		<br />
+		<h:link value="返回列表" outcome="/rich/inputs" />
+	</h:body>
+
 </html>

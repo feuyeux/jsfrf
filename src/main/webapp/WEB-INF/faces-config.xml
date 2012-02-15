@@ -31,7 +31,7 @@
 
 	<application>
 		 <!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener>-->
-		
+		<message-bundle>jsfrfMessage</message-bundle>
 		<locale-config>
 			<default-locale>zh_CN</default-locale>
 			<supported-locale>en</supported-locale>

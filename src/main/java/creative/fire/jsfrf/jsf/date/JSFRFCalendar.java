@@ -14,7 +14,7 @@ import javax.faces.bean.RequestScoped;
 public class JSFRFCalendar {
 	private Date datetime;
 	private String pattern = "dd/M/yy HH:mm:ss";
-	private String locale;
+	private String locale="zh";
 	private boolean disabled;
 
 	public Date getDatetime() {

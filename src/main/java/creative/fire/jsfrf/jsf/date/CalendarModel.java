@@ -13,39 +13,30 @@ import org.richfaces.model.CalendarDataModelItem;
 @ManagedBean(name="cModel")
 @ApplicationScoped
 public class CalendarModel implements CalendarDataModel {
-	private static final String WEEKEND_DAY_CLASS = "wdc";
-	private static final String BUSY_DAY_CLASS = "bdc";
-	private static final String BOUNDARY_DAY_CLASS = "rf-ca-boundary-dates";
-
-	private boolean checkBusyDay(Calendar calendar) {
-		return (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY);
+	private static final String SPECIAL = "special";
+	Calendar today = GregorianCalendar.getInstance();
+	
+	public CalendarModel(){
+		today.setTime(new Date());
 	}
-
-	private boolean checkWeekend(Calendar calendar) {
-		return (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY);
+	
+	private boolean isSpecialDay(Calendar calendar) {
+		return (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY
+				|| calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY);
 	}
 
 	public CalendarDataModelItem[] getData(Date[] dateArray) {
 		CalendarDataModelItem[] modelItems = new CalendarModelItem[dateArray.length];
 		Calendar current = GregorianCalendar.getInstance();
-		Calendar today = GregorianCalendar.getInstance();
-		today.setTime(new Date());
+		
 		for (int i = 0; i < dateArray.length; i++) {
 			current.setTime(dateArray[i]);
 			CalendarModelItem modelItem = new CalendarModelItem();
-			if (current.before(today)) {
+			if (isSpecialDay(current)) {
 				modelItem.setEnabled(false);
-				modelItem.setStyleClass(BOUNDARY_DAY_CLASS);
-			} else if (checkBusyDay(current)) {
-				modelItem.setEnabled(false);
-				modelItem.setStyleClass(BUSY_DAY_CLASS);
-			} else if (checkWeekend(current)) {
-				modelItem.setEnabled(false);
-				modelItem.setStyleClass(WEEKEND_DAY_CLASS);
-			} else {
+				modelItem.setStyleClass(SPECIAL);
+			}else
 				modelItem.setEnabled(true);
-				modelItem.setStyleClass("");
-			}
 			modelItems[i] = modelItem;
 		}
 
@@ -53,7 +44,6 @@ public class CalendarModel implements CalendarDataModel {
 	}
 
 	public Object getToolTip(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+		return date.before(today.getTime());
 	}
 }
