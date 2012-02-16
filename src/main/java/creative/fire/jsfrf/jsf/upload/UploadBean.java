@@ -11,10 +11,28 @@ import org.richfaces.model.UploadedFile;
 @ManagedBean
 @SessionScoped
 public class UploadBean {
-	private ArrayList<UploadedFile> files = new ArrayList<UploadedFile>();
-	
-	public void listener(FileUploadEvent event) throws Exception {
-		UploadedFile item = event.getUploadedFile();
-		files.add(item);
-	}
+
+    private ArrayList<UploadedFile> files = new ArrayList<UploadedFile>();
+    private int maxNum;
+
+    public ArrayList<UploadedFile> getFiles() {
+        return files;
+    }
+
+    public void setFiles(ArrayList<UploadedFile> files) {
+        this.files = files;
+    }
+
+    public int getMaxNum() {
+        return maxNum;
+    }
+
+    public void setMaxNum(int maxNum) {
+        this.maxNum = maxNum;
+    }
+
+    public void listener(FileUploadEvent event) throws Exception {
+        UploadedFile item = event.getUploadedFile();
+        files.add(item);
+    }
 }

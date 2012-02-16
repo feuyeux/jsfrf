@@ -13,6 +13,7 @@
 	<properties>
 		<jsf.version>2.1.4</jsf.version>
 		<rf.version>4.1.0.Final</rf.version>
+	 <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 	</properties>
 
 

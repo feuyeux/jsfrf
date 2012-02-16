@@ -31,13 +31,13 @@
 			</h:outputLabel>
 
 			<h:outputLabel value="普通演示" />
-			<rich:calendar id="c0" />
+                        <rich:calendar id="c0" todayControlMode="inactive"/>
 			<h:outputLabel value="文艺演示" />
 			<rich:calendar id="c1" value="#{calendarBean.datetime}"
 				locale="#{calendarBean.locale}" todayControlMode="select"
 				datePattern="#{calendarBean.pattern}" showApplyButton="false"
 				popup="true" disabled="#{calendarBean.disabled}"
-				enableManualInput="true" cellWidth="20px" cellHeight="20px"
+				enableManualInput="true" 
 				style="width:200px" preloadDateRangeBegin="#{calendarBean.start}"
 				preloadDateRangeEnd="#{calendarBean.end}" boundaryDatesMode="scroll">
 			</rich:calendar>
