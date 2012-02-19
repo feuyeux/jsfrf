@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.context.FacesContext;
@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 @ManagedBean(name = "text")
-@SessionScoped
+@ViewScoped
 public class TextBean implements Serializable {
 	private static final long serialVersionUID = 7515550212656544309L;
 	static Logger logger = Logger.getLogger(TextBean.class);

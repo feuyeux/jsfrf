@@ -3,7 +3,7 @@ package creative.fire.jsfrf.jsf.pagination;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.apache.log4j.Logger;
 
@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 @ManagedBean(name = "displayResolution")
-@SessionScoped
+@ViewScoped
 public class DisplayResolution implements Serializable {
 	private static final long serialVersionUID = -4509764560269011152L;
 	private int pageSize;

@@ -1,45 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:a4j="http://richfaces.org/a4j">
-    <h:head>
-        <h:outputStylesheet name="jsfrf.css" library="css" />
-        <title>Richfaces4.1 rich标签库</title>
-        <h:outputStylesheet name="uploadStyle">
-            .rf-fu-itm{
-            height: 30px;
-            }
-            .rf-fu-lst{
-            height: 110px;
-            }
-        </h:outputStylesheet>
-    </h:head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4.1 rich标签库</title>
+	<style>
+.rf-fu-itm {
+	height: 10px;
+	padding-top: 5px;
+}
 
-    <h:body>
-        <h:form id="uploadForm">
-            <rich:fileUpload id="uploader0" onfilesubmit="alert('onfilesubmit');" onuploadcomplete="alert('onuploadcomplete');"
-                             fileUploadListener="#{uploadBean.listener}" acceptedTypes="txt" />
+.rf-fu-lst {
+	height: 50px;
+}
+</style>
+</h:head>
 
-            <h:panelGrid columns="2" style="width:50%;margin:0;padding:0">
-                <rich:fileUpload id="uploader"
-                                 fileUploadListener="#{uploadBean.listener}"
-                                 maxFilesQuantity="#{uploadBean.maxNum}"	 
-                                 listHeight="0" >
-                    <a4j:ajax event="uploadcomplete" render="result" />
-                </rich:fileUpload>
+<h:body>
+	<h:form id="uploadForm">
+		<h:panelGrid columns="2" columnClasses="vtop,vtop"
+			style="margin:0;padding:0;">
+			<rich:fileUpload id="uploader" acceptedTypes="txt,html"
+				fileUploadListener="#{uploadBean.uploading}"
+				maxFilesQuantity="#{uploadBean.maxNum}" listHeight="2"
+				onfilesubmit="alert('onfilesubmit');"
+				onuploadcomplete="alert('onuploadcomplete');"
+				ontyperejected="alert('ontyperejected')" addLabel="添加">
+				<a4j:ajax event="uploadcomplete" render="result" />
+			</rich:fileUpload>
 
-                <rich:panel id="result">
-                    <rich:dataGrid columns="1" value="#{uploadBean.files}" var="file">
-                        <rich:panel bodyClass="rich-laguna-panel-no-header">
-                            <h:outputText value="#{file.name} (#{file.length} bytes)" />					
-                        </rich:panel>
-                    </rich:dataGrid>
-                </rich:panel>
-            </h:panelGrid>
-        </h:form>
-        <br />
-        <h:link value="返回列表" outcome="/rich/inputs" />
-    </h:body>
+			<rich:panel id="result">
+				<rich:dataGrid columns="1" value="#{uploadBean.files}" var="file">
+					<h:outputText value="#{file.name}" />
+				</rich:dataGrid>
+			</rich:panel>
+		</h:panelGrid>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/inputs" />
+</h:body>
 </html>

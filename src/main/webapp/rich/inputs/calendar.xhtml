@@ -2,44 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4.1 rich标签库</title>
-	<h:outputStylesheet>
-        .special{
-        	font-weight: bold;
-        	color:red;
-        }
-    </h:outputStylesheet>
+	<style>
+.special {
+	font-weight: bold;
+	color: red;
+}
+</style>
 </h:head>
 <h:body>
 	<h:form id="cForm">
 		<h:panelGrid columns="2">
-
-			<h:outputLabel value="preloadDateRangeBegin =" />
-			<h:outputLabel value="#{calendarBean.start}">
-				<f:convertDateTime dateStyle="short" timeStyle="short" type="both"
-					timeZone="GMT+8" locale="cn" />
-			</h:outputLabel>
-
-			<h:outputLabel value="preloadDateRangeEnd =" />
-			<h:outputLabel value="#{calendarBean.end}">
-				<f:convertDateTime dateStyle="short" timeStyle="short" type="both"
-					timeZone="GMT+8" locale="cn" />
-			</h:outputLabel>
-
 			<h:outputLabel value="普通演示" />
-                        <rich:calendar id="c0" todayControlMode="inactive"/>
+			<rich:calendar id="c0" todayControlMode="inactive" />
 			<h:outputLabel value="文艺演示" />
 			<rich:calendar id="c1" value="#{calendarBean.datetime}"
 				locale="#{calendarBean.locale}" todayControlMode="select"
 				datePattern="#{calendarBean.pattern}" showApplyButton="false"
 				popup="true" disabled="#{calendarBean.disabled}"
-				enableManualInput="true" 
-				style="width:200px" preloadDateRangeBegin="#{calendarBean.start}"
-				preloadDateRangeEnd="#{calendarBean.end}" boundaryDatesMode="scroll">
+				enableManualInput="true" style="width:200px" boundaryDatesMode="scroll" firstWeekDay="1">
 			</rich:calendar>
 			<h:outputLabel value="高级演示" />
 			<rich:calendar id="c2" mode="ajax" dataModel="#{cModel}" />

@@ -6,7 +6,7 @@
     <display-name>jsfrf1.0</display-name>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-value>Development</param-value><!-- Production -->
     </context-param>
 
 <!--
@@ -19,13 +19,23 @@
 		<param-name>org.richfaces.resourceMapping.compressedStages</param-name>
 		<param-value>All</param-value>
 	</context-param>
+-->
 
+<!--
 	<context-param>
 		<param-name>org.richfaces.resourceMapping.packedStages</param-name>
 		<param-value>All</param-value>
 	</context-param>
 -->
-<!--
+
+<!-- from rf4.2	
+	<context-param>
+	    <param-name>org.richfaces.resourceOptimization.enabled</param-name>
+	    <param-value>true</param-value>
+	</context-param>
+-->
+
+<!-- 
 	<context-param>
 	    <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
 	    <param-value>true</param-value>
@@ -41,6 +51,7 @@
 	    <param-value>-</param-value>
 	</context-param>
 -->
+
     <context-param>
         <param-name>org.richfaces.fileUpload.maxRequestSize</param-name>
         <param-value>1024</param-value>
@@ -70,7 +81,8 @@
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
 
-	<!--  -->
+	<!-- 
+	Richfaces的资源管理Servlet
     <servlet>
         <servlet-name>Resource Servlet</servlet-name>
         <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
@@ -80,7 +92,7 @@
         <servlet-name>Resource Servlet</servlet-name>
         <url-pattern>/org.richfaces.resources/*</url-pattern>
     </servlet-mapping>
-	<!-- -->
+	-->
 	
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

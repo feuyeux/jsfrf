@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
  * @version 1.0
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class PlayerCache {
 	private ArrayList<Player> sList = new ArrayList<Player>();
 	private ArrayList<Player> tList = new ArrayList<Player>();

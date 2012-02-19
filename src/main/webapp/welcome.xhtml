@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JSF2和Richfaces4.1使用指南</title>
 </h:head>
 
 <h:body>
-	<h:panelGrid id="outTable" columns="4" columnClasses="vtop,vtop,vtop,vtop">
+	<h:panelGrid id="outTable" columns="5" columnClasses="vtop,vtop,vtop,vtop,vtop">
 		<h:panelGrid id="hTable">
 			<h:outputText value="JSF2标准html库 " />
 			<h:link value="JSF2资源组件" outcome="h/resources" />
@@ -14,6 +15,9 @@
 			<h:link value="JSF2输出组件" outcome="h/outputs" />
 			<h:link value="JSF2 Map输出" outcome="h/mapOutput" />
 			<h:link value="JSF2点击组件" outcome="h/click" />
+		</h:panelGrid>
+		
+		<h:panelGrid id="fTable">
 			<h:outputText value="JSF2标准核心库 " />
 			<h:link value="多语言组件" outcome="f/loadBundle" />
 			<h:link value="功能组件" outcome="f/functions" />
@@ -21,35 +25,37 @@
 			<h:link value="校验组件" outcome="f/validator/validator" />
 		</h:panelGrid>
 
-		<h:panelGrid id="fTable">
-			<h:link value="值表达式" outcome="el/valueExpression" />
-			<h:link value="操作符表达式" outcome="el/expressionOperators" />
-			<h:link value="视图组件" outcome="ui/jsfrfComposition" />
-			<h:link value="分页" outcome="pagination/pagingDatatable" />
-			<h:link value="jsr303" outcome="f/validator/jsr303/validator"/>
-		</h:panelGrid>
-
 		<h:panelGrid id="rfTable">
 			<h:outputText value="Richfaces组件库" />
-			<h:link value="输入组件" outcome="rich/inputs" />
-			<h:link value="选择组件" outcome="rich/selects" />
-			<h:link value="菜单组件" outcome="rich/menus" />
-			<h:link value="校验组件" outcome="rich/validation" />
-			<h:link value="输出组件" outcome="rich/outputs" />
-			<h:link value="集合组件" outcome="rich/dataIterations" />
-			<h:link value="树组件" outcome="rich/tree" />
-			<h:link value="拖拽组件" outcome="rich/dragAndDrop" />
-			<h:link value="脚本组件" outcome="rich/functions" />
-			<h:link value="杂项" outcome="rich/miscellaneous" />
+			<h:link value="1 输入组件" outcome="rich/inputs" />
+			<h:link value="2 选择组件" outcome="rich/selects" />
+			<h:link value="3 菜单组件" outcome="rich/menus" />
+			<h:link value="4 校验组件" outcome="rich/validation" />
+			<h:link value="5 输出组件" outcome="rich/outputs" />
+			<h:link value="6 集合组件" outcome="rich/dataIterations" />
+			<h:link value="7 树组件" outcome="rich/tree" />
+			<h:link value="8 拖拽组件" outcome="rich/dragAndDrop" />
+			<h:link value="9 脚本组件" outcome="rich/functions" />
+			<h:link value="10 其它组件" outcome="rich/miscellaneous" />
 		</h:panelGrid>
 
 		<h:panelGrid id="a4jTable">
 			<h:outputText value="A4J组件库 " />
-			<h:link value="异步组件" outcome="a4j/actions" />
-			<h:link value="队列组件" outcome="a4j/queues" />
-			<h:link value="输出组件" outcome="a4j/outputs" />
-			<h:link value="迭代组件" outcome="a4j/repeat" />
-			<h:link value="监听组件" outcome="a4j/action/actionListener" />
+			<h:link value="1 异步组件" outcome="a4j/actions" />
+			<h:link value="2 队列组件" outcome="a4j/queues" />
+			<h:link value="3 输出组件" outcome="a4j/outputs" />
+			<h:link value="4 迭代组件" outcome="a4j/repeat" />
+			<h:link value="5 监听组件" outcome="a4j/action/actionListener" />
+		</h:panelGrid>
+
+		<h:panelGrid id="oTable">
+			<h:outputText value="其它" />
+			<h:link value="值表达式" outcome="el/valueExpression" />
+			<h:link value="操作符表达式" outcome="el/expressionOperators" />
+			<h:link value="视图组件" outcome="ui/jsfrfComposition" />
+			<h:link value="分页" outcome="pagination/pagingDatatable" />
+			<h:link value="jsr303" outcome="f/validator/jsr303/validator" />
+			<h:link value="jsf脚本" outcome="/h/jsfjslib.jsf" />
 		</h:panelGrid>
 	</h:panelGrid>
 
