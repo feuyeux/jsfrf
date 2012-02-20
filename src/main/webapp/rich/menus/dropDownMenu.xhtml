@@ -1,4 +1,7 @@
-  <h:outputStylesheet>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>  <h:outputStylesheet>
         .pic {
         margin-bottom: -4px;
         margin-right: 2px;
@@ -12,7 +15,10 @@
         }
     </h:outputStylesheet>
  
-    <h:form>
+</h:head>
+
+<h:body>
+	<h:form id="ddmForm">
         <rich:toolbar height="26px">
             <rich:dropDownMenu mode="ajax">
                 <f:facet name="label">
@@ -61,3 +67,9 @@
         <h:outputText style="font-weight:bold" value="#{dropDownMenuBean.current}"></h:outputText>
     </a4j:outputPanel>
     <br />
+    
+    	<br />
+	<h:link value="返回列表" outcome="/rich/menus" />
+</h:body>
+
+</html>

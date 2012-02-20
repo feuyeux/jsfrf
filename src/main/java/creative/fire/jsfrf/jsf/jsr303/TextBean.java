@@ -1,6 +1,7 @@
 package creative.fire.jsfrf.jsf.jsr303;
 
 import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
