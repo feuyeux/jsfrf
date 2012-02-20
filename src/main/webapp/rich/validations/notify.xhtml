@@ -1,16 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
-
 <h:body>
-	<h:link value="1" outcome="/rich/validations/1" />
-	<h:link value="2" outcome="/rich/validations/2" />
-	<h:link value="3" outcome="/rich/validations/3" />
+	<rich:notify id="n1" stayTime="1200" sticky="false" nonblocking="true" nonblockingOpacity="0.9"
+		showShadow="true" showCloseButton="true" detail="详细信息： 这是一条通知信息" stack="tlStack">
+		<f:facet name="summary">简明信息</f:facet>
+	</rich:notify>
 
-	<br />
-	<h:link value="返回列表" outcome="/rich/validation" />
+	<rich:notify id="n2" stayTime="1500" sticky="false" nonblocking="true" nonblockingOpacity="0.75"
+		showShadow="true" showCloseButton="true" detail="详细信息： 这是一条通知信息" stack="brStack">
+		<f:facet name="summary">简明信息</f:facet>
+	</rich:notify>
+
+	<rich:notifyStack id="tlStack" position="topLeft" direction="vertical" method="first" />
+	<rich:notifyStack id="brStack" position="bottomRight" direction="horizontal" method="last" />
+
+	<h:form>
+		<a4j:commandButton value="测试" render="n1 n2" style="margin-left:300px;margin-top:30px"/>
+	</h:form>
 </h:body>
 </html>
