@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -9,18 +8,24 @@
 
 <h:body>
 	<h:form id="copplapsiblePForm">
-		<h:selectOneRadio value="#{collapsedBean.icon0}">
-			<f:ajax event="change" render="cp"/>
+		<rich:panel>
+			<h:selectOneRadio value="#{collapsedBean.icon0}">
+				<f:ajax event="change" render="copplapsiblePForm" />
 				<f:selectItems value="#{collapsedBean.icons0}" />
-		</h:selectOneRadio>
-		<h:selectOneRadio value="#{collapsedBean.icon1}">
-			<f:ajax event="change" render="cp"/>
+			</h:selectOneRadio>
+			<h:graphicImage id="i1" library="org.richfaces.images" name="#{collapsedBean.icon0}.png" />
+		</rich:panel>
+		<rich:panel>
+			<h:selectOneRadio value="#{collapsedBean.icon1}">
+				<f:ajax event="change" render="copplapsiblePForm" />
 				<f:selectItems value="#{collapsedBean.icons1}" />
-		</h:selectOneRadio>
+			</h:selectOneRadio>
+			<h:graphicImage id="i2" library="org.richfaces.images" name="#{collapsedBean.icon1}.png" />
+		</rich:panel>
 
-		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}"
-			rightExpandedIcon="#{collapsedBean.icon1}" switchType="ajax" expanded="false" style="width:330px"
-			header="八卦" panelToggleListener="#{collapsedBean.doToggled}" render="sta">
+		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}" 
+		switchType="ajax" expanded="false"
+			style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}" render="sta">
 		......
 		</rich:collapsiblePanel>
 		<h:outputLabel value="#{collapsedBean.status}" id="sta" />

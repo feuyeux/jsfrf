@@ -17,15 +17,19 @@ public class CollapsedBean {
 	private String icon0;
 	private String icon1;
 
-	private PanelIcons[] icons0 = { PanelIcons.none, PanelIcons.chevron, PanelIcons.disc, PanelIcons.grid, PanelIcons.triangle, PanelIcons.transparent };
-	private PanelIcons[] icons1 = { PanelIcons.chevronLeft, PanelIcons.chevronUp, PanelIcons.chevronDown, PanelIcons.triangleLeft, PanelIcons.triangleUp,
-			PanelIcons.triangleDown };
+	private PanelIcons[] icons0 = { PanelIcons.disc, PanelIcons.grid, PanelIcons.none, PanelIcons.transparent };
+	private PanelIcons[] icons1 = { PanelIcons.chevron, PanelIcons.chevronLeft, PanelIcons.chevronUp, PanelIcons.chevronDown, PanelIcons.triangle,
+			PanelIcons.triangleLeft, PanelIcons.triangleUp, PanelIcons.triangleDown };
+
+	public CollapsedBean() {
+		icon0 = icons0[0].name();
+		icon1 = icons1[0].name();
+	}
 
 	public void doToggled(PanelToggleEvent event) {
-		event.getSource();
-		if (event.getExpanded()) {
-			status = icon0 + " " + icon1;
-		}
+		org.richfaces.component.UICollapsiblePanel panel = (org.richfaces.component.UICollapsiblePanel) event.getSource();
+		Object o = panel.getValue();
+		status = icon0 + " " + icon1 + o + " " + event.getExpanded();
 	}
 
 	public String getStatus() {
