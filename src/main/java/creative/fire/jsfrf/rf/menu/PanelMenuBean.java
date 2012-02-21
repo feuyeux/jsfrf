@@ -10,6 +10,10 @@ import org.richfaces.component.UIPanelMenuGroup;
 import org.richfaces.component.UIPanelMenuItem;
 import org.richfaces.event.ItemChangeEvent;
 
+/**
+ * @author feuyeux@gmail.com
+ * @version 1.0
+ */
 @ManagedBean
 @ViewScoped
 public class PanelMenuBean {

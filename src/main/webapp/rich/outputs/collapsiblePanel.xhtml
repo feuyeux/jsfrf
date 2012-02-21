@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -8,11 +9,23 @@
 
 <h:body>
 	<h:form id="copplapsiblePForm">
-		<rich:collapsiblePanel switchType="ajax" expanded="false" style="width:330px" header="八卦">
+		<h:selectOneRadio value="#{collapsedBean.icon0}">
+			<f:ajax event="change" render="cp"/>
+				<f:selectItems value="#{collapsedBean.icons0}" />
+		</h:selectOneRadio>
+		<h:selectOneRadio value="#{collapsedBean.icon1}">
+			<f:ajax event="change" render="cp"/>
+				<f:selectItems value="#{collapsedBean.icons1}" />
+		</h:selectOneRadio>
 
+		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}"
+			rightExpandedIcon="#{collapsedBean.icon1}" switchType="ajax" expanded="false" style="width:330px"
+			header="八卦" panelToggleListener="#{collapsedBean.doToggled}" render="sta">
+		......
 		</rich:collapsiblePanel>
+		<h:outputLabel value="#{collapsedBean.status}" id="sta" />
 	</h:form>
 	<br />
-		<h:link value="返回列表" outcome="/rich/outputs" />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>
