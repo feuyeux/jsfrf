@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>JSF超级链接</title>
@@ -8,27 +7,24 @@
 </h:head>
 <h:body>
 	<h:form id="linkForm">
-		<h:commandLink id="cLink" value="标准链接" action="#{text.foo}"
-			onclick="alert('测试')" />
-
-		<h:commandLink id="cLink2" action="#{text.foo}" onclick="alert('测试')">
-			<div class="butn">
-				<div>
-					<div class="shorter_width">
-						<h:outputText styleClass="btnText" value="标准链接" />
+		<h:panelGrid>
+			<h:commandLink id="cLink" value="标准链接" action="#{text.foo}" onclick="alert('测试')" />
+			<h:commandLink id="cLink2" action="#{text.foo}" onclick="alert('测试')">
+				<div class="butn">
+					<div>
+						<div class="shorter_width">
+							<h:outputText styleClass="btnText" value="标准链接" />
+						</div>
 					</div>
 				</div>
-			</div>
-		</h:commandLink>
+			</h:commandLink>
 
-	</h:form>
-	<h:panelGrid>
-		<h:link id="hLink" value="Get请求连接" outcome="click3" />
-		<h:outputLink id="oLink"
-			value="#{jsfrfEnv.contextPath}/h/click/click3.jsf">
+			<h:link id="hLink" value="Get请求连接" outcome="click3" />
+			<h:outputLink id="oLink" value="#{jsfrfEnv.contextPath}/h/click/click3.jsf">
 			普通链接
 		</h:outputLink>
-	</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
 	<h:link value="Return 2 Index" outcome="/welcome" />
 </h:body>
 </html>

@@ -1,61 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
-	xmlns:f="http://java.sun.com/jsf/core" 
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<style>
-		.rich-tab-inactive {
-			cursor: pointer;
-		}
+.rich-tab-inactive {
+	cursor: pointer;
+}
 
-		.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top{
-			background:none;
-		}
-	</style>
+.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top {
+	background: none;
+}
+</style>
 	<title>Richfaces4 rich标签库 tab组件</title>
 </h:head>
 
 <h:body>
-<h:form id="tabForm">
-			<rich:tabPanel id="callsTab" switchType="ajax" activeItem="qian" headerPosition="top" headerLocation="center">
-				<rich:tab name="八卦">
-					<rich:panel id="graphPanel1">
-1
-					</rich:panel>
-				</rich:tab>
-				
-				<rich:tab name="qian">		
-					<f:facet name="header">
-						<a4j:commandLink id="cLink" value="乾" action="#{text.foo}" onclick="alert('测试')" render="@this"/>
-					</f:facet>
-					
-					<rich:panel id="graphPanel2">
+	<h:form id="tabForm">
+		<rich:tabPanel id="callsTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top"
+			headerLocation="center" onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');"
+			itemChangeListener="#{tabBean.doItemChanging}" cycledSwitching="true" title="八卦">
+			<rich:itemChangeListener id="icl" for="callsTab" type="creative.fire.jsfrf.rf.output.JSFRFItemChangeListener" />
+			
+			<rich:tab name="qian">
+				<f:facet name="header">
+					乾
+				</f:facet>
+
+				<rich:panel id="graphPanel2">
 					#{text}
 					</rich:panel>
-				</rich:tab>
-				
-				<rich:tab header="坤" name="kun">
-					<rich:panel id="graphPanel3">
+			</rich:tab>
+
+			<rich:tab header="坤" name="kun">
+				<rich:panel id="graphPanel3">
 32
 					</rich:panel>
-				</rich:tab>
-				
-				<rich:tab header="离">
-					<rich:panel id="graphPanel4">
+			</rich:tab>
+
+			<rich:tab header="离">
+				<rich:panel id="graphPanel4">
 4
 					</rich:panel>
-				</rich:tab>
-				
-					<rich:tab header="坎">
-					<rich:panel id="graphPanel5">
+			</rich:tab>
+
+			<rich:tab header="坎">
+				<rich:panel id="graphPanel5">
 5
 					</rich:panel>
-				</rich:tab>
-			</rich:tabPanel>
-			</h:form>
+			</rich:tab>
+		</rich:tabPanel>
+	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>

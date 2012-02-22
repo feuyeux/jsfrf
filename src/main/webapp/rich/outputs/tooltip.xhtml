@@ -1,18 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:a4j="http://richfaces.org/a4j" 
-xmlns:rich="http://richfaces.org/rich"><h:head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+<h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 
 <h:body>
-	<h:panelGrid>
 
-	</h:panelGrid>
+	<h:form>
+		<rich:panel id="rp" style="width:100px">
+			提示测试
+			<rich:tooltip id="tt" layout="block" followMouse="false" showDelay="0" mode="ajax" >
+				<f:facet name="defaultContent">
+					<strong>请等待...</strong>
+				</f:facet>
+				<span style="white-space: nowrap">这是一条测试信息 </span>
+			</rich:tooltip>
+		</rich:panel>
+	</h:form>
 	<br />
-		<h:link value="返回列表" outcome="/rich/outputs" />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>

@@ -29,7 +29,7 @@ public class CollapsedBean {
 	public void doToggled(PanelToggleEvent event) {
 		org.richfaces.component.UICollapsiblePanel panel = (org.richfaces.component.UICollapsiblePanel) event.getSource();
 		Object o = panel.getValue();
-		status = icon0 + " " + icon1 + o + " " + event.getExpanded();
+		status = icon0 + " " + icon1 + " " + o + " " + event.getExpanded();
 	}
 
 	public String getStatus() {

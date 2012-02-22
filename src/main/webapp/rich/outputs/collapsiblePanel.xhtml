@@ -1,36 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputStylesheet name="btn.css" library="css" />
+	<h:outputScript library="javax.faces" name="jsf.js" target="head" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 
 <h:body>
 	<h:form id="copplapsiblePForm">
-		<rich:panel>
+		<rich:panel style="width:70%">
 			<h:selectOneRadio value="#{collapsedBean.icon0}">
-				<f:ajax event="change" render="copplapsiblePForm" />
+				<f:ajax event="change" render="i1 cp" />
 				<f:selectItems value="#{collapsedBean.icons0}" />
 			</h:selectOneRadio>
 			<h:graphicImage id="i1" library="org.richfaces.images" name="#{collapsedBean.icon0}.png" />
 		</rich:panel>
-		<rich:panel>
+		<rich:panel style="width:70%">
 			<h:selectOneRadio value="#{collapsedBean.icon1}">
-				<f:ajax event="change" render="copplapsiblePForm" />
+				<f:ajax event="change" render="i2 cp" />
 				<f:selectItems value="#{collapsedBean.icons1}" />
 			</h:selectOneRadio>
 			<h:graphicImage id="i2" library="org.richfaces.images" name="#{collapsedBean.icon1}.png" />
 		</rich:panel>
 
-		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}" 
-		switchType="ajax" expanded="false"
-			style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}" render="sta">
+		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}"
+			switchType="ajax" expanded="false" style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}"
+			render="sta">
 		......
+		
+			<rich:panelToggleListener id="ptl" for="cp" type="creative.fire.jsfrf.rf.output.JSFRFToggledListener" />
 		</rich:collapsiblePanel>
-		<h:outputLabel value="#{collapsedBean.status}" id="sta" />
+		<h:outputLabel id="sta" value="#{collapsedBean.status}" />
 	</h:form>
+
 	<br />
-	<h:link value="返回列表" outcome="/rich/outputs" />
+	<h:link id="cLink2" outcome="/rich/outputs">
+		<div class="butn">
+			<div>
+				<div>
+					<h:panelGrid columns="2">
+						<h:outputText styleClass="btnText" value="返回列表" />
+						<h:graphicImage id="icon" library="org.richfaces.images" name="chevronLeft.png" />
+					</h:panelGrid>
+				</div>
+			</div>
+		</div>
+	</h:link>
 </h:body>
 </html>

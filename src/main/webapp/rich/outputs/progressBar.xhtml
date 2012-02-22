@@ -1,18 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:a4j="http://richfaces.org/a4j" 
-xmlns:rich="http://richfaces.org/rich"><h:head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+<h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 
 <h:body>
-	<h:panelGrid>
+	<rich:progressBar id="pb0" value="65" label="65%" />
 
-	</h:panelGrid>
+	<h:form id="pbForm">
+		<rich:progressBar id="pb" value="#{progressBarBean.current}" mode="ajax" interval="100"
+			enabled="#{progressBarBean.enabled}" minValue="0" maxValue="100">
+			<f:facet name="initial">
+				<h:outputText value="初始…" />
+			</f:facet>
+
+			<f:facet name="finish">
+				<h:outputText value="完成！" />
+			</f:facet>
+			<h:outputText value="#{progressBarBean.current} %" />
+		</rich:progressBar>
+
+		<a4j:commandButton action="#{progressBarBean.start}" value="测试" execute="@form" render="pb" />
+	</h:form>
 	<br />
-		<h:link value="返回列表" outcome="/rich/outputs" />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>

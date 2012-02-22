@@ -1,34 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
-	xmlns:f="http://java.sun.com/jsf/core" 
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>Richfaces 弹出窗口</title>
 	<h:outputStylesheet id="loadCss" name="jsfrf.css" library="css" />
 </h:head>
 
 <h:body>
-	<h:form id="h-resources-form">
-		<a4j:commandLink value="测试弹出窗口" onclick="#{rich:component('popupWindow')}.show()" />
-	</h:form>
-
 	<h:form id="popupForm">
+		<h:panelGrid>
+			<a4j:commandLink value="测试弹出窗口1" onclick="#{rich:component('popupWindow')}.show()" />
+
+			<h:outputLink value="#">
+				<h:outputText value="测试弹出窗口2" />
+				<rich:componentControl event="click" target="popupWindow" operation="show" />
+			</h:outputLink>
+		</h:panelGrid>
 		<h:outputStylesheet id="loadCss" name="jsfrf.css" library="css" />
 		<rich:popupPanel id="popupWindow" width="200" height="100" modal="true" moveable="false">
 			<f:facet name="header">
-				<h:outputText value="样式测试窗口" />
+				<h:outputText value="弹出窗口标题" />
 			</f:facet>
 			<f:facet name="controls">
 				<span style="cursor: pointer" onclick="#{rich:component('popupWindow')}.hide()">X</span>
 			</f:facet>
 			<h:outputText id="ecssText" value="弹出窗口内容" />
-			<br />
-			<a4j:commandLink onclick="#{rich:component('popupWindow')}.hide()" value="退出" />
+			<h:panelGrid>
+				<a4j:commandLink onclick="#{rich:component('popupWindow')}.hide()" value="退出1" />
+				<h:outputLink value="#">
+					<h:outputText value="退出2" />
+					<rich:componentControl event="click" target="popupWindow" operation="hide" />
+				</h:outputLink>
+			</h:panelGrid>
 		</rich:popupPanel>
 	</h:form>
-<br />
-		<h:link value="返回列表" outcome="/rich/outputs" />
+	<br />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>
