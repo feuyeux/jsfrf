@@ -9,7 +9,6 @@
 <h:body>
 	<h:form id="toggleForm">
 		<rich:panel style="width:330px">
-
 			<rich:togglePanel id="toggleP" switchType="ajax">
 				<rich:togglePanelItem id="toggleI1">
 					<h:panelGrid>
@@ -38,27 +37,28 @@
 				<rich:togglePanelItem id="toggleI3">
 					<h:panelGrid>
 						<h:outputText value="离" />
-						<h:commandLink value="Next">
-							<rich:toggleControl targetItem="@next" />
+						<h:commandLink value="上一步">
+							<rich:toggleControl targetItem="@prev" />
 						</h:commandLink>
 					</h:panelGrid>
 				</rich:togglePanelItem>
 			</rich:togglePanel>
-
-			<h:panelGrid columns="3">
-				<h:commandButton value="向前">
-					<rich:toggleControl targetPanel="toggleP" targetItem="@prev" />
-				</h:commandButton>
-				<h:commandButton value="坤">
-					<rich:toggleControl targetPanel="toggleP" targetItem="toggleI2" />
-				</h:commandButton>
-				<h:commandButton value="向后">
-					<rich:toggleControl targetPanel="toggleP" targetItem="@next" />
-				</h:commandButton>
-			</h:panelGrid>
 		</rich:panel>
+		
+		<h:panelGrid columns="3">
+			<h:commandButton value="向前">
+				<rich:toggleControl targetPanel="toggleP" targetItem="@prev" />
+			</h:commandButton>
+			<h:commandButton value="坤">
+				<rich:toggleControl targetPanel="toggleP" targetItem="toggleI2" />
+			</h:commandButton>
+			<h:commandButton value="向后">
+				<rich:toggleControl targetPanel="toggleP" targetItem="@next" />
+			</h:commandButton>
+		</h:panelGrid>
+
 	</h:form>
 	<br />
-		<h:link value="返回列表" outcome="/rich/outputs" />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>
