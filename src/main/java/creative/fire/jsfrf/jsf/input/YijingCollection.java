@@ -30,7 +30,7 @@ public class YijingCollection {
 		list.add(new Yijing("15", "谦", "qiān"));
 		list.add(new Yijing("16", "豫", "yǜ"));
 		list.add(new Yijing("17", "随", "suí"));
-		list.add(new Yijing(" 18", "蛊", "gǔ"));
+		list.add(new Yijing("18", "蛊", "gǔ"));
 		list.add(new Yijing("19", "临", "lín"));
 
 		list.add(new Yijing("20", "观", "guān"));

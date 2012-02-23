@@ -64,7 +64,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 						UIViewRoot viewRoot = fc.getApplication().getViewHandler().createView(fc, "fake");
 						fc.setViewRoot(viewRoot);
 					}
-					nav.handleNavigation(fc, null, "error");
+					nav.handleNavigation(fc, null, "error?faces-redirect=true");
 					HttpSession session = JSFRFFaces.getSession();
 					session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
 					fc.renderResponse();

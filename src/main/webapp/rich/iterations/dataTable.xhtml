@@ -1,9 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
@@ -12,10 +9,8 @@
 <h:body>
 	<h:form id="richDTForm">
 		<rich:panel style="width:80%;height:580px">
-			<rich:dataTable id="dt" style="width:100%"
-				rows="#{onePagination.pageSize}" value="#{onePagination.list}"
-				var="yi" rowClasses="oddrow,evenrow"
-				columnClasses="firstCol,secondCol,thirdCol" border="1">
+			<rich:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.list}" var="yi"
+				rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol" border="1">
 
 				<f:facet name="caption">
 					<h:outputText value="周易64卦" />
@@ -24,10 +19,12 @@
 					<h:outputText value="易经列表" />
 				</f:facet>
 
-				<rich:column id="firstColumn">
+				<rich:column id="firstColumn" sortBy="#{yi.sequence}" comparator="#{onePagination.sequenceComparator}"
+					sortOrder="#{onePagination.sequenceOrder}">
 					<f:facet name="header">
-					 序号
-				</f:facet>
+						<a4j:commandLink value="序号" render="dt" action="#{onePagination.sortBySequence}" />
+					</f:facet>
+
 					<h:outputText value="#{yi.sequence}" />
 				</rich:column>
 

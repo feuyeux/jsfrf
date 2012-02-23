@@ -1,9 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
@@ -11,15 +8,11 @@
 
 <h:body>
 	<h:form id="xdtForm">
-		<rich:extendedDataTable id="xdt" style="height:500px; width:183px;"
-			frozenColumns="1" value="#{xonePagination.list}"
-			selection="#{xonePagination.selection}" var="yi"
-			rowClasses="oddrow,evenrow"
-			columnClasses="firstCol,secondCol,thirdCol" border="1"
-			selectionMode="multiple">
+		<rich:extendedDataTable id="xdt" style="height:500px; width:183px;" frozenColumns="1" value="#{xonePagination.list}"
+			selection="#{xonePagination.selection}" var="yi" rowClasses="oddrow,evenrow"
+			columnClasses="firstCol,secondCol,thirdCol" border="1" selectionMode="multiple">
 
-			<a4j:ajax event="selectionchange" render="selected"
-				listener="#{xonePagination.showSelections}" />
+			<a4j:ajax event="selectionchange" render="selected" listener="#{xonePagination.showSelections}" />
 
 			<rich:column id="firstColumn">
 				<f:facet name="header">
@@ -34,7 +27,7 @@
 				</f:facet>
 				<h:outputText value="#{yi.name}" />
 			</rich:column>
-			
+
 			<rich:column>
 				<f:facet name="header">
 					读音
@@ -47,8 +40,8 @@
 			</f:facet>
 		</rich:extendedDataTable>
 
-		<rich:list id="selected" value="#{xonePagination.selectedList}" var="yi">
-		<h:outputText value="#{yi.sequence} #{yi.name}" />
+		<rich:list id="selected" value="#{xonePagination.selectedList}" var="yi" type="definitions">
+			<h:outputText value="#{yi.sequence} #{yi.name}" />
 		</rich:list>
 	</h:form>
 

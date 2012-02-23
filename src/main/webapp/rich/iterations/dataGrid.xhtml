@@ -1,13 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
+	<style>
+	.quarter {
+		width: 36px;
+	}
+	</style>
 </h:head>
-
 <h:body>
-<br />
-		<h:link value="返回列表" outcome="/rich/dataIterations" />
+	<h:form>
+		<rich:dataGrid value="#{onePagination.list}" var="yi" columns="4" elements="16" border="0">
+			<rich:panel header="#{yi.name}">
+				<h:panelGrid columns="2" columnClasses="quarter,quarter,quarter,quarter">
+					<h:outputText value="#{yi.sequence}" />
+					<h:outputText value="#{yi.pronounce}" />
+				</h:panelGrid>
+			</rich:panel>
+			<f:facet name="footer">
+				<rich:dataScroller />
+			</f:facet>
+		</rich:dataGrid>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/dataIterations" />
 </h:body>
 </html>

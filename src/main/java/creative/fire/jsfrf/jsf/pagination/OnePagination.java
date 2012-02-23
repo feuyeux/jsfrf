@@ -1,12 +1,14 @@
 package creative.fire.jsfrf.jsf.pagination;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.apache.log4j.Logger;
+import org.richfaces.component.SortOrder;
 
 import creative.fire.jsfrf.jsf.input.Yijing;
 import creative.fire.jsfrf.jsf.input.YijingCollection;
@@ -22,6 +24,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	static Logger log = Logger.getLogger(OnePagination.class);
 	private ArrayList<Yijing> list;
 	private ArrayList<Yijing> showList;
+	private SortOrder sequenceOrder = SortOrder.unsorted;
 
 	public OnePagination() {
 		log.debug("构造");
@@ -78,5 +81,38 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 			}
 		}
 		return result;
+	}
+
+	public SortOrder getSequenceOrder() {
+		return sequenceOrder;
+	}
+
+	public void setSequenceOrder(SortOrder sequenceOrder) {
+		this.sequenceOrder = sequenceOrder;
+	}
+
+	public void sortBySequence() {
+		if (sequenceOrder.equals(SortOrder.ascending)) {
+			setSequenceOrder(SortOrder.descending);
+		} else {
+			setSequenceOrder(SortOrder.ascending);
+		}
+	}
+
+	public Comparator<Yijing> getSequenceComparator() {
+		return new Comparator<Yijing>() {
+			public int compare(Yijing y1, Yijing y2) {
+				int v1 = Integer.valueOf(y1.getSequence().trim());
+				int v2 = Integer.valueOf(y2.getSequence().trim());
+				if (v1 == v2) {
+					return 0;
+				}
+				if (v1 > v2) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		};
 	}
 }
