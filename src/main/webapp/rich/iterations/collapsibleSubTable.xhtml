@@ -7,7 +7,49 @@
 </h:head>
 
 <h:body>
-<br />
-		<h:link value="返回列表" outcome="/rich/dataIterations" />
+	<h:form>
+		<rich:dataTable value="#{subTableBean.regions}" var="region">
+			<f:facet name="header">
+				<rich:columnGroup>
+					<rich:column colspan="3">
+						<h:outputText value="地区" />
+					</rich:column>
+					
+					<rich:column breakRowBefore="true">
+						<h:outputText value="省份" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="简称" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="省会" />
+					</rich:column>
+				</rich:columnGroup>
+			</f:facet>
+			
+			<rich:column colspan="3">
+				<rich:collapsibleSubTableToggler for="subTbl" />
+				<h:outputText value="#{region.name}" />
+			</rich:column>
+			
+			<rich:collapsibleSubTable id="subTbl" value="#{region.provinces}" var="province" expandMode="client">
+				<rich:column>
+					<h:outputText value="#{province.name}" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{province.abbreviation}" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{province.capital}" />
+				</rich:column>
+				 
+				<f:facet name="footer">
+					<h:outputText value="所辖省级: #{region.count}" />
+				</f:facet>
+			</rich:collapsibleSubTable>			
+		</rich:dataTable>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/dataIterations" />
 </h:body>
 </html>
