@@ -1,4 +1,5 @@
 package creative.fire.jsfrf.jsf.lifecycle;
+
 import java.util.Iterator;
 
 import javax.faces.FacesException;
@@ -21,7 +22,7 @@ import creative.fire.jsfrf.global.JSFRFFaces;
  * @version 1.0
  */
 public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
-private Logger logger=org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.class);
+	private Logger logger = org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.class);
 	private ExceptionHandler wrapped;
 
 	public JSFRFExceptionHandler(ExceptionHandler wrapped) {
@@ -35,12 +36,13 @@ private Logger logger=org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.cl
 
 	@Override
 	public void handle() throws FacesException {
-		for (Iterator<ExceptionQueuedEvent> i = getUnhandledExceptionQueuedEvents().iterator(); i.hasNext();) {
-			ExceptionQueuedEvent event = i.next();
+		Iterator<ExceptionQueuedEvent> iter = getUnhandledExceptionQueuedEvents().iterator();
+		while (iter.hasNext()) {
+			ExceptionQueuedEvent event = iter.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
 			Throwable t = context.getException();
 			logger.error(t.getMessage());
-			
+
 			if (t instanceof ViewExpiredException) {
 				FacesContext fc = FacesContext.getCurrentInstance();
 				NavigationHandler nav = fc.getApplication().getNavigationHandler();
@@ -56,7 +58,7 @@ private Logger logger=org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.cl
 					}
 					fc.renderResponse();
 				} finally {
-					i.remove();
+					iter.remove();
 				}
 			} else if (t instanceof javax.faces.view.facelets.FaceletException) {
 				FacesContext fc = FacesContext.getCurrentInstance();
@@ -72,7 +74,7 @@ private Logger logger=org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.cl
 					session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
 					fc.renderResponse();
 				} finally {
-					i.remove();
+					iter.remove();
 				}
 			}
 		}

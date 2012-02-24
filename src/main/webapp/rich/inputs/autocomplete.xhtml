@@ -5,7 +5,7 @@
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 	<script>
-		function browserFilter(prefix, suggestValue) {
+		function filterOnBrowser(prefix, suggestValue) {
 			if (prefix.length >= 1) {
 				if (suggestValue.indexOf(prefix) != -1)//contains
 					return true;
@@ -25,7 +25,7 @@
 	</h:form>
 
 	<h:form id="autoForm2">
-		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="browserFilter"
+		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="filterOnBrowser"
 			tokens="," var="yi" fetchValue="#{yi.sequence}" layout="table">
 			<rich:column>
 				<h:outputText id="yiNo" value="#{yi.sequence}" />

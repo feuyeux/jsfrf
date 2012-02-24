@@ -11,9 +11,9 @@
 		<h:panelGrid>
 			<a4j:commandLink value="测试弹出窗口1" onclick="#{rich:component('popupWindow')}.show()" />
 
-			<h:outputLink value="#">
+			<h:outputLink id="link1" value="#">
 				<h:outputText value="测试弹出窗口2" />
-				<rich:componentControl event="click" target="popupWindow" operation="show" />
+				<rich:componentControl event="click" target="popupWindow" selector="link1" operation="show" />
 			</h:outputLink>
 		</h:panelGrid>
 		<h:outputStylesheet id="loadCss" name="jsfrf.css" library="css" />
