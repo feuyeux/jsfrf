@@ -30,7 +30,7 @@ public class ProgressBarBean implements Serializable {
 				enabled = false;
 				current = -1;
 			} else {
-				current+=5;
+				current += 5;
 			}
 		} else {
 			current = -1;

@@ -6,11 +6,11 @@
 <h:body>
 	<h:form id="aForm">
 		<h:commandButton id="btn" value="测试" actionListener="#{text.update2}">
-			<f:setPropertyActionListener target="#{text.testList[0]}" value="壬"/>
-			<f:setPropertyActionListener target="#{text.testList[1]}" value="癸"/>
+			<f:setPropertyActionListener target="#{text.testList[0]}" value="壬" />
+			<f:setPropertyActionListener target="#{text.testList[1]}" value="癸" />
 		</h:commandButton>
-		<h:outputText value="#{text.testList[0]}"/>
-		<h:outputText value="#{text.testList[1]}"/>
+		<h:outputText value="#{text.testList[0]}" />
+		<h:outputText value="#{text.testList[1]}" />
 	</h:form>
 </h:body>
 </html>

@@ -9,8 +9,6 @@ import org.apache.log4j.Logger;
 import org.richfaces.event.FileUploadEvent;
 import org.richfaces.model.UploadedFile;
 
-import creative.fire.jsfrf.jsf.event.JSFRFActionListener;
-
 @ManagedBean
 @ViewScoped
 public class UploadBean {

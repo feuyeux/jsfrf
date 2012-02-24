@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 public class JSFRFPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = -4520688723151960719L;
 	static Logger logger = Logger.getLogger(JSFRFPhaseListener.class);
+
 	public void afterPhase(PhaseEvent event) {
 		logger.info("after " + event.getPhaseId());
 	}

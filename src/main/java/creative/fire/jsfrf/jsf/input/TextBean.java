@@ -124,7 +124,7 @@ public class TextBean implements Serializable {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
 		this.rendered = "true".equals(rendered);
-		this.value = params.get("textValue");
+		value = params.get("textValue");
 	}
 
 	public void update1(javax.faces.event.ActionEvent event) {
@@ -137,7 +137,7 @@ public class TextBean implements Serializable {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
 		this.rendered = "true".equals(rendered);
-		this.value = params.get("textValue");
+		value = params.get("textValue");
 	}
 
 	public void update2(javax.faces.event.ActionEvent event) {

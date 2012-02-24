@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
@@ -19,14 +19,14 @@
 
 <h:body>
 	<h:form id="autoForm1">
-		<rich:autocomplete id="autoInput" autocompleteMethod="#{onePagination.autocomplete}" layout="list" 
-		mode="ajax" var="yi" fetchValue="#{yi.sequence}" autoFill="true" selectFirst="true">
-		</rich:autocomplete>		
+		<rich:autocomplete id="autoInput" autocompleteMethod="#{onePagination.autocomplete}" layout="list" mode="ajax"
+			var="yi" fetchValue="#{yi.sequence}" autoFill="true" selectFirst="true">
+		</rich:autocomplete>
 	</h:form>
-	
+
 	<h:form id="autoForm2">
-		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="browserFilter" tokens="," var="yi"
-			fetchValue="#{yi.sequence}" layout="table" >
+		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="browserFilter"
+			tokens="," var="yi" fetchValue="#{yi.sequence}" layout="table">
 			<rich:column>
 				<h:outputText id="yiNo" value="#{yi.sequence}" />
 			</rich:column>

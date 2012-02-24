@@ -51,7 +51,7 @@ public class GraphValidateBean implements java.lang.Cloneable {
 	public boolean isTextEqual() {
 		return password.equals(repassword);
 	}
-	
+
 	public String getCountry() {
 		return country;
 	}

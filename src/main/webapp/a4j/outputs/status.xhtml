@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>JavaServer Faces a4j标签库</title>
 
@@ -8,12 +8,12 @@
 
 <h:body>
 	<h:form id="statusForm">
-		<a4j:status id="status1" name="status1" onstart="#{rich:component('statusPanel')}.show();" onstop="#{rich:component('statusPanel')}.hide();"
-			onerror="alert('出错了！');" />
+		<a4j:status id="status1" name="status1" onstart="#{rich:component('statusPanel')}.show();"
+			onstop="#{rich:component('statusPanel')}.hide();" onerror="alert('出错了！');" />
 		<h:panelGrid>
 			<h:inputText value="#{a4jBean.value}" />
 			<a4j:commandButton id="statusButton" value="测试1" action="#{a4jBean.walk}" render="resultText" status="status1" />
-			<a4j:commandButton id="commonButton" value="测试2" action="#{a4jBean.walk}" render="resultText" />		
+			<a4j:commandButton id="commonButton" value="测试2" action="#{a4jBean.walk}" render="resultText" />
 			<a4j:status startText="处理中..." stopText="完成" />
 			<h:outputText id="resultText" value="#{a4jBean.value}" />
 		</h:panelGrid>

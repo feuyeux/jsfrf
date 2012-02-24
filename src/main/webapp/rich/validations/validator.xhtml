@@ -17,7 +17,7 @@
 					<rich:validator />
 				</h:inputText>
 				<rich:message for="textId" />
-				
+
 				<h:outputText value="电子邮件" />
 				<h:inputText value="#{jsr303.input.email}" id="email" validatorMessage="Validation Error: Invalid email address">
 					<f:validateRegex
@@ -25,7 +25,7 @@
 					<rich:validator />
 				</h:inputText>
 				<rich:message for="email" />
-				
+
 				<h:outputText value="移动电话" />
 				<h:inputText value="#{jsr303.input.mobilePhone}" id="mobilePhone" label="mobilePhone">
 					<f:validateLongRange minimum="11" maximum="11" />
@@ -34,7 +34,7 @@
 				<rich:message for="mobilePhone" />
 			</h:panelGrid>
 		</rich:panel>
-		<rich:messages/>
+		<rich:messages />
 		<h:commandButton value="提交" />
 	</h:form>
 

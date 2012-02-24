@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
@@ -14,7 +14,7 @@
 					<rich:column colspan="3">
 						<h:outputText value="地区" />
 					</rich:column>
-					
+
 					<rich:column breakRowBefore="true">
 						<h:outputText value="省份" />
 					</rich:column>
@@ -26,12 +26,12 @@
 					</rich:column>
 				</rich:columnGroup>
 			</f:facet>
-			
+
 			<rich:column colspan="3">
 				<rich:collapsibleSubTableToggler for="subTbl" />
 				<h:outputText value="#{region.name}" />
 			</rich:column>
-			
+
 			<rich:collapsibleSubTable id="subTbl" value="#{region.provinces}" var="province" expandMode="client">
 				<rich:column>
 					<h:outputText value="#{province.name}" />
@@ -42,11 +42,11 @@
 				<rich:column>
 					<h:outputText value="#{province.capital}" />
 				</rich:column>
-				 
+
 				<f:facet name="footer">
 					<h:outputText value="所辖省级: #{region.count}" />
 				</f:facet>
-			</rich:collapsibleSubTable>			
+			</rich:collapsibleSubTable>
 		</rich:dataTable>
 	</h:form>
 	<br />

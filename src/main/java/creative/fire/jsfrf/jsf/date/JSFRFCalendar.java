@@ -14,7 +14,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class JSFRFCalendar {
 	private Date datetime;
-	private String pattern ="yyyy-MM-dd HH:mm:ss";
+	private String pattern = "yyyy-MM-dd HH:mm:ss";
 	private String locale = "zh";
 	private boolean disabled;
 	private Date start;

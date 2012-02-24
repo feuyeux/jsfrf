@@ -1,28 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>JavaServer Faces 分页</title>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<style>
-	.firstCol {
-		width: 25%;
-	}
-	
-	.secondCol {
-		color: 50%;
-	}
-	
-	.thirdCol {
-		width: 25%;
-	}
-	</style>
+.firstCol {
+	width: 25%;
+}
+
+.secondCol {
+	color: 50%;
+}
+
+.thirdCol {
+	width: 25%;
+}
+</style>
 </h:head>
 <h:body>
 	<h:form id="tableForm">
 		<rich:panel style="width:80%;height:500px">
-			<h:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.showList}" var="yi" 
-			rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol"  border="1" >
+			<h:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.showList}" var="yi"
+				rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol" border="1">
 				<h:column id="firstColumn">
 					<f:facet name="header">
 					 序号

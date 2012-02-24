@@ -1,20 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>JavaServer Faces 资源引用</title>
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
 	<h:outputScript library="javascript/js2" name="a.js" target="head" />
 	<h:outputScript library="javascript" name="loadJs.js" target="head" />
-<style>
-
-.roundedGraph{
+	<style>
+.roundedGraph {
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
-	
 	-webkit-box-shadow: #B3B3B3 3px 3px 3px;
-	-moz-box-shadow: #B3B3B3 3px 3px 3px; 
+	-moz-box-shadow: #B3B3B3 3px 3px 3px;
 	box-shadow: #B3B3B3 3px 3px 3px;
 }
 </style>
@@ -35,8 +33,9 @@
 	</h:form>
 
 	<h:panelGrid columns="2">
-		<h:graphicImage id="logo1" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" styleClass="roundedGraph"/>
-		<h:graphicImage id="logo2" url="/resources/img/vendor2/logo.png" height="60" width="60"/>
+		<h:graphicImage id="logo1" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60"
+			styleClass="roundedGraph" />
+		<h:graphicImage id="logo2" url="/resources/img/vendor2/logo.png" height="60" width="60" />
 	</h:panelGrid>
 
 	<a4j:commandButton value="测试EL样式 红色" onclick="elTest('red');" style="margin-right:10px" render="ecssText" />

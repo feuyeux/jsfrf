@@ -11,7 +11,7 @@
 			<f:param name="value" value="#{text.value}" />
 		</h:outputFormat>
 		<br />
-		
+
 		<h:commandButton id="paBtn" value="测试1" action="#{text.update0}">
 			<f:param name="rendered" value="true" />
 			<f:param name="textValue" value="1" />
@@ -24,9 +24,9 @@
 
 		<h:commandButton id="aBtn" value="测试3" action="#{text.update('true','3')}" style="margin-left:10px" />
 	</h:form>
-<br />
+	<br />
 	<h:form id="outputTextForm2">
-		<h:commandButton id="aButton" value="测试4" action="#{text.update('true','4')}"/>
+		<h:commandButton id="aButton" value="测试4" action="#{text.update('true','4')}" />
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/h/outputs" />

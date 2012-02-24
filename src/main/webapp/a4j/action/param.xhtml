@@ -1,7 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<script language="javascript">
@@ -17,10 +15,8 @@
 		<h:panelGrid>
 			<h:inputText id="p1" />
 			<h:inputText id="p2" />
-			<a4j:commandButton id="testBtn" value="加法计算"
-				render=":paramForm:result">
-				<a4j:param name="param1"
-					value="plus(jQuery('#paramForm\\:p1').val(),jQuery('#paramForm\\:p2').val())"
+			<a4j:commandButton id="testBtn" value="加法计算" render=":paramForm:result">
+				<a4j:param name="param1" value="plus(jQuery('#paramForm\\:p1').val(),jQuery('#paramForm\\:p2').val())"
 					assignTo="#{flash.sum}" noEscape="true" />
 			</a4j:commandButton>
 			<h:outputText id="result" value="#{flash.sum}" />

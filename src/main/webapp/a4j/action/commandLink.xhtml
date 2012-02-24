@@ -1,15 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 
 </h:head>
 <h:body>
 	<h:form id="linkForm">
-		<a4j:commandLink id="cLink" value="异步请求链接" action="#{text.foo}"
-			onclick="alert('测试')" />
+		<a4j:commandLink id="cLink" value="异步请求链接" action="#{text.foo}" onclick="alert('测试')" />
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/a4j/actions" />

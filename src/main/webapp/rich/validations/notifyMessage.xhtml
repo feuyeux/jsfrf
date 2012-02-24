@@ -14,15 +14,15 @@
 					<h:inputText label="x" id="x" value="#{flash.x}" required="true">
 						<f:validateLength minimum="3" />
 					</h:inputText>
-												
+
 					<h:outputText value="Y" />
 					<h:inputText label="y" id="y" value="#{flash.y}">
 						<f:validateLength minimum="2" maximum="3" />
 					</h:inputText>
 				</rich:validator>
 
-				<rich:notifyMessages stayTime="2000" animationSpeed="500" nonblocking="true" appearAnimation=""/>
-				
+				<rich:notifyMessages stayTime="2000" animationSpeed="500" nonblocking="true" appearAnimation="" />
+
 				<f:facet name="footer">
 					<a4j:commandButton value="测试" />
 				</f:facet>

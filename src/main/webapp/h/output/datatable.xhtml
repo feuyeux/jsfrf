@@ -4,24 +4,25 @@
 	<title>JavaServer Faces h标签库</title>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<style>
-		.head {
-			align: left;
-			color: red;
-		}
-		.foot {
-			align: right;
-			text-align:right;
-			color: blue;
-		}
-		
-		.firstCol{
-			width:15%;
-		}
-		
-		.secondCol{
-			color:red;
-		}
-	</style>
+.head {
+	align: left;
+	color: red;
+}
+
+.foot {
+	align: right;
+	text-align: right;
+	color: blue;
+}
+
+.firstCol {
+	width: 15%;
+}
+
+.secondCol {
+	color: red;
+}
+</style>
 </h:head>
 <h:body>
 
@@ -32,8 +33,9 @@ rules
 Code specifying which rules will appear between cells within this table. Valid values are: none (no rules, default value); groups (between row groups); rows (between rows only); cols (between columns only); and all (between all rows and columns).
 
 	<h:form id="tableForm">
-		<h:dataTable id="dt" style="width:80%" rows="10" value="#{playerBean.sList}" var="star" footerClass="foot" headerClass="head"
-			rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol" bgcolor="yellow" border="1" cellpadding="0" cellspacing="0">
+		<h:dataTable id="dt" style="width:80%" rows="10" value="#{playerBean.sList}" var="star" footerClass="foot"
+			headerClass="head" rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol" bgcolor="yellow" border="1"
+			cellpadding="0" cellspacing="0">
 			<h:column id="firstColumn">
 				<f:facet name="header">
 					号码

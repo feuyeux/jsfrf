@@ -8,12 +8,10 @@
 	<f:view id="inputView">
 		<h:form id="inputForm">
 			<h:panelGrid id="pg1">
-				<h:inputText id="text" value="#{text.value}" 
-					required="true" requiredMessage="这是必输项,请输入" 
-					converter="textConverter" converterMessage="TextBean转换出错"
-					validator="textValidator" validatorMessage="输入内容未通过校验" 
-					maxlength="7" size="2" readonly="false" disabled="false" renderd="true" immediate="true"
-					valueChangeListener="#{text.foo0}" title="这是一个标准输入组件" />
+				<h:inputText id="text" value="#{text.value}" required="true" requiredMessage="这是必输项,请输入" converter="textConverter"
+					converterMessage="TextBean转换出错" validator="textValidator" validatorMessage="输入内容未通过校验" maxlength="7" size="2"
+					readonly="false" disabled="false" renderd="true" immediate="true" valueChangeListener="#{text.foo0}"
+					title="这是一个标准输入组件" />
 				<h:commandButton id="inputButton" value="测试" />
 			</h:panelGrid>
 		</h:form>

@@ -11,12 +11,13 @@
 			<h:outputText value="#{jsfrfEnv.language}" />
 
 			<h:selectOneRadio value="#{jsfrfLocale.selected}">
-				<f:selectItems value="#{jsfrfLocale.localeList}" var="locale" itemLabel="#{locale.language}" itemValue="#{locale.language}" />
+				<f:selectItems value="#{jsfrfLocale.localeList}" var="locale" itemLabel="#{locale.language}"
+					itemValue="#{locale.language}" />
 				<f:ajax event="change" listener="#{jsfrfLocale.updateLocale}" render=":localForm:localTable" />
 			</h:selectOneRadio>
 
 			<h:outputText value="#{jrMsg['jsfrf.helloworld']}" />
-			
+
 			<h:outputFormat id="statisticResult" value="#{jrMsg.usingLanguage}">
 				<f:param value="#{jsfrfLocale.selected}" />
 			</h:outputFormat>

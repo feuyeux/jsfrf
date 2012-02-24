@@ -28,19 +28,19 @@
 
 		<h:outputText value="h:selectBooleanCheckbox" />
 		<h:outputText value="标准选择组件" />
-		
+
 		<h:panelGroup id="checkBoxPG">
 			<a name="pg0">panelGroup</a>
-			<h:selectBooleanCheckbox id="checkbox" value="true"/>
-			<h:outputLabel value="标准选择组件" for="checkbox"/>
+			<h:selectBooleanCheckbox id="checkbox" value="true" />
+			<h:outputLabel value="标准选择组件" for="checkbox" />
 		</h:panelGroup>
 
 		<h:outputText value="h:selectManyCheckbox" />
-		<h:link value="标准多选组件" outcome="input/multiSelection" hideNoSelectionOption="true"/>
+		<h:link value="标准多选组件" outcome="input/multiSelection" hideNoSelectionOption="true" />
 		<h:selectManyCheckbox id="mCheckbox" value="#{flash.lists}">
 			<f:selectItem itemLabel="one" itemValue="1" />
 			<f:selectItem itemLabel="two" itemValue="2" />
-			<f:selectItem itemLabel="three" itemValue="3" noSelectionOption="true"/>
+			<f:selectItem itemLabel="three" itemValue="3" noSelectionOption="true" />
 		</h:selectManyCheckbox>
 
 		<h:outputText value="h:selectManyListbox" />

@@ -26,19 +26,21 @@ public class RichFacesTreeNodeBean {
 	private String toggledNodeData = null;
 
 	@PostConstruct
-	public void init(){
+	public void init() {
 		logger.info("1234567890-");
 	}
-	
+
 	public void nodeToggled(TreeToggleEvent event) {
 		UITree uiTree = (UITree) event.getComponent();
 		RichFacesTreeNode richfacesTreeNode = (RichFacesTreeNode) uiTree.getRowData();
 		toggledNodeData = richfacesTreeNode.getData();
 
-		if (event.isCollapsed())
+		if (event.isCollapsed()) {
 			logger.info("The tree:" + uiTree.getClientId() + " is collapsed.");
-		if (event.isExpanded())
+		}
+		if (event.isExpanded()) {
 			logger.info("The tree:" + uiTree.getClientId() + " is expanded.");
+		}
 	}
 
 	public void selectionChanged(TreeSelectionChangeEvent event) {

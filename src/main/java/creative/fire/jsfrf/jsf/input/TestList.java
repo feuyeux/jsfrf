@@ -11,7 +11,7 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean(name = "testList")
 @ViewScoped
-public class TestList implements Serializable{
+public class TestList implements Serializable {
 	private static final long serialVersionUID = -7167737890795683649L;
 	private java.util.HashSet<String> item = new java.util.HashSet<String>();
 	private java.util.Collection<String> list = new java.util.ArrayList<String>();

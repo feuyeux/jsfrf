@@ -1,7 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>JavaServer Faces f标签库</title>
 	<h:outputScript library="javascript/offical" name="jquery-1.7.1.js" />
@@ -12,11 +10,12 @@
 	<h:form id="ajaxForm">
 		<h:panelGrid>
 			<h:inputText id="inputText1" value="#{a4jBean.value}">
-				<f:ajax event="keyup" excute="@this" render="@form"	onevent="requestMonitor" onerror="errorHandler" />
+				<f:ajax event="keyup" excute="@this" render="@form" onevent="requestMonitor" onerror="errorHandler" />
 			</h:inputText>
 
-			<h:inputText id="inputText2" value="#{a4jBean.value}" onkeyup="jsf.ajax.request(this,event,{'render':'ajaxForm:outputText','onevent':requestMonitor});"/>
-			
+			<h:inputText id="inputText2" value="#{a4jBean.value}"
+				onkeyup="jsf.ajax.request(this,event,{'render':'ajaxForm:outputText','onevent':requestMonitor});" />
+
 			<h:outputText id="outputText" value="#{a4jBean.value}" />
 
 			<h:outputText id="ajaxConsole" />

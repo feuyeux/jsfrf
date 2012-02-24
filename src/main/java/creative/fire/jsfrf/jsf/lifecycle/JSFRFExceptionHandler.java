@@ -1,5 +1,4 @@
 package creative.fire.jsfrf.jsf.lifecycle;
-
 import java.util.Iterator;
 
 import javax.faces.FacesException;
@@ -13,6 +12,8 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import creative.fire.jsfrf.global.JSFRFFaces;
 
 /**
@@ -20,7 +21,7 @@ import creative.fire.jsfrf.global.JSFRFFaces;
  * @version 1.0
  */
 public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
-
+private Logger logger=org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.class);
 	private ExceptionHandler wrapped;
 
 	public JSFRFExceptionHandler(ExceptionHandler wrapped) {
@@ -38,6 +39,8 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 			ExceptionQueuedEvent event = i.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
 			Throwable t = context.getException();
+			logger.error(t.getMessage());
+			
 			if (t instanceof ViewExpiredException) {
 				FacesContext fc = FacesContext.getCurrentInstance();
 				NavigationHandler nav = fc.getApplication().getNavigationHandler();
@@ -64,7 +67,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 						UIViewRoot viewRoot = fc.getApplication().getViewHandler().createView(fc, "fake");
 						fc.setViewRoot(viewRoot);
 					}
-					nav.handleNavigation(fc, null, "error?faces-redirect=true");
+					nav.handleNavigation(fc, null, "error");
 					HttpSession session = JSFRFFaces.getSession();
 					session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
 					fc.renderResponse();
