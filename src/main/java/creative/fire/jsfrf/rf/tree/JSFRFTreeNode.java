@@ -2,11 +2,11 @@ package creative.fire.jsfrf.rf.tree;
 
 import org.richfaces.model.TreeNodeImpl;
 
-public class RichFacesTreeNode extends TreeNodeImpl {
+public class JSFRFTreeNode extends TreeNodeImpl {
 	private String data;
 	private boolean selected;
 
-	public RichFacesTreeNode(String data) {
+	public JSFRFTreeNode(String data) {
 		super();
 		this.data = data;
 	}
@@ -27,4 +27,8 @@ public class RichFacesTreeNode extends TreeNodeImpl {
 		this.selected = selected;
 	}
 
+	@Override
+	public String toString() {
+		return data +" selected?"+selected;
+	}
 }
