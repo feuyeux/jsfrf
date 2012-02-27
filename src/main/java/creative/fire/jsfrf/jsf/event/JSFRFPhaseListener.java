@@ -16,14 +16,21 @@ public class JSFRFPhaseListener implements PhaseListener {
 
 	public void afterPhase(PhaseEvent event) {
 		logger.info("after " + event.getPhaseId());
+		if (PhaseId.RESTORE_VIEW == event.getPhaseId()) {
+			String viewId = event.getFacesContext().getViewRoot().getViewId();
+			String path = event.getFacesContext().getExternalContext().getRequestServletPath();
+			logger.info("1 path: " + path);
+			logger.info("1 viewId: " + viewId);
+		}
 	}
 
 	public void beforePhase(PhaseEvent event) {
-		if (PhaseId.RESTORE_VIEW == event.getPhaseId()) {
-			// TODO
-		}
+		logger.info("beforePhase " + event.getPhaseId());
 		if (PhaseId.RENDER_RESPONSE == event.getPhaseId()) {
-			// TODO
+			String path = event.getFacesContext().getExternalContext().getRequestServletPath();
+			String viewId = event.getFacesContext().getViewRoot().getViewId();
+			logger.info("6 path: " + path);
+			logger.info("6 viewId: " + viewId);
 		}
 	}
 

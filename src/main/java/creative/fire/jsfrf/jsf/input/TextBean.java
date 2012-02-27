@@ -31,6 +31,7 @@ public class TextBean implements Serializable {
 	private boolean rendered;
 	private ArrayList<String> testList;
 	private Map<String, String> testMap;
+	@ManagedProperty(value = "1")
 	private int intValue;
 
 	@PostConstruct
@@ -97,7 +98,12 @@ public class TextBean implements Serializable {
 	}
 
 	public void foo() {
-		System.out.println(value);
+		logger.info(value);
+	}
+
+	public String foo1() {
+		logger.info(intValue);
+		return "/h/lifecycle/end";
 	}
 
 	public void foo0(ValueChangeEvent e) {
