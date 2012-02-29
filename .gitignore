@@ -4,3 +4,6 @@ target
 .DS_Store
 .project
 .db
+.idea
+jsfrf.iml
+nb-configuration.xml
