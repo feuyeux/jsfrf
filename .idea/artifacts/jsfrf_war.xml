@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="jsfrf:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="jsfrf.war">
-      <element id="artifact" artifact-name="jsfrf:war exploded" />
-    </root>
-  </artifact>
-</component>
