@@ -10,15 +10,14 @@
 		<param-value>Development</param-value><!-- Production -->
 	</context-param>
 
-	<!-- <context-param> <param-name>org.richfaces.resourceMapping.enabled</param-name> 
-		<param-value>true</param-value> </context-param> <context-param> <param-name>org.richfaces.resourceMapping.compressedStages</param-name> 
+	<!-- <context-param> <param-name>org.richfaces.resourceOptimization.enabled</param-name> 
+		<param-value>true</param-value> </context-param> 
+		
+		<context-param> <param-name>org.richfaces.resourceOptimization.compressionStages</param-name> 
 		<param-value>All</param-value> </context-param> -->
 
-	<!-- <context-param> <param-name>org.richfaces.resourceMapping.packedStages</param-name> 
+	<!-- <context-param> <param-name>org.richfaces.resourceOptimization.packagingStages</param-name> 
 		<param-value>All</param-value> </context-param> -->
-
-	<!-- from rf4.2 <context-param> <param-name>org.richfaces.resourceOptimization.enabled</param-name> 
-		<param-value>true</param-value> </context-param> -->
 
 	<!-- <context-param> <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name> 
 		<param-value>true</param-value> </context-param> <context-param> <param-name>javax.faces.USE_SYSTEM_TIMEZONE</param-name> 
