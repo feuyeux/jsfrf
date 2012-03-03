@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.context.FacesContext;
@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 @ManagedBean(name = "text")
-@ViewScoped
+@RequestScoped
 public class TextBean implements Serializable {
 	private static final long serialVersionUID = 7515550212656544309L;
 	static Logger logger = Logger.getLogger(TextBean.class);
@@ -93,8 +93,8 @@ public class TextBean implements Serializable {
 		return intValue;
 	}
 
-	public void setIntValue(int value) {
-		intValue = value;
+	public void setIntValue(int intValue) {
+		this.intValue = intValue;
 	}
 
 	public void foo() {
@@ -103,7 +103,7 @@ public class TextBean implements Serializable {
 
 	public String foo1() {
 		logger.info(intValue);
-		return "/h/lifecycle/end";
+		return "end";//end?faces-redirect=true";
 	}
 
 	public void foo0(ValueChangeEvent e) {

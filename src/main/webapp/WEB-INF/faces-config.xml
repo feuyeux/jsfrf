@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+              xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	<!--
 	<factory>
 		<exception-handler-factory>creative.fire.jsfrf.jsf.lifecycle.JSFRFExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 -->
-	<lifecycle>
-		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
-	</lifecycle>
+    <lifecycle>
+        <phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
+    </lifecycle>
 
 	<!-- <managed-bean> <description>bean for ajax</description> <managed-bean-name>a4jBean</managed-bean-name> 
 		<managed-bean-class>creative.fire.jsfrf.rf.ajax.AjaxBean</managed-bean-class> 
@@ -17,23 +17,23 @@
 		<property-class>java.lang.String</property-class> <value>初始</value> </managed-property> 
 		</managed-bean> -->
 
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>error</from-outcome>
-			<to-view-id>/error.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/error.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
-	<application>
+    <application>
 		<!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener> -->
-		<message-bundle>jsfrfMessage</message-bundle>
-		<locale-config>
-			<default-locale>zh_CN</default-locale>
-			<supported-locale>en</supported-locale>
-		</locale-config>
+        <message-bundle>jsfrfMessage</message-bundle>
+        <locale-config>
+            <default-locale>zh_CN</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
 		<!-- <resource-bundle> <base-name>jsfrfMessage</base-name> <var>jsfrfMsg</var> 
 			</resource-bundle> -->
-	</application>
+    </application>
 
 </faces-config>
