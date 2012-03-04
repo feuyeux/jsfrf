@@ -5,16 +5,18 @@
 </h:head>
 <h:body>
 	<h:form id="convertForm">
-		<h:inputText id="in1" value="#{a4jBean}">
-			<f:converter converterId="ajaxBeanConverter" />
-			<f:ajax event="keyup" render="out1" />
+		<h:inputText id="in1" value="#{text.intValue}" />
+		<!-- 
+		<h:inputText id="in2" value="#{text.intValue}">
+			<f:converter converterId="javax.faces.Integer"/>
 		</h:inputText>
+		-->
 		<h:panelGroup id="p1">
 			<h:outputLabel value="您输入的是：" />
-			<h:outputText id="out1" value="#{a4jBean}">
-				<f:converter converterId="ajaxBeanConverter" />
-			</h:outputText>
+			<h:outputText id="out1" value="#{text.intValue}" />
 		</h:panelGroup>
+
+		<h:commandButton value="测试" />
 	</h:form>
 </h:body>
 </html>

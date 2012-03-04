@@ -18,9 +18,7 @@ public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 	static Logger logger = Logger.getLogger(AjaxBean.class);
 	private boolean enabled;
-
 	private String value;
-
 	private int increase = 0;
 
 	public AjaxBean() {

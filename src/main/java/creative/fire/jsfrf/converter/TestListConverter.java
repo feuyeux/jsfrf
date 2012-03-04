@@ -1,4 +1,4 @@
-package creative.fire.jsfrf.jsf.input;
+package creative.fire.jsfrf.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

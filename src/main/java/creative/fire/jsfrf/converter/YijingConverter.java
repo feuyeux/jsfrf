@@ -1,9 +1,12 @@
-package creative.fire.jsfrf.jsf.input;
+package creative.fire.jsfrf.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+
+import creative.fire.jsfrf.jsf.input.Yijing;
+import creative.fire.jsfrf.jsf.input.YijingCollection;
 
 @FacesConverter("yiConverter")
 public class YijingConverter implements Converter {
