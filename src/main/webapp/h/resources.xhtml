@@ -1,7 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JavaServer Faces 资源引用</title>
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
 	<h:outputScript library="javascript/js2" name="a.js" target="head" />
@@ -33,8 +37,7 @@
 	</h:form>
 
 	<h:panelGrid columns="2">
-		<h:graphicImage id="logo1" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60"
-			styleClass="roundedGraph" />
+		<h:graphicImage id="logo1" library="img/#{ecss.vendor}" name="logo.png" height="60" width="60" styleClass="roundedGraph" />
 		<h:graphicImage id="logo2" url="/resources/img/vendor2/logo.png" height="60" width="60" />
 	</h:panelGrid>
 

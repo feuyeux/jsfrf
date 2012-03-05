@@ -17,13 +17,13 @@ public class TestBeanConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		logger.debug("getAsObject");
+		TestBeanConverter.logger.debug("getAsObject");
 		return value;
 	}
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		logger.debug("getAsString");
+		TestBeanConverter.logger.debug("getAsString");
 		return (String) value;
 	}
 }

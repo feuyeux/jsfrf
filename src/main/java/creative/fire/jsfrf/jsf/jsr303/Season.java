@@ -18,9 +18,9 @@ import javax.validation.Payload;
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Season {
-	String message() default "季节只能是  'spring', 'summer', 'fall', 或者 'winter'";
-
 	Class<?>[] groups() default {};
+
+	String message() default "季节只能是  'spring', 'summer', 'fall', 或者 'winter'";
 
 	Class<? extends Payload>[] payload() default {};
 }

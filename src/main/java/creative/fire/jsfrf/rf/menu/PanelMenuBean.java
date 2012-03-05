@@ -20,28 +20,28 @@ public class PanelMenuBean {
 	Logger logger = Logger.getLogger(PanelMenuBean.class);
 	private String menuSelected;
 
-	public String getMenuSelected() {
-		return menuSelected;
+	public PanelMenuBean() {
 	}
 
-	public PanelMenuBean() {
+	public String getMenuSelected() {
+		return this.menuSelected;
+	}
+
+	public void groupSelect(ActionEvent event) {
+		org.richfaces.component.UIPanelMenuGroup menuGroup = (UIPanelMenuGroup) event.getComponent();
+		this.menuSelected = menuGroup.getLabel();
 	}
 
 	public void itemChange(ItemChangeEvent event) {
 		UIComponent component = event.getNewItem();
 		if (component instanceof org.richfaces.component.UIPanelMenuItem) {
 			org.richfaces.component.UIPanelMenuItem menuItem = (UIPanelMenuItem) component;
-			logger.debug(menuItem.getClientId());
-			menuSelected = event.getNewItemName() + " " + menuItem.getLabel();
+			this.logger.debug(menuItem.getClientId());
+			this.menuSelected = event.getNewItemName() + " " + menuItem.getLabel();
 		}
 	}
 
-	public void groupSelect(ActionEvent event) {
-		org.richfaces.component.UIPanelMenuGroup menuGroup = (UIPanelMenuGroup) event.getComponent();
-		menuSelected = menuGroup.getLabel();
-	}
-
 	public void itemSelect(String value) {
-		menuSelected = value;
+		this.menuSelected = value;
 	}
 }

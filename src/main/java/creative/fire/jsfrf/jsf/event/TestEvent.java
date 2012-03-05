@@ -16,23 +16,23 @@ public class TestEvent {
 	static Logger logger = Logger.getLogger(TestEvent.class);
 
 	public void postAddToViewListener(ComponentSystemEvent event) {
-		logger.info("1.PostAddToViewEvent :" + event.getClass().getName());
-	}
-
-	public void preRenderViewListener(ComponentSystemEvent event) {
-		logger.info("2.PreRenderViewEvent :" + event.getClass().getName());
-	}
-
-	public void preRenderComponentListener(ComponentSystemEvent event) {
-		logger.info("3.PreRenderComponentEvent :" + event.getClass().getName());
-	}
-
-	public void preValidateListener(ComponentSystemEvent event) {
-		logger.info("->PreValidateEvent :" + event.getClass().getName());
+		TestEvent.logger.info("1.PostAddToViewEvent :" + event.getClass().getName());
 	}
 
 	public void postValidateListener(ComponentSystemEvent event) {
-		logger.info("<-PostValidateEvent :" + event.getClass().getName());
+		TestEvent.logger.info("<-PostValidateEvent :" + event.getClass().getName());
+	}
+
+	public void preRenderComponentListener(ComponentSystemEvent event) {
+		TestEvent.logger.info("3.PreRenderComponentEvent :" + event.getClass().getName());
+	}
+
+	public void preRenderViewListener(ComponentSystemEvent event) {
+		TestEvent.logger.info("2.PreRenderViewEvent :" + event.getClass().getName());
+	}
+
+	public void preValidateListener(ComponentSystemEvent event) {
+		TestEvent.logger.info("->PreValidateEvent :" + event.getClass().getName());
 	}
 
 }

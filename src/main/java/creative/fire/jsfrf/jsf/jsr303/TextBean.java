@@ -35,48 +35,48 @@ public class TextBean {
 	@Valid
 	private SubTextBean subTextBean;
 
-	public String getIdentification() {
-		return identification;
+	public String getCountry() {
+		return this.country;
 	}
 
-	public void setIdentification(String identification) {
-		this.identification = identification;
+	public String getEmail() {
+		return this.email;
+	}
+
+	public String getIdentification() {
+		return this.identification;
 	}
 
 	public String getMobilePhone() {
-		return mobilePhone;
+		return this.mobilePhone;
 	}
 
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
+	public String getSeason() {
+		return this.season;
 	}
 
-	public String getCountry() {
-		return country;
+	public SubTextBean getSubTextBean() {
+		return this.subTextBean;
 	}
 
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getSeason() {
-		return season;
+	public void setIdentification(String identification) {
+		this.identification = identification;
+	}
+
+	public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
 	}
 
 	public void setSeason(String season) {
 		this.season = season;
-	}
-
-	public SubTextBean getSubTextBean() {
-		return subTextBean;
 	}
 
 	public void setSubTextBean(SubTextBean subTextBean) {

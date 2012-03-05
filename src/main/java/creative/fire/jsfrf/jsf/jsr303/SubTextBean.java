@@ -17,15 +17,15 @@ public class SubTextBean {
 	private Date nextRainy;
 
 	public Date getBirthDate() {
-		return birthDate;
+		return this.birthDate;
+	}
+
+	public Date getNextRainy() {
+		return this.nextRainy;
 	}
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
-	}
-
-	public Date getNextRainy() {
-		return nextRainy;
 	}
 
 	public void setNextRainy(Date nextRainy) {

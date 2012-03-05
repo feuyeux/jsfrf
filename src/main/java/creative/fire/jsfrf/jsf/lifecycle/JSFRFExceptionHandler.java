@@ -31,7 +31,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public ExceptionHandler getWrapped() {
-		return wrapped;
+		return this.wrapped;
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 			ExceptionQueuedEvent event = iter.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
 			Throwable t = context.getException();
-			logger.error(t.getMessage());
+			this.logger.error(t.getMessage());
 
 			if (t instanceof ViewExpiredException) {
 				FacesContext fc = FacesContext.getCurrentInstance();

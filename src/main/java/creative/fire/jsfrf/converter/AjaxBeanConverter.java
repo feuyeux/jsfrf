@@ -33,8 +33,9 @@ public class AjaxBeanConverter implements Converter {
 		ValueExpression valueExpression = factory.createValueExpression(elContext, expression, AjaxBean.class);
 		AjaxBean a4jBean = (AjaxBean) valueExpression.getValue(elContext);
 
-		if (a4jBean == null)
+		if (a4jBean == null) {
 			return null;
+		}
 
 		a4jBean.setValue(value);
 		return a4jBean;

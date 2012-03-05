@@ -14,26 +14,29 @@ public class JSFRFPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = -4520688723151960719L;
 	static Logger logger = Logger.getLogger(JSFRFPhaseListener.class);
 
+	@Override
 	public void afterPhase(PhaseEvent event) {
-		logger.info("after " + event.getPhaseId());
+		JSFRFPhaseListener.logger.info("after " + event.getPhaseId());
 		if (PhaseId.RESTORE_VIEW == event.getPhaseId()) {
 			String viewId = event.getFacesContext().getViewRoot().getViewId();
 			String path = event.getFacesContext().getExternalContext().getRequestServletPath();
-			logger.info("1 path: " + path);
-			logger.info("1 viewId: " + viewId);
+			JSFRFPhaseListener.logger.info("1 path: " + path);
+			JSFRFPhaseListener.logger.info("1 viewId: " + viewId);
 		}
 	}
 
+	@Override
 	public void beforePhase(PhaseEvent event) {
-		logger.info("beforePhase " + event.getPhaseId());
+		JSFRFPhaseListener.logger.info("beforePhase " + event.getPhaseId());
 		if (PhaseId.RENDER_RESPONSE == event.getPhaseId()) {
 			String path = event.getFacesContext().getExternalContext().getRequestServletPath();
 			String viewId = event.getFacesContext().getViewRoot().getViewId();
-			logger.info("6 path: " + path);
-			logger.info("6 viewId: " + viewId);
+			JSFRFPhaseListener.logger.info("6 path: " + path);
+			JSFRFPhaseListener.logger.info("6 viewId: " + viewId);
 		}
 	}
 
+	@Override
 	public PhaseId getPhaseId() {
 		return PhaseId.ANY_PHASE;
 	}

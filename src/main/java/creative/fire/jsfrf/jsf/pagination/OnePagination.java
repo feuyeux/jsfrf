@@ -27,31 +27,17 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	private SortOrder sequenceOrder = SortOrder.unsorted;
 
 	public OnePagination() {
-		log.debug("构造");
+		OnePagination.log.debug("构造");
 	}
 
-	@Override
-	@PostConstruct
-	public void init() {
-		log.debug("init");
-		super.init();
-		initializeList();
-	}
-
-	private void initializeList() {
-		list = YijingCollection.getYijings();
-		showList = new ArrayList<Yijing>();
-
-		totalSize = list.size();
-		freshList();
-	}
-
-	public ArrayList<Yijing> getShowList() {
-		return showList;
-	}
-
-	public ArrayList<Yijing> getList() {
-		return list;
+	public ArrayList<Yijing> autocomplete(String prefix) {
+		ArrayList<Yijing> result = new ArrayList<Yijing>();
+		for (Yijing suggestYi : this.list) {
+			if (suggestYi.getSequence().startsWith(prefix)) {
+				result.add(suggestYi);
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -60,12 +46,12 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 			int from = (getPageIndex() - 1) * getPageSize();
 			int to = getPageIndex() * getPageSize();
 
-			if (to > totalSize) {
-				to = totalSize;
+			if (to > this.totalSize) {
+				to = this.totalSize;
 			}
-			showList.clear();
+			this.showList.clear();
 			for (int i = from; i < to; i++) {
-				showList.add(list.get(i));
+				this.showList.add(this.list.get(i));
 			}
 			fillItems();
 		} catch (Exception e) {
@@ -73,34 +59,13 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		}
 	}
 
-	public ArrayList<Yijing> autocomplete(String prefix) {
-		ArrayList<Yijing> result = new ArrayList<Yijing>();
-		for (Yijing suggestYi : list) {
-			if (suggestYi.getSequence().startsWith(prefix)) {
-				result.add(suggestYi);
-			}
-		}
-		return result;
-	}
-
-	public SortOrder getSequenceOrder() {
-		return sequenceOrder;
-	}
-
-	public void setSequenceOrder(SortOrder sequenceOrder) {
-		this.sequenceOrder = sequenceOrder;
-	}
-
-	public void sortBySequence() {
-		if (sequenceOrder.equals(SortOrder.ascending)) {
-			setSequenceOrder(SortOrder.descending);
-		} else {
-			setSequenceOrder(SortOrder.ascending);
-		}
+	public ArrayList<Yijing> getList() {
+		return this.list;
 	}
 
 	public Comparator<Yijing> getSequenceComparator() {
 		return new Comparator<Yijing>() {
+			@Override
 			public int compare(Yijing y1, Yijing y2) {
 				int v1 = Integer.valueOf(y1.getSequence().trim());
 				int v2 = Integer.valueOf(y2.getSequence().trim());
@@ -114,5 +79,41 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 				}
 			}
 		};
+	}
+
+	public SortOrder getSequenceOrder() {
+		return this.sequenceOrder;
+	}
+
+	public ArrayList<Yijing> getShowList() {
+		return this.showList;
+	}
+
+	@Override
+	@PostConstruct
+	public void init() {
+		OnePagination.log.debug("init");
+		super.init();
+		initializeList();
+	}
+
+	private void initializeList() {
+		this.list = YijingCollection.getYijings();
+		this.showList = new ArrayList<Yijing>();
+
+		this.totalSize = this.list.size();
+		freshList();
+	}
+
+	public void setSequenceOrder(SortOrder sequenceOrder) {
+		this.sequenceOrder = sequenceOrder;
+	}
+
+	public void sortBySequence() {
+		if (this.sequenceOrder.equals(SortOrder.ascending)) {
+			setSequenceOrder(SortOrder.descending);
+		} else {
+			setSequenceOrder(SortOrder.ascending);
+		}
 	}
 }

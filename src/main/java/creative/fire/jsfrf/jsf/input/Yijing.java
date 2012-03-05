@@ -18,20 +18,20 @@ public class Yijing implements Serializable {
 		this.pronounce = pronounce;
 	}
 
-	public String getSequence() {
-		return sequence;
-	}
-
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String getPronounce() {
-		return pronounce;
+		return this.pronounce;
+	}
+
+	public String getSequence() {
+		return this.sequence;
 	}
 
 	@Override
 	public String toString() {
-		return sequence + ":" + name + ":" + pronounce;
+		return this.sequence + ":" + this.name + ":" + this.pronounce;
 	}
 }

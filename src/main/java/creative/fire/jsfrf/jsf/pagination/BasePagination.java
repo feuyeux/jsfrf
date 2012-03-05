@@ -27,41 +27,87 @@ public abstract class BasePagination implements IPagination {
 	protected DisplayResolution displayResolution;
 
 	public BasePagination() {
-		log.debug("构造");
+		BasePagination.log.debug("构造");
 	}
 
-	public void init() {
-		if (displayResolution == null) {
-			pageSize = 20;
+	protected void fillItems() {
+		if (this.pageNumbers == null) {
+			this.pageNumbers = new ArrayList<SelectItem>();
 		} else {
-			pageSize = displayResolution.getPageSize();
-			if (pageSize == 0) {
-				pageSize = 20;
+			this.pageNumbers.clear();
+		}
+
+		if (getTotalSize() == 0) {
+			this.pageNumbers.add(new SelectItem(1 + "", 1 + ""));
+		} else {
+			for (int i = 1; i <= getPageCount(); i++) {
+				String pageNumber = "" + i;
+				this.pageNumbers.add(new SelectItem(pageNumber, pageNumber));
 			}
 		}
 	}
 
 	protected abstract void freshList();
 
-	protected void fillItems() {
-		if (pageNumbers == null) {
-			pageNumbers = new ArrayList<SelectItem>();
-		} else {
-			pageNumbers.clear();
+	public DisplayResolution getDisplayResolution() {
+		return this.displayResolution;
+	}
+
+	@Override
+	public int getPageCount() {
+		int mod = getTotalSize() % this.pageSize;
+		this.pageCount = getTotalSize() / this.pageSize;
+		if (mod > 0) {
+			this.pageCount++;
 		}
 
-		if (getTotalSize() == 0) {
-			pageNumbers.add(new SelectItem(1 + "", 1 + ""));
+		if (this.pageCount == 0) {
+			this.pageCount = 1;
+		}
+		return this.pageCount;
+	}
+
+	@Override
+	public int getPageIndex() {
+		return this.pageIndex;
+	}
+
+	public ArrayList<SelectItem> getPageNumbers() {
+		fillItems();
+		return this.pageNumbers;
+	}
+
+	@Override
+	public int getPageSize() {
+		return this.pageSize;
+	}
+
+	@Override
+	public int getTotalSize() {
+		return this.totalSize;
+	}
+
+	public void init() {
+		if (this.displayResolution == null) {
+			this.pageSize = 20;
 		} else {
-			for (int i = 1; i <= getPageCount(); i++) {
-				String pageNumber = "" + i;
-				pageNumbers.add(new SelectItem(pageNumber, pageNumber));
+			this.pageSize = this.displayResolution.getPageSize();
+			if (this.pageSize == 0) {
+				this.pageSize = 20;
 			}
 		}
 	}
 
-	public DisplayResolution getDisplayResolution() {
-		return displayResolution;
+	@Override
+	public boolean isDisabledFirst() {
+		this.disabledFirst = getPageIndex() == 1;
+		return this.disabledFirst;
+	}
+
+	@Override
+	public boolean isDisabledLast() {
+		this.disabledLast = getPageIndex() == getPageCount();
+		return this.disabledLast;
 	}
 
 	public void setDisplayResolution(DisplayResolution displayResolution) {
@@ -72,77 +118,42 @@ public abstract class BasePagination implements IPagination {
 		this.pageIndex = pageIndex;
 	}
 
-	public int getPageIndex() {
-		return pageIndex;
+	public void setPageNumbers(ArrayList<SelectItem> pageNumbers) {
+		this.pageNumbers = pageNumbers;
 	}
 
 	public void setTotalSize(int totalSize) {
 		this.totalSize = totalSize;
 	}
 
-	public int getTotalSize() {
-		return totalSize;
-	}
-
-	public int getPageCount() {
-		int mod = getTotalSize() % pageSize;
-		pageCount = getTotalSize() / pageSize;
-		if (mod > 0) {
-			pageCount++;
-		}
-
-		if (pageCount == 0) {
-			pageCount = 1;
-		}
-		return pageCount;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public ArrayList<SelectItem> getPageNumbers() {
-		fillItems();
-		return pageNumbers;
-	}
-
-	public void setPageNumbers(ArrayList<SelectItem> pageNumbers) {
-		this.pageNumbers = pageNumbers;
-	}
-
-	public boolean isDisabledFirst() {
-		disabledFirst = getPageIndex() == 1;
-		return disabledFirst;
-	}
-
-	public boolean isDisabledLast() {
-		disabledLast = getPageIndex() == getPageCount();
-		return disabledLast;
-	}
-
-	public void swichPage() {
-		freshList();
-	}
-
+	@Override
 	public void swichFirstPage() {
 		setPageIndex(1);
 		freshList();
 	}
 
-	public void swichPreviousPage() {
-		int index = getPageIndex();
-		setPageIndex(--index);
+	@Override
+	public void swichLastPage() {
+		setPageIndex(getPageCount());
 		freshList();
 	}
 
+	@Override
 	public void swichNextPage() {
 		int index = getPageIndex();
 		setPageIndex(++index);
 		freshList();
 	}
 
-	public void swichLastPage() {
-		setPageIndex(getPageCount());
+	@Override
+	public void swichPage() {
+		freshList();
+	}
+
+	@Override
+	public void swichPreviousPage() {
+		int index = getPageIndex();
+		setPageIndex(--index);
 		freshList();
 	}
 }

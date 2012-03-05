@@ -12,23 +12,23 @@ public class Region {
 		this.provinces = provinces;
 	}
 
+	public int getCount() {
+		return this.provinces.size();
+	}
+
 	public String getName() {
-		return name;
+		return this.name;
+	}
+
+	public ArrayList<Province> getProvinces() {
+		return this.provinces;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public ArrayList<Province> getProvinces() {
-		return provinces;
-	}
-
 	public void setProvinces(ArrayList<Province> provinces) {
 		this.provinces = provinces;
-	}
-
-	public int getCount() {
-		return provinces.size();
 	}
 }

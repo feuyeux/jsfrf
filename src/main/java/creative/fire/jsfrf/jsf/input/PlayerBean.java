@@ -24,10 +24,26 @@ public class PlayerBean {
 	private int pageIndex;
 	private int pageSize;
 
+	public int getPageIndex() {
+		return this.pageIndex;
+	}
+
+	public int getPageSize() {
+		return this.pageSize;
+	}
+
+	public ArrayList<Player> getsList() {
+		return this.sList;
+	}
+
+	public ArrayList<Player> gettList() {
+		return this.tList;
+	}
+
 	@PostConstruct
 	public void init() {
-		pageIndex = 1;
-		pageSize = 10;
+		this.pageIndex = 1;
+		this.pageSize = 10;
 		PlayerCache cache = PlayerCache.getInstance();
 		if (cache != null) {
 			ArrayList<Player> sList = cache.getsList();
@@ -37,16 +53,16 @@ public class PlayerBean {
 		}
 	}
 
-	public ArrayList<Player> getsList() {
-		return sList;
+	public void setPageIndex(int pageIndex) {
+		this.pageIndex = pageIndex;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 
 	public void setsList(ArrayList<Player> sList) {
 		this.sList = sList;
-	}
-
-	public ArrayList<Player> gettList() {
-		return tList;
 	}
 
 	public void settList(ArrayList<Player> tList) {
@@ -72,21 +88,5 @@ public class PlayerBean {
 			cache.settList(gettList());
 		}
 		return "/welcome.jsf";
-	}
-
-	public int getPageIndex() {
-		return pageIndex;
-	}
-
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
 	}
 }

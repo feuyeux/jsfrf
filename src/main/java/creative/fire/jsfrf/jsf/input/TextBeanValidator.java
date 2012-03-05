@@ -20,7 +20,7 @@ public class TextBeanValidator implements Validator {
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object obj) throws ValidatorException {
 		String value = (String) obj;
-		logger.debug("validate: " + value);
+		TextBeanValidator.logger.debug("validate: " + value);
 		if (value.equals("feuyeux")) {
 			FacesMessage message = new FacesMessage();
 			message.setDetail("非法输入");

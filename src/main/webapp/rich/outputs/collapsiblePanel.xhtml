@@ -1,7 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<h:outputStylesheet name="btn.css" library="css" />
 	<h:outputScript library="javax.faces" name="jsf.js" target="head" />
@@ -25,9 +28,8 @@
 			<h:graphicImage id="i2" library="org.richfaces.images" name="#{collapsedBean.icon1}.png" />
 		</rich:panel>
 
-		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}"
-			switchType="ajax" expanded="false" style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}"
-			render="sta">
+		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}" switchType="ajax" expanded="false"
+			style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}" render="sta">
 		......
 		
 			<rich:panelToggleListener id="ptl" for="cp" type="creative.fire.jsfrf.rf.output.JSFRFToggledListener" />

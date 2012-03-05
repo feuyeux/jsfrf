@@ -19,15 +19,15 @@ public class DisplayResolution implements Serializable {
 	private Logger logger;
 
 	public DisplayResolution() {
-		logger = Logger.getLogger(DisplayResolution.class);
+		this.logger = Logger.getLogger(DisplayResolution.class);
 	}
 
 	public int getPageSize() {
-		return pageSize;
+		return this.pageSize;
 	}
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
-		logger.info("当前分页尺度：" + pageSize);
+		this.logger.info("当前分页尺度：" + pageSize);
 	}
 }

@@ -21,11 +21,32 @@ public class JSFRFEnvironment {
 	private String jsPath;
 
 	public String getContextPath() {
-		if (contextPath == null) {
+		if (this.contextPath == null) {
 			final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-			contextPath = externalContext.getRequestContextPath();
+			this.contextPath = externalContext.getRequestContextPath();
 		}
-		return contextPath;
+		return this.contextPath;
+	}
+
+	public String getCssPath() {
+		if (this.cssPath == null) {
+			this.cssPath = getContextPath() + "/resources/css/";
+		}
+		return this.cssPath;
+	}
+
+	public String getImagePath() {
+		if (this.imagePath == null) {
+			this.imagePath = getContextPath() + "/resources/img/";
+		}
+		return this.imagePath;
+	}
+
+	public String getJsPath() {
+		if (this.jsPath == null) {
+			this.jsPath = getContextPath() + "/resources/javascript/";
+		}
+		return this.jsPath;
 	}
 
 	public String getLanguage() {
@@ -37,26 +58,5 @@ public class JSFRFEnvironment {
 		// String[] ids=TimeZone.getAvailableIDs();
 		String zoneId = TimeZone.getDefault().getID();
 		return zoneId;
-	}
-
-	public String getCssPath() {
-		if (cssPath == null) {
-			cssPath = getContextPath() + "/resources/css/";
-		}
-		return cssPath;
-	}
-
-	public String getImagePath() {
-		if (imagePath == null) {
-			imagePath = getContextPath() + "/resources/img/";
-		}
-		return imagePath;
-	}
-
-	public String getJsPath() {
-		if (jsPath == null) {
-			jsPath = getContextPath() + "/resources/javascript/";
-		}
-		return jsPath;
 	}
 }

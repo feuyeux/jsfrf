@@ -15,6 +15,10 @@ import javax.faces.bean.ViewScoped;
 public class JSR303Bean {
 	private TextBean input;
 
+	public TextBean getInput() {
+		return this.input;
+	}
+
 	@PostConstruct
 	public void init() {
 		Date date = new Date();
@@ -22,12 +26,8 @@ public class JSR303Bean {
 		sub.setBirthDate(date);
 		sub.setNextRainy(date);
 
-		input = new TextBean();
-		input.setSubTextBean(sub);
-	}
-
-	public TextBean getInput() {
-		return input;
+		this.input = new TextBean();
+		this.input.setSubTextBean(sub);
 	}
 
 	public void setInput(TextBean input) {

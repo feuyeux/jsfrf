@@ -13,25 +13,25 @@ import javax.servlet.http.HttpSession;
 public class JSFRFFaces {
 	public static String ERROR = "jsfrf_error";
 
+	public static ELContext getELContext() {
+		return JSFRFFaces.getFacesContext().getELContext();
+	}
+
+	public static ExpressionFactory getExpressionFactory() {
+		ExpressionFactory factory = JSFRFFaces.getFacesContext().getApplication().getExpressionFactory();
+		return factory;
+	}
+
+	public static ExternalContext getExternalContext() {
+		return JSFRFFaces.getFacesContext().getExternalContext();
+	}
+
 	public static FacesContext getFacesContext() {
 		return FacesContext.getCurrentInstance();
 	}
 
-	public static ExternalContext getExternalContext() {
-		return getFacesContext().getExternalContext();
-	}
-
-	public static ELContext getELContext() {
-		return getFacesContext().getELContext();
-	}
-
 	public static HttpSession getSession() {
-		HttpSession session = (HttpSession) getExternalContext().getSession(true);
+		HttpSession session = (HttpSession) JSFRFFaces.getExternalContext().getSession(true);
 		return session;
-	}
-
-	public static ExpressionFactory getExpressionFactory() {
-		ExpressionFactory factory = getFacesContext().getApplication().getExpressionFactory();
-		return factory;
 	}
 }

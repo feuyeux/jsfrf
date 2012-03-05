@@ -19,8 +19,17 @@ public class JSFRFLocale {
 	private List<Locale> localeList;
 	private String selected;
 
+	public List<Locale> getLocaleList() {
+		if (this.localeList == null) {
+			this.localeList = new ArrayList<Locale>();
+			this.localeList.add(Locale.ENGLISH);
+			this.localeList.add(Locale.SIMPLIFIED_CHINESE);
+		}
+		return this.localeList;
+	}
+
 	public String getSelected() {
-		return selected;
+		return this.selected;
 	}
 
 	public void setSelected(String selected) {
@@ -28,21 +37,12 @@ public class JSFRFLocale {
 	}
 
 	public void updateLocale() {
-		for (Locale locale : localeList) {
-			if (selected.equals(locale.getLanguage())) {
+		for (Locale locale : this.localeList) {
+			if (this.selected.equals(locale.getLanguage())) {
 				UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
 				viewRoot.setLocale(locale);
 				break;
 			}
 		}
-	}
-
-	public List<Locale> getLocaleList() {
-		if (localeList == null) {
-			localeList = new ArrayList<Locale>();
-			localeList.add(Locale.ENGLISH);
-			localeList.add(Locale.SIMPLIFIED_CHINESE);
-		}
-		return localeList;
 	}
 }

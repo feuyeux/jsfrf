@@ -47,33 +47,33 @@ public class GraphValidateBean implements java.lang.Cloneable {
 		return super.clone();
 	}
 
-	@AssertTrue(message = "两次输入不同 请重新输入")
-	public boolean isTextEqual() {
-		return password.equals(repassword);
-	}
-
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public String getIdentification() {
-		return identification;
+		return this.identification;
 	}
 
 	public String getMobilePhone() {
-		return mobilePhone;
+		return this.mobilePhone;
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public String getRepassword() {
-		return repassword;
+		return this.repassword;
+	}
+
+	@AssertTrue(message = "两次输入不同 请重新输入")
+	public boolean isTextEqual() {
+		return this.password.equals(this.repassword);
 	}
 
 	public void setCountry(String country) {

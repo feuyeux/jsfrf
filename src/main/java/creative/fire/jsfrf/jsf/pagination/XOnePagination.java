@@ -26,21 +26,21 @@ public class XOnePagination extends OnePagination {
 	private ArrayList<Yijing> selectedList;
 
 	public XOnePagination() {
-		selectedList = new ArrayList<Yijing>();
+		this.selectedList = new ArrayList<Yijing>();
+	}
+
+	public ArrayList<Yijing> getSelectedList() {
+		return this.selectedList;
+	}
+
+	public Collection<Object> getSelection() {
+		return this.selection;
 	}
 
 	@Override
 	@PostConstruct
 	public void init() {
 		super.init();
-	}
-
-	public ArrayList<Yijing> getSelectedList() {
-		return selectedList;
-	}
-
-	public Collection<Object> getSelection() {
-		return selection;
 	}
 
 	public void setSelectedList(ArrayList<Yijing> selectedList) {
@@ -54,10 +54,10 @@ public class XOnePagination extends OnePagination {
 	public void showSelections(AjaxBehaviorEvent event) {
 		UIExtendedDataTable table = (UIExtendedDataTable) event.getComponent();
 		Object storedRowKey = table.getRowKey();
-		selectedList.clear();
-		for (Object rowKey : selection) {
+		this.selectedList.clear();
+		for (Object rowKey : this.selection) {
 			table.setRowKey(rowKey);
-			selectedList.add((Yijing) table.getRowData());
+			this.selectedList.add((Yijing) table.getRowData());
 		}
 		table.setRowKey(storedRowKey);
 	}

@@ -6,26 +6,25 @@ public class CalendarModelItem implements CalendarDataModelItem {
 	private boolean enabled;
 	private String styleClass;
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public void setStyleClass(String styleClass) {
-		this.styleClass = styleClass;
+	@Override
+	public Object getData() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public boolean isEnabled() {
-		return enabled;
+	public int getDay() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public String getStyleClass() {
-		return styleClass;
+		return this.styleClass;
 	}
 
 	@Override
-	public Object getData() {
+	public Object getToolTip() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,15 +36,16 @@ public class CalendarModelItem implements CalendarDataModelItem {
 	}
 
 	@Override
-	public Object getToolTip() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isEnabled() {
+		return this.enabled;
 	}
 
-	@Override
-	public int getDay() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setStyleClass(String styleClass) {
+		this.styleClass = styleClass;
 	}
 
 }

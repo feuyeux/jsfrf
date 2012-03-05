@@ -23,49 +23,49 @@ public class JSFRFCalendar {
 	public JSFRFCalendar() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.DATE, 1);
-		end = cal.getTime();
+		this.end = cal.getTime();
 		cal.set(Calendar.YEAR, 2011);
-		start = cal.getTime();
-	}
-
-	public Date getStart() {
-		return start;
-	}
-
-	public Date getEnd() {
-		return end;
+		this.start = cal.getTime();
 	}
 
 	public Date getDatetime() {
-		return datetime;
+		return this.datetime;
+	}
+
+	public Date getEnd() {
+		return this.end;
+	}
+
+	public String getLocale() {
+		return this.locale;
+	}
+
+	public String getPattern() {
+		return this.pattern;
+	}
+
+	public Date getStart() {
+		return this.start;
+	}
+
+	public boolean isDisabled() {
+		return this.disabled;
 	}
 
 	public void setDatetime(Date datetime) {
 		this.datetime = datetime;
 	}
 
-	public String getPattern() {
-		return pattern;
-	}
-
-	public void setPattern(String pattern) {
-		this.pattern = pattern;
-	}
-
-	public String getLocale() {
-		return locale;
+	public void setDisabled(boolean disabled) {
+		this.disabled = disabled;
 	}
 
 	public void setLocale(String locale) {
 		this.locale = locale;
 	}
 
-	public boolean isDisabled() {
-		return disabled;
-	}
-
-	public void setDisabled(boolean disabled) {
-		this.disabled = disabled;
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
 	}
 
 }

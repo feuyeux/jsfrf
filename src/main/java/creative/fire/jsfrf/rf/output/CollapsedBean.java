@@ -22,53 +22,53 @@ public class CollapsedBean {
 			PanelIcons.triangleLeft, PanelIcons.triangleUp, PanelIcons.triangleDown };
 
 	public CollapsedBean() {
-		icon0 = icons0[0].name();
-		icon1 = icons1[0].name();
+		this.icon0 = this.icons0[0].name();
+		this.icon1 = this.icons1[0].name();
 	}
 
 	public void doToggled(PanelToggleEvent event) {
 		org.richfaces.component.UICollapsiblePanel panel = (org.richfaces.component.UICollapsiblePanel) event.getSource();
 		Object o = panel.getValue();
-		status = icon0 + " " + icon1 + " " + o + " " + event.getExpanded();
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
+		this.status = this.icon0 + " " + this.icon1 + " " + o + " " + event.getExpanded();
 	}
 
 	public String getIcon0() {
-		return icon0;
+		return this.icon0;
+	}
+
+	public String getIcon1() {
+		return this.icon1;
+	}
+
+	public PanelIcons[] getIcons0() {
+		return this.icons0;
+	}
+
+	public PanelIcons[] getIcons1() {
+		return this.icons1;
+	}
+
+	public String getStatus() {
+		return this.status;
 	}
 
 	public void setIcon0(String icon0) {
 		this.icon0 = icon0;
 	}
 
-	public String getIcon1() {
-		return icon1;
-	}
-
 	public void setIcon1(String icon1) {
 		this.icon1 = icon1;
-	}
-
-	public PanelIcons[] getIcons0() {
-		return icons0;
 	}
 
 	public void setIcons0(PanelIcons[] icons0) {
 		this.icons0 = icons0;
 	}
 
-	public PanelIcons[] getIcons1() {
-		return icons1;
-	}
-
 	public void setIcons1(PanelIcons[] icons1) {
 		this.icons1 = icons1;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

@@ -14,25 +14,25 @@ public class ECSS {
 	private String vendor;
 	private String color;
 
-	@PostConstruct
-	public void init() {
-		vendor = "vendor1";
-		color = "blue";
+	public String getColor() {
+		return this.color;
 	}
 
 	public String getVendor() {
-		return vendor;
+		return this.vendor;
 	}
 
-	public void setVendor(String vendor) {
-		this.vendor = vendor;
-	}
-
-	public String getColor() {
-		return color;
+	@PostConstruct
+	public void init() {
+		this.vendor = "vendor1";
+		this.color = "blue";
 	}
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
 	}
 }

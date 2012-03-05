@@ -17,14 +17,10 @@ public class CalendarModel implements CalendarDataModel {
 	Calendar today = GregorianCalendar.getInstance();
 
 	public CalendarModel() {
-		today.setTime(new Date());
+		this.today.setTime(new Date());
 	}
 
-	private boolean isSpecialDay(Calendar calendar) {
-		return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar
-				.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
-	}
-
+	@Override
 	public CalendarDataModelItem[] getData(Date[] dateArray) {
 		CalendarDataModelItem[] modelItems = new CalendarModelItem[dateArray.length];
 		Calendar current = Calendar.getInstance();
@@ -34,7 +30,7 @@ public class CalendarModel implements CalendarDataModel {
 			CalendarModelItem modelItem = new CalendarModelItem();
 			if (isSpecialDay(current)) {
 				modelItem.setEnabled(false);
-				modelItem.setStyleClass(SPECIAL);
+				modelItem.setStyleClass(CalendarModel.SPECIAL);
 			} else {
 				modelItem.setEnabled(true);
 			}
@@ -44,7 +40,13 @@ public class CalendarModel implements CalendarDataModel {
 		return modelItems;
 	}
 
+	@Override
 	public Object getToolTip(Date date) {
-		return date.before(today.getTime());
+		return date.before(this.today.getTime());
+	}
+
+	private boolean isSpecialDay(Calendar calendar) {
+		return calendar.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY
+				|| calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
 	}
 }

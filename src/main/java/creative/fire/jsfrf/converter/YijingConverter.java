@@ -11,6 +11,7 @@ import creative.fire.jsfrf.jsf.input.YijingCollection;
 @FacesConverter("yiConverter")
 public class YijingConverter implements Converter {
 
+	@Override
 	public Object getAsObject(FacesContext facesContext, UIComponent component, String s) {
 		for (Yijing yi : YijingCollection.getYijings()) {
 			if (yi.getName().equals(s)) {
@@ -20,6 +21,7 @@ public class YijingConverter implements Converter {
 		return null;
 	}
 
+	@Override
 	public String getAsString(FacesContext facesContext, UIComponent component, Object o) {
 		if (o == null) {
 			return null;

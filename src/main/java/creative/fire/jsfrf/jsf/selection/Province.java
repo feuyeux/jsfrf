@@ -12,28 +12,28 @@ public class Province {
 		this.capital = capital;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getAbbreviation() {
-		return abbreviation;
+		return this.abbreviation;
+	}
+
+	public String getCapital() {
+		return this.capital;
+	}
+
+	public String getName() {
+		return this.name;
 	}
 
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
 
-	public String getCapital() {
-		return capital;
-	}
-
 	public void setCapital(String capital) {
 		this.capital = capital;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

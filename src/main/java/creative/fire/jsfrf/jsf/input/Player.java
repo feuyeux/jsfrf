@@ -10,46 +10,14 @@ public class Player {
 	private String position;
 	private boolean checked;
 
+	public Player() {
+	}
+
 	public Player(String number, String name, String position) {
 		super();
 		this.name = name;
 		this.number = number;
 		this.position = position;
-	}
-
-	public Player() {
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public boolean isChecked() {
-		return checked;
-	}
-
-	public void setChecked(boolean checked) {
-		this.checked = checked;
 	}
 
 	@Override
@@ -60,18 +28,50 @@ public class Player {
 
 		if (obj instanceof Player) {
 			Player other = (Player) obj;
-			return name.equals(other.getName());
+			return this.name.equals(other.getName());
 		}
 		return false;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
+	public String getNumber() {
+		return this.number;
+	}
+
+	public String getPosition() {
+		return this.position;
+	}
+
 	@Override
 	public int hashCode() {
-		return name.hashCode();
+		return this.name.hashCode();
+	}
+
+	public boolean isChecked() {
+		return this.checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 	@Override
 	public String toString() {
-		return number + ":" + name + ":" + position;
+		return this.number + ":" + this.name + ":" + this.position;
 	}
 }

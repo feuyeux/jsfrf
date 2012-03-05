@@ -12,11 +12,13 @@ import javax.validation.ConstraintValidatorContext;
 public class SeasonValidator implements ConstraintValidator<Season, String> {
 	private final String[] seasons = { "spring", "summer", "fall", "winter" };
 
+	@Override
 	public void initialize(Season status) {
 	}
 
+	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		if (Arrays.asList(seasons).contains(value)) {
+		if (Arrays.asList(this.seasons).contains(value)) {
 			return true;
 		}
 		return false;

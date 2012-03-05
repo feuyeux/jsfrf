@@ -15,13 +15,13 @@ public class ZhouyiMap {
 
 	private HashMap<String, Yijing> map;
 
-	@PostConstruct
-	public void postConstruct() {
-		map = YijingMap.getYijings();
+	public HashMap<String, Yijing> getMap() {
+		return this.map;
 	}
 
-	public HashMap<String, Yijing> getMap() {
-		return map;
+	@PostConstruct
+	public void postConstruct() {
+		this.map = YijingMap.getYijings();
 	}
 
 	public void setMap(HashMap<String, Yijing> map) {

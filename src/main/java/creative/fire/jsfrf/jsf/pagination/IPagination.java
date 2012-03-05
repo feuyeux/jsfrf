@@ -5,11 +5,11 @@ package creative.fire.jsfrf.jsf.pagination;
  * @version 1.0
  */
 public interface IPagination {
+	int getPageCount();
+
 	int getPageIndex();
 
 	int getPageSize();
-
-	int getPageCount();
 
 	int getTotalSize();
 
@@ -17,13 +17,13 @@ public interface IPagination {
 
 	boolean isDisabledLast();
 
-	void swichPage();
-
 	void swichFirstPage();
 
-	void swichPreviousPage();
+	void swichLastPage();
 
 	void swichNextPage();
 
-	void swichLastPage();
+	void swichPage();
+
+	void swichPreviousPage();
 }

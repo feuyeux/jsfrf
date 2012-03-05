@@ -13,7 +13,8 @@ import org.apache.log4j.Logger;
 public class JSFRFActionListener implements ActionListener {
 	static Logger logger = Logger.getLogger(JSFRFActionListener.class);
 
+	@Override
 	public void processAction(ActionEvent actionEvent) throws AbortProcessingException {
-		logger.info(actionEvent.getPhaseId() + " " + actionEvent.getComponent().getClientId());
+		JSFRFActionListener.logger.info(actionEvent.getPhaseId() + " " + actionEvent.getComponent().getClientId());
 	}
 }

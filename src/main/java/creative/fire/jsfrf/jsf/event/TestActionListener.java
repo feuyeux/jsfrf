@@ -13,8 +13,9 @@ import org.apache.log4j.Logger;
 public class TestActionListener implements ActionListener {
 	static Logger logger = Logger.getLogger(TestActionListener.class);
 
+	@Override
 	public void processAction(ActionEvent actionEvent) throws AbortProcessingException {
 		String id = actionEvent.getComponent().getClientId();
-		logger.info(id);
+		TestActionListener.logger.info(id);
 	}
 }
