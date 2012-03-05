@@ -1,14 +1,13 @@
 body {
 	margin-left: 33px;
 	margin-top: 33px;
-	background-color: #F5F5F5;
+	background-color: #F5F5F5;	
+	font-family:'comic sans ms','monaco','tahoma','arial','verdana';
 }
 
 input,select,textarea,button,keygen,isindex,legend,a {
 	color: #0066CC;
-	font-family: Consolas, Verdana;
 	font-size: 15px;
-	font-style: normal;
 }
 
 .b {
