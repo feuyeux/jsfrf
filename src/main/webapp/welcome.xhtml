@@ -5,12 +5,11 @@
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<h:outputStylesheet name="front.css" library="css"/>
 	<title>JSF2和Richfaces4使用指南</title>
 </h:head>
 
 <h:body>
-	<h:panelGrid id="outTable" columns="5" columnClasses="vtop,vtop,vtop,vtop,vtop">
+	<h:panelGrid id="outTable" columns="5" columnClasses="vtop,vtop,vtop,vtop,vtop" styleClass="jsfrfPanel">
 		<h:panelGrid id="hTable">
 			<h:outputText value="JSF2标准html库 " />
 			<h:link value="1 资源组件" outcome="h/resources"/>
@@ -24,7 +23,7 @@
 			<h:link value="1 多语言组件" outcome="f/loadBundle" />
 			<h:link value="2 功能组件" outcome="f/functions" />
 			<h:link value="3 转换组件" outcome="f/converts" />
-			<h:link value="4 校验组件" outcome="f/validator/validator" />
+			<h:link value="4 校验组件" outcome="f/validators" />
 		</h:panelGrid>
 
 		<h:panelGrid id="rfTable">
@@ -57,7 +56,7 @@
 			<h:link value="3 操作符表达式" outcome="el/expressionOperators" />
 			<h:link value="4 视图组件" outcome="ui/jsfrfComposition" />
 			<h:link value="5 分页" outcome="pagination/pagingDatatable" />
-			<h:link value="6 jsr303" outcome="f/validator/jsr303/validator" />
+			<h:link value="6 jsr303" outcome="f/validators/jsr303" />
 			<h:link value="7 jsf脚本" outcome="/h/jsfjslib.jsf" />
 			<h:link value="8 请求处理生命周期" outcome="h/lifecycle/begin" />
 		</h:panelGrid>

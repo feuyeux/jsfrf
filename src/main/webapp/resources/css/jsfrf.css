@@ -40,3 +40,32 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	padding: 0;
 	vertical-align: top;
 }
+
+.jsfrfPanel a,.jsfrfPanel a:link,.jsfrfPanel a:visited {
+	background-color: #fff;
+	border: 1px solid #999;
+	margin: 2px;
+	padding: 2px;
+	text-decoration: none;
+	text-align: center;
+	color: #0066CC;
+	font-size: 14px;
+	font-family: 'comic sans ms', 'monaco', 'tahoma', 'arial', 'verdana';
+}
+
+.jsfrfPanel a:hover {
+	background-color: #fff;
+	border: 1px solid #ff;
+	margin: 2px;
+	padding: 2px;
+	text-decoration: none;
+	text-align: center;
+	color: #0066CC;
+	font-size: 14px;
+	font-family: 'comic sans ms', 'monaco', 'tahoma', 'arial', 'verdana';
+	padding: 2px;
+}
+
+.jsfrfPanel td{
+	height:33px;
+}

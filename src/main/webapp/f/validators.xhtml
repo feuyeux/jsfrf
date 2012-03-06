@@ -5,21 +5,15 @@
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<title>JavaServer Faces f标签库</title>
+	<title>JSF2标准核心库</title>
 </h:head>
+
 <h:body>
-	<h:form id="validatorForm">
-		<h:panelGrid>
-			<h:inputText id="input1" value="#{a4jBean.value}" size="20">
-				<f:validator validatorId="ajaxConverter" />
-			</h:inputText>
-			<h:message for="input1" style="color:red" />
-
-			<h:inputText id="input2" value="#{a4jBean.value}" size="20" validator="ajaxConverter" />
-			<h:message for="input2" style="color:red" />
-
-			<h:commandButton value="测试" />
-		</h:panelGrid>
-	</h:form>
+	<h:panelGrid styleClass="jsfrfPanel">
+		<h:link value="验证器组件" outcome="/f/validators/validator" />
+		<h:link value="jsr303" outcome="/f/validators/jsr303" />
+	</h:panelGrid>
+	<br />
+	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

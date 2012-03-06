@@ -15,10 +15,10 @@
 		</h:inputText>
 		<h:panelGroup id="p1">
 			<h:outputLabel value="您输入的是：" />
-			<h:outputText id="out1" value="#{a4jBean}">
-				<f:converter converterId="ajaxBeanConverter" />
-			</h:outputText>
+			<h:outputText id="out1" value="#{a4jBean}" converter="ajaxBeanConverter" />
 		</h:panelGroup>
 	</h:form>
+	<br />
+	<h:link value="返回" outcome="/f/converts" />
 </h:body>
 </html>
