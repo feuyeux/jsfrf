@@ -12,7 +12,8 @@
 		<tbody>
 			<a4j:repeat value="#{zhouyi.sourcelist}" var="yi" rowKeyVar="r" iterationStatusVar="it">
 				<tr>
-					<td><h:outputText value="#{r+1} #{yi.name} #{yi.pronounce}" /></td>
+					<td><h:outputText value="#{r+1} #{yi.name} #{yi.pronounce}" 
+					style="#{r+1 eq 3? 'font-weight:bold;color:red':''}" /></td>
 				</tr>
 			</a4j:repeat>
 		</tbody>
