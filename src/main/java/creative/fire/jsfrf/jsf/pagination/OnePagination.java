@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 import org.apache.log4j.Logger;
 import org.richfaces.component.SortOrder;
 
+import creative.fire.jsfrf.global.JSFRFFaces;
 import creative.fire.jsfrf.jsf.input.Yijing;
 import creative.fire.jsfrf.jsf.input.YijingCollection;
 
@@ -39,10 +40,12 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		}
 		return result;
 	}
-
-	@Override
-	protected void freshList() {
+	public void flipover() {
 		try {
+			String requestIndex = JSFRFFaces.getRequestParameterMap().get("pageIndex");
+			if (requestIndex != null)
+				pageIndex = Integer.valueOf(requestIndex);
+			
 			int from = (getPageIndex() - 1) * getPageSize();
 			int to = getPageIndex() * getPageSize();
 
@@ -53,7 +56,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 			for (int i = from; i < to; i++) {
 				this.showList.add(this.list.get(i));
 			}
-			fillItems();
+			filpBar();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,9 +103,8 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	private void initializeList() {
 		this.list = YijingCollection.getYijings();
 		this.showList = new ArrayList<Yijing>();
-
 		this.totalSize = this.list.size();
-		freshList();
+		flipover();
 	}
 
 	public void setSequenceOrder(SortOrder sequenceOrder) {

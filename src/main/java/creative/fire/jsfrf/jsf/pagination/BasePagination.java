@@ -18,10 +18,15 @@ public abstract class BasePagination implements IPagination {
 	protected int pageCount;// 共有多少页
 	protected int totalSize;// 共有多少项
 
+	private final int left = 4;
+	private final int right = 5;
+	private final int pagePageSize = 10;
+
 	protected boolean disabledFirst;
 	protected boolean disabledLast;
 
-	protected ArrayList<SelectItem> pageNumbers;
+	protected ArrayList<Integer> pageNumbers = new ArrayList<Integer>();
+	protected ArrayList<SelectItem> pageNumberItems;
 
 	@ManagedProperty(value = "#{displayResolution}")
 	protected DisplayResolution displayResolution;
@@ -30,24 +35,59 @@ public abstract class BasePagination implements IPagination {
 		BasePagination.log.debug("构造");
 	}
 
-	protected void fillItems() {
-		if (this.pageNumbers == null) {
-			this.pageNumbers = new ArrayList<SelectItem>();
+	protected void filpBar() {
+		flipBar1();
+		flipBar2();
+	}
+
+	protected void flipBar1() {
+		if (this.pageNumberItems == null) {
+			this.pageNumberItems = new ArrayList<SelectItem>();
 		} else {
-			this.pageNumbers.clear();
+			this.pageNumberItems.clear();
 		}
 
 		if (getTotalSize() == 0) {
-			this.pageNumbers.add(new SelectItem(1 + "", 1 + ""));
+			this.pageNumberItems.add(new SelectItem(1 + "", 1 + ""));
 		} else {
 			for (int i = 1; i <= getPageCount(); i++) {
 				String pageNumber = "" + i;
-				this.pageNumbers.add(new SelectItem(pageNumber, pageNumber));
+				this.pageNumberItems.add(new SelectItem(pageNumber, pageNumber));
 			}
 		}
 	}
 
-	protected abstract void freshList();
+	protected void flipBar2() {
+		int mod = this.pageIndex % pagePageSize;
+		int pagePageIndex;
+		if (mod > 0)
+			pagePageIndex = this.pageIndex / pagePageSize + 1;
+		else
+			pagePageIndex = this.pageIndex / pagePageSize;
+
+		int pageStart = this.pageIndex - left;
+		int pageEnd = this.pageIndex + right;
+
+		if (pageStart < 1) {
+			pageStart = 1;
+		}
+
+		if (pageEnd > getPageCount()) {
+			pageEnd = pageCount;
+		}
+
+		if (pageEnd > totalSize) {
+			int revisedPageIndex = (pagePageIndex - 1) * pagePageSize + 1;
+			pageStart = revisedPageIndex;
+			pageEnd = totalSize;
+		}
+
+		this.pageNumbers.clear();
+		for (int i = pageStart; i <= pageEnd; i++) {
+			this.pageNumbers.add(i);
+		}
+
+	}
 
 	public DisplayResolution getDisplayResolution() {
 		return this.displayResolution;
@@ -61,7 +101,7 @@ public abstract class BasePagination implements IPagination {
 			this.pageCount++;
 		}
 
-		if (this.pageCount == 0) {
+		if (this.pageCount < 1) {
 			this.pageCount = 1;
 		}
 		return this.pageCount;
@@ -70,11 +110,6 @@ public abstract class BasePagination implements IPagination {
 	@Override
 	public int getPageIndex() {
 		return this.pageIndex;
-	}
-
-	public ArrayList<SelectItem> getPageNumbers() {
-		fillItems();
-		return this.pageNumbers;
 	}
 
 	@Override
@@ -110,6 +145,22 @@ public abstract class BasePagination implements IPagination {
 		return this.disabledLast;
 	}
 
+	public ArrayList<Integer> getPageNumbers() {
+		return pageNumbers;
+	}
+
+	public void setPageNumbers(ArrayList<Integer> pageNumbers) {
+		this.pageNumbers = pageNumbers;
+	}
+
+	public ArrayList<SelectItem> getPageNumberItems() {
+		return pageNumberItems;
+	}
+
+	public void setPageNumberItems(ArrayList<SelectItem> pageNumberItems) {
+		this.pageNumberItems = pageNumberItems;
+	}
+
 	public void setDisplayResolution(DisplayResolution displayResolution) {
 		this.displayResolution = displayResolution;
 	}
@@ -118,42 +169,39 @@ public abstract class BasePagination implements IPagination {
 		this.pageIndex = pageIndex;
 	}
 
-	public void setPageNumbers(ArrayList<SelectItem> pageNumbers) {
-		this.pageNumbers = pageNumbers;
-	}
-
 	public void setTotalSize(int totalSize) {
 		this.totalSize = totalSize;
 	}
 
 	@Override
-	public void swichFirstPage() {
+	public void first() {
 		setPageIndex(1);
-		freshList();
+		flipover();
 	}
 
 	@Override
-	public void swichLastPage() {
+	public void last() {
 		setPageIndex(getPageCount());
-		freshList();
+		flipover();
 	}
 
 	@Override
-	public void swichNextPage() {
-		int index = getPageIndex();
-		setPageIndex(++index);
-		freshList();
+	public void next() {
+		pageIndex++;
+		if (pageIndex > totalSize) {
+			pageIndex = totalSize;
+			return;
+		}
+		flipover();
 	}
 
 	@Override
-	public void swichPage() {
-		freshList();
-	}
-
-	@Override
-	public void swichPreviousPage() {
-		int index = getPageIndex();
-		setPageIndex(--index);
-		freshList();
+	public void previous() {
+		pageIndex--;
+		if (pageIndex < 1) {
+			pageIndex = 1;
+			return;
+		}
+		flipover();
 	}
 }

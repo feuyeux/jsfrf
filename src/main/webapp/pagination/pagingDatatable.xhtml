@@ -7,18 +7,18 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<title>JavaServer Faces 分页</title>
 	<style>
-	.firstCol {
-		width: 25%;
-	}
-	
-	.secondCol {
-		color: 50%;
-	}
-	
-	.thirdCol {
-		width: 25%;
-	}
-	</style>
+.firstCol {
+	width: 25%;
+}
+
+.secondCol {
+	color: 50%;
+}
+
+.thirdCol {
+	width: 25%;
+}
+</style>
 </h:head>
 
 <h:body>
@@ -46,9 +46,13 @@
 				</h:column>
 			</h:dataTable>
 		</rich:panel>
-		<ui:include src="pagingbar.xhtml">
+		<ui:include src="pagingbarv1.xhtml">
 			<ui:param name="paginationBean" value="#{onePagination}" />
-			<ui:param name="paginationForm" value="tableForm" />
+			<ui:param name="rendpart" value="tableForm" />
+		</ui:include>
+		<ui:include src="pagingbarv2.xhtml">
+			<ui:param name="paginationBean" value="#{onePagination}" />
+			<ui:param name="rendpart" value="tableForm" />
 		</ui:include>
 	</h:form>
 	<br />

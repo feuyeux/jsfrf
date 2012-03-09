@@ -14,6 +14,10 @@
 .rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top {
 	background: none;
 }
+
+.rf-tab-lbl {
+	padding: 30px;
+}
 </style>
 	<title>Richfaces4 rich标签库 tab组件</title>
 </h:head>
@@ -22,7 +26,7 @@
 	<h:form id="tabForm">
 		<rich:tabPanel id="callsTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top" headerLocation="center"
 			onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');" itemChangeListener="#{tabBean.doItemChanging}" cycledSwitching="true"
-			title="八卦">
+			title="八卦" headerStyle="color:green">
 			<rich:itemChangeListener id="icl" for="callsTab" type="creative.fire.jsfrf.rf.output.JSFRFItemChangeListener" />
 
 			<rich:tab name="qian">

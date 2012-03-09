@@ -1,9 +1,13 @@
 package creative.fire.jsfrf.global;
 
+import java.util.Map;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
+import javax.faces.application.Application;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -13,25 +17,35 @@ import javax.servlet.http.HttpSession;
 public class JSFRFFaces {
 	public static String ERROR = "jsfrf_error";
 
-	public static ELContext getELContext() {
-		return JSFRFFaces.getFacesContext().getELContext();
-	}
-
-	public static ExpressionFactory getExpressionFactory() {
-		ExpressionFactory factory = JSFRFFaces.getFacesContext().getApplication().getExpressionFactory();
-		return factory;
-	}
-
-	public static ExternalContext getExternalContext() {
-		return JSFRFFaces.getFacesContext().getExternalContext();
-	}
-
 	public static FacesContext getFacesContext() {
 		return FacesContext.getCurrentInstance();
 	}
 
+	public static ExternalContext getExternalContext() {
+		return getFacesContext().getExternalContext();
+	}
+
+	public static ELContext getELContext() {
+		return getFacesContext().getELContext();
+	}
+
+	public static Application getApplication() {
+		return getFacesContext().getApplication();
+	}
+
 	public static HttpSession getSession() {
-		HttpSession session = (HttpSession) JSFRFFaces.getExternalContext().getSession(true);
-		return session;
+		return (HttpSession) getExternalContext().getSession(true);
+	}
+
+	public static HttpServletRequest getRequest() {
+		return (HttpServletRequest) getExternalContext().getRequest();
+	}
+
+	public static Map<String, String> getRequestParameterMap() {
+		return getExternalContext().getRequestParameterMap();
+	}
+
+	public static ExpressionFactory getExpressionFactory() {
+		return getApplication().getExpressionFactory();
 	}
 }
