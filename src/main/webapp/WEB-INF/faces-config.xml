@@ -24,11 +24,13 @@
 
 	<application>
 		<!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener> -->
-		<message-bundle>jsfrfMessage</message-bundle>
+		<!--<message-bundle>jsfrfMessage</message-bundle> -->
 		<locale-config>
-			<default-locale>zh</default-locale>
-			<supported-locale>en</supported-locale>
+			<default-locale>en</default-locale>
+			<!--supported-locale>en_US</supported-locale -->
+			<!supported-locale>zh_CN</supported-locale>
 		</locale-config>
+		
 		<resource-bundle>
 			<base-name>jsfrfMessage</base-name>
 			<var>jsfrfMsg</var>
