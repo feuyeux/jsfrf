@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -9,27 +9,63 @@
 	<title>JavaServer Faces f标签库</title>
 </h:head>
 <h:body>
-	<h:form id="validatorForm">
-		<h:panelGrid columns="3">
-			<h:inputText value="#{testManagedBean.firstName}">
-				<f:validateBean />
-			</h:inputText>
-			<h:message for="x1" style="color:red" />
-			<f:validateBean>
-				<h:inputText value="#{testManagedBean.firstName}" />
-				<h:inputText disabled="true" value="#{testManagedBean.middleName}" />
-				<h:inputText value="#{testManagedBean.lastName}" />
-			</f:validateBean>
-			<h:message for="x2" style="color:red" />
-			<f:validateBean validationGroups="com.example.jsf.TestValidationGroup">
-				<h:inputText value="#{testManagedBean.firstName}" />
-				<h:inputText value="#{testManagedBean.middleName}" />
-				<h:inputText value="#{testManagedBean.lastName}" />
-			</f:validateBean>
+	<h:form id="validatorForm1">
+		<rich:panel>
+			<h:panelGrid columns="2">
+				<h:inputText id="x11" value="#{jsr303.input.mobilePhone}">
+					<f:validateBean disabled="true" />
+				</h:inputText>
+				<h:message for="x11" style="color:red" />
+				
+				<f:validateBean disabled="true">
+					<h:inputText id="x12" value="#{jsr303.input.mobilePhone}" />
+				</f:validateBean>
+				<h:message for="x12" style="color:red" />
+			</h:panelGrid>
+		</rich:panel>
 
-			<h:message for="x3" style="color:red" />
-		</h:panelGrid>
-		<a4j:commandButton value="测试" execute="@form" render="@form" />
+		<rich:panel>
+			<h:panelGrid columns="2">
+				<f:validateBean>
+					<h:inputText id="x2" value="#{jsr303.input.mobilePhone}" />
+					<h:message for="x2" style="color:red" />
+					<h:inputText id="x3" disabled="true" value="#{jsr303.input.age}" />
+					<h:message for="x3" style="color:red" />
+					<h:inputText id="x4" value="#{jsr303.input.country}" />
+					<h:message for="x4" style="color:red" />
+				</f:validateBean>
+			</h:panelGrid>
+		</rich:panel>
+		<a4j:commandButton value="测试" execute="@form" render="@form" action="validateBean" />
+	</h:form>
+
+	<h:form id="validatorForm2">
+		<rich:panel>
+			<h:panelGrid columns="2">
+				<f:validateBean validationGroups="creative.fire.jsfrf.jsf.jsr303.JSR303Group1">
+					<h:inputText id="x5" value="#{jsr303.input2.mobilePhone}" />
+					<h:message for="x5" style="color:red" />
+					<h:inputText id="x6" value="#{jsr303.input2.age}" />
+					<h:message for="x6" style="color:red" />
+					<h:inputText id="x7" value="#{jsr303.input2.country}" />
+					<h:message for="x7" style="color:red" />
+				</f:validateBean>
+			</h:panelGrid>
+		</rich:panel>
+
+		<rich:panel>
+			<h:panelGrid columns="2">
+				<f:validateBean validationGroups="creative.fire.jsfrf.jsf.jsr303.JSR303Group2">
+					<h:inputText id="x8" value="#{jsr303.input2.mobilePhone}" />
+					<h:message for="x8" style="color:red" />
+					<h:inputText id="x9" value="#{jsr303.input2.age}" />
+					<h:message for="x9" style="color:red" />
+					<h:inputText id="x10" value="#{jsr303.input2.country}" />
+					<h:message for="x10" style="color:red" />
+				</f:validateBean>
+			</h:panelGrid>
+		</rich:panel>
+		<a4j:commandButton value="测试" execute="@form" render="@form" action="validateBean" />
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/f/validators" />

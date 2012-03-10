@@ -70,7 +70,7 @@
 }
 </style>
 	<rich:panel style="border:none;padding:0;margin-top:2px" styleClass="pageBtn">
-		<a4j:commandLink id="previousLink" value="#{directoryMsg.previous}" action="#{paginationBean.previous}" render="#{rendpart}" disabled="#{paginationBean.disabledFirst}"/>
+		<a4j:commandLink id="previousLink" value="#{jsfrfMsg.Previous}" action="#{paginationBean.previous}" render="#{rendpart}" rendered="#{not paginationBean.disabledFirst}"/>
 		<a4j:repeat id="pageRepeat" value="#{paginationBean.pageNumbers}" var="number">
 			<a4j:commandLink id="#{number}Link" value="#{number}" action="#{paginationBean.flipover}" render="#{rendpart}"
 				rendered="#{number ne paginationBean.pageIndex}">
@@ -78,6 +78,6 @@
 			</a4j:commandLink>
 			<h:outputText id="currentLink" value="#{number}" styleClass="current" rendered="#{number eq paginationBean.pageIndex}" />
 		</a4j:repeat>
-		<a4j:commandLink id="nextLink" value="#{directoryMsg.next}" action="#{paginationBean.next}" render="#{rendpart}" disabled="#{paginationBean.disabledLast}"/>
+		<a4j:commandLink id="nextLink" value="#{jsfrfMsg.Next}" action="#{paginationBean.next}" render="#{rendpart}" rendered="#{not paginationBean.disabledLast}"/>
 	</rich:panel>
 </ui:composition>

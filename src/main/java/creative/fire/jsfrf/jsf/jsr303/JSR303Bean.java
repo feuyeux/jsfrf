@@ -14,10 +14,7 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class JSR303Bean {
 	private TextBean input;
-
-	public TextBean getInput() {
-		return this.input;
-	}
+	private TextGroupBean input2;
 
 	@PostConstruct
 	public void init() {
@@ -28,9 +25,23 @@ public class JSR303Bean {
 
 		this.input = new TextBean();
 		this.input.setSubTextBean(sub);
+
+		input2 = new TextGroupBean();
+	}
+
+	public TextBean getInput() {
+		return this.input;
 	}
 
 	public void setInput(TextBean input) {
 		this.input = input;
+	}
+
+	public TextGroupBean getInput2() {
+		return input2;
+	}
+
+	public void setInput2(TextGroupBean input2) {
+		this.input2 = input2;
 	}
 }

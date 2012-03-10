@@ -28,7 +28,7 @@
 		<locale-config>
 			<default-locale>en</default-locale>
 			<!--supported-locale>en_US</supported-locale -->
-			<!supported-locale>zh_CN</supported-locale>
+			<supported-locale>zh_CN</supported-locale>
 		</locale-config>
 		
 		<resource-bundle>

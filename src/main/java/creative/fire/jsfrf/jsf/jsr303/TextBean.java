@@ -15,12 +15,12 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class TextBean {
 	@NotNull
-	@Size(min = 10, max = 10, message = "请输入10位有效字符")
-	private String identification;
-
-	@Max(11)
-	@Min(11)
+	@Size(min = 11, max = 11, message = "请输入11位有效字符")
 	private String mobilePhone;
+
+	@Max(150)
+	@Min(0)
+	private int age;
 
 	@NotEmpty
 	private String country;
@@ -35,52 +35,51 @@ public class TextBean {
 	@Valid
 	private SubTextBean subTextBean;
 
-	public String getCountry() {
-		return this.country;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public String getIdentification() {
-		return this.identification;
-	}
-
 	public String getMobilePhone() {
-		return this.mobilePhone;
-	}
-
-	public String getSeason() {
-		return this.season;
-	}
-
-	public SubTextBean getSubTextBean() {
-		return this.subTextBean;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setIdentification(String identification) {
-		this.identification = identification;
+		return mobilePhone;
 	}
 
 	public void setMobilePhone(String mobilePhone) {
 		this.mobilePhone = mobilePhone;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSeason() {
+		return season;
+	}
+
 	public void setSeason(String season) {
 		this.season = season;
+	}
+
+	public SubTextBean getSubTextBean() {
+		return subTextBean;
 	}
 
 	public void setSubTextBean(SubTextBean subTextBean) {
 		this.subTextBean = subTextBean;
 	}
-
 }

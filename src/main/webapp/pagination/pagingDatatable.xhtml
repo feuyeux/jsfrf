@@ -24,8 +24,8 @@
 <h:body>
 	<h:form id="tableForm">
 		<rich:panel style="width:80%;height:500px">
-			<h:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.showList}" var="yi" rowClasses="oddrow,evenrow"
-				columnClasses="firstCol,secondCol,thirdCol" border="1">
+			<rich:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.showList}" var="yi" rowClasses="oddrow,evenrow"
+				columnClasses="firstCol,secondCol,thirdCol" border="0">
 				<h:column id="firstColumn">
 					<f:facet name="header">
 					 序号
@@ -44,7 +44,7 @@
 				</f:facet>
 					<h:outputText value="#{yi.pronounce}" />
 				</h:column>
-			</h:dataTable>
+			</rich:dataTable>
 		</rich:panel>
 		<ui:include src="pagingbarv1.xhtml">
 			<ui:param name="paginationBean" value="#{onePagination}" />

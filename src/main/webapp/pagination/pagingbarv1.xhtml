@@ -5,14 +5,13 @@
 
 	<rich:panel id="paginationPanel" style="border:none;padding:0;margin-top:2px">
 
-		<a4j:commandButton id="firstNav" value="#{jsfrfMessage.First}" action="#{paginationBean.first}" disabled="#{paginationBean.disabledFirst}" render="#{rendpart}"
+		<a4j:commandButton id="firstNav" value="#{jsfrfMsg.First}" action="#{paginationBean.first}" disabled="#{paginationBean.disabledFirst}" render="#{rendpart}"
 			style="margin-right:0px;cursor: pointer;" />
 
-		<a4j:commandButton id="prevNav" value="#{jsfrfMessage.Previous}" action="#{paginationBean.previous}" disabled="#{paginationBean.disabledFirst}" render="#{rendpart}"
+		<a4j:commandButton id="prevNav" value="#{jsfrfMsg.Previous}" action="#{paginationBean.previous}" disabled="#{paginationBean.disabledFirst}" render="#{rendpart}"
 			style="margin-left:5px;margin-right:5px;cursor: pointer;" />
 
 		<h:panelGroup id="pageGroup" style="font-weight:bold;#{paginationBean.pageCount==1?'display:none;':''}">
-			<h:outputText value="#{jsfrfMessage.Current} " />
 			<h:selectOneMenu id="pageNav" styleClass="shorter_width" value="#{paginationBean.pageIndex}">
 				<f:selectItems value="#{paginationBean.pageNumberItems}" />
 				<f:ajax event="change" listener="#{paginationBean.flipover}" render="#{rendpart}" />
@@ -20,10 +19,10 @@
 			<h:outputText value=" / #{paginationBean.pageCount} " />
 		</h:panelGroup>
 
-		<a4j:commandButton id="nextNav" value="#{jsfrfMessage.Next}" action="#{paginationBean.next}" disabled="#{paginationBean.disabledLast}" render="#{rendpart}"
+		<a4j:commandButton id="nextNav" value="#{jsfrfMsg.Next}" action="#{paginationBean.next}" disabled="#{paginationBean.disabledLast}" render="#{rendpart}"
 			style="margin-left:5px;margin-right:5px;cursor: pointer;" />
 
-		<a4j:commandButton id="lastNav" value="#{jsfrfMessage.Last}" action="#{paginationBean.last}" disabled="#{paginationBean.disabledLast}" render="#{rendpart}"
+		<a4j:commandButton id="lastNav" value="#{jsfrfMsg.Last}" action="#{paginationBean.last}" disabled="#{paginationBean.disabledLast}" render="#{rendpart}"
 			style="margin-left:0px;cursor: pointer;" />
 	</rich:panel>
 </ui:composition>

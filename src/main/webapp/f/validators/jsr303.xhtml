@@ -10,13 +10,13 @@
 <h:body>
 	<h:form id="validatorForm">
 		<h:panelGrid columns="3">
-			<h:outputLabel value="证件号" />
-			<h:inputText value="#{jsr303.input.identification}" />
-			<h:outputLabel value="(@NotNull	@Size(min = 10, max = 10, message = 请输入10位有效字符))" />
-
 			<h:outputLabel value="手机号" />
 			<h:inputText value="#{jsr303.input.mobilePhone}" />
-			<h:outputLabel value="(@Max(11)@Min(11))" />
+			<h:outputLabel value="(@NotNull	@Size(min = 11, max = 11, message = 请输入11位有效字符))" />
+
+			<h:outputLabel value="年龄" />
+			<h:inputText value="#{jsr303.input.age}" />
+			<h:outputLabel value="(@Max(150)@Min(0))" />
 
 
 			<h:outputLabel value="国籍" />
