@@ -1,8 +1,8 @@
 body {
 	margin-left: 33px;
 	margin-top: 33px;
-	background-color: #F5F5F5;	
-	font-family:'comic sans ms','monaco','arial','verdana','微软雅黑';
+	background-color: #F5F5F5;
+	font-family: 'comic sans ms', 'monaco', 'arial', 'verdana', '微软雅黑';
 }
 
 input,select,textarea,button,keygen,isindex,legend,a {
@@ -17,7 +17,7 @@ input,select,textarea,button,keygen,isindex,legend,a {
 .dotBorder {
 	border-style: dotted;
 	border-color: Red;
-	border-width: 1px;
+	border-width: 1px;	
 }
 
 .vtop {
@@ -66,6 +66,6 @@ input,select,textarea,button,keygen,isindex,legend,a {
 	padding: 2px;
 }
 
-.jsfrfPanel td{
-	height:33px;
+.jsfrfPanel td {
+	height: 33px;
 }

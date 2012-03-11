@@ -10,10 +10,17 @@
 </h:head>
 <h:body>
 	<h:form id="errorForm">
-		<div style="height: 200px; width: 80%; margin-left: 100px; margin-top: 100px;" class="dotBorder">
-			<h:outputText value="出错啦" style="font-weight:bold;font-size: 14px;" />
-			<div style="margin-left: 10px; margin-top: 10px; margin-bottom: 20px" class="error_message">
-				<div style="font-size: 14px;">${sessionScope.jsfrf_error}</div>
+		<div style="height: 400px; width: 80%; margin-left: 100px; margin-top: 100px;" class="dotBorder">
+			<h:outputText value="出错啦" style="font-weight:bold;font-size: 16px;color:red" />
+			<div style="margin: 10px 2px; font-size: 14px; height: 350px; overflow-y: scroll;">
+				<h:panelGrid>
+					<h:outputText value="#{jrerror.errorCode}" />
+					<h:outputText value="#{jrerror.errorUri}" />
+					<h:outputText value="#{jrerror.errorType}" />
+					<h:outputText value="#{jrerror.errorMessage}" />
+					<h:outputText/>
+					<h:outputText value="#{jrerror.stackTrace}" />
+				</h:panelGrid>
 			</div>
 		</div>
 	</h:form>

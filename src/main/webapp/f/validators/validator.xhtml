@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -10,23 +10,15 @@
 </h:head>
 <h:body>
 	<h:form id="validatorForm">
-		<h:panelGrid>
-			<h:inputText id="input1" value="#{a4jBean}" size="20">
-				<f:converter converterId="ajaxBeanConverter" />
-				<f:validator validatorId="ajaxBeanValidator" />
+		<h:panelGrid columns="3">
+			<h:outputLabel value="验证器" />
+			<h:inputText id="x1" value="#{flash.x1}">
+				<f:validator validatorId="javax.faces.Required" />
+				<f:validator validatorId="javax.faces.LongRange"/>
 			</h:inputText>
-			<h:message for="input1" style="color:red" />
-			<h:outputLabel value="#{a4jBean}" converter="ajaxBeanConverter" />
-			<a4j:commandButton value="测试" execute="@form" render="@form" />
+			<h:message for="x1" style="color:red" />
 		</h:panelGrid>
-	</h:form>
-	<h:form id="validatorForm2">
-		<h:panelGrid>
-			<h:inputText id="input2" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" />
-			<h:message for="input2" style="color:red" />
-			<h:outputLabel value="#{a4jBean}" converter="ajaxBeanConverter" />
-			<a4j:commandButton value="测试" execute="@form" render="@form" />
-		</h:panelGrid>
+		<a4j:commandButton value="测试" execute="@form" render="@form" />
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/f/validators" />

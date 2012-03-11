@@ -1,10 +1,12 @@
-package creative.fire.jsfrf.jsf.lifecycle;
+package creative.fire.jsfrf.jsf.error;
 
+import java.util.ArrayDeque;
 import java.util.Iterator;
 
 import javax.faces.FacesException;
 import javax.faces.application.NavigationHandler;
 import javax.faces.application.ViewExpiredException;
+import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerWrapper;
@@ -22,7 +24,7 @@ import creative.fire.jsfrf.global.JSFRFFaces;
  * @version 1.0
  */
 public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
-	private Logger logger = org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.class);
+	Logger logger = org.apache.log4j.Logger.getLogger(JSFRFExceptionHandler.class);
 	private ExceptionHandler wrapped;
 
 	public JSFRFExceptionHandler(ExceptionHandler wrapped) {
@@ -36,32 +38,29 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public void handle() throws FacesException {
-		Iterator<ExceptionQueuedEvent> iter = getUnhandledExceptionQueuedEvents().iterator();
-		while (iter.hasNext()) {
-			ExceptionQueuedEvent event = iter.next();
+		Iterator<ExceptionQueuedEvent> unHandledEvents = getUnhandledExceptionQueuedEvents().iterator();
+		while (unHandledEvents.hasNext()) {
+			ExceptionQueuedEvent event = unHandledEvents.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
 			Throwable t = context.getException();
-			this.logger.error(t.getMessage());
-
 			if (t instanceof ViewExpiredException) {
-				FacesContext fc = FacesContext.getCurrentInstance();
-				NavigationHandler nav = fc.getApplication().getNavigationHandler();
+				NavigationHandler nav = JSFRFFaces.getApplication().getNavigationHandler();
 				try {
 					ViewExpiredException e = (ViewExpiredException) t;
-					fc.getExternalContext().getFlash().put("currentViewId", e.getViewId());
-					nav.handleNavigation(fc, null, "error");
+					JSFRFFaces.getExternalContext().getFlash().put("currentViewId", e.getViewId());
+					nav.handleNavigation(JSFRFFaces.getFacesContext(), null, "error");
 					try {
 						HttpSession session = JSFRFFaces.getSession();
 						session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
 					} catch (Exception se) {
 						// TODO
 					}
-					fc.renderResponse();
+					JSFRFFaces.getFacesContext().renderResponse();
 				} finally {
-					iter.remove();
+					unHandledEvents.remove();
 				}
-			} else if (t instanceof javax.faces.view.facelets.FaceletException) {
-				FacesContext fc = FacesContext.getCurrentInstance();
+			} else {
+				FacesContext fc = JSFRFFaces.getFacesContext();
 				NavigationHandler nav = fc.getApplication().getNavigationHandler();
 				try {
 					UIViewRoot root = fc.getViewRoot();
@@ -71,10 +70,25 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 					}
 					nav.handleNavigation(fc, null, "error");
 					HttpSession session = JSFRFFaces.getSession();
-					session.setAttribute(JSFRFFaces.ERROR, t.getLocalizedMessage());
+					String phase = context.getPhaseId().toString();
+					StringBuilder errorInfo = new StringBuilder();
+					errorInfo.append("error: ").append(t.getLocalizedMessage());
+					errorInfo.append("\r\nphase: ").append(phase);
+					@SuppressWarnings("unchecked")
+					ArrayDeque<UIComponent> deque = (ArrayDeque<UIComponent>) JSFRFFaces.getAttributes().get("javax.faces.component.CURRENT_COMPONENT_STACK");
+
+					if (deque != null) {
+						errorInfo.append("\r\ncomponent stack:");
+						for (UIComponent comp : deque) {
+							errorInfo.append("\r\nclass:").append(comp.getClass().getSimpleName());
+							errorInfo.append("\tid:").append(comp.getId());
+							errorInfo.append("\tclientId:").append(comp.getClientId());
+						}
+					}
+					session.setAttribute(JSFRFFaces.ERROR, errorInfo.toString());
 					fc.renderResponse();
 				} finally {
-					iter.remove();
+					unHandledEvents.remove();
 				}
 			}
 		}

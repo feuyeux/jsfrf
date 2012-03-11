@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * @version 1.0
  */
 public class JSFRFFaces {
-	public static String ERROR = "jsfrf_error";
+	public static final String ERROR = "jsfrf_error";
 
 	public static FacesContext getFacesContext() {
 		return FacesContext.getCurrentInstance();
@@ -47,5 +47,13 @@ public class JSFRFFaces {
 
 	public static ExpressionFactory getExpressionFactory() {
 		return getApplication().getExpressionFactory();
+	}
+
+	public static Map<String, Object> getRequestMap() {
+		return getExternalContext().getRequestMap();
+	}
+
+	public static Map<Object, Object> getAttributes() {
+		return getFacesContext().getAttributes();
 	}
 }

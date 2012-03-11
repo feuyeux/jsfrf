@@ -7,13 +7,12 @@
 	<display-name>jsfrf1.0</display-name>
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development</param-value><!-- Production -->
+		<param-value>Production</param-value>
+		<!--Development Production -->
 	</context-param>
 
 	<!-- <context-param> <param-name>org.richfaces.resourceOptimization.enabled</param-name> 
-		<param-value>true</param-value> </context-param> 
-		
-		<context-param> <param-name>org.richfaces.resourceOptimization.compressionStages</param-name> 
+		<param-value>true</param-value> </context-param> <context-param> <param-name>org.richfaces.resourceOptimization.compressionStages</param-name> 
 		<param-value>All</param-value> </context-param> -->
 
 	<!-- <context-param> <param-name>org.richfaces.resourceOptimization.packagingStages</param-name> 
@@ -24,18 +23,10 @@
 		<param-value>true</param-value> </context-param> <context-param> <param-name>javax.faces.SEPARATOR_CHAR</param-name> 
 		<param-value>-</param-value> </context-param> -->
 
-<!--
-	<context-param>
-		<param-name>org.richfaces.fileUpload.maxRequestSize</param-name>
-		<param-value>1024</param-value>
-	</context-param>
+	<!-- <context-param> <param-name>org.richfaces.fileUpload.maxRequestSize</param-name> 
+		<param-value>1024</param-value> </context-param> <context-param> <param-name>org.richfaces.fileUpload.createTempFiles</param-name> 
+		<param-value>true</param-value> </context-param> -->
 
-	<context-param>
-		<param-name>org.richfaces.fileUpload.createTempFiles</param-name>
-		<param-value>true</param-value>
-	</context-param>
- -->
- 
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 		<param-value>server</param-value>
@@ -73,6 +64,11 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	<!-- <error-page> <exception-type>java.lang.Exception</exception-type> <location>/faces/error.xhtml</location> 
-		</error-page> -->
+
+<!-- 
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/faces/error/error0.xhtml</location>
+	</error-page>
+ -->
 </web-app>

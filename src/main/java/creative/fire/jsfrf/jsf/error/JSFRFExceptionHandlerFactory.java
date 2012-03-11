@@ -1,4 +1,4 @@
-package creative.fire.jsfrf.jsf.lifecycle;
+package creative.fire.jsfrf.jsf.error;
 
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;

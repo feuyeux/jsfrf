@@ -2,8 +2,11 @@
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-	<!-- <factory> <exception-handler-factory>creative.fire.jsfrf.jsf.lifecycle.JSFRFExceptionHandlerFactory</exception-handler-factory> 
-		</factory> -->
+	<!--异常处理 -->
+	<factory>
+		<exception-handler-factory>creative.fire.jsfrf.jsf.error.JSFRFExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+	
 	<lifecycle>
 		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
 	</lifecycle>
@@ -17,7 +20,7 @@
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>error</from-outcome>
-			<to-view-id>/error.xhtml</to-view-id>
+			<to-view-id>/error/error.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
@@ -30,7 +33,7 @@
 			<!--supported-locale>en_US</supported-locale -->
 			<supported-locale>zh_CN</supported-locale>
 		</locale-config>
-		
+
 		<resource-bundle>
 			<base-name>jsfrfMessage</base-name>
 			<var>jsfrfMsg</var>
