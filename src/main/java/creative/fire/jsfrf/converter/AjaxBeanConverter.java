@@ -55,7 +55,6 @@ public class AjaxBeanConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		Integer.valueOf(value.toString());
 		if (context == null || component == null) {
 			throw new NullPointerException();
 		}
