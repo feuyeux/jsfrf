@@ -58,6 +58,13 @@ public abstract class BasePagination implements IPagination {
 	}
 
 	protected void flipBar2() {
+		if (totalSize == 0) {
+			this.pageIndex = 1;
+			this.totalSize = 1;
+			this.pageNumbers.clear();
+			return;
+		}
+
 		int mod = this.pageIndex % pagePageSize;
 		int pagePageIndex;
 		if (mod > 0)
@@ -73,7 +80,9 @@ public abstract class BasePagination implements IPagination {
 		}
 
 		if (pageEnd > getPageCount()) {
-			pageEnd = pageCount;
+			pageEnd = getPageCount();
+		} else if (pageEnd < pagePageSize && getPageCount() >= pagePageSize) {
+			pageEnd = pagePageSize;
 		}
 
 		if (pageEnd > totalSize) {
@@ -86,7 +95,6 @@ public abstract class BasePagination implements IPagination {
 		for (int i = pageStart; i <= pageEnd; i++) {
 			this.pageNumbers.add(i);
 		}
-
 	}
 
 	public DisplayResolution getDisplayResolution() {
