@@ -21,8 +21,9 @@ public class AjaxBean implements Serializable {
 	private String value;
 	private int increase = 0;
 
-	public AjaxBean() {
+	public AjaxBean() throws Exception {
 		AjaxBean.logger.debug("a4jBean is creating.");
+		throw new Exception("luh test.");
 	}
 
 	public void bar() {

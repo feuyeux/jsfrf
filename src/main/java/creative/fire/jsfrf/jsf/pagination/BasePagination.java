@@ -92,9 +92,10 @@ public abstract class BasePagination implements IPagination {
 		}
 
 		this.pageNumbers.clear();
-		for (int i = pageStart; i <= pageEnd; i++) {
-			this.pageNumbers.add(i);
-		}
+		if (pageEnd > 1)
+			for (int i = pageStart; i <= pageEnd; i++) {
+				this.pageNumbers.add(i);
+			}
 	}
 
 	public DisplayResolution getDisplayResolution() {
