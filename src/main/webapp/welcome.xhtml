@@ -59,11 +59,16 @@
 			<h:link value="6 jsr303" outcome="f/validators/jsr303" />
 			<h:link value="7 jsf脚本" outcome="/h/jsfjslib" />
 			<h:link value="8 请求处理生命周期" outcome="h/lifecycle/begin" />
-			<h:link value="9 验证器和转换器" outcome="f/vc" />
 			
+			<h:link value="9 验证器和转换器" outcome="f/vc" />
+			<h:form>
+			<h:commandLink value="9 验证器和转换器" action="f/vc">
+				<f:ajax/>
+			</h:commandLink>
+			</h:form>
+			<h:outputScript library="javascript" name="jsf.ajax.js" target="head" />
 		</h:panelGrid>
 	</h:panelGrid>
-
 	<!-- 动态分页 开始 -->
 	<h:form>
 		<h:outputScript library="javascript" name="dynamicPagination.js" />
@@ -78,6 +83,5 @@
 		//alert(#{displayResolution.pageSize});
 	</script>
 	<!-- 动态分页 结束 -->
-
 </h:body>
 </html>

@@ -31,6 +31,16 @@
 		<h:messages />
 	</h:form>
 
+	<h:form id="validatorForm2">
+		<h:panelGrid>
+			<h:inputText id="input2" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" immediate="true"/>
+			<h:message for="input2" style="color:red" />
+			<h:outputLabel value="#{a4jBean}" converter="ajaxBeanConverter" />
+			<a4j:commandButton value="立即-测试" execute="@form" render="@form" immediate="true"/>
+		</h:panelGrid>
+		<h:messages />
+	</h:form>
+	
 	<br />
 	<h:link value="返回" outcome="/f/validators" />
 </h:body>

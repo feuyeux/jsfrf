@@ -37,6 +37,7 @@ jsfrfErrorCallback = function(data) {
 	}
 
 	alert(error);
+	top.location.href="faces/error/error0.jsf"; 
 }
 
 jsf.ajax.addOnError(jsfrfErrorCallback);

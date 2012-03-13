@@ -23,7 +23,7 @@ public class AjaxBean implements Serializable {
 
 	public AjaxBean() throws Exception {
 		AjaxBean.logger.debug("a4jBean is creating.");
-		throw new Exception("luh test.");
+		//throw new Exception("luh test.");
 	}
 
 	public void bar() {

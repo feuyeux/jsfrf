@@ -43,6 +43,12 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 			ExceptionQueuedEvent event = unHandledEvents.next();
 			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
 			Throwable t = context.getException();
+			logger.error(t);
+			FacesContext fc = context.getContext();
+			if (fc.getPartialViewContext().isPartialRequest()) {
+				continue;
+			}
+
 			if (t instanceof ViewExpiredException) {
 				NavigationHandler nav = JSFRFFaces.getApplication().getNavigationHandler();
 				try {
@@ -60,7 +66,6 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 					unHandledEvents.remove();
 				}
 			} else {
-				FacesContext fc = JSFRFFaces.getFacesContext();
 				NavigationHandler nav = fc.getApplication().getNavigationHandler();
 				try {
 					UIViewRoot root = fc.getViewRoot();

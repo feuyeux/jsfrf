@@ -2,8 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head id="jsf_head">
 	<title>End</title>
+	
+	<f:metadata>
+		<f:viewParam name="x" value="#{flash.x}" />
+	</f:metadata>
 </h:head>
 <h:body>
 	<h:outputText id="output1" value="#{text.intValue}" />
+	<h:outputText id="output1" value="#{flash.x}" />
 </h:body>
 </html>
