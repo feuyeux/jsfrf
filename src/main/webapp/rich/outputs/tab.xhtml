@@ -23,8 +23,19 @@
 </h:head>
 
 <h:body>
-	<h:form id="tabForm">
-		<rich:tabPanel id="callsTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top" headerLocation="center"
+	<script language="javascript">
+		function switchLi(){
+			var comp=RichFaces.$('bgTab');
+			comp.switchToItem('li');
+		}
+		function switchFirst(){
+			var comp=RichFaces.$('bgTab');
+			comp.firstItem();
+		}
+	</script>
+	
+	<h:form id="tabForm" prependId="false">
+		<rich:tabPanel id="bgTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top" headerLocation="center"
 			onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');" itemChangeListener="#{tabBean.doItemChanging}" cycledSwitching="true"
 			title="八卦" headerStyle="color:green">
 			<rich:itemChangeListener id="icl" for="callsTab" type="creative.fire.jsfrf.rf.output.JSFRFItemChangeListener" />
@@ -45,18 +56,20 @@
 					</rich:panel>
 			</rich:tab>
 
-			<rich:tab header="离">
+			<rich:tab header="离" name="li">
 				<rich:panel id="graphPanel4">
 4
 					</rich:panel>
 			</rich:tab>
 
-			<rich:tab header="坎">
+			<rich:tab header="坎" name="kan">
 				<rich:panel id="graphPanel5">
 5
 					</rich:panel>
 			</rich:tab>
 		</rich:tabPanel>
+		<a4j:commandButton value="切换到离" onclick="switchLi()" immediate="true" />
+		<a4j:commandButton value="切换到第一项" onclick="switchFirst()" immediate="true" />
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/outputs" />
