@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 @ManagedBean
 @RequestScoped
 public class TestEvent {
-	static Logger logger = Logger.getLogger(TestEvent.class);
+	transient static Logger logger = Logger.getLogger(TestEvent.class);
 
 	public void postAddToViewListener(ComponentSystemEvent event) {
 		TestEvent.logger.info("1.PostAddToViewEvent :" + event.getClass().getName());

@@ -65,7 +65,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-
+	<!-- 错误页面配置
 	<error-page>
 		<exception-type>java.lang.Exception</exception-type>
 		<location>/faces/error/error0.xhtml</location>
@@ -79,4 +79,5 @@
 		<error-code>404</error-code>
 		<location>/faces/error/error0.xhtml</location>
 	</error-page>
+	-->
 </web-app>

@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 public abstract class BasePagination implements IPagination {
-	static Logger log = Logger.getLogger(BasePagination.class);
+	transient static Logger log = Logger.getLogger(BasePagination.class);
 	protected int pageIndex = 1;// 当前页号
 	protected int pageSize;// 每页显示多少项
 	protected int pageCount;// 共有多少页

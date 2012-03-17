@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JSF2和Richfaces4使用指南</title>
 </h:head>
@@ -12,7 +13,7 @@
 	<h:panelGrid id="outTable" columns="5" columnClasses="vtop,vtop,vtop,vtop,vtop" styleClass="jsfrfPanel">
 		<h:panelGrid id="hTable">
 			<h:outputText value="JSF2标准html库 " />
-			<h:link value="1 资源组件" outcome="h/resources"/>
+			<h:link value="1 资源组件" outcome="h/resources" />
 			<h:link value="2 输入组件" outcome="h/inputs" />
 			<h:link value="3 输出组件" outcome="h/outputs" />
 			<h:link value="4 行为组件" outcome="h/click" />
@@ -59,14 +60,10 @@
 			<h:link value="6 jsr303" outcome="f/validators/jsr303" />
 			<h:link value="7 jsf脚本" outcome="/h/jsfjslib" />
 			<h:link value="8 请求处理生命周期" outcome="h/lifecycle/begin" />
-			
 			<h:link value="9 验证器和转换器" outcome="f/vc" />
-			<h:form>
-			<h:commandLink value="9 验证器和转换器" action="f/vc">
-				<f:ajax/>
-			</h:commandLink>
-			</h:form>
-			<h:outputScript library="javascript" name="jsf.ajax.js" target="head" />
+			<h:link value="10 立即属性" outcome="h/immediate/inputText" />
+			<h:link value="11 导航" outcome="h/navigation/nav" />
+			<h:link value="12 flash" outcome="h/navigation/flash" />
 		</h:panelGrid>
 	</h:panelGrid>
 	<!-- 动态分页 开始 -->

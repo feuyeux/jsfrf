@@ -1,19 +1,19 @@
 <ui:composition xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 	<h:panelGrid>
-		<rich:select id="s1" value="#{mBean.selected}" defaultLabel="请选择一项">
-			<f:ajax event="selectitem" listener="#{mBean.print}" render="out1" />
-			<f:selectItems value="#{mBean.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+		<rich:select id="s1" value="#{testList.selected}" defaultLabel="请选择一项">
+			<f:ajax event="selectitem" listener="#{testList.print}" render="out1" />
+			<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 		</rich:select>
-		<h:outputText id="out1" value="selected= #{mBean.selected}" />
+		<h:outputText id="out1" value="selected= #{testList.selected}" />
 	</h:panelGrid>
 
 	<h:panelGrid>
-		<rich:select id="s2" value="#{mBean.selected}" defaultLabel="请选择一项">
-			<a4j:ajax event="selectitem" listener="#{mBean.print}" render="out2" />
-			<f:selectItems value="#{mBean.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+		<rich:select id="s2" value="#{testList.selected}" defaultLabel="请选择一项">
+			<a4j:ajax event="selectitem" listener="#{testList.print}" render="out2" />
+			<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 		</rich:select>
-		<h:outputText id="out2" value="selected= #{mBean.selected}" />
+		<h:outputText id="out2" value="selected= #{testList.selected}" />
 	</h:panelGrid>
 
 	<a4j:log level="error" />

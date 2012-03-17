@@ -21,15 +21,21 @@ public class JSFRFError {
 
 	public String getStackTrace() {
 		Throwable errorObject = (Throwable) requestMap.get(RequestDispatcher.ERROR_EXCEPTION);
-		StringWriter stringWriter = new StringWriter();
-		PrintWriter writer = new PrintWriter(stringWriter);
-		errorObject.printStackTrace(writer);
-		return stringWriter.toString();
+		if (errorObject != null) {
+			StringWriter stringWriter = new StringWriter();
+			PrintWriter writer = new PrintWriter(stringWriter);
+			errorObject.printStackTrace(writer);
+			return stringWriter.toString();
+		} else {
+			return "";
+		}
 	}
 
 	public String getErrorType() {
 		Class<?> errorClass = (Class<?>) requestMap.get(RequestDispatcher.ERROR_EXCEPTION_TYPE);
-		return "错误类型：" + errorClass.getName();
+		if (errorClass != null)
+			return "错误类型：" + errorClass.getName();
+		return "";
 	}
 
 	public String getErrorMessage() {

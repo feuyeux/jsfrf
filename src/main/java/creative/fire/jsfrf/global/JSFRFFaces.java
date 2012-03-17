@@ -7,6 +7,7 @@ import javax.el.ExpressionFactory;
 import javax.faces.application.Application;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -53,7 +54,19 @@ public class JSFRFFaces {
 		return getExternalContext().getRequestMap();
 	}
 
+	public static Map<String, Object> getSessionMap() {
+		return getExternalContext().getSessionMap();
+	}
+
+	public static Map<String, Object> getApplicationMap() {
+		return getExternalContext().getApplicationMap();
+	}
+
 	public static Map<Object, Object> getAttributes() {
 		return getFacesContext().getAttributes();
+	}
+
+	public static Flash getFlash() {
+		return getExternalContext().getFlash();
 	}
 }

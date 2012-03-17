@@ -1,21 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
-<h:head id="jsf_head">
+<h:head id="inputHead">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<title>Begin</title>
+	<title>JavaServer Faces immediate</title>
 </h:head>
-<h:body id="jsf_body">
-	<h:form id="jsf_form">
-		<h:inputText id="in" value="#{text.intValue}" />
-		<h:commandButton id="btn" value="测试" action="#{text.foo1}" />
+<h:body>
+	<h:form id="inputForm" prependId="false">
+		<h:panelGrid>
+			<h:inputText value="#{a4jBean.value}" />
+			<h:outputText value="#{a4jBean.value}" />
+			<h:inputText id="input3" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" immediate="true"/>
+			<h:commandButton value="immediate 测试" action="#{a4jBean.foo}" immediate="false"/>
+		</h:panelGrid>
 	</h:form>
-	h:button outcome="end" value="GET测试">
-		<f:param id="xid" name="x" value="1" />
-	</h:button>
-
+	<br />
 	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

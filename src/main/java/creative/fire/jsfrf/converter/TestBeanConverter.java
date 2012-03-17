@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 @FacesConverter(value = "textConverter")
 public class TestBeanConverter implements Converter {
-	static Logger logger = Logger.getLogger(TestBeanConverter.class);
+	transient static Logger logger = Logger.getLogger(TestBeanConverter.class);
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
  */
 @FacesValidator(value = "textValidator")
 public class TextBeanValidator implements Validator {
-	static Logger logger = Logger.getLogger(TextBeanValidator.class);
+	transient static Logger logger = Logger.getLogger(TextBeanValidator.class);
 
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object obj) throws ValidatorException {

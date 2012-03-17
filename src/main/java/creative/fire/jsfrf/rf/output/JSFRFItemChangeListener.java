@@ -10,7 +10,7 @@ import org.richfaces.event.ItemChangeEvent;
  * @version 1.0
  */
 public class JSFRFItemChangeListener implements org.richfaces.event.ItemChangeListener {
-	private Logger logger = Logger.getLogger(JSFRFItemChangeListener.class);
+	private transient Logger logger = Logger.getLogger(JSFRFItemChangeListener.class);
 
 	@Override
 	public void processItemChange(ItemChangeEvent event) throws AbortProcessingException {

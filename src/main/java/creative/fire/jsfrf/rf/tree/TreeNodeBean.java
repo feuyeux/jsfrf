@@ -17,7 +17,7 @@ import org.richfaces.model.TreeNode;
 @ManagedBean
 @ViewScoped
 public class TreeNodeBean {
-	static Logger logger = Logger.getLogger(TreeNodeBean.class);
+	transient static Logger logger = Logger.getLogger(TreeNodeBean.class);
 	private JSFRFTreeNode rootNode = null;
 	private List<String> selecting = new ArrayList<String>();
 	private List<String> selection = new ArrayList<String>();

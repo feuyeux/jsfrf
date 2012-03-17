@@ -17,7 +17,7 @@ import org.richfaces.event.ItemChangeEvent;
 @ManagedBean
 @ViewScoped
 public class PanelMenuBean {
-	Logger logger = Logger.getLogger(PanelMenuBean.class);
+	transient Logger logger = Logger.getLogger(PanelMenuBean.class);
 	private String menuSelected;
 
 	public PanelMenuBean() {

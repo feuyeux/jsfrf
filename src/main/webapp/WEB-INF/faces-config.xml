@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-	version="2.0">
-	
-	<!--异常处理 -->
-	<factory>
-		<exception-handler-factory>creative.fire.jsfrf.jsf.error.JSFRFExceptionHandlerFactory</exception-handler-factory>
-	</factory>
-	
-	<lifecycle>
-		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
-	</lifecycle>
-
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	<!-- <managed-bean> <description>bean for ajax</description> <managed-bean-name>a4jBean</managed-bean-name> 
 		<managed-bean-class>creative.fire.jsfrf.rf.ajax.AjaxBean</managed-bean-class> 
 		<managed-bean-scope>view</managed-bean-scope> <managed-property> <property-name>value</property-name> 
 		<property-class>java.lang.String</property-class> <value>初始</value> </managed-property> 
 		</managed-bean> -->
-
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>error</from-outcome>
@@ -26,20 +14,54 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<description>任何视图来源</description>
+		<from-view-id>*</from-view-id>
+		<!--first nav test -->
+		<navigation-case id="first">
+			<description>第一个导航测试</description>
+			<from-action>#{testBean.foo}</from-action>
+			<from-outcome>nav1</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nav2</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+			<redirect include-view-params="true" />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>nav3</from-outcome>
+			<if>#{testBean.lived}</if>
+			<to-view-id>/h/navigation/lived.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nav3</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+
+
 
 	<application>
-		<!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener> -->
-		<!--<message-bundle>jsfrfMessage</message-bundle> -->
+		<!--<action-listener>creative.fire.jsfrf.jsf.event.JSFRFActionListener</action-listener> 
+			<message-bundle>jsfrfMessage</message-bundle> -->
 		<locale-config>
 			<default-locale>en</default-locale>
 			<!--supported-locale>en_US</supported-locale -->
 			<supported-locale>zh_CN</supported-locale>
 		</locale-config>
-
 		<resource-bundle>
 			<base-name>jsfrfMessage</base-name>
 			<var>jsfrfMsg</var>
 		</resource-bundle>
 	</application>
-
+	<!--异常处理 -->
+	<factory>
+		<exception-handler-factory>creative.fire.jsfrf.jsf.error.JSFRFExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+	<lifecycle>
+		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
+	</lifecycle>
 </faces-config>

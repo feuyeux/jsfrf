@@ -12,7 +12,7 @@ import org.richfaces.model.UploadedFile;
 @ManagedBean
 @ViewScoped
 public class UploadBean {
-	static Logger logger = Logger.getLogger(UploadBean.class);
+	transient static Logger logger = Logger.getLogger(UploadBean.class);
 	private ArrayList<UploadedFile> files = new ArrayList<UploadedFile>();
 	private int maxNum;
 

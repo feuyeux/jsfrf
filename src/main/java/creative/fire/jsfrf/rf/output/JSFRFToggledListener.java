@@ -10,7 +10,7 @@ import org.richfaces.event.PanelToggleEvent;
  * @version 1.0
  */
 public class JSFRFToggledListener implements org.richfaces.event.PanelToggleListener {
-	private Logger logger = Logger.getLogger(JSFRFToggledListener.class);
+	private transient Logger logger = Logger.getLogger(JSFRFToggledListener.class);
 
 	@Override
 	public void processPanelToggle(PanelToggleEvent event) throws AbortProcessingException {

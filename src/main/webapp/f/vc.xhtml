@@ -9,7 +9,7 @@
 	<title>JavaServer Faces f标签库</title>
 </h:head>
 <h:body>
-	<h:form id="validatorForm">
+	<h:form id="validatorForm1">
 		<h:panelGrid>
 			<h:inputText id="input1" value="#{a4jBean}" size="20">
 				<f:converter converterId="ajaxBeanConverter" />
@@ -21,22 +21,23 @@
 		</h:panelGrid>
 		<h:messages />
 	</h:form>
+	
 	<h:form id="validatorForm2">
 		<h:panelGrid>
 			<h:inputText id="input2" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" />
 			<h:message for="input2" style="color:red" />
 			<h:outputLabel value="#{a4jBean}" converter="ajaxBeanConverter" />
-			<a4j:commandButton value="测试" execute="@form" render="@form" />
+			<a4j:commandButton action="#{a4jBean.foo}" value="测试" execute="@form" render="@form" />
 		</h:panelGrid>
 		<h:messages />
 	</h:form>
 
-	<h:form id="validatorForm2">
+	<h:form id="validatorForm3">
 		<h:panelGrid>
-			<h:inputText id="input2" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" immediate="true"/>
-			<h:message for="input2" style="color:red" />
+			<h:inputText id="input3" value="#{a4jBean}" size="20" validator="ajaxBeanValidator" converter="ajaxBeanConverter" immediate="true"/>
+			<h:message for="input3" style="color:red" />
 			<h:outputLabel value="#{a4jBean}" converter="ajaxBeanConverter" />
-			<a4j:commandButton value="立即-测试" execute="@form" render="@form" immediate="true"/>
+			<a4j:commandButton action="#{a4jBean.foo}" value="立即-测试" execute="@form" render="@form" immediate="true"/>
 		</h:panelGrid>
 		<h:messages />
 	</h:form>

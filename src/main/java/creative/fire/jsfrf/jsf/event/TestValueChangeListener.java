@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 public class TestValueChangeListener implements ValueChangeListener {
-	static Logger logger = Logger.getLogger(TestValueChangeListener.class);
+	transient static Logger logger = Logger.getLogger(TestValueChangeListener.class);
 
 	@Override
 	public void processValueChange(ValueChangeEvent event) throws AbortProcessingException {

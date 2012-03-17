@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 public class TestActionListener implements ActionListener {
-	static Logger logger = Logger.getLogger(TestActionListener.class);
+	transient static Logger logger = Logger.getLogger(TestActionListener.class);
 
 	@Override
 	public void processAction(ActionEvent actionEvent) throws AbortProcessingException {

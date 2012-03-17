@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  */
 public class TestPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = 7970894311410478241L;
-	static Logger logger = Logger.getLogger(TestPhaseListener.class);
+	transient static Logger logger = Logger.getLogger(TestPhaseListener.class);
 
 	@Override
 	public void afterPhase(PhaseEvent event) {

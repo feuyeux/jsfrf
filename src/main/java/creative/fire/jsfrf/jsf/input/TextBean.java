@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 @RequestScoped
 public class TextBean implements Serializable {
 	private static final long serialVersionUID = 7515550212656544309L;
-	static Logger logger = Logger.getLogger(TextBean.class);
+	transient static Logger logger = Logger.getLogger(TextBean.class);
 	private String value;
 	@ManagedProperty(value = "123456")
 	private String secretValue;

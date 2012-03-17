@@ -16,10 +16,9 @@ import org.apache.log4j.Logger;
 public class DisplayResolution implements Serializable {
 	private static final long serialVersionUID = -4509764560269011152L;
 	private int pageSize;
-	private Logger logger;
+	private static transient Logger logger = Logger.getLogger(DisplayResolution.class);
 
 	public DisplayResolution() {
-		this.logger = Logger.getLogger(DisplayResolution.class);
 	}
 
 	public int getPageSize() {
@@ -28,6 +27,6 @@ public class DisplayResolution implements Serializable {
 
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
-		this.logger.info("当前分页尺度：" + pageSize);
+		logger.info("当前分页尺度：" + pageSize);
 	}
 }

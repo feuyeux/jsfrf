@@ -25,3 +25,5 @@ git reset --hard HEAD~2
 git push origin master --force
 --
 https://github.com/feuyeux/jsfrf/graphs/punch_card
+--
+git clone -b master https://github.com/richfaces/showcase
