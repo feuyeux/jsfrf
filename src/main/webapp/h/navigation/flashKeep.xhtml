@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JavaServer Faces EL</title>
 </h:head>
 <h:body>
 	<h:panelGrid columns="2">
-		value0=
-		<h:outputText value="#{flash.value0}" />
-		keep.value0=
-		<h:outputText value="#{flash.keep.value0}" />
+		value=
+		<h:outputText value="#{flash.value317}" />
+		keep.value=
+		<h:outputText value="#{flash.keep.value318}" />
 	</h:panelGrid>
+	<h:button value="flash keep 测试" outcome="flash?faces-redirect=true" />
 	<br />
 	<h:link value="返回" outcome="flash" />
 </h:body>

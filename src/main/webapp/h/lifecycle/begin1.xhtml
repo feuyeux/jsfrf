@@ -10,5 +10,10 @@
 		<h:inputText id="in" value="#{text.intValue}" />
 		<h:commandButton id="btn" value="测试" action="#{text.foo1}" />
 	</h:form>
+	<h:button outcome="end" value="GET测试">
+		<f:param id="xid" name="x" value="1" />
+	</h:button>
+
+	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>
