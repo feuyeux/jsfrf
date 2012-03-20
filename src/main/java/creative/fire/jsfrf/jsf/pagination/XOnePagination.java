@@ -26,15 +26,15 @@ public class XOnePagination extends OnePagination {
 	private ArrayList<Yijing> selectedList;
 
 	public XOnePagination() {
-		this.selectedList = new ArrayList<Yijing>();
+		selectedList = new ArrayList<Yijing>();
 	}
 
 	public ArrayList<Yijing> getSelectedList() {
-		return this.selectedList;
+		return selectedList;
 	}
 
 	public Collection<Object> getSelection() {
-		return this.selection;
+		return selection;
 	}
 
 	@Override
@@ -54,10 +54,10 @@ public class XOnePagination extends OnePagination {
 	public void showSelections(AjaxBehaviorEvent event) {
 		UIExtendedDataTable table = (UIExtendedDataTable) event.getComponent();
 		Object storedRowKey = table.getRowKey();
-		this.selectedList.clear();
-		for (Object rowKey : this.selection) {
+		selectedList.clear();
+		for (Object rowKey : selection) {
 			table.setRowKey(rowKey);
-			this.selectedList.add((Yijing) table.getRowData());
+			selectedList.add((Yijing) table.getRowData());
 		}
 		table.setRowKey(storedRowKey);
 	}

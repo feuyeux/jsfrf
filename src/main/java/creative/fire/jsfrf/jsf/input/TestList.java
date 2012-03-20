@@ -18,30 +18,30 @@ public class TestList implements Serializable {
 	private String selected;
 
 	public TestList() {
-		this.item.add("1");
-		this.item.add("21");
-		this.item.add("11");
-		this.item.add("31");
-		this.item.add("111");
-		this.list.add("a");
-		this.list.add("aa");
-		this.list.add("b");
+		item.add("1");
+		item.add("21");
+		item.add("11");
+		item.add("31");
+		item.add("111");
+		list.add("a");
+		list.add("aa");
+		list.add("b");
 	}
 
 	public java.util.HashSet<String> getItem() {
-		return this.item;
+		return item;
 	}
 
 	public java.util.Collection<String> getList() {
-		return this.list;
+		return list;
 	}
 
 	public String getSelected() {
-		return this.selected;
+		return selected;
 	}
 
 	public void print() {
-		System.out.println(this.selected);
+		System.out.println(selected);
 	}
 
 	public void setItem(java.util.HashSet<String> item) {

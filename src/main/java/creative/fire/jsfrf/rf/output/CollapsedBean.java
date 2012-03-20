@@ -22,34 +22,34 @@ public class CollapsedBean {
 			PanelIcons.triangleLeft, PanelIcons.triangleUp, PanelIcons.triangleDown };
 
 	public CollapsedBean() {
-		this.icon0 = this.icons0[0].name();
-		this.icon1 = this.icons1[0].name();
+		icon0 = icons0[0].name();
+		icon1 = icons1[0].name();
 	}
 
 	public void doToggled(PanelToggleEvent event) {
 		org.richfaces.component.UICollapsiblePanel panel = (org.richfaces.component.UICollapsiblePanel) event.getSource();
 		Object o = panel.getValue();
-		this.status = this.icon0 + " " + this.icon1 + " " + o + " " + event.getExpanded();
+		status = icon0 + " " + icon1 + " " + o + " " + event.getExpanded();
 	}
 
 	public String getIcon0() {
-		return this.icon0;
+		return icon0;
 	}
 
 	public String getIcon1() {
-		return this.icon1;
+		return icon1;
 	}
 
 	public PanelIcons[] getIcons0() {
-		return this.icons0;
+		return icons0;
 	}
 
 	public PanelIcons[] getIcons1() {
-		return this.icons1;
+		return icons1;
 	}
 
 	public String getStatus() {
-		return this.status;
+		return status;
 	}
 
 	public void setIcon0(String icon0) {

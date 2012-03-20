@@ -32,7 +32,7 @@ public class JSFRFExceptionHandler extends ExceptionHandlerWrapper {
 
 	@Override
 	public ExceptionHandler getWrapped() {
-		return this.wrapped;
+		return wrapped;
 	}
 
 	@Override

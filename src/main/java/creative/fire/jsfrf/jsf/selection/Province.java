@@ -13,15 +13,15 @@ public class Province {
 	}
 
 	public String getAbbreviation() {
-		return this.abbreviation;
+		return abbreviation;
 	}
 
 	public String getCapital() {
-		return this.capital;
+		return capital;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setAbbreviation(String abbreviation) {

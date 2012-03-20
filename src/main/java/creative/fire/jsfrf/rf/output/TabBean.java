@@ -18,11 +18,11 @@ public class TabBean {
 	private String status;
 
 	public void doItemChanging(ItemChangeEvent event) {
-		this.status = event.getNewItemName();
+		status = event.getNewItemName();
 	}
 
 	public String getStatus() {
-		return this.status;
+		return status;
 	}
 
 	public void setStatus(String status) {

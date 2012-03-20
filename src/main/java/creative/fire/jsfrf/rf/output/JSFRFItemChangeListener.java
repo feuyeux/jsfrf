@@ -14,6 +14,6 @@ public class JSFRFItemChangeListener implements org.richfaces.event.ItemChangeLi
 
 	@Override
 	public void processItemChange(ItemChangeEvent event) throws AbortProcessingException {
-		this.logger.debug(event.getNewItemName());
+		logger.debug(event.getNewItemName());
 	}
 }

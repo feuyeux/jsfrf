@@ -16,20 +16,20 @@ public class Zhouyi {
 	private ArrayList<Yijing> targetlist;
 
 	public ArrayList<Yijing> getSourcelist() {
-		return this.sourcelist;
+		return sourcelist;
 	}
 
 	public ArrayList<Yijing> getTargetlist() {
-		return this.targetlist;
+		return targetlist;
 	}
 
 	@PostConstruct
 	public void postConstruct() {
-		this.sourcelist = YijingCollection.getYijings();
+		sourcelist = YijingCollection.getYijings();
 
-		this.targetlist = new ArrayList<Yijing>();
-		this.targetlist.add(this.sourcelist.get(0));
-		this.targetlist.add(this.sourcelist.get(1));
+		targetlist = new ArrayList<Yijing>();
+		targetlist.add(sourcelist.get(0));
+		targetlist.add(sourcelist.get(1));
 	}
 
 	public void setSourcelist(ArrayList<Yijing> sourcelist) {

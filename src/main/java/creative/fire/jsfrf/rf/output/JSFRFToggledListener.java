@@ -14,7 +14,7 @@ public class JSFRFToggledListener implements org.richfaces.event.PanelToggleList
 
 	@Override
 	public void processPanelToggle(PanelToggleEvent event) throws AbortProcessingException {
-		this.logger.debug(event.getComponent().getClientId());
+		logger.debug(event.getComponent().getClientId());
 	}
 
 }

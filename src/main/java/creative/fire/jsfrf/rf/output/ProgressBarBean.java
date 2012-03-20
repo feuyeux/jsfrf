@@ -18,20 +18,20 @@ public class ProgressBarBean implements Serializable {
 
 	public int getCurrent() {
 		if (isEnabled()) {
-			if (this.current > 100) {
-				this.enabled = false;
-				this.current = -1;
+			if (current > 100) {
+				enabled = false;
+				current = -1;
 			} else {
-				this.current += 5;
+				current += 5;
 			}
 		} else {
-			this.current = -1;
+			current = -1;
 		}
-		return this.current;
+		return current;
 	}
 
 	public boolean isEnabled() {
-		return this.enabled;
+		return enabled;
 	}
 
 	public void setCurrent(int current) {
@@ -43,7 +43,7 @@ public class ProgressBarBean implements Serializable {
 	}
 
 	public void start() {
-		this.enabled = true;
-		this.current++;
+		enabled = true;
+		current++;
 	}
 }

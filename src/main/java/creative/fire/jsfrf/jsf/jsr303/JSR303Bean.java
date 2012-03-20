@@ -23,14 +23,14 @@ public class JSR303Bean {
 		sub.setBirthDate(date);
 		sub.setNextRainy(date);
 
-		this.input = new TextBean();
-		this.input.setSubTextBean(sub);
+		input = new TextBean();
+		input.setSubTextBean(sub);
 
 		input2 = new TextGroupBean();
 	}
 
 	public TextBean getInput() {
-		return this.input;
+		return input;
 	}
 
 	public void setInput(TextBean input) {

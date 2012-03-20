@@ -17,7 +17,7 @@ public class CalendarModel implements CalendarDataModel {
 	Calendar today = GregorianCalendar.getInstance();
 
 	public CalendarModel() {
-		this.today.setTime(new Date());
+		today.setTime(new Date());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class CalendarModel implements CalendarDataModel {
 
 	@Override
 	public Object getToolTip(Date date) {
-		return date.before(this.today.getTime());
+		return date.before(today.getTime());
 	}
 
 	private boolean isSpecialDay(Calendar calendar) {

@@ -15,17 +15,17 @@ public class ECSS {
 	private String color;
 
 	public String getColor() {
-		return this.color;
+		return color;
 	}
 
 	public String getVendor() {
-		return this.vendor;
+		return vendor;
 	}
 
 	@PostConstruct
 	public void init() {
-		this.vendor = "vendor1";
-		this.color = "blue";
+		vendor = "vendor1";
+		color = "blue";
 	}
 
 	public void setColor(String color) {

@@ -41,39 +41,40 @@ public abstract class BasePagination implements IPagination {
 	}
 
 	protected void flipBar1() {
-		if (this.pageNumberItems == null) {
-			this.pageNumberItems = new ArrayList<SelectItem>();
+		if (pageNumberItems == null) {
+			pageNumberItems = new ArrayList<SelectItem>();
 		} else {
-			this.pageNumberItems.clear();
+			pageNumberItems.clear();
 		}
 
 		if (getTotalSize() == 0) {
-			this.pageNumberItems.add(new SelectItem(1 + "", 1 + ""));
+			pageNumberItems.add(new SelectItem(1 + "", 1 + ""));
 		} else {
 			for (int i = 1; i <= getPageCount(); i++) {
 				String pageNumber = "" + i;
-				this.pageNumberItems.add(new SelectItem(pageNumber, pageNumber));
+				pageNumberItems.add(new SelectItem(pageNumber, pageNumber));
 			}
 		}
 	}
 
 	protected void flipBar2() {
 		if (totalSize == 0) {
-			this.pageIndex = 1;
-			this.totalSize = 1;
-			this.pageNumbers.clear();
+			pageIndex = 1;
+			totalSize = 1;
+			pageNumbers.clear();
 			return;
 		}
 
-		int mod = this.pageIndex % pagePageSize;
+		int mod = pageIndex % pagePageSize;
 		int pagePageIndex;
-		if (mod > 0)
-			pagePageIndex = this.pageIndex / pagePageSize + 1;
-		else
-			pagePageIndex = this.pageIndex / pagePageSize;
+		if (mod > 0) {
+			pagePageIndex = pageIndex / pagePageSize + 1;
+		} else {
+			pagePageIndex = pageIndex / pagePageSize;
+		}
 
-		int pageStart = this.pageIndex - left;
-		int pageEnd = this.pageIndex + right;
+		int pageStart = pageIndex - left;
+		int pageEnd = pageIndex + right;
 
 		if (pageStart < 1) {
 			pageStart = 1;
@@ -91,67 +92,68 @@ public abstract class BasePagination implements IPagination {
 			pageEnd = totalSize;
 		}
 
-		this.pageNumbers.clear();
-		if (pageEnd > 1)
+		pageNumbers.clear();
+		if (pageEnd > 1) {
 			for (int i = pageStart; i <= pageEnd; i++) {
-				this.pageNumbers.add(i);
+				pageNumbers.add(i);
 			}
+		}
 	}
 
 	public DisplayResolution getDisplayResolution() {
-		return this.displayResolution;
+		return displayResolution;
 	}
 
 	@Override
 	public int getPageCount() {
-		int mod = getTotalSize() % this.pageSize;
-		this.pageCount = getTotalSize() / this.pageSize;
+		int mod = getTotalSize() % pageSize;
+		pageCount = getTotalSize() / pageSize;
 		if (mod > 0) {
-			this.pageCount++;
+			pageCount++;
 		}
 
-		if (this.pageCount < 1) {
-			this.pageCount = 1;
+		if (pageCount < 1) {
+			pageCount = 1;
 		}
-		return this.pageCount;
+		return pageCount;
 	}
 
 	@Override
 	public int getPageIndex() {
-		return this.pageIndex;
+		return pageIndex;
 	}
 
 	@Override
 	public int getPageSize() {
-		return this.pageSize;
+		return pageSize;
 	}
 
 	@Override
 	public int getTotalSize() {
-		return this.totalSize;
+		return totalSize;
 	}
 
 	public void init() {
-		if (this.displayResolution == null) {
-			this.pageSize = 20;
+		if (displayResolution == null) {
+			pageSize = 20;
 		} else {
-			this.pageSize = this.displayResolution.getPageSize();
-			if (this.pageSize == 0) {
-				this.pageSize = 20;
+			pageSize = displayResolution.getPageSize();
+			if (pageSize == 0) {
+				pageSize = 20;
 			}
 		}
 	}
 
 	@Override
 	public boolean isDisabledFirst() {
-		this.disabledFirst = getPageIndex() == 1;
-		return this.disabledFirst;
+		disabledFirst = getPageIndex() == 1;
+		return disabledFirst;
 	}
 
 	@Override
 	public boolean isDisabledLast() {
-		this.disabledLast = getPageIndex() == getPageCount();
-		return this.disabledLast;
+		disabledLast = getPageIndex() == getPageCount();
+		return disabledLast;
 	}
 
 	public ArrayList<Integer> getPageNumbers() {

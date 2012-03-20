@@ -22,7 +22,7 @@ public class DisplayResolution implements Serializable {
 	}
 
 	public int getPageSize() {
-		return this.pageSize;
+		return pageSize;
 	}
 
 	public void setPageSize(int pageSize) {

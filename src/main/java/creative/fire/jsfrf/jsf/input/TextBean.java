@@ -35,7 +35,7 @@ public class TextBean implements Serializable {
 	private int intValue;
 
 	public void foo() {
-		TextBean.logger.info(this.value);
+		TextBean.logger.info(value);
 	}
 
 	public void foo0(ValueChangeEvent e) {
@@ -50,51 +50,51 @@ public class TextBean implements Serializable {
 			newValue = newone.toString();
 		}
 		TextBean.logger.info(String.format("原值=%s 新值=%s 周期阶段=%s 来自组件：%s\t", oldValue, newValue, e.getPhaseId(), e.getSource().getClass()));
-		TextBean.logger.debug(this.value);
+		TextBean.logger.debug(value);
 	}
 
 	public String foo1() {
-		TextBean.logger.info(this.intValue);
+		TextBean.logger.info(intValue);
 		return "end";// end?faces-redirect=true";
 	}
 
 	public int getIntValue() {
-		return this.intValue;
+		return intValue;
 	}
 
 	public String getSecretValue() {
-		return this.secretValue;
+		return secretValue;
 	}
 
 	public ArrayList<String> getTestList() {
-		return this.testList;
+		return testList;
 	}
 
 	public Map<String, String> getTestMap() {
-		return this.testMap;
+		return testMap;
 	}
 
 	public String getValue() {
-		return this.value;
+		return value;
 	}
 
 	@PostConstruct
 	public void initialize() {
-		this.testList = new ArrayList<String>();
-		this.testMap = new HashMap<String, String>();
-		this.testList.add("甲");
-		this.testList.add("乙");
-		this.testList.add("丙");
-		this.testList.add("丁");
+		testList = new ArrayList<String>();
+		testMap = new HashMap<String, String>();
+		testList.add("甲");
+		testList.add("乙");
+		testList.add("丙");
+		testList.add("丁");
 
-		this.testMap.put("a", "甲");
-		this.testMap.put("b", "乙");
-		this.testMap.put("c", "丙");
-		this.testMap.put("d", "丁");
+		testMap.put("a", "甲");
+		testMap.put("b", "乙");
+		testMap.put("c", "丙");
+		testMap.put("d", "丁");
 	}
 
 	public boolean isRendered() {
-		return this.rendered;
+		return rendered;
 	}
 
 	public void setIntValue(int intValue) {
@@ -130,7 +130,7 @@ public class TextBean implements Serializable {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
 		this.rendered = "true".equals(rendered);
-		this.value = params.get("textValue");
+		value = params.get("textValue");
 	}
 
 	public void update1(javax.faces.event.ActionEvent event) {
@@ -143,10 +143,10 @@ public class TextBean implements Serializable {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String rendered = params.get("rendered");
 		this.rendered = "true".equals(rendered);
-		this.value = params.get("textValue");
+		value = params.get("textValue");
 	}
 
 	public void update2(javax.faces.event.ActionEvent event) {
-		TextBean.logger.info(this.testList.get(0));
+		TextBean.logger.info(testList.get(0));
 	}
 }

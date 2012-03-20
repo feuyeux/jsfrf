@@ -16,12 +16,12 @@ public class ZhouyiMap {
 	private HashMap<String, Yijing> map;
 
 	public HashMap<String, Yijing> getMap() {
-		return this.map;
+		return map;
 	}
 
 	@PostConstruct
 	public void postConstruct() {
-		this.map = YijingMap.getYijings();
+		map = YijingMap.getYijings();
 	}
 
 	public void setMap(HashMap<String, Yijing> map) {

@@ -21,32 +21,32 @@ public class JSFRFEnvironment {
 	private String jsPath;
 
 	public String getContextPath() {
-		if (this.contextPath == null) {
+		if (contextPath == null) {
 			final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-			this.contextPath = externalContext.getRequestContextPath();
+			contextPath = externalContext.getRequestContextPath();
 		}
-		return this.contextPath;
+		return contextPath;
 	}
 
 	public String getCssPath() {
-		if (this.cssPath == null) {
-			this.cssPath = getContextPath() + "/resources/css/";
+		if (cssPath == null) {
+			cssPath = getContextPath() + "/resources/css/";
 		}
-		return this.cssPath;
+		return cssPath;
 	}
 
 	public String getImagePath() {
-		if (this.imagePath == null) {
-			this.imagePath = getContextPath() + "/resources/img/";
+		if (imagePath == null) {
+			imagePath = getContextPath() + "/resources/img/";
 		}
-		return this.imagePath;
+		return imagePath;
 	}
 
 	public String getJsPath() {
-		if (this.jsPath == null) {
-			this.jsPath = getContextPath() + "/resources/javascript/";
+		if (jsPath == null) {
+			jsPath = getContextPath() + "/resources/javascript/";
 		}
-		return this.jsPath;
+		return jsPath;
 	}
 
 	public String getLanguage() {

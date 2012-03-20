@@ -25,25 +25,25 @@ public class PlayerBean {
 	private int pageSize;
 
 	public int getPageIndex() {
-		return this.pageIndex;
+		return pageIndex;
 	}
 
 	public int getPageSize() {
-		return this.pageSize;
+		return pageSize;
 	}
 
 	public ArrayList<Player> getsList() {
-		return this.sList;
+		return sList;
 	}
 
 	public ArrayList<Player> gettList() {
-		return this.tList;
+		return tList;
 	}
 
 	@PostConstruct
 	public void init() {
-		this.pageIndex = 1;
-		this.pageSize = 10;
+		pageIndex = 1;
+		pageSize = 10;
 		PlayerCache cache = PlayerCache.getInstance();
 		if (cache != null) {
 			ArrayList<Player> sList = cache.getsList();

@@ -33,28 +33,31 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 
 	public ArrayList<Yijing> autocomplete(String prefix) {
 		ArrayList<Yijing> result = new ArrayList<Yijing>();
-		for (Yijing suggestYi : this.list) {
+		for (Yijing suggestYi : list) {
 			if (suggestYi.getSequence().startsWith(prefix)) {
 				result.add(suggestYi);
 			}
 		}
 		return result;
 	}
+
+	@Override
 	public void flipover() {
 		try {
 			String requestIndex = JSFRFFaces.getRequestParameterMap().get("pageIndex");
-			if (requestIndex != null)
+			if (requestIndex != null) {
 				pageIndex = Integer.valueOf(requestIndex);
-			
+			}
+
 			int from = (getPageIndex() - 1) * getPageSize();
 			int to = getPageIndex() * getPageSize();
 
-			if (to > this.totalSize) {
-				to = this.totalSize;
+			if (to > totalSize) {
+				to = totalSize;
 			}
-			this.showList.clear();
+			showList.clear();
 			for (int i = from; i < to; i++) {
-				this.showList.add(this.list.get(i));
+				showList.add(list.get(i));
 			}
 			filpBar();
 		} catch (Exception e) {
@@ -63,7 +66,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	}
 
 	public ArrayList<Yijing> getList() {
-		return this.list;
+		return list;
 	}
 
 	public Comparator<Yijing> getSequenceComparator() {
@@ -85,11 +88,11 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	}
 
 	public SortOrder getSequenceOrder() {
-		return this.sequenceOrder;
+		return sequenceOrder;
 	}
 
 	public ArrayList<Yijing> getShowList() {
-		return this.showList;
+		return showList;
 	}
 
 	@Override
@@ -101,9 +104,9 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	}
 
 	private void initializeList() {
-		this.list = YijingCollection.getYijings();
-		this.showList = new ArrayList<Yijing>();
-		this.totalSize = this.list.size();
+		list = YijingCollection.getYijings();
+		showList = new ArrayList<Yijing>();
+		totalSize = list.size();
 		flipover();
 	}
 
@@ -112,7 +115,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 	}
 
 	public void sortBySequence() {
-		if (this.sequenceOrder.equals(SortOrder.ascending)) {
+		if (sequenceOrder.equals(SortOrder.ascending)) {
 			setSequenceOrder(SortOrder.descending);
 		} else {
 			setSequenceOrder(SortOrder.ascending);

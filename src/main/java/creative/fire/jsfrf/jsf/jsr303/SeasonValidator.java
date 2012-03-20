@@ -18,7 +18,7 @@ public class SeasonValidator implements ConstraintValidator<Season, String> {
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		if (Arrays.asList(this.seasons).contains(value)) {
+		if (Arrays.asList(seasons).contains(value)) {
 			return true;
 		}
 		return false;

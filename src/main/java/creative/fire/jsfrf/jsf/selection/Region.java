@@ -13,15 +13,15 @@ public class Region {
 	}
 
 	public int getCount() {
-		return this.provinces.size();
+		return provinces.size();
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public ArrayList<Province> getProvinces() {
-		return this.provinces;
+		return provinces;
 	}
 
 	public void setName(String name) {

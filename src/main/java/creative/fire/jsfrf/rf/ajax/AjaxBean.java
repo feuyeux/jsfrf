@@ -27,7 +27,7 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void bar() {
-		this.increase++;
+		increase++;
 	}
 
 	public void foo() {
@@ -35,20 +35,20 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void forceUpdate() {
-		this.value = "完毕";
+		value = "完毕";
 	}
 
 	public int getIncrease() {
-		return this.increase;
+		return increase;
 	}
 
 	public String getValue() {
-		this.increase++;
-		return this.value;
+		increase++;
+		return value;
 	}
 
 	public boolean isEnabled() {
-		return this.enabled;
+		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {
@@ -61,11 +61,11 @@ public class AjaxBean implements Serializable {
 
 	public void update(String toggle) {
 		if (toggle.equals("1")) {
-			this.enabled = true;
+			enabled = true;
 		} else {
-			this.enabled = false;
+			enabled = false;
 		}
-		AjaxBean.logger.info("enabled=" + this.enabled);
+		AjaxBean.logger.info("enabled=" + enabled);
 	}
 
 	public void walk() {
@@ -75,7 +75,7 @@ public class AjaxBean implements Serializable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.enabled = true;
-		this.value = "[" + this.value + "]";
+		enabled = true;
+		value = "[" + value + "]";
 	}
 }

@@ -48,32 +48,32 @@ public class GraphValidateBean implements java.lang.Cloneable {
 	}
 
 	public String getCountry() {
-		return this.country;
+		return country;
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
 	public String getIdentification() {
-		return this.identification;
+		return identification;
 	}
 
 	public String getMobilePhone() {
-		return this.mobilePhone;
+		return mobilePhone;
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public String getRepassword() {
-		return this.repassword;
+		return repassword;
 	}
 
 	@AssertTrue(message = "两次输入不同 请重新输入")
 	public boolean isTextEqual() {
-		return this.password.equals(this.repassword);
+		return password.equals(repassword);
 	}
 
 	public void setCountry(String country) {

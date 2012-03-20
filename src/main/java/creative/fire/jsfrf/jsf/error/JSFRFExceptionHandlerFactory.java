@@ -17,7 +17,7 @@ public class JSFRFExceptionHandlerFactory extends ExceptionHandlerFactory {
 
 	@Override
 	public ExceptionHandler getExceptionHandler() {
-		ExceptionHandler result = this.parent.getExceptionHandler();
+		ExceptionHandler result = parent.getExceptionHandler();
 		result = new JSFRFExceptionHandler(result);
 		return result;
 	}

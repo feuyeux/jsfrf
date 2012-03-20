@@ -17,11 +17,11 @@ public class UploadBean {
 	private int maxNum;
 
 	public ArrayList<UploadedFile> getFiles() {
-		return this.files;
+		return files;
 	}
 
 	public int getMaxNum() {
-		return this.maxNum;
+		return maxNum;
 	}
 
 	public void setFiles(ArrayList<UploadedFile> files) {
@@ -34,7 +34,7 @@ public class UploadBean {
 
 	public void uploading(FileUploadEvent event) throws Exception {
 		UploadedFile item = event.getUploadedFile();
-		this.files.add(item);
+		files.add(item);
 		UploadBean.logger.debug("[" + item.getParameterName() + "] file=" + item.getName() + " size=" + item.getSize());
 	}
 }

@@ -12,11 +12,11 @@ public class JSFRFTreeNode extends TreeNodeImpl {
 	}
 
 	public String getData() {
-		return this.data;
+		return data;
 	}
 
 	public boolean isSelected() {
-		return this.selected;
+		return selected;
 	}
 
 	public void setData(String data) {
@@ -29,6 +29,6 @@ public class JSFRFTreeNode extends TreeNodeImpl {
 
 	@Override
 	public String toString() {
-		return this.data + " selected?" + this.selected;
+		return data + " selected?" + selected;
 	}
 }

@@ -20,7 +20,7 @@ public class CalendarModelItem implements CalendarDataModelItem {
 
 	@Override
 	public String getStyleClass() {
-		return this.styleClass;
+		return styleClass;
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class CalendarModelItem implements CalendarDataModelItem {
 
 	@Override
 	public boolean isEnabled() {
-		return this.enabled;
+		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {

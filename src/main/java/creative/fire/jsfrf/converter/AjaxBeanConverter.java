@@ -28,7 +28,7 @@ public class AjaxBeanConverter implements Converter {
 		if (null == value || value.isEmpty()) {
 			return null;
 		}
-		
+
 		ELContext elContext = JSFRFFaces.getELContext();
 		ExpressionFactory factory = JSFRFFaces.getExpressionFactory();
 		String expression = "#{a4jBean}";

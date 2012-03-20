@@ -25,33 +25,35 @@ public class Player {
 		if (this == obj) {
 			return true;
 		}
-
+		if (obj == null) {
+			return false;
+		}
 		if (obj instanceof Player) {
 			Player other = (Player) obj;
-			return this.name.equals(other.getName());
+			return name.equals(other.getName());
 		}
 		return false;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public String getNumber() {
-		return this.number;
+		return number;
 	}
 
 	public String getPosition() {
-		return this.position;
+		return position;
 	}
 
 	@Override
 	public int hashCode() {
-		return this.name.hashCode();
+		return name.hashCode();
 	}
 
 	public boolean isChecked() {
-		return this.checked;
+		return checked;
 	}
 
 	public void setChecked(boolean checked) {
@@ -72,6 +74,6 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return this.number + ":" + this.name + ":" + this.position;
+		return number + ":" + name + ":" + position;
 	}
 }

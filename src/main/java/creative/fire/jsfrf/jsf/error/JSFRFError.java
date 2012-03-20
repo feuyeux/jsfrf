@@ -33,8 +33,9 @@ public class JSFRFError {
 
 	public String getErrorType() {
 		Class<?> errorClass = (Class<?>) requestMap.get(RequestDispatcher.ERROR_EXCEPTION_TYPE);
-		if (errorClass != null)
+		if (errorClass != null) {
 			return "错误类型：" + errorClass.getName();
+		}
 		return "";
 	}
 
