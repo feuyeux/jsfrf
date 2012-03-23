@@ -37,4 +37,3 @@ RichFace:
 		<artifactId>richfaces-core-impl</artifactId>
 		<version>4.2.0.Final</version>
 	</dependency>
-JSFUnit:
