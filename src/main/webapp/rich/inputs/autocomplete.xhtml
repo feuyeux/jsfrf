@@ -21,12 +21,13 @@
 </h:head>
 
 <h:body>
+ajax:
 	<h:form id="autoForm1">
 		<rich:autocomplete id="autoInput" autocompleteMethod="#{onePagination.autocomplete}" layout="list" mode="ajax" var="yi" fetchValue="#{yi.sequence}"
 			autoFill="true" selectFirst="true">
 		</rich:autocomplete>
 	</h:form>
-
+lazyClient:
 	<h:form id="autoForm2">
 		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="filterOnBrowser" tokens="," var="yi"
 			fetchValue="#{yi.sequence}" layout="table">

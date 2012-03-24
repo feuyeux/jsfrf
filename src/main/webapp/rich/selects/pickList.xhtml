@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -46,6 +46,25 @@
 			<a4j:commandButton value="删除" onclick="jsRemove()" immediate="true" />
 		</h:panelGrid>
 	</h:form>
+	<br />
+	<h:selectManyMenu value="#{zhouyi.targetlist}" var="yi" listHeight="200px">
+		<f:selectItems value="#{zhouyi.sourcelist}" />
+		<f:converter converterId="yiConverter" />
+		<rich:column>
+			<f:facet name="header">序号</f:facet>
+					 #{yi.sequence} 
+				</rich:column>
+
+		<rich:column>
+			<f:facet name="header">名称</f:facet>
+		          	#{yi.name}
+		       	</rich:column>
+		<rich:column>
+			<f:facet name="header">读音</f:facet>
+		            #{yi.pronounce}
+		       	</rich:column>
+	</h:selectManyMenu>
+
 	<br />
 	<h:link value="返回列表" outcome="/rich/selects" />
 </h:body>

@@ -19,7 +19,6 @@ jsfrfErrorCallback = function(data) {
 	var code = data.responseCode;
 	var type = data.type;
 	var status = data.status;
-
 	var description = data.description;
 	var errorName = data.errorName;
 	var errorMessage = data.errorMessage;
@@ -40,14 +39,14 @@ jsfrfErrorCallback = function(data) {
 	}
 
 	alert(error);
-	var path = getRoot() + "/welcome.jsf";
+	var path = jsfrfRoot() + "/welcome.jsf";
 	alert(path);
 	location.href = path;
 }
 
 jsf.ajax.addOnError(jsfrfErrorCallback);
 
-function getRoot() {
+jsfrfRoot = function() {
 	var all = window.document.location.href;
 	var self = window.document.location.pathname;
 	var pos = all.indexOf(self);

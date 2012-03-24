@@ -55,11 +55,13 @@
 		<url-pattern>/org.richfaces.resources/*</url-pattern>
 	</servlet-mapping>
 -->
+
+<!--
 	<context-param>
 		<param-name>org.richfaces.resourceOptimization.enabled</param-name>
 		<param-value>true</param-value>
 	</context-param>
-<!--
+
 	<context-param>
 		<param-name>org.richfaces.resourceOptimization.compressionStages</param-name>
 		<param-value>Production,SystemTest</param-value>

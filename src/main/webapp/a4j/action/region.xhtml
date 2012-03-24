@@ -4,26 +4,20 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 </h:head>
 <h:body>
-	<h:form id="aForm">
+	<h:form id="aForm" prependId="false">
 		<a4j:region id="aRegion">
-			<h:inputText id="in1" value="#{flash.in1}" />
-			<h:inputText id="in2" value="#{flash.in2}" />
-			<a4j:commandButton id="btn" value="region测试" />
+			<h:inputText id="in1" value="#{text.intValue}" />
+			<a4j:commandButton id="btn" value="region测试" bypassUpdates="false" />
 		</a4j:region>
-		<h:inputText id="in3" value="#{flash.in3}" />
-		<a4j:outputPanel ajaxRendered="true">
-			<h:panelGrid>
-				<h:outputText value="1: #{flash.in1}" />
-				<h:outputText value="2: #{flash.in2}" />
-				<h:outputText value="3: #{flash.in3}" />
-			</h:panelGrid>
+		<h:inputText id="in2" value="#{text.value}" />
+		<a4j:outputPanel id="op" ajaxRendered="true">
+			<h:outputText id="out1" value="1: #{text.intValue}" />
+			<h:outputText id="out2" value="2: #{text.value}" />
 		</a4j:outputPanel>
 	</h:form>
-	<br />
-	<h:link value="返回" outcome="/a4j/actions" />
 </h:body>
 </html>
