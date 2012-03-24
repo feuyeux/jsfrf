@@ -4,11 +4,13 @@ jsfrfEventCallback = function(data) {
 		var source = data.source;
 		var xml = data.responseXML;
 		var text = data.responseText;
-		alert(source.id + "\n" + status + "\n" + text + "\n" + xml.URL);
+		message = "OnEvent:\nsource=" + source.id + "\nstatus=" + status
+				+ "\ntext=" + text + "\nxml.URL=" + xml.URL;
+		alert(message);
 	}
 }
 
-//jsf.ajax.addOnEvent(jsfrfEventCallback);
+jsf.ajax.addOnEvent(jsfrfEventCallback);
 
 jsfrfErrorCallback = function(data) {
 	var componentId = data.source.id;
@@ -22,22 +24,34 @@ jsfrfErrorCallback = function(data) {
 	var errorName = data.errorName;
 	var errorMessage = data.errorMessage;
 
-	error = "Ajax Error:\nstatus=" + status + "\nerrorName=" + errorName
-			+ "\nerrorMessage=" + errorMessage + "\ndescription=" + description;
+	error = "OnError:\n" + "Ajax Error:\nstatus=" + status + "\nerrorName="
+			+ errorName + "\nerrorMessage=" + errorMessage + "\ndescription="
+			+ description;
 	if (status == "httpError") {
-		
+
 	} else if (status == "emptyResponse") {
-		
+
 	} else if (status == "malformedXML") {
-		
+
 	} else if (status == "serverError") {
-		
+
 	} else {
 		error = status;
 	}
 
 	alert(error);
-	top.location.href="faces/error/error0.jsf"; 
+	var path = getRoot() + "/welcome.jsf";
+	alert(path);
+	location.href = path;
 }
 
 jsf.ajax.addOnError(jsfrfErrorCallback);
+
+function getRoot() {
+	var all = window.document.location.href;
+	var self = window.document.location.pathname;
+	var pos = all.indexOf(self);
+	var prePath = all.substring(0, pos);
+	var postPath = self.substring(0, self.substr(1).indexOf('/') + 1);
+	return prePath + postPath;
+}

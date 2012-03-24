@@ -42,6 +42,10 @@ public class JSFRFEnvironment {
 		return imagePath;
 	}
 
+	public String getLogo() {
+		return getImagePath() + "favicon.ico";
+	}
+
 	public String getJsPath() {
 		if (jsPath == null) {
 			jsPath = getContextPath() + "/resources/javascript/";

@@ -2,6 +2,7 @@ package creative.fire.jsfrf.rf.ajax;
 
 import java.io.Serializable;
 
+import javax.faces.FacesException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -69,6 +70,8 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void walk() {
+		if (this.value.equals("1"))
+			throw new FacesException("模拟异常");
 		try {
 			AjaxBean.logger.info("休眠2秒");
 			Thread.sleep(2000);
