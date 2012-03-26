@@ -1,4 +1,5 @@
 var rfconsole = "";
+var start;
 
 function doBeforeSubmit() {
 	rfconsole = rfconsole + "onBeforeSubmit" + "<br/>";
@@ -6,17 +7,24 @@ function doBeforeSubmit() {
 }
 
 function doBegin() {
+	start = new Date().getTime();
 	rfconsole = rfconsole + "onBegin" + "<br/>";
 	jQuery('#ajaxForm\\:rfAjaxConsole').html(rfconsole);
 }
 
 function doBeforeDomUpdate(data) {
-	rfconsole = rfconsole + "onBeforeDomUpdate" + data + "<br/>";
+	var end = new Date().getTime();
+	var elapse = end - start;
+	rfconsole = rfconsole + "onBeforeDomUpdate" + data + "  耗时：" + elapse
+			+ "毫秒 <br/>";
 	jQuery('#ajaxForm\\:rfAjaxConsole').html(rfconsole);
 }
 
 function doComplete(data) {
-	rfconsole = rfconsole + "onComplete:" + data + "<br/>";
+	var end = new Date().getTime();
+	var elapse = end - start;
+	rfconsole = rfconsole + "onComplete:" + data + "  耗时：" + elapse
+			+ "毫秒 <br/>";
 	jQuery('#ajaxForm\\:rfAjaxConsole').html(rfconsole);
 }
 

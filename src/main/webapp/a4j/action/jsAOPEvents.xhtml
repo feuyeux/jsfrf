@@ -1,40 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<title>JavaServerFacesf标签库</title>
-	<h:outputScript library="javascript/offical" name="jquery-1.7.1.js" target="head"/>
-	<h:outputScript library="javascript" name="ajax.js" target="head"/>
-	<h:outputScript library="javascript" name="rf.ajax.js" target="head"/>
+	<h:outputScript library="javascript/offical" name="jquery-1.7.1.js" target="head" />
+	<h:outputScript library="javascript" name="ajax.js" target="head" />
+	<h:outputScript library="javascript" name="rf.ajax.js" target="head" />
+	<title>JavaServerFaces f标签库</title>
 </h:head>
 
 <h:body>
 	<h:form id="ajaxForm">
 		<h:panelGrid>
-			<h:inputText id="inputText" value="#{a4jBean.value}" 
-			onkeydown="doOnKeydown()"
-			onkeyup="doOnKeyup()">
-				<a4j:ajax event="keyup"		
-					onbeforesubmit="doBeforeSubmit()"			
-					onbegin="doBegin()"					
-					listener="#{a4jBean.walk}"
-					render="outputText"
-					onbeforedomupdate="doBeforeDomUpdate(event.data)"
-					oncomplete="doComplete(event.data)"
-					onerror="errorHandler"
-					data="#{a4jBean.value}"/>
+			<h:inputText id="inputText" value="#{a4jBean.value}" onkeydown="doOnKeydown()" onkeyup="doOnKeyup()">
+				<a4j:ajax event="keyup" onbeforesubmit="doBeforeSubmit()" onbegin="doBegin()" listener="#{a4jBean.walk}" render="outputText"
+					onbeforedomupdate="doBeforeDomUpdate(event.data)" oncomplete="doComplete(event.data)" onerror="errorHandler" data="#{a4jBean.value}" />
 			</h:inputText>
-			<h:outputText id="rfAjaxConsole"/>
-			<h:outputText id="ajaxErrorMessage"/>
-			<h:outputText value="result: "/><h:outputText id="outputText" value="#{a4jBean.value}"/>
+			<h:outputText id="rfAjaxConsole" />
+			<h:outputText id="ajaxErrorMessage" />
+			<h:outputText value="result: " />
+			<h:outputText id="outputText" value="#{a4jBean.value}" />
 		</h:panelGrid>
 	</h:form>
-	<br/>
-	<h:link value="返回" outcome="/a4j/actions"/>
+	<br />
+	<h:link value="返回" outcome="/a4j/actions" />
 </h:body>
 
 </html>
