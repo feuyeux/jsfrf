@@ -35,7 +35,7 @@
 				<h:outputText value="#{region.name}" />
 			</rich:column>
 
-			<rich:collapsibleSubTable id="subTbl" value="#{region.provinces}" var="province" expandMode="client">
+			<rich:collapsibleSubTable id="subTbl" value="#{region.provinces}" var="province" expandMode="client" expanded="true">
 				<rich:column>
 					<h:outputText value="#{province.name}" />
 				</rich:column>
@@ -47,7 +47,7 @@
 				</rich:column>
 
 				<f:facet name="footer">
-					<h:outputText value="所辖省级: #{region.count}" />
+					<h:outputText value="所辖省: #{region.count}" />
 				</f:facet>
 			</rich:collapsibleSubTable>
 		</rich:dataTable>
