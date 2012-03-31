@@ -10,7 +10,7 @@
 </h:head>
 
 <h:body>
-	<h:panelGrid id="outTable" columns="5" columnClasses="vtop,vtop,vtop,vtop,vtop" styleClass="jsfrfPanel">
+	<h:panelGrid id="outTable" columns="6" columnClasses="vtop,vtop,vtop,vtop,vtop,vtop" styleClass="jsfrfPanel">
 		<h:panelGrid id="hTable">
 			<h:outputText value="JSF2标准html库 " />
 			<h:link value="1 资源组件" outcome="h/resources" />
@@ -62,9 +62,14 @@
 			<h:link value="8 请求处理生命周期" outcome="h/lifecycle/begin" />
 			<h:link value="9 验证器和转换器" outcome="f/vc" />
 			<h:link value="10 立即属性" outcome="h/immediate/inputText" />
+		</h:panelGrid>
+
+		<h:panelGrid id="oTable2">
+			<h:outputText value="" />
 			<h:link value="11 导航" outcome="h/navigation/nav" />
 			<h:link value="12 flash" outcome="h/navigation/flash" />
 			<h:link value="13 download" outcome="h/download" />
+			<h:link value="14 配置" outcome="p/configure" />
 		</h:panelGrid>
 	</h:panelGrid>
 	<!-- 动态分页 开始 -->

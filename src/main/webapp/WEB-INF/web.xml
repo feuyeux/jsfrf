@@ -11,14 +11,30 @@
 		<!--Development Production -->
 	</context-param>
 
-	<!-- <context-param> <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name> 
-		<param-value>true</param-value> </context-param> <context-param> <param-name>javax.faces.USE_SYSTEM_TIMEZONE</param-name> 
-		<param-value>true</param-value> </context-param> <context-param> <param-name>javax.faces.SEPARATOR_CHAR</param-name> 
-		<param-value>-</param-value> </context-param> -->
+	<context-param>
+		<description />
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>
+				/config/error-faces-config.xml,
+				/config/nav-faces-config.xml,
+				/config/resource-faces-config.xml
+			</param-value>
+	</context-param>
 
-	<!-- <context-param> <param-name>org.richfaces.fileUpload.maxRequestSize</param-name> 
-		<param-value>1024</param-value> </context-param> <context-param> <param-name>org.richfaces.fileUpload.createTempFiles</param-name> 
-		<param-value>true</param-value> </context-param> -->
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>javax.faces.USE_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>javax.faces.SEPARATOR_CHAR</param-name>
+		<param-value>-</param-value>
+	</context-param>
 
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -43,34 +59,17 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-	
-<!--
-	<servlet>
-		<servlet-name>Resource Servlet</servlet-name>
-		<servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Resource Servlet</servlet-name>
-		<url-pattern>/org.richfaces.resources/*</url-pattern>
-	</servlet-mapping>
--->
 
-<!--
-	<context-param>
-		<param-name>org.richfaces.resourceOptimization.enabled</param-name>
-		<param-value>true</param-value>
-	</context-param>
+	<!-- <servlet> <servlet-name>Resource Servlet</servlet-name> <servlet-class>org.richfaces.webapp.ResourceServlet</servlet-class> 
+		<load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> <servlet-name>Resource 
+		Servlet</servlet-name> <url-pattern>/org.richfaces.resources/*</url-pattern> 
+		</servlet-mapping> -->
 
-	<context-param>
-		<param-name>org.richfaces.resourceOptimization.compressionStages</param-name>
-		<param-value>Production,SystemTest</param-value>
-	</context-param>
-	<context-param>
-		<param-name>org.richfaces.resourceOptimization.packagingStages</param-name>
-		<param-value>All</param-value>
-	</context-param>
--->
+	<!-- <context-param> <param-name>org.richfaces.resourceOptimization.enabled</param-name> 
+		<param-value>true</param-value> </context-param> <context-param> <param-name>org.richfaces.resourceOptimization.compressionStages</param-name> 
+		<param-value>Production,SystemTest</param-value> </context-param> <context-param> 
+		<param-name>org.richfaces.resourceOptimization.packagingStages</param-name> 
+		<param-value>All</param-value> </context-param> -->
 
 	<!-- 错误页面配置 <error-page> <exception-type>java.lang.Exception</exception-type> 
 		<location>/faces/error/error0.xhtml</location> </error-page> <error-page> 

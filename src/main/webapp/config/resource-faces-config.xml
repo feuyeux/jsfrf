@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<application>
+		<message-bundle>jsfrfMessage</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>en_US</supported-locale>
+			<supported-locale>zh_CN</supported-locale>
+			<default-time-zone-id>America/New_York</default-time-zone-id>
+		</locale-config>
+		
+		<resource-bundle>
+			<base-name>jsfrfMessage</base-name>
+			<var>jsfrfMsg</var>
+		</resource-bundle>
+	</application>
+
+	<lifecycle>
+		<phase-listener>creative.fire.jsfrf.jsf.event.JSFRFPhaseListener</phase-listener>
+	</lifecycle>
+</faces-config>

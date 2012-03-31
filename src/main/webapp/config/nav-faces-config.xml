@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/error/error.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule id="jsfrf_nav">
+		<description>任何视图来源</description>
+		<display-name>nav test</display-name>
+		<from-view-id>*</from-view-id>
+		<!--first nav test -->
+		<navigation-case id="first">
+			<description>第一个导航测试</description>
+			<from-action>#{testBean.foo}</from-action>
+			<from-outcome>nav1</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nav2</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+			<redirect include-view-params="true" />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nav3</from-outcome>
+			<if>#{testBean.lived}</if>
+			<to-view-id>/h/navigation/lived.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>nav3</from-outcome>
+			<to-view-id>/h/navigation/end.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>
