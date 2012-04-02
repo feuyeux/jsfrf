@@ -5,27 +5,26 @@
 <h:head>
 	<title>Richfaces4 rich标签库</title>
 	<style>
-	.rf-sel-inp .rf-sel-dflt-lbl{
-		width:80px;
-		backgroud-color:yellow;
+	.newColor{
+		color:cyan;
 	}
 	</style>
 </h:head>
 
 <h:body>
-<h:outputStylesheet name="select.css" library="css" />
-	<h:form>
+ 	<h:outputStylesheet name="select.css" library="css" />
+	<h:form id="selectForm">
 		<h:panelGrid>
 			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet" style="width:100px">
 				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 				<f:ajax event="change" listener="#{testList.print}" render="out" />
 			</h:selectOneMenu>
-			<rich:select value="#{testList.selected}" defaultLabel="请选择一项" listWidth="80px" style="width:100px">
+			<rich:select id="selector" value="#{testList.selected}" defaultLabel="请选择一项" listWidth="80px" style="width:100px">
 				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 				<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
 			</rich:select>
 			
-			<h:outputText id="out" value="selected= #{testList.selected}" />
+			<h:outputText id="out" value="selected= #{testList.selected}"   styleClass="newColor"/>
 		</h:panelGrid>
 	</h:form>
 	<br />
