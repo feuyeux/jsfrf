@@ -2,12 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>JavaServer Faces h标签库</title>
+	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<style>
 		table,th,td {
 			border-style: solid dotted;
 			border-color: #BED6F8;
 		}
+	<title>JavaServer Faces h标签库</title>
 	</style>
 </h:head>
 
@@ -27,17 +28,16 @@
 
 		<h:outputText value="h:inputHidden" />
 		<h:outputText value="输入隐藏域" />
-		<h:inputHidden value="输入隐藏域" />
+		<h:inputHidden id="hiddenInput" value="#{text.secretValue}" />
 
 		<h:outputText value="h:inputTextarea" />
 		<h:link value="多行文本输入框" outcome="input/inputTextarea" />
-		<h:inputTextarea value="多行文本输入框" />
+		<h:inputTextarea id="multiInput" value="多行文本输入框" />
 
 		<h:outputText value="h:selectBooleanCheckbox" />
 		<h:outputText value="标准选择组件" />
 
 		<h:panelGroup id="checkBoxPG">
-			<a name="pg0">panelGroup</a>
 			<h:selectBooleanCheckbox id="checkbox" value="true" />
 			<h:outputLabel value="标准选择组件" for="checkbox" />
 		</h:panelGroup>

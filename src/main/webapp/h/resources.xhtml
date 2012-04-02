@@ -1,25 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<title>JavaServer Faces 资源引用</title>
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
 	<h:outputScript library="javascript/js2" name="a.js" target="head" />
 	<h:outputScript library="javascript" name="loadJs.js" target="head" />
+	<title>JavaServer Faces 资源引用</title>
 	<style>
-	.roundedGraph {
-		-webkit-border-radius: 10px 10px 10px 10px;
-		-moz-border-radius: 10px 10px 10px 10px;
-		border-radius: 10px 10px 10px 10px;
-		-webkit-box-shadow: #B3B3B3 3px 3px 3px;
-		-moz-box-shadow: #B3B3B3 3px 3px 3px;
-		box-shadow: #B3B3B3 3px 3px 3px;
-	}
-	</style>
+.roundedGraph {
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-box-shadow: #B3B3B3 3px 3px 3px;
+	-moz-box-shadow: #B3B3B3 3px 3px 3px;
+	box-shadow: #B3B3B3 3px 3px 3px;
+}
+</style>
 	<a4j:jsFunction name="elTest">
 		<a4j:param name="color" assignTo="#{ecss.color}" />
 	</a4j:jsFunction>
@@ -45,6 +43,21 @@
 	<a4j:commandButton value="测试EL样式 蓝色" onclick="elTest('blue');" render="ecssText" />
 	<h:outputText id="ecssText" style="color:#{ecss.color}" value="动态样式展示: #{ecss.color}" />
 
+	<script type="text/javascript">
+	//<![CDATA[	
+	for (var i = 0; i < 1; i++) {
+		alert('test');
+	}
+	
+	if(jQuery.browser.webkit){
+		alert('webkit');
+	}else if(jQuery.browser.msie){
+		alert('ie');
+	}else if(jQuery.browser.mozilla){
+		alert('firefox');
+	}
+	//]]>
+	</script>
 	<br />
 	<h:link value="返回" outcome="/welcome" />
 </h:body>

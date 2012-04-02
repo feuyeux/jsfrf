@@ -9,7 +9,6 @@
 			<default-locale>en</default-locale>
 			<supported-locale>en_US</supported-locale>
 			<supported-locale>zh_CN</supported-locale>
-			<default-time-zone-id>America/New_York</default-time-zone-id>
 		</locale-config>
 		
 		<resource-bundle>
