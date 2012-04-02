@@ -4,21 +4,27 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>Richfaces4 rich标签库</title>
+	<style>
+	.rf-sel-inp .rf-sel-dflt-lbl{
+		width:80px;
+		backgroud-color:yellow;
+	}
+	</style>
 </h:head>
 
 <h:body>
 <h:outputStylesheet name="select.css" library="css" />
 	<h:form>
 		<h:panelGrid>
-			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet">
+			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet" style="width:100px">
 				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 				<f:ajax event="change" listener="#{testList.print}" render="out" />
 			</h:selectOneMenu>
-
-			<rich:select value="#{testList.selected}" defaultLabel="请选择一项">
+			<rich:select value="#{testList.selected}" defaultLabel="请选择一项" listWidth="80px" style="width:100px">
 				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
 				<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
 			</rich:select>
+			
 			<h:outputText id="out" value="selected= #{testList.selected}" />
 		</h:panelGrid>
 	</h:form>
