@@ -1,5 +1,5 @@
 =====================================================================
-												   JSFRF Demo Project
+												   JSFRF Demonstration Project
 
 													feuyeux@yahoo.com
 													March 2012
@@ -37,3 +37,6 @@ RichFace:
 		<artifactId>richfaces-core-impl</artifactId>
 		<version>4.2.0.Final</version>
 	</dependency>
+
+04/04/2012
+public page: http://feuyeux.github.com/jsfrf
