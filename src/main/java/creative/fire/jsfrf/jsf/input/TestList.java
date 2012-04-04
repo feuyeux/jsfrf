@@ -18,14 +18,15 @@ public class TestList implements Serializable {
 	private String selected;
 
 	public TestList() {
-		item.add("1");
-		item.add("21");
-		item.add("11");
-		item.add("31");
-		item.add("111");
-		list.add("a");
-		list.add("aa");
-		list.add("b");
+		list.add("1 乾 qián");
+		list.add("2 坤 kūn");
+		list.add("29 坎 kǎn");
+		list.add("30 离 lí");
+		list.add("51 震 zhèn");
+		list.add("52 艮 gèn");
+		list.add("57 巽 xùn");
+		list.add("58 兑 duì");		
+		item.addAll(list);
 	}
 
 	public java.util.HashSet<String> getItem() {
@@ -55,5 +56,4 @@ public class TestList implements Serializable {
 	public void setSelected(String selected) {
 		this.selected = selected;
 	}
-
 }

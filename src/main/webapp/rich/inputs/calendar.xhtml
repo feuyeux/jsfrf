@@ -1,17 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 	<style>
-.special {
-	font-weight: bold;
-	color: red;
-}
-</style>
+	.special {
+		font-weight: bold;
+		color: red;
+	}
+	.rf-cal-day-lbl{
+	width:35px;
+	height:35px;
+	}
+	</style>
 </h:head>
 <h:body>
 	<h:form id="cForm">
@@ -20,7 +22,7 @@
 			<rich:calendar id="c0" todayControlMode="inactive" />
 			<h:outputLabel value="文艺演示" />
 			<rich:calendar id="c1" value="#{calendarBean.datetime}" locale="#{calendarBean.locale}" todayControlMode="select" datePattern="#{calendarBean.pattern}"
-				showApplyButton="false" popup="true" disabled="#{calendarBean.disabled}" enableManualInput="true" style="width:200px" boundaryDatesMode="scroll"
+				showApplyButton="false" popup="true" disabled="#{calendarBean.disabled}" enableManualInput="true" style="width:600px" boundaryDatesMode="scroll"
 				firstWeekDay="1">
 			</rich:calendar>
 			<h:outputLabel value="高级演示" />

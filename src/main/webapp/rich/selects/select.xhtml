@@ -15,17 +15,17 @@
  	<h:outputStylesheet name="select.css" library="css" />
 	<h:form id="selectForm">
 		<h:panelGrid>
-			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet" style="width:100px">
-				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet" style="width:115px">
+				<f:selectItems value="#{testList.item}" var="elem" itemValue="#{elem}" itemLabel="#{elem}" />
 				<f:ajax event="change" listener="#{testList.print}" render="out" />
 			</h:selectOneMenu>
-			<rich:select id="selector" value="#{testList.selected}" defaultLabel="请选择一项" listWidth="80px" style="width:100px">
-				<f:selectItems value="#{testList.item}" var="number" itemValue="#{number}" itemLabel="#{number}" />
+			<rich:select id="selector" value="#{testList.selected}" defaultLabel="请选择一项" enableManualInput="true">
+				<f:selectItems value="#{testList.item}" var="elem" itemValue="#{elem}" itemLabel="#{elem}" />
 				<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
 			</rich:select>
-			
-			<h:outputText id="out" value="selected= #{testList.selected}"   styleClass="newColor"/>
-		</h:panelGrid>
+		</h:panelGrid>		
+		<br /><br /><br />
+		<h:outputText id="out" value="selected= #{testList.selected}"   styleClass="newColor"/>
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/selects" />

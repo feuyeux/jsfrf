@@ -12,6 +12,10 @@ public class Yijing implements Serializable {
 	private String name;
 	private String pronounce;
 
+	public Yijing() {
+
+	}
+
 	public Yijing(String sequence, String name, String pronounce) {
 		this.sequence = sequence;
 		this.name = name;
@@ -28,6 +32,10 @@ public class Yijing implements Serializable {
 
 	public String getSequence() {
 		return sequence;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

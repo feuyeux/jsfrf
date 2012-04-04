@@ -1,10 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 	<script>
@@ -17,20 +15,25 @@
 			}
 			return true;
 		};
+
+		function setAutocompleteValue(val){
+			var comp=RichFaces.$('autoForm2:autocomplete2');
+			comp.setValue(val);
+		}
 	</script>
 </h:head>
 
 <h:body>
 ajax:
 	<h:form id="autoForm1">
-		<rich:autocomplete id="autoInput" autocompleteMethod="#{onePagination.autocomplete}" layout="list" mode="ajax" var="yi" fetchValue="#{yi.sequence}"
-			autoFill="true" selectFirst="true">
+		<rich:autocomplete id="autocomplete1" autocompleteMethod="#{onePagination.autocomplete}" layout="list" mode="ajax"
+			var="yi" fetchValue="#{yi.sequence}" autoFill="true" selectFirst="true">
 		</rich:autocomplete>
 	</h:form>
 lazyClient:
 	<h:form id="autoForm2">
-		<rich:autocomplete autocompleteList="#{onePagination.list}" mode="lazyClient" clientFilterFunction="filterOnBrowser" tokens="," var="yi"
-			fetchValue="#{yi.sequence}" layout="table">
+		<rich:autocomplete id="autocomplete2" autocompleteList="#{onePagination.list}" mode="lazyClient"
+			clientFilterFunction="filterOnBrowser" tokens="," var="yi" fetchValue="#{yi.sequence}" layout="table">
 			<rich:column>
 				<h:outputText id="yiNo" value="#{yi.sequence}" />
 			</rich:column>
@@ -41,6 +44,8 @@ lazyClient:
 				<h:outputText id="yiPron" value="#{yi.pronounce}" />
 			</rich:column>
 		</rich:autocomplete>
+		<br />
+		<a4j:commandButton value="setValue" onclick="setAutocompleteValue(100)" immediate="true" />
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/inputs" />
