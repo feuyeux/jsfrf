@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>Richfaces4 rich标签库</title>
-	<style>
+	<h:outputStylesheet>
 	.newColor{
 		color:cyan;
 	}
-	</style>
+	</h:outputStylesheet>
 </h:head>
 
 <h:body>
- 	<h:outputStylesheet name="select.css" library="css" />
+	<h:outputStylesheet name="select.css" library="css" />
 	<h:form id="selectForm">
 		<h:panelGrid>
 			<h:selectOneMenu value="#{testList.selected}" collectionType="java.util.HashSet" style="width:115px">
@@ -23,13 +23,15 @@
 				<f:selectItems value="#{testList.item}" var="elem" itemValue="#{elem}" itemLabel="#{elem}" />
 				<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
 			</rich:select>
-		</h:panelGrid>		
-		<br /><br /><br />
-		<h:outputText id="out" value="selected= #{testList.selected}"   styleClass="newColor"/>
+		</h:panelGrid>
+		<br />
+		<br />
+		<br />
+		<h:outputText id="out" value="selected= #{testList.selected}" styleClass="newColor" />
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/selects" />
-	
+
 	<script>
 		jQuery('.rf-sel-lst-scrl').css('width','115px');
 	</script>
