@@ -3,19 +3,45 @@
 xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputStylesheet>
+	.quarter {
+		width: 36px;
+	}
+	</h:outputStylesheet>
 	<title>Richfaces4 rich标签库 拖拽组件</title>
 </h:head>
 
 <h:body>
-	<h:panelGrid styleClass="jsfrfPanel">
-		<h:link value="rich:dragIndicator" outcome="/rich/dragdrop/dd" />
-		<h:link value="rich:dragSource" outcome="/rich/dragdrop/dd" />
-		<h:link value="rich:dropTarget" outcome="/rich/dragdrop/dd" />
-		<br />
-		<h:link value="返回" outcome="/welcome" />
+	<h:panelGrid styleClass="jsfrfPanel" columns="3">
+		<h:link value="rich:dragIndicator" />
+		<h:link value="rich:dragSource" />
+		<h:link value="rich:dropTarget" />
 	</h:panelGrid>
+	 <rich:dragIndicator id="ind">
+        拖拽中……
+    </rich:dragIndicator>
+
+	 <h:form id="ddForm">
+		<rich:dataGrid value="#{onePagination.list}" var="yi" columns="4" elements="16" border="0">
+			<rich:panel header="#{yi.name}">
+				<rich:dragSource type="yijing" dragIndicator="ind" dragValue="#{yi}" />
+				<h:panelGrid columns="2" columnClasses="quarter,quarter,quarter,quarter">
+					<h:outputText value="#{yi.sequence}" />
+					<h:outputText value="#{yi.pronounce}" />
+				</h:panelGrid>
+			</rich:panel>
+			<f:facet name="footer">
+				<rich:dataScroller />
+			</f:facet>
+		</rich:dataGrid>
+	 
+		<rich:panel header="回收" style="width:300px">
+			<rich:dropTarget acceptedTypes="yijing" render="@form" dropListener="#{dragDropBean.acceptDrop}" />
+		</rich:panel>
+	</h:form>
+
+	<br />
+	<h:link value="返回列表" outcome="/welcome" />
 </h:body>
 </html>
