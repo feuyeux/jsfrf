@@ -13,11 +13,9 @@ function requestMonitor(data) {
 		console = " type=" + type + " status=" + status;
 	} else if (status == "complete") {
 		var lm = xml.lastModified;
-		console = console + " <br/> " + lm + " <br/> " + "code=" + code
-				+ " type=" + type + " status=" + status;
+		console = console + " <br/> " + lm + " <br/> " + "code=" + code + " type=" + type + " status=" + status;
 	} else if (status == "success") {
-		console = console + " <br/> " + "code=" + code + " type=" + type
-				+ " status=" + status;
+		console = console + " <br/> " + "code=" + code + " type=" + type + " status=" + status;
 	} else {
 		console = status;
 	}

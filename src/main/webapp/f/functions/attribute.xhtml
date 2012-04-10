@@ -8,6 +8,11 @@
 	<title>JavaServer Faces f标签库</title>
 </h:head>
 <h:body>
-
+#{text.value}
+	<h:form>
+		<h:commandButton value="f:attribute测试" actionListener="#{text.testAttr}">
+			<f:attribute name="valueViaAttr" value="乾坤" />
+		</h:commandButton>
+	</h:form>
 </h:body>
 </html>

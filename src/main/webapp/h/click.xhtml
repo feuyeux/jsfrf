@@ -2,31 +2,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputStylesheet>
+	table,th,td {
+		border-style: solid dotted;
+		border-color: #BED6F8;
+	}
+	</h:outputStylesheet>
 </h:head>
 <h:body>
-	<h:panelGrid columns="2" border="1">
-		<h:outputText styleClass="b" value="组件名称" />
-		<h:outputText styleClass="b" value="组件描述" />
+	<h:form>
+		<h:panelGrid columns="3" border="1">
+			<h:outputText styleClass="b" value="组件名称" />
+			<h:outputText styleClass="b" value="组件外观" />
+			<h:outputText styleClass="b" value="示例链接" />
 
-		<h:outputText value="h:commandButton" />
-		<h:link value="标准按钮" outcome="output/outputFormat" />
+			<h:outputText value="h:commandButton" />
+			<h:link value="标准按钮" outcome="output/outputFormat" />
+			<h:commandButton value="h:commandButton" />
 
-		<h:outputText value="h:button" />
-		<h:link value="Get请求按钮" outcome="click/click1" />
+			<h:outputText value="h:button" />
+			<h:link value="Get请求按钮" outcome="click/click1" />
+			<h:button value="h:button" />
 
-		<h:outputText value="h:commandLink" />
-		<h:link value="标准链接" outcome="click/click3" />
+			<h:outputText value="h:commandLink" />
+			<h:link value="标准链接" outcome="click/click3" />
+			<h:commandLink value="h:commandLink" />
 
-		<h:outputText value="h:link" />
-		<h:link value="Get请求连接" outcome="click/click3" />
+			<h:outputText value="h:link" />
+			<h:link value="Get请求连接" outcome="click/click3" />
+			<h:link value="h:link" />
 
-		<h:outputText value="h:outputLink" />
-		<h:link value="普通链接" outcome="click/click3" />
-
-	</h:panelGrid>
+			<h:outputText value="h:outputLink" />
+			<h:link value="普通链接" outcome="click/click3" />
+			<h:outputLink>h:outputLink</h:outputLink>
+		</h:panelGrid>
+	</h:form>
+	<br />
 	<h:link value="Return 2 Index" outcome="/welcome" />
 </h:body>
 </html>

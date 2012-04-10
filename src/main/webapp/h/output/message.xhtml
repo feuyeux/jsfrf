@@ -11,7 +11,9 @@
 <h:body>
 	<h:form id="messageForm">
 		<h:panelGrid columns="2">
-			<h:inputText id="x" value="#{flash.x}" size="20" required="true" requiredMessage="自定义必输消息" validatorMessage="自定义验证消息" label="标准输入组件x">
+			<h:inputText id="x" value="#{flash.x}" size="20" required="true" 
+			requiredMessage="自定义必输消息" 
+			validatorMessage="自定义验证消息" label="标准输入组件x">
 				<f:validateLength minimum="5" maximum="10" />
 			</h:inputText>
 			<h:message for="x" style="color:red" />
@@ -19,12 +21,12 @@
 			<h:inputText id="y" value="#{flash.y}" size="20" required="true" label="标准输入组件y">
 				<f:validateLongRange for="y" minimum="1" maximum="200" />
 			</h:inputText>
-			<h:message for="y" style="color:red" />
+			<h:message for="y" style="color:red"/>
 		</h:panelGrid>
 		<br />
 		<h:commandButton value="测试消息组件" />
 		<br />
-		<h:messages id="globalMessages" layout="table" showDetail="true" showSummary="true" />
+		<h:messages id="globalMessages" for="y" layout="table" showDetail="true" showSummary="true" globalOnly="false"/>
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/h/outputs" />

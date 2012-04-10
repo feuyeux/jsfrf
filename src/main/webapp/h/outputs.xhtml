@@ -3,13 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<style>
-		table,th,td {
-			border-style: solid dotted;
-			border-color: #BED6F8;
-		}
-	<title>JavaServer Faces h标签库</title>
-	</style>
+	<h:outputStylesheet>
+table,th,td {
+	border-style: solid dotted;
+	border-color: #BED6F8;
+}
+</h:outputStylesheet>
 	<title>JavaServer Faces h标签库</title>
 </h:head>
 
@@ -18,7 +17,7 @@
 		<h:outputText styleClass="b" value="组件名称" />
 		<h:outputText styleClass="b" value="组件描述" />
 
-		<h:outputText id="output" value="h:outputText" style="margin:5px 1px;padding:1px 2px 3px 4px;"/>
+		<h:outputText id="output" value="h:outputText" style="margin:5px 1px;padding:1px 2px 3px 4px;" />
 		<h:outputText value="标准输出组件" />
 
 		<h:outputText value="h:outputFormat" />
@@ -43,12 +42,16 @@
 			组输出组件
 			</h:outputLink>
 		</h:panelGroup>
-
-		<h:outputText value="h:column" />
-		<h:link value="列输出组件" outcome="output/datatable" />
-
+		
+		<h:outputText value="h:panelGroup" />
+		<h:link value="组输出组件" outcome="output/panel" />
+		
 		<h:outputText value="h:dataTable" />
 		<h:link value="数据表格组件" outcome="output/datatable" />
+		
+		<h:outputText value="h:column" />
+		<h:link value="列输出组件" outcome="output/datatable" />
+		
 	</h:panelGrid>
 	<h:link value="返回" outcome="/welcome" />
 </h:body>

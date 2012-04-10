@@ -2,6 +2,7 @@ package creative.fire.jsfrf.jsf.input;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import org.apache.log4j.Logger;
@@ -148,5 +151,19 @@ public class TextBean implements Serializable {
 
 	public void update2(javax.faces.event.ActionEvent event) {
 		TextBean.logger.info(testList.get(0));
+	}
+
+	public void testAttr(ActionEvent e) {
+		UIComponent component = e.getComponent();
+		Map<String, Object> map = component.getAttributes();
+		setValue((String) map.get("valueViaAttr"));
+	}
+
+	public void findFromFlash() {
+		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+		String x1 = (String) flash.get("x1");
+		Date now = (Date) flash.get("now");
+		logger.debug(x1);
+		logger.debug(now.getTime());
 	}
 }

@@ -16,7 +16,7 @@
 
 	<context-param>
 		<param-name>org.richfaces.skin</param-name>
-		<param-value>mars</param-value>
+		<param-value>blueSky</param-value>
 	</context-param>
 
 	<servlet>
