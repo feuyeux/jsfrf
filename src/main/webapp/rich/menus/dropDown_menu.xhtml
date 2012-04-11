@@ -1,76 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<h:outputStylesheet>
-        .pic {
-        margin-bottom: -4px;
-        margin-right: 2px;
-        }
- 
-        .search .rf-ddm-itm-sel {
-        background-color: transparent;
-        background-image:none;
-        border-color: transparent;
-        cursor: default;
-        }
-    </h:outputStylesheet>
-
+	<title>Richfaces4 rich标签库</title>
 </h:head>
-TODO
 <h:body>
 	<h:form id="ddmForm">
 		<rich:toolbar height="26px">
 			<rich:dropDownMenu mode="ajax">
 				<f:facet name="label">
 					<h:panelGroup>
-						<h:graphicImage value="/images/icons/copy.gif" styleClass="pic" alt="copy" />
-						<h:outputText value="File" />
+						<h:graphicImage library="img" name="bagua.jpg" width="16px" height="16px" />
+						<h:outputText value="八卦" />
 					</h:panelGroup>
 				</f:facet>
-				<rich:menuItem label="New" action="#{dropDownMenuBean.doNew}" icon="/images/icons/create_doc.gif">
-				</rich:menuItem>
-				<rich:menuItem label="Open" action="#{dropDownMenuBean.doOpen}" icon="/images/icons/open.gif" />
-				<rich:menuGroup label="Save As...">
-					<rich:menuItem label="Save" action="#{dropDownMenuBean.doSave}" icon="/images/icons/save.gif" />
-					<rich:menuItem label="Save All" action="#{dropDownMenuBean.doSaveAll}">
+				<rich:menuItem label="乾" action="#{a4jBean.foo}" icon="/resources/img/qian.jpg" />
+				<rich:menuSeparator />
+				<rich:menuGroup label="坤">
+					<rich:menuItem label="12否 "/>
+					<rich:menuItem label="2坤 " onmouseout="alert('坤六段');">
 						<f:facet name="icon">
-							<h:graphicImage value="/images/icons/save_all.gif" alt="save_all" />
+							<h:graphicImage value="/resources/img/kun.jpg" width="16px" height="16px"/>
 						</f:facet>
 					</rich:menuItem>
+					<rich:menuItem label="16豫 " />
+					<rich:menuItem label="23剥 " />
+					<rich:menuItem label="35晋" />
+					<rich:menuItem label="8比" />
+					<rich:menuItem label="45萃 " />
+					<rich:menuItem label="20观" />
 				</rich:menuGroup>
-				<rich:menuItem label="Close" action="#{dropDownMenuBean.doClose}" />
-				<rich:menuSeparator id="menuSeparator11" />
-				<rich:menuItem label="Exit" action="#{dropDownMenuBean.doExit}" />
-
 			</rich:dropDownMenu>
 
 			<rich:dropDownMenu mode="ajax">
 				<f:facet name="label">
-					<h:panelGrid cellpadding="0" cellspacing="0" columns="2" style="vertical-align:middle">
-						<h:outputText value="Links" />
+					<h:panelGrid cellpadding="0" cellspacing="0" columns="2">
+						<h:graphicImage library="img" name="wuxing.jpg" width="16px" height="16px" />
+						<h:outputText value="五行" />
 					</h:panelGrid>
 				</f:facet>
-				<rich:menuItem submitMode="client" onclick="document.location.href='http://labs.jboss.com/jbossrichfaces/'">
-					<h:outputText value="RichFaces Home Page" />
-				</rich:menuItem>
-				<rich:menuItem submitMode="client" onclick="document.location.href='http://jboss.com/index.html?module=bb&amp;op=viewforum&amp;f=261'">
-					<h:outputText value="RichFaces Forum" />
-				</rich:menuItem>
+				<rich:menuItem label="金 " />
+				<rich:menuItem label="水" />
 			</rich:dropDownMenu>
 		</rich:toolbar>
 	</h:form>
-
-	<br />
-	<a4j:outputPanel ajaxRendered="true">
-		<h:outputText value="Current Selection: "></h:outputText>
-		<h:outputText style="font-weight:bold" value="#{dropDownMenuBean.current}"></h:outputText>
-	</a4j:outputPanel>
-	<br />
 
 	<br />
 	<h:link value="返回列表" outcome="/rich/menus" />

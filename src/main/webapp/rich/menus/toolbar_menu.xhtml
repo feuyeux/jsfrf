@@ -1,41 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputStylesheet>
+		.barStyle{
+			font-size:11px;
+		}
+	</h:outputStylesheet>
 	<title>Richfaces4 rich标签库</title>
-	<style>
-.pic {
-	margin-right: 2px;
-}
-
-.barsearch {
-	height: 14px;
-	width: 100px;
-}
-
-.barsearchbutton {
-	border-width: 1px;
-	background-color: #{
-	a4jSkin.generalBackgroundColor
-}
-;
-}
-.barStyle{
-font-size: 11px;
-}
-</style>
 </h:head>
 
 <h:body>
+	<a4j:outputPanel ajaxRendered="true" layout="block">
+		<rich:toolbar id="bar" width="600" height="20" itemSeparator="#{panelMenuBean.groupSeparator}">
+			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:outputText value="金"></h:outputText>
+				<h:outputText value="水"></h:outputText>
+				<h:outputText value="火"></h:outputText>
+			</rich:toolbarGroup>
+			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:link value="乾" onclick="alert('属金');" styleClass="barStyle" />
+				<h:outputText value="兑"></h:outputText>
+				<h:outputText value="坎"></h:outputText>
+				<h:outputText value="离"></h:outputText>
+			</rich:toolbarGroup>
+			<rich:toolbarGroup location="right" itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:outputText value="7,8"></h:outputText>
+				<h:outputText value="9,10"></h:outputText>
+				<h:outputText value="3,4"></h:outputText>
+			</rich:toolbarGroup>
+		</rich:toolbar>
+	</a4j:outputPanel>
+	
 	<h:form id="tbForm">
-		<h:panelGrid columns="3" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom : 4px">
+		<h:panelGrid columns="2" width="600px">
 			<rich:panel>
 				<h:panelGrid columns="8">
-					<h:outputText value="Group Separator:" />
+					<h:outputText value="组分隔器:" />
 					<a4j:commandLink value="Line">
 						<a4j:param name="gs" value="line" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
@@ -62,7 +67,7 @@ font-size: 11px;
 			</h:panelGroup>
 			<rich:panel bodyClass="rich-laguna-panel-no-header">
 				<h:panelGrid columns="8">
-					<h:outputText value="Group Item Separator:" />
+					<h:outputText value="项目分隔器:" />
 					<a4j:commandLink value="Line">
 						<a4j:param name="gs" value="line" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
@@ -86,27 +91,6 @@ font-size: 11px;
 			</rich:panel>
 		</h:panelGrid>
 	</h:form>
-	<a4j:outputPanel ajaxRendered="true" layout="block">
-		<rich:toolbar id="bar" height="30" itemSeparator="#{panelMenuBean.groupSeparator}">
-			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
-				<h:outputText value="金"></h:outputText>
-				<h:outputText value="水"></h:outputText>
-				<h:outputText value="火"></h:outputText>
-			</rich:toolbarGroup>
-			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
-				<h:link value="乾" onclick="alert('属金');" styleClass="barStyle"/>
-				<h:outputText value="兑"></h:outputText>
-				<h:outputText value="坎"></h:outputText>
-				<h:outputText value="离"></h:outputText>
-			</rich:toolbarGroup>
-			<rich:toolbarGroup location="right" itemSeparator="#{panelMenuBean.groupItemSeparator}">
-				<h:outputText value="7 8"></h:outputText>
-				<h:outputText value="9 10"></h:outputText>
-				<h:outputText value="3 4"></h:outputText>
-			</rich:toolbarGroup>
-		</rich:toolbar>
-	</a4j:outputPanel>
-
 	<br />
 	<h:link value="返回列表" outcome="/rich/menus" />
 </h:body>

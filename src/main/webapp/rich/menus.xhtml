@@ -8,22 +8,21 @@
 
 <h:body>
 	<h:panelGrid styleClass="jsfrfPanel">
+		面板菜单
 		<h:link value="rich:panelMenu" outcome="/rich/menus/panel_menu" />
 		<h:link value="rich:panelMenuGroup" outcome="/rich/menus/panel_menu" />
-		<h:link value="rich:panelMenuItem" outcome="/rich/menus/panel_menu" />
-		-
-		<h:link value="rich:itemChangeListener" outcome="/rich/menus/itemChangeListener" />
-		-
+		<h:link value="rich:panelMenuItem" outcome="/rich/menus/panel_menu" />		
+		<!-- <h:link value="rich:itemChangeListener" outcome="/rich/menus/itemChangeListener" /> -->
+		工具条
 		<h:link value="rich:toolbar" outcome="/rich/menus/toolbar_menu" />
 		<h:link value="rich:toolbarGroup" outcome="/rich/menus/toolbar_menu" />
-		-
+		右键菜单
+		<h:link value="rich:context_menu" outcome="/rich/menus/context_menu" />
+		下拉菜单
 		<h:link value="rich:dropDown_menu" outcome="/rich/menus/dropDown_menu" />
 		<h:link value="rich:menuGroup" outcome="/rich/menus/dropDown_menu" />
 		<h:link value="rich:menuItem" outcome="/rich/menus/dropDown_menu" />
 		<h:link value="rich:menuSeparator" outcome="/rich/menus/dropDown_menu" />
-		-
-		<h:link value="rich:context_menu" outcome="/rich/menus/context_menu" />
-
 	</h:panelGrid>
 	<br />
 	<h:link value="返回" outcome="/welcome" />

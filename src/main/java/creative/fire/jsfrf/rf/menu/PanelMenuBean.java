@@ -29,9 +29,13 @@ public class PanelMenuBean {
 		return menuSelected;
 	}
 
-	public void groupSelect(ActionEvent event) {
+	public void groupChoose(ActionEvent event) {
 		org.richfaces.component.UIPanelMenuGroup menuGroup = (UIPanelMenuGroup) event.getComponent();
 		menuSelected = menuGroup.getLabel();
+	}
+
+	public void itemChoose(String value) {
+		menuSelected = value;
 	}
 
 	public void itemChange(ItemChangeEvent event) {
@@ -43,12 +47,8 @@ public class PanelMenuBean {
 		}
 	}
 
-	public void itemSelect(String value) {
-		menuSelected = value;
-	}
-
 	public void itemChange2(ActionEvent event) {
-		event.getComponent() ;
+		event.getComponent();
 	}
 
 	public String getGroupSeparator() {

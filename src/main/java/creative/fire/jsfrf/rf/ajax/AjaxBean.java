@@ -17,13 +17,13 @@ import org.apache.log4j.Logger;
 @ViewScoped
 public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
-	transient static Logger logger = Logger.getLogger(AjaxBean.class);
+	transient Logger logger = Logger.getLogger(AjaxBean.class);
 	private boolean enabled;
 	private String value;
 	private int increase = 0;
 
 	public AjaxBean() throws Exception {
-		AjaxBean.logger.debug("a4jBean is creating.");
+		logger.debug("a4jBean is creating.");
 		//throw new Exception("luh test.");
 	}
 
@@ -32,7 +32,7 @@ public class AjaxBean implements Serializable {
 	}
 
 	public void foo() {
-		AjaxBean.logger.info("foo bar baz");
+		logger.info("foo bar baz");
 	}
 
 	public void forceUpdate() {
@@ -66,14 +66,14 @@ public class AjaxBean implements Serializable {
 		} else {
 			enabled = false;
 		}
-		AjaxBean.logger.info("enabled=" + enabled);
+		logger.info("enabled=" + enabled);
 	}
 
 	public void walk() {
 		if (this.value.equals("1"))
 			throw new FacesException("模拟异常");
 		try {
-			AjaxBean.logger.info("休眠2秒");
+			logger.info("休眠2秒");
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
