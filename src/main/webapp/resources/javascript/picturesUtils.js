@@ -11,7 +11,7 @@ function resize(id, coeff) {
 }
 
 function enlarge(id){
-	resize(id, 1.1);
+	resize(id, 1.25);
 }
 
 function decrease(id){
