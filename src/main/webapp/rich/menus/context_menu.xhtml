@@ -3,8 +3,6 @@
 	xmlns:rich="http://richfaces.org/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 	<style>
@@ -23,13 +21,12 @@
 </h:head>
 <h:body>
 	<h:form id="cmform">
-		<h:outputScript library="org.richfaces.showcase/js" name="picturesUtils.js" />
-
-		<h:graphicImage library="org.richfaces.showcase/img" name="pic1.jpg" id="pic" style="border : 5px solid #E4EAEF" />
-
+		<h:outputScript library="javascript" name="picturesUtils.js" target="head" />
+		<h:graphicImage id="pic" library="img/vendor1" name="logo.png"/>
+		
 		<rich:contextMenu target="pic" mode="client">
-			<rich:menuItem label="Zoom In" onclick="enlarge('form:pic');" id="zin" />
-			<rich:menuItem label="Zoom Out" onclick="decrease('form:pic');" id="zout" />
+			<rich:menuItem id="zin" label="放大" onclick="enlarge('cmform:pic');"  />
+			<rich:menuItem id="zout" label="缩小" onclick="decrease('cmform:pic');"  />
 		</rich:contextMenu>
 	</h:form>
 

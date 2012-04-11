@@ -24,6 +24,9 @@
 }
 ;
 }
+.barStyle{
+font-size: 11px;
+}
 </style>
 </h:head>
 
@@ -34,23 +37,23 @@
 				<h:panelGrid columns="8">
 					<h:outputText value="Group Separator:" />
 					<a4j:commandLink value="Line">
-						<a4j:param name="gs" value="line" assignTo="#{toolBarBean.groupSeparator}" />
+						<a4j:param name="gs" value="line" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Grid">
-						<a4j:param name="gs" value="grid" assignTo="#{toolBarBean.groupSeparator}" />
+						<a4j:param name="gs" value="grid" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Disc">
-						<a4j:param name="gs" value="disc" assignTo="#{toolBarBean.groupSeparator}" />
+						<a4j:param name="gs" value="disc" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Square">
-						<a4j:param name="gs" value="square" assignTo="#{toolBarBean.groupSeparator}" />
+						<a4j:param name="gs" value="square" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="None">
-						<a4j:param name="gs" value="none" assignTo="#{toolBarBean.groupSeparator}" />
+						<a4j:param name="gs" value="none" assignTo="#{panelMenuBean.groupSeparator}" />
 					</a4j:commandLink>
 				</h:panelGrid>
 			</rich:panel>
@@ -61,42 +64,45 @@
 				<h:panelGrid columns="8">
 					<h:outputText value="Group Item Separator:" />
 					<a4j:commandLink value="Line">
-						<a4j:param name="gs" value="line" assignTo="#{toolBarBean.groupItemSeparator}" />
+						<a4j:param name="gs" value="line" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Grid">
-						<a4j:param name="gs" value="grid" assignTo="#{toolBarBean.groupItemSeparator}" />
+						<a4j:param name="gs" value="grid" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Disc">
-						<a4j:param name="gs" value="disc" assignTo="#{toolBarBean.groupItemSeparator}" />
+						<a4j:param name="gs" value="disc" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="Square">
-						<a4j:param name="gs" value="square" assignTo="#{toolBarBean.groupItemSeparator}" />
+						<a4j:param name="gs" value="square" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
 
 					<a4j:commandLink value="None">
-						<a4j:param name="gs" value="none" assignTo="#{toolBarBean.groupItemSeparator}" />
+						<a4j:param name="gs" value="none" assignTo="#{panelMenuBean.groupItemSeparator}" />
 					</a4j:commandLink>
 				</h:panelGrid>
 			</rich:panel>
 		</h:panelGrid>
 	</h:form>
 	<a4j:outputPanel ajaxRendered="true" layout="block">
-		<rich:toolbar id="bar" height="30" itemSeparator="#{toolBarBean.groupSeparator}">
-			<rich:toolbarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
-				<h:outputText value="Group1.1"></h:outputText>
-				<h:outputText value="Group1.2"></h:outputText>
-				<h:outputText value="Group1.3"></h:outputText>
+		<rich:toolbar id="bar" height="30" itemSeparator="#{panelMenuBean.groupSeparator}">
+			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:outputText value="金"></h:outputText>
+				<h:outputText value="水"></h:outputText>
+				<h:outputText value="火"></h:outputText>
 			</rich:toolbarGroup>
-			<rich:toolbarGroup itemSeparator="#{toolBarBean.groupItemSeparator}">
-				<h:outputText value="Group2.1"></h:outputText>
-				<h:outputText value="Group2.2"></h:outputText>
+			<rich:toolbarGroup itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:link value="乾" onclick="alert('属金');" styleClass="barStyle"/>
+				<h:outputText value="兑"></h:outputText>
+				<h:outputText value="坎"></h:outputText>
+				<h:outputText value="离"></h:outputText>
 			</rich:toolbarGroup>
-			<rich:toolbarGroup location="right" itemSeparator="#{toolBarBean.groupItemSeparator}">
-				<h:outputText value="Group3.1"></h:outputText>
-				<h:outputText value="Group3.2"></h:outputText>
+			<rich:toolbarGroup location="right" itemSeparator="#{panelMenuBean.groupItemSeparator}">
+				<h:outputText value="7 8"></h:outputText>
+				<h:outputText value="9 10"></h:outputText>
+				<h:outputText value="3 4"></h:outputText>
 			</rich:toolbarGroup>
 		</rich:toolbar>
 	</a4j:outputPanel>

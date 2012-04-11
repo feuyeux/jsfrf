@@ -19,6 +19,8 @@ import org.richfaces.event.ItemChangeEvent;
 public class PanelMenuBean {
 	transient Logger logger = Logger.getLogger(PanelMenuBean.class);
 	private String menuSelected;
+	private String groupSeparator;
+	private String groupItemSeparator;
 
 	public PanelMenuBean() {
 	}
@@ -44,4 +46,21 @@ public class PanelMenuBean {
 	public void itemSelect(String value) {
 		menuSelected = value;
 	}
+
+	public String getGroupSeparator() {
+		return groupSeparator;
+	}
+
+	public void setGroupSeparator(String groupSeparator) {
+		this.groupSeparator = groupSeparator;
+	}
+
+	public String getGroupItemSeparator() {
+		return groupItemSeparator;
+	}
+
+	public void setGroupItemSeparator(String groupItemSeparator) {
+		this.groupItemSeparator = groupItemSeparator;
+	}
+
 }

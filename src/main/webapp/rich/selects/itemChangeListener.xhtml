@@ -10,6 +10,11 @@
 </h:head>
 
 <h:body>
+	<rich:select id="selector" value="#{testList.selected}" defaultLabel="请选择一项" enableManualInput="true">
+		<f:selectItems value="#{testList.item}" var="elem" itemValue="#{elem}" itemLabel="#{elem}" />
+		<a4j:ajax event="selectitem" listener="#{testList.print}" render="out" />
+		<rich:itemChangeListener />
+	</rich:select>
 	<br />
 	<h:link value="返回列表" outcome="/rich/selects" />
 </h:body>

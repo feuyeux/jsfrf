@@ -4,7 +4,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
@@ -24,6 +24,7 @@
 					</h:inputText>
 				</rich:validator>
 
+				<rich:notifyMessage for="y" stayTime="1000" animationSpeed="500" nonblocking="true"/>
 				<rich:notifyMessages stayTime="2000" animationSpeed="500" nonblocking="true" appearAnimation="" />
 
 				<f:facet name="footer">
@@ -31,6 +32,8 @@
 				</f:facet>
 			</h:panelGrid>
 		</h:form>
+		<br/>
+		<h:link value="返回列表" outcome="/rich/validation" />
 	</rich:panel>
 </h:body>
 </html>
