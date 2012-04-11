@@ -29,7 +29,7 @@
 
 				<rich:panelMenuGroup id="pmg1" label="八卦" actionListener="#{panelMenuBean.groupSelect}" selectable="true" mode="ajax">
 					<c:if test="#{not empty zhouyiMap.map}">
-						<c:forEach var='item' items='#{zhouyiMap.map}' varStatus="status">
+						<c:forEach var="item" items="#{zhouyiMap.map}" varStatus="status">
 							<rich:panelMenuItem id="pmi1_#{status.index+1}" label="#{item.key}" name="#{item.value.pronounce}" action="#{panelMenuBean.itemSelect(item.key)}" />
 						</c:forEach>
 					</c:if>

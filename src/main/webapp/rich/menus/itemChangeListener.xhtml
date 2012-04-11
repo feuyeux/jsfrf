@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>Richfaces4 rich标签库</title>
+</h:head>
+
+<h:body>
+	<h:form id="pmForm">
+		<rich:panelMenu id="pMenu" style="width:200px" itemMode="ajax" groupMode="ajax" groupExpandedLeftIcon="triangleUp" groupCollapsedLeftIcon="triangleDown"
+			topGroupExpandedRightIcon="chevronUp" topGroupCollapsedRightIcon="chevronDown" itemLeftIcon="disc">
+
+			<rich:panelMenuGroup id="pmg1" label="八卦" 
+			actionListener="#{panelMenuBean.groupSelect}" selectable="true" mode="ajax">
+				<c:if test="#{not empty zhouyiMap.map}">
+					<c:forEach var='item' items='#{zhouyiMap.map}' varStatus="status">
+						<rich:panelMenuItem id="pmi1_#{status.index+1}" label="#{item.key}" name="#{item.value.pronounce}" 
+						action="#{panelMenuBean.itemSelect(item.key)}" />
+					</c:forEach>
+				</c:if>
+			</rich:panelMenuGroup>
+			<rich:itemChangeListener for="pMenu" listener="#{panelMenuBean.itemChange2}" />
+		</rich:panelMenu>
+	</h:form>
+	<br />
+	<h:link value="返回列表" outcome="/rich/menus" />
+</h:body>
+</html>

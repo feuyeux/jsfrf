@@ -47,6 +47,10 @@ public class PanelMenuBean {
 		menuSelected = value;
 	}
 
+	public void itemChange2(ActionEvent event) {
+		event.getComponent() ;
+	}
+
 	public String getGroupSeparator() {
 		return groupSeparator;
 	}
