@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>JavaServer Faces h标签库</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="#{a4jBean.increase}" />
+		<h:panelGrid id="pg" columns="3">
+			<h:selectBooleanCheckbox id="ck1" value="true" readonly="true" />
+			<h:outputText value="#{rich:findComponent('ck1').value}" />
+			<h:outputText value="readonly" />
+			
+			<h:selectBooleanCheckbox id="ck2" value="#{a4jBean.enabled}" readonly="true" />
+			<h:outputText value="#{rich:findComponent('ck1').value}" />
+			<h:outputText value="readonly" />
+
+			<h:selectBooleanCheckbox id="ck3" value="#{a4jBean.bValue1}" disabled="true" />
+			<h:outputText value="#{rich:findComponent('ck3').value}" />
+			<h:outputText value="disabled" />
+			
+			<h:selectBooleanCheckbox id="ck4" value="#{a4jBean.bValue2}" disabled="true" />
+			<h:outputText value="#{rich:findComponent('ck4').value}" />
+			<h:outputText value="disabled" />
+
+			<h:outputText value="result:" />
+			<h:outputText value="#{a4jBean.bValue1}" />
+			<h:outputText value="#{a4jBean.bValue2}" />
+		</h:panelGrid>
+		<a4j:commandButton value="测试" render="@form" action="#{a4jBean.bar}" />
+	</h:form>
+	<br />
+	<h:link value="返回" outcome="/h/inputs" />
+</h:body>
+</html>

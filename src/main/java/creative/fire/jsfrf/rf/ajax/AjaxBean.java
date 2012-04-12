@@ -19,6 +19,9 @@ public class AjaxBean implements Serializable {
 	private static final long serialVersionUID = -8466210162305133523L;
 	transient Logger logger = Logger.getLogger(AjaxBean.class);
 	private boolean enabled;
+
+	private boolean bValue1 = true;
+	private boolean bValue2 = false;
 	private String value;
 	private int increase = 0;
 
@@ -80,5 +83,21 @@ public class AjaxBean implements Serializable {
 		}
 		enabled = true;
 		value = "[" + value + "]";
+	}
+
+	public boolean isbValue1() {
+		return bValue1;
+	}
+
+	public void setbValue1(boolean bValue1) {
+		this.bValue1 = bValue1;
+	}
+
+	public boolean isbValue2() {
+		return bValue2;
+	}
+
+	public void setbValue2(boolean bValue2) {
+		this.bValue2 = bValue2;
 	}
 }
