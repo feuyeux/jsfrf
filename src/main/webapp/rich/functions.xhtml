@@ -8,16 +8,30 @@
 </h:head>
 
 <h:body>
-	<h:panelGrid id="pg" styleClass="jsfrfPanel">
+	<h:panelGrid id="pg" columns="2" styleClass="jsfrfPanel">
+		<h:outputText value="rich:clientId('pg')" />
 		<h:outputText value="client id= #{rich:clientId('pg')}" />
+
+		<h:outputText value="rich:component('pg')" />
 		<h:outputText value="#{rich:component('pg')}" />
+
+		<h:outputText value="rich:element('pg')" />
 		<h:outputText value="#{rich:element('pg')}" />
+
+		<h:outputText value="rich:findComponent('pg')" />
 		<h:outputText value="#{rich:findComponent('pg')}" />
-		<h:outputText value="facesContext.getExternalContext.getUserInRole(role)= #{rich:isUserInRole(role)}" />
-		<h:outputText value="#{rich:toScript(text)}"/>
-		<br />
-		<h:link value="返回" outcome="/welcome" />
+
+		<h:outputText value="rich:isUserInRole(role)" />
+		<h:panelGroup>
+			<h:outputText value="#{rich:isUserInRole(role)}" />
+			<br />
+			<h:outputText value="facesContext.getExternalContext.getUserInRole(role)= #{rich:isUserInRole(role)}" />
+		</h:panelGroup>
+
+		<h:outputText value="rich:toScript(text)" />
+		<h:outputText value="#{rich:toScript(text)}" />
 	</h:panelGrid>
-	<h:outputText id="console" />
+	<br />
+	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

@@ -1,15 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:rich="http://richfaces.org/rich" 
+xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputScript>
+	var events = 0;
+	var updates = 0;
+	var requests=0;
+	function queue(msg){
+		var c = #{rich:element('qconsole')};
+		c.innerHTML=msg;
+	}
+	
+	function dequeue(msg){
+		jQuery('#dconsole').html(msg);
+	}
+	
+	function tally(type){
+		if('event'===type)
+			events++;
+		else if('request'===type)
+			requests++;
+		else if('update'===type)
+			updates++;
+	}
+	
+	function sumup(){
+		#{rich:element('statistics')}.innerHTML='事件发生次数：'+events+' 发送请求次数：'+requests+' 更新DOM次数：'+updates;
+	}
+	</h:outputScript>
 </h:head>
-<h:body>
-
-<br />
-<h:link value="返回" outcome="/a4j/queues" />
+<h:body id="queueBody">
+	<h:form id="queueForm" prependId="false">
+		<!-- 表单队列 -->
+		<a4j:queue requestDelay="5000" ignoreDupResponses="true" onrequestqueue="queue('form queue in');" onrequestdequeue="dequeue('form queue out');" />
+		<h:panelGrid>
+			<h:inputText id="queueInputText" value="#{flash.value}" onkeyup="tally('event');">
+				<a4j:ajax event="keyup" render="inputValue" onbegin="tally('request');" onbeforedomupdate="tally('update');" oncomplete="sumup();" />
+			</h:inputText>
+                    
+			<a4j:commandButton id="queueButton" value="队列测试" onclick="tally('event')" onbegin="tally('request')"
+				onbeforedomupdate="tally('update')" oncomplete="sumup()" />
+			<h:outputText id="inputValue" value="#{flash.value}"/>
+			<h:outputText id="qconsole" />
+			<h:outputText id="dconsole" />
+			<h:outputText id="statistics" />
+		</h:panelGrid>
+	</h:form>
+	<!-- 全局队列 <a4j:queue name="org.richfces.queue.global" requestDelay="2000"> -->
+	<!-- 页面队列 -->
+	<a4j:queue onrequestqueue="queue('view queue in');" onrequestdequeue="dequeue('view queue out');" />
+	<!-- 命名队列 -->
+	<a4j:queue name="queue1" onrequestqueue="queue('queue1 queue in');" onrequestdequeue="dequeue('queue1 queue out');" />
+	<br />
+	<h:link value="返回" outcome="/a4j/queues" />
 </h:body>
 </html>

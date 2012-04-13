@@ -1,15 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<h:outputScript>
+	function debug(msg){
+		jQuery('#dconsole').html(msg);
+	}
+	</h:outputScript>
 </h:head>
 <h:body>
+	<a4j:queue name="queue1" onrequestqueue="debug('');" onrequestdequeue="debug('queue1队列出队');" />
+	<h:form>
+		<a4j:queue requestDelay="1200" onrequestqueue="debug('');" onrequestdequeue="debug('表单队列出队');" />
 
-<br />
-<h:link value="返回" outcome="/a4j/queues" />
+		<a4j:commandButton value="queue1队列测试">
+			<a4j:attachQueue name="queue1" />
+		</a4j:commandButton>
+
+		<a4j:commandButton value="requestDelay覆盖测试">
+			<a4j:attachQueue requestDelay="0" ignoreDupResponses="true" requestGroupingId="marsGroup" />
+		</a4j:commandButton>
+
+		<a4j:commandButton value="编组测试">
+			<a4j:attachQueue requestGroupingId="marsGroup" />
+		</a4j:commandButton>
+	</h:form>
+	<h:outputText id="dconsole" />
+	<br />
+	<h:link value="返回" outcome="/a4j/queues" />
 </h:body>
 </html>
