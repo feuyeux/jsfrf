@@ -2,24 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库 验证器组件</title>
 </h:head>
 
 <h:body>
 	<h:panelGrid styleClass="jsfrfPanel">
+	客户端验证
 		<h:link value="rich:validator" outcome="/rich/validations/validator" />
 		<h:link value="rich:message" outcome="/rich/validations/validator" />
 		<h:link value="rich:messages" outcome="/rich/validations/validator" />
-		－
+	图验证
 		<h:link value="rich:graphValidator" outcome="/rich/validations/graphValidator" />
-		－
+	通知组件
 		<h:link value="rich:notify" outcome="/rich/validations/notify" />
 		<h:link value="rich:notifyStack" outcome="/rich/validations/notify" />
-		-
+	通知消息组件
 		<h:link value="rich:notifyMessage" outcome="/rich/validations/notifyMessage" />
 		<h:link value="rich:notifyMessages" outcome="/rich/validations/notifyMessage" />
 

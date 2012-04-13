@@ -1,10 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<h:outputStylesheet name="btn.css" library="css" />
 	<h:outputScript library="javax.faces" name="jsf.js" target="head" />
@@ -13,28 +12,36 @@
 
 <h:body>
 	<h:form id="copplapsiblePForm">
-		<rich:panel style="width:70%">
-			<h:selectOneRadio value="#{collapsedBean.icon0}">
-				<f:ajax event="change" render="i1 cp" />
-				<f:selectItems value="#{collapsedBean.icons0}" />
-			</h:selectOneRadio>
-			<h:graphicImage id="i1" library="org.richfaces.images" name="#{collapsedBean.icon0}.png" />
-		</rich:panel>
-		<rich:panel style="width:70%">
-			<h:selectOneRadio value="#{collapsedBean.icon1}">
-				<f:ajax event="change" render="i2 cp" />
-				<f:selectItems value="#{collapsedBean.icons1}" />
-			</h:selectOneRadio>
-			<h:graphicImage id="i2" library="org.richfaces.images" name="#{collapsedBean.icon1}.png" />
-		</rich:panel>
-
-		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}" switchType="ajax" expanded="false"
-			style="width:330px" header="八卦" toggleListener="#{collapsedBean.doToggled}" render="sta">
-		......
-		
+		<rich:collapsiblePanel id="cp" rightCollapsedIcon="#{collapsedBean.icon0}" rightExpandedIcon="#{collapsedBean.icon1}"
+			switchType="ajax" expanded="true" style="width:380px" header="易经·八卦" toggleListener="#{collapsedBean.doToggled}"
+			render="sta" bodyClass="">
+			<p>乾三连 坤六断 震仰盂 艮覆碗 离中虚 坎中满 兑上缺巽下断</p><p></p>
+			<p>乾为天 天风姤 天山遯 天地否 风地观 山地剥 火地晋 火天大有</p>
+			<p>坎为水 水泽节 水雷屯 水火既济 泽火革 雷火丰 地火明夷 地水师</p>
+			<p>艮为山 山火贲 山天大畜 山泽损 火泽睽 天泽履 风泽中孚 风山渐</p>
+			<p>震为雷 雷地豫 雷水解 雷风恒 地风升 水风井 泽风大过 泽雷随</p>
+			<p>巽为风 风天小畜 风火家人 风雷益 天雷无妄 火雷噬嗑 山雷颐 山风蛊</p>
+			<p>离为火 火山旅 火风鼎 火水未济 山水蒙 风水涣 天水讼 天火同人</p>
+			<p>坤为地 地雷复 地泽临 地天泰 雷天大壮 泽天夬 水天需 水地比</p>
+			<p>兑为泽 泽水困 泽地萃 泽山咸 水山蹇 地山谦 雷山小过 雷泽归妹</p>
 			<rich:panelToggleListener id="ptl" for="cp" type="creative.fire.jsfrf.rf.output.JSFRFToggledListener" />
 		</rich:collapsiblePanel>
 		<h:outputLabel id="sta" value="#{collapsedBean.status}" />
+			<rich:panel style="padding:0px;width:256px">
+			<h:outputLabel value="收起时 右侧icon:" />
+			<h:selectOneMenu value="#{collapsedBean.icon0}">
+				<f:ajax event="change" render="i1 cp" />
+				<f:selectItems value="#{collapsedBean.icons0}" />
+			</h:selectOneMenu>
+			<h:graphicImage id="i1" library="org.richfaces.images" name="#{collapsedBean.icon0}.png"/>
+			<br />
+			<h:outputLabel value="展开时 右侧icon:" />
+			<h:selectOneMenu value="#{collapsedBean.icon1}">
+				<f:ajax event="change" render="i2 cp" />
+				<f:selectItems value="#{collapsedBean.icons1}" />
+			</h:selectOneMenu>
+			<h:graphicImage id="i2" library="org.richfaces.images" name="#{collapsedBean.icon1}.png" />
+		</rich:panel>
 	</h:form>
 
 	<br />
@@ -50,5 +57,7 @@
 			</div>
 		</div>
 	</h:link>
+	<br />
+	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
 </html>

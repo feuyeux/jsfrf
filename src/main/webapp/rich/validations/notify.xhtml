@@ -1,21 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 <h:body>
-	<rich:notify id="n1" stayTime="1200" sticky="false" nonblocking="true" nonblockingOpacity="0.9" showShadow="true"
-		showCloseButton="true" detail="详细信息： 这是一条通知信息" stack="tlStack">
-		<f:facet name="summary">简明信息</f:facet>
+	<rich:notify id="n1" stayTime="1200" sticky="true" nonblocking="true" nonblockingOpacity="0.9" showShadow="true"
+		showCloseButton="true" detail="详细信息： 这是一条通知信息" summary="摘要" stack="tlStack" styleClass="notifyStyle">
 	</rich:notify>
 
-	<rich:notify id="n2" stayTime="1500" sticky="false" nonblocking="true" nonblockingOpacity="0.75" showShadow="true"
-		showCloseButton="true" detail="详细信息： 这是一条通知信息" stack="brStack">
+	<rich:notify id="n2" showCloseButton="true" stack="brStack">
 		<f:facet name="summary">简明信息</f:facet>
 	</rich:notify>
 

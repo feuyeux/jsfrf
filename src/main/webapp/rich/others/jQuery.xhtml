@@ -11,6 +11,9 @@
 	<rich:jQuery selector="img" event="mouseover" query="jQuery(this).stop().animate({width:'180px'})" />
 	<rich:jQuery selector="img" event="mouseout" query="jQuery(this).stop().animate({width:'120px'})" />
 
+
+<rich:jQuery selector="#customList
+tr:odd" timing="domready" query="addClass(odd)" />
 	<br />
 	<h:link value="返回列表" outcome="/rich/miscellaneous" />
 </h:body>

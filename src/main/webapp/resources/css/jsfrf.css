@@ -17,7 +17,7 @@ input,select,textarea,button,keygen,isindex,legend,a {
 .dotBorder {
 	border-style: dotted;
 	border-color: Red;
-	border-width: 1px;	
+	border-width: 1px;
 }
 
 .vtop {
@@ -27,18 +27,19 @@ input,select,textarea,button,keygen,isindex,legend,a {
 
 .oddrow {
 	height: 20px;
-	background: #80c0c0;
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
+	/*Lemon Chiffon http://www.computerhope.com/htmcolor.htm*/
+	background: #FFF8C6;	
 }
 
 .evenrow {
 	height: 20px;
-	background: #00c0c0;
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
+	background: #FFFFFF;
 }
 
 .jsfrfPanel a,.jsfrfPanel a:link,.jsfrfPanel a:visited {
@@ -68,4 +69,13 @@ input,select,textarea,button,keygen,isindex,legend,a {
 
 .jsfrfPanel td {
 	height: 33px;
+}
+
+.roundedGraph {
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-box-shadow: #B3B3B3 3px 3px 3px;
+	-moz-box-shadow: #B3B3B3 3px 3px 3px;
+	box-shadow: #B3B3B3 3px 3px 3px;
 }

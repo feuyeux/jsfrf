@@ -1,26 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库 迭代组件</title>
 </h:head>
 
 <h:body>
 	<h:panelGrid styleClass="jsfrfPanel">
+	数据表格
 		<h:link value="rich:dataTable" outcome="/rich/iterations/dataTable" />
 		<h:link value="rich:column" outcome="/rich/iterations/dataTable" />
 		<h:link value="rich:columnGroup" outcome="/rich/iterations/dataTable" />
+	翻页组件
 		<h:link value="rich:dataScroller" outcome="/rich/iterations/dataTable" />
-		-
-		<h:link value="rich:extendedDataTable" outcome="/rich/iterations/extendedDataTable" />
-		<h:link value="rich:list" outcome="/rich/iterations/extendedDataTable" />
-		-
+	数据子表
 		<h:link value="rich:collapsibleSubTable" outcome="/rich/iterations/collapsibleSubTable" />
 		<h:link value="rich:collapsibleSubTableToggler" outcome="/rich/iterations/collapsibleSubTable" />
-		-
+	扩展表格
+		<h:link value="rich:extendedDataTable" outcome="/rich/iterations/extendedDataTable" />
+	列表组件
+		<h:link value="rich:list" outcome="/rich/iterations/extendedDataTable" />
+	数据网格
 		<h:link value="rich:dataGrid" outcome="/rich/iterations/dataGrid" />
 	</h:panelGrid>
 	<br />

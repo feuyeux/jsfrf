@@ -17,9 +17,8 @@ public class CollapsedBean {
 	private String icon0;
 	private String icon1;
 
-	private PanelIcons[] icons0 = { PanelIcons.disc, PanelIcons.grid, PanelIcons.none, PanelIcons.transparent };
-	private PanelIcons[] icons1 = { PanelIcons.chevron, PanelIcons.chevronLeft, PanelIcons.chevronUp, PanelIcons.chevronDown, PanelIcons.triangle,
-			PanelIcons.triangleLeft, PanelIcons.triangleUp, PanelIcons.triangleDown };
+	private PanelIcons[] icons0 = { PanelIcons.triangleDown, PanelIcons.chevron, PanelIcons.chevronDown, PanelIcons.triangle, PanelIcons.disc, PanelIcons.grid };
+	private PanelIcons[] icons1 = { PanelIcons.triangleUp, PanelIcons.chevronLeft, PanelIcons.chevronUp, PanelIcons.triangleLeft };
 
 	public CollapsedBean() {
 		icon0 = icons0[0].name();

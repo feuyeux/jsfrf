@@ -1,18 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<style>
 .rich-tab-inactive {
 	cursor: pointer;
-}
-
-.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top {
-	background: none;
 }
 
 .rf-tab-lbl {
@@ -33,43 +28,75 @@
 			comp.firstItem();
 		}
 	</script>
-	
+
 	<h:form id="tabForm" prependId="false">
-		<rich:tabPanel id="bgTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top" headerLocation="center"
-			onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');" itemChangeListener="#{tabBean.doItemChanging}" cycledSwitching="true"
-			title="八卦" headerStyle="color:green">
-			<rich:itemChangeListener id="icl" for="callsTab" type="creative.fire.jsfrf.rf.output.JSFRFItemChangeListener" />
+		<rich:tabPanel id="bgTab" switchType="ajax" activeItem="kun" headerAlignment="right" headerPosition="top"
+			headerLocation="center" onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');"
+			itemChangeListener="#{tabBean.doItemChanging}" style="width:400px">
 
 			<rich:tab name="qian">
 				<f:facet name="header">
 					乾
 				</f:facet>
-
 				<rich:panel id="graphPanel2">
-					#{text}
-					</rich:panel>
+					<p>
+						<b>天行健，君子以自强不息</b>
+					</p>
+					<p>初九：潜龙勿用</p>
+					<p>九二：见龙在田，利见大人</p>
+					<p>九三：君子终日干干，夕惕若，厉咎</p>
+					<p>九四：或跃在渊，咎</p>
+					<p>九五：飞龙在天，利见大人</p>
+					<p>上九：亢龙有悔</p>
+				</rich:panel>
 			</rich:tab>
 
 			<rich:tab header="坤" name="kun">
 				<rich:panel id="graphPanel3">
-32
-					</rich:panel>
+					<p>
+						<b>地势坤 君子以厚德载物</b>
+					</p>
+					<p>初六：履霜，坚冰至</p>
+					<p>六二：直方大，不习，不利</p>
+					<p>六三：含章可贞，或从王事，成有终</p>
+					<p>六四：括囊，咎，誉</p>
+					<p>六五：黄裳元吉</p>
+					<p>上六：龙战于野，其血玄黄</p>
+				</rich:panel>
 			</rich:tab>
 
 			<rich:tab header="离" name="li">
 				<rich:panel id="graphPanel4">
-4
-					</rich:panel>
+					<p>
+						<b>明两作，离，大人以继明照于四方</b>
+					</p>
+					<p>初九：履错然，敬之咎</p>
+					<p>六二：黄离，元吉</p>
+					<p>九三：日昃之离，不鼓缶而歌，则大耋之嗟，凶</p>
+					<p>九四：突如其来如，焚如，死如，弃如</p>
+					<p>六五：出涕沱若，戚嗟若，吉</p>
+					<p>上九：王用出征有嘉，折首，获匪其丑，咎</p>
+				</rich:panel>
 			</rich:tab>
 
 			<rich:tab header="坎" name="kan">
 				<rich:panel id="graphPanel5">
-5
-					</rich:panel>
+					<p>
+						<b>水洊至，习坎，君子以常德行，习教事</b>
+					</p>
+					<p>初六：习坎，入于坎窞，凶</p>
+					<p>九二：坎有险，求小得</p>
+					<p>六三：来之坎坎，险且枕。入于坎窞，勿用</p>
+					<p>六四：樽酒簋，贰用缶，纳约自牖，终咎</p>
+					<p>九五：坎不盈，只既平，咎</p>
+					<p>上六：系用徽纆，寘于丛棘，三岁不得。凶</p>
+				</rich:panel>
 			</rich:tab>
+			<rich:itemChangeListener id="icl" for="callsTab" type="creative.fire.jsfrf.rf.output.JSFRFItemChangeListener" />
 		</rich:tabPanel>
+
 		<a4j:commandButton value="切换到离" onclick="switchLi()" immediate="true" />
-		<a4j:commandButton value="切换到第一项" onclick="switchFirst()" immediate="true" />
+		<a4j:commandButton value="切换到第一项" onclick="switchFirst()" immediate="true" render="bgTab"/>
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/outputs" />

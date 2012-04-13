@@ -1,46 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 
 <h:body>
 	<h:form id="vform">
-		<rich:panel>
+		<rich:panel style="width:350px;height:150px" header="用户信息录入">
 			<h:panelGrid columns="3">
 				<h:outputText value="编号" />
-				<h:inputText value="#{jsr303.input.country}" id="textId" label="textId">
-					<f:validateLength minimum="10" maximum="10" />
-					<f:validateRequired />
-					<rich:validator />
+				<h:inputText id="numberText" value="#{flash.number}" validatorMessage="编号长度在6到10之间">
+					<f:validateLength minimum="6" maximum="10" />
+					<rich:validator event="keyup" />
 				</h:inputText>
-				<rich:message for="textId" />
+				<rich:message for="numberText" />
 
 				<h:outputText value="电子邮件" />
-				<h:inputText value="#{jsr303.input.email}" id="email" validatorMessage="Validation Error: Invalid email address">
+				<h:inputText id="emailText" value="#{jsr303.input.email}" validatorMessage="邮件格式有误">
 					<f:validateRegex
 						pattern="^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$"></f:validateRegex>
 					<rich:validator />
 				</h:inputText>
-				<rich:message for="email" />
-
-				<h:outputText value="移动电话" />
-				<h:inputText value="#{jsr303.input.mobilePhone}" id="mobilePhone" label="mobilePhone">
-					<f:validateLongRange minimum="11" maximum="11" />
-					<rich:validator />
-				</h:inputText>
-				<rich:message for="mobilePhone" />
+				<rich:message for="emailText" />
 			</h:panelGrid>
+			<br />
+			<rich:messages />
 		</rich:panel>
-		<rich:messages />
-		<h:commandButton value="提交" />
+		<a4j:commandButton value="提交" />
 	</h:form>
-
+	<h:link value="JSF验证器" outcome="/f/validators/others" />
 	<br />
 	<h:link value="返回列表" outcome="/rich/validation" />
 </h:body>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
+	<h:outputStylesheet name="jsfrf.css" library="css" />
+	<title>JavaServer Faces a4j标签库</title>
+</h:head>
+
+<h:body>
+	<a4j:mediaOutput id="imgMedia" element="img" cacheable="false" createContent="#{mediaBean.paint}"
+		value="#{imageStyle}" mimeType="image/jpeg" styleClass="roundedGraph" />
+	<br /><br /><br />
+	<h:link value="返回" outcome="/welcome" />
+</h:body>
+</html>
