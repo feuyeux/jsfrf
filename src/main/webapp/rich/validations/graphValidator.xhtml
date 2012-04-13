@@ -9,6 +9,7 @@
 
 <h:body>
 	<!-- GraphValidateBean -->
+	<rich:messages for="graphValidator" />
 	<h:form id="gvform">
 		<rich:graphValidator id="graphValidator" value="#{gvBean}">
 			<rich:panel>
@@ -24,10 +25,9 @@
 				</h:panelGrid>
 			</rich:panel>
 		</rich:graphValidator>
-		<h:commandButton value="提交"/>
+		<h:commandButton value="提交" />
 	</h:form>
-	<rich:messages for="graphValidator" />
-	<rich:messages globalOnly="true" />
+	
 	<br />
 	<h:link value="返回列表" outcome="/rich/validation" />
 </h:body>

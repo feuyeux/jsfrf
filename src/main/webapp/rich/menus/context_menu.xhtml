@@ -5,27 +5,30 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
-	<style>
-	.pic {
-		margin-bottom: -4px;
-		margin-right: 2px;
+	<h:outputScript>
+	//<![CDATA[	
+	function resize(id, coeff) {
+		var pic = document.getElementById(id);
+		pic.width = Math.round(pic.width * coeff);
+		pic.heigth = Math.round(pic.height * coeff);
 	}
 	
-	.search .rf-ddm-itm-sel {
-		background-color: transparent;
-		background-image: none;
-		border-color: transparent;
-		cursor: default;
+	function enlarge(id){
+		resize(id, 1.25);
 	}
-	</style>
+	
+	function decrease(id){
+		resize(id, 0.9);
+	}
+	//]]>
+	</h:outputScript>
 </h:head>
 <h:body>
 	<h:form id="cmform">
-		<h:outputScript library="javascript" name="picUtil.js" target="head" />
 		<h:graphicImage id="pic" library="img/vendor1" name="logo.png"/>
 		
 		<rich:contextMenu target="pic" mode="client">
-			<rich:menuItem id="zin" label="放大" onclick="enlarge('cmform:pic');"  />
+			<rich:menuItem id="zin" label="放大" onclick="enlarge('cmform:pic');" />
 			<rich:menuItem id="zout" label="缩小" onclick="decrease('cmform:pic');"  />
 		</rich:contextMenu>
 	</h:form>

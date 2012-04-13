@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -8,33 +8,26 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 </h:head>
 
 <h:body>
-<!-- 
-The <rich:hashParam> component allows client-side parameters to be grouped into a hash map. 
-The hash map can then be passed to the client JavaScript API functions of any RichFaces component.
- --> 
-  <rich:popupPanel id="pp" resizeable="true" header="Popup panel shown using rich:componentControl and rich:hashParam">
-        <f:facet name="controls">
-            <h:outputLink value="#" onclick="#{rich:component('pp')}.hide(); return false;">
-                关闭
-            </h:outputLink>
-        </f:facet>
+	<rich:popupPanel id="pp" resizeable="true">
+		<f:facet name="header">
+			<h:link value="关闭" onclick="#{rich:component('pp')}.hide(); return false;" />
+		</f:facet>
+	</rich:popupPanel>
 
-    </rich:popupPanel>
- 
-    <h:commandButton value="Show popup">
-        <rich:componentControl target="pp" operation="show">
-            <a4j:param noEscape="true" value="event" />
-            <rich:hashParam>
-            	<f:param name="url" value="/resources/img/vendor2/logo.png"/>
-                <a4j:param noEscape="true" name="width" value="jQuery(document).width()/4" />
-                <a4j:param noEscape="true" name="height" value="jQuery(window).height()/4" />
-                <f:param name="minWidth" value="300" />
-                <f:param name="minHeight" value="150" />
-                <a4j:param noEscape="true" name="left" value="(jQuery(window).width()/2)-250" />
-                <a4j:param noEscape="true" name="top" value="(jQuery(window).height()/2)-150" />
-            </rich:hashParam>
-        </rich:componentControl>
-    </h:commandButton>
+	<h:commandButton value="Show popup">
+		<rich:componentControl target="pp" operation="show">
+			<a4j:param noEscape="true" value="event" />
+			<rich:hashParam>
+				<f:param name="url" value="/resources/img/vendor2/logo.png" />
+				<a4j:param noEscape="true" name="width" value="jQuery(document).width()/4" />
+				<a4j:param noEscape="true" name="height" value="jQuery(window).height()/4" />
+				<a4j:param noEscape="true" name="left" value="(jQuery(window).width()/2)-250" />
+				<a4j:param noEscape="true" name="top" value="(jQuery(window).height()/2)-150" />
+				<f:param name="minWidth" value="300" />
+				<f:param name="minHeight" value="150" />
+			</rich:hashParam>
+		</rich:componentControl>
+	</h:commandButton>
 	<br />
 	<h:link value="返回列表" outcome="/rich/miscellaneous" />
 </h:body>
