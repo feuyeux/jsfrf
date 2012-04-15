@@ -45,8 +45,8 @@
 	background: #2e6ab1;
 	color: #dfdfe0;
 	padding: 0.4em 0.6em;
-	width: 22em;
-	margin-bottom: 0.3em;
+	width: 6em;
+	margin-left: 1em;
 	text-align: center;
 }
 
@@ -82,6 +82,7 @@
 			<h:outputText id="currentLink" value="#{number}" style="width:14px;" styleClass="current" rendered="#{number eq paginationBean.pageIndex}" />
 		</a4j:repeat>
 		<a4j:commandLink id="nextLink" value="#{jsfrfMsg.Next}" action="#{paginationBean.next}" render="#{rendpart}" rendered="#{not paginationBean.disabledLast}"/>
-		<h:outputText value="#{paginationBean.pageIndex}/#{paginationBean.pageCount}" styleClass="page_info" rendered="#{paginationBean.pageCount gt 1}" />
+		<h:outputText value="#{paginationBean.pageIndex}/#{paginationBean.pageCount}" 
+		styleClass="page_info" rendered="#{paginationBean.pageCount gt 1}" />
 	</rich:panel>
 </ui:composition>

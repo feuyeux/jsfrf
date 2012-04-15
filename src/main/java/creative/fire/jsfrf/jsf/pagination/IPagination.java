@@ -20,10 +20,10 @@ public interface IPagination {
 	void first();
 
 	void last();
+	
+	void previous();
 
 	void next();
 
-	void flipover();
-
-	void previous();
+	void flipover();	
 }

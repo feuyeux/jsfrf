@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JavaServer Faces 多项选择示例</title>
 	<h:outputScript library="javascript/js1" name="a.js" target="head" />
@@ -18,16 +18,18 @@
 	</script>
 
 	<h:form id="bizForm">
-		<h:dataTable id="bizList" value="#{playerBean.sList}" var="bizModel" border="1" rows="#{playerBean.pageSize}">
+		<rich:dataTable id="bizList" value="#{playerBean.sList}" var="bizModel" border="1" rows="#{playerBean.pageSize}"
+			rowKeyVar="rkey">
 			<f:facet name="header">
 				<h:column>
 					<h:panelGroup>
-						<h:selectBooleanCheckbox id="all" onclick="selectAll('bizForm:bizList:',#{playerBean.pageIndex},#{playerBean.pageSize});" />
+						<h:selectBooleanCheckbox id="all"
+							onclick="selectAll('bizForm:bizList:',#{playerBean.pageIndex},#{playerBean.pageSize});" />
 						<h:outputText value="ALL" />
 					</h:panelGroup>
 				</h:column>
 				<h:column>
-					<h:outputText value="其它列表项标题……" />
+					<h:outputText value="列表项标题" />
 				</h:column>
 			</f:facet>
 
@@ -36,9 +38,9 @@
 			</h:column>
 
 			<h:column>
-				<h:outputText value="其它列表项内容……" />
+				<h:outputText value="列表项#{rkey} 内容" />
 			</h:column>
-		</h:dataTable>
+		</rich:dataTable>
 	</h:form>
 </h:body>
 </html>

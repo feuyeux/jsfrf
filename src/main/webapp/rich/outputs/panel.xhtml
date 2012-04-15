@@ -19,13 +19,11 @@
 		<h:outputText id="output" value="内容" />
 	</rich:panel>
 
-	<rich:panel styleClass="jsfrfPanel" style="margin:1em">
-		<f:facet name="header">
-			<h:outputText value="头部标题" />
-		</f:facet>
-		<h:outputText value="内容" />
-	</rich:panel>
-	<br />
-	<h:link value="返回列表" outcome="/rich/outputs" />
+	<div class="rf-p jsfrfPanel">
+		<div class="rf-p-hdr">头部标题</div>
+		<div class="rf-p-b">
+			<span id="output">内容</span>
+		</div>
+	</div>
 </h:body>
 </html>
