@@ -69,24 +69,6 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		return list;
 	}
 
-	public Comparator<Yijing> getSequenceComparator() {
-		return new Comparator<Yijing>() {
-			@Override
-			public int compare(Yijing y1, Yijing y2) {
-				int v1 = Integer.valueOf(y1.getSequence().trim());
-				int v2 = Integer.valueOf(y2.getSequence().trim());
-				if (v1 == v2) {
-					return 0;
-				}
-				if (v1 > v2) {
-					return -1;
-				} else {
-					return 1;
-				}
-			}
-		};
-	}
-
 	public SortOrder getSequenceOrder() {
 		return sequenceOrder;
 	}
@@ -120,5 +102,23 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		} else {
 			setSequenceOrder(SortOrder.ascending);
 		}
+	}
+
+	public Comparator<Yijing> getSequenceComparator() {
+		return new Comparator<Yijing>() {
+			@Override
+			public int compare(Yijing y1, Yijing y2) {
+				int v1 = Integer.valueOf(y1.getSequence().trim());
+				int v2 = Integer.valueOf(y2.getSequence().trim());
+				if (v1 == v2) {
+					return 0;
+				}
+				if (v1 > v2) {
+					return -1;
+				} else {
+					return 1;
+				}
+			}
+		};
 	}
 }

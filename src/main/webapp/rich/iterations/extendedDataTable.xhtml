@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -12,10 +10,11 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 
 <h:body>
 	<h:form id="xdtForm">
-		<rich:extendedDataTable id="xdt" style="height:500px; width:183px;" frozenColumns="1" value="#{xonePagination.list}" selection="#{xonePagination.selection}"
-			var="yi" rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol" border="1" selectionMode="multiple">
+		<rich:extendedDataTable id="xdt" style="height:500px; width:183px;" frozenColumns="1" value="#{xonePagination.list}"
+			selection="#{xonePagination.selection}" var="yi" rowClasses="oddrow,evenrow"
+			columnClasses="firstCol,secondCol,thirdCol" border="1" selectionMode="multiple">
 
-			<a4j:ajax event="selectionchange" render="selected" listener="#{xonePagination.showSelections}" />
+			<a4j:ajax event="selectionchange" render="rl1 rl2 rl3" listener="#{xonePagination.showSelections}" />
 
 			<rich:column id="firstColumn">
 				<f:facet name="header">
@@ -42,12 +41,17 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 				<h:outputText value="易经列表" />
 			</f:facet>
 		</rich:extendedDataTable>
-
-		<rich:list id="selected" value="#{xonePagination.selectedList}" var="yi" type="definitions">
+		1:<rich:list id="rl1" value="#{xonePagination.selectedList}" var="yi">
+			<h:outputText value="#{yi.sequence} #{yi.name}" />
+		</rich:list>
+		2:<rich:list id="rl2" value="#{xonePagination.selectedList}" var="yi" type="ordered" title="rl2">
+			<h:outputText value="#{yi.sequence} #{yi.name}" />
+		</rich:list>
+		3:<rich:list id="rl3" value="#{xonePagination.selectedList}" var="yi" type="definitions">
+		<f:facet name="term">#{yi.name}卦</f:facet>
 			<h:outputText value="#{yi.sequence} #{yi.name}" />
 		</rich:list>
 	</h:form>
-
 	<br />
 	<h:link value="返回列表" outcome="/rich/dataIterations" />
 </h:body>

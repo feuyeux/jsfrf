@@ -18,8 +18,8 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:body>
 	<h:form id="richDTForm">
 		<rich:panel style="width:250px;height:580px">
-			<rich:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.list}" var="yi"
-				rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol" border="1">
+			<rich:dataTable id="dt" style="width:100%" rows="#{onePagination.pageSize}" value="#{onePagination.list}" var="yi" rowKeyVar="rowAlias"
+				rowClasses="oddrow,evenrow" columnClasses="firstCol,secondCol,thirdCol" border="1" first="0">
 
 				<f:facet name="caption">
 					<h:outputText value="周易64卦" />
@@ -33,7 +33,7 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 					<f:facet name="header">
 						<a4j:commandLink value="序号" render="dt" action="#{onePagination.sortBySequence}" />
 					</f:facet>
-
+					<h:outputText value="#{rowAlias}" rendered="false"/>
 					<h:outputText value="#{yi.sequence}" />
 				</rich:column>
 
@@ -43,6 +43,7 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 					</f:facet>
 					<h:outputText value="#{yi.name}" />
 				</rich:column>
+				
 				<rich:column>
 					<f:facet name="header">
 						<h:outputText value="读音" />
@@ -56,7 +57,7 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 			</rich:dataTable>
 		</rich:panel>
 
-		<rich:dataScroller for="dt" fastStep="2">
+		<rich:dataScroller for="dt" fastStep="2" maxPages="4" >
 			<f:facet name="first">
 				<h:outputText value="首页" />
 			</f:facet>

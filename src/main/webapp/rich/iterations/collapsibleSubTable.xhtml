@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库</title>
+	<h:outputScript>
+	function collapseAll(){
+		var comp=RichFaces.$('dt1');
+		comp.collapseAllSubTables();		
+	}
+	</h:outputScript>
 </h:head>
 
 <h:body>
-	<h:form>
-		<rich:dataTable value="#{subTableBean.regions}" var="region">
+	<h:link value="收起子表" onclick="collapseAll();return false;" />
+	<h:form prependId="false">
+		<rich:dataTable id="dt1" value="#{subTableBean.regions}" var="region">
 			<f:facet name="header">
 				<rich:columnGroup>
 					<rich:column colspan="3">
 						<h:outputText value="地区" />
 					</rich:column>
 
-					<rich:column breakRowBefore="true">
+					<rich:column id="h1" breakRowBefore="true">
 						<h:outputText value="省份" />
 					</rich:column>
 					<rich:column>
@@ -32,18 +37,19 @@ xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 			</f:facet>
 
 			<rich:column colspan="3">
-				<rich:collapsibleSubTableToggler for="subTbl" />
+				<rich:collapsibleSubTableToggler for="subTbl"/> 
+				<!-- collapsedLabel="折叠态label" expandedLabel="展开态label" -->
 				<h:outputText value="#{region.name}" />
 			</rich:column>
 
 			<rich:collapsibleSubTable id="subTbl" value="#{region.provinces}" var="province" expandMode="client" expanded="true">
-				<rich:column>
+				<rich:column id="c1">
 					<h:outputText value="#{province.name}" />
 				</rich:column>
-				<rich:column>
+				<rich:column id="c2">
 					<h:outputText value="#{province.abbreviation}" />
 				</rich:column>
-				<rich:column>
+				<rich:column id="c3">
 					<h:outputText value="#{province.capital}" />
 				</rich:column>
 
