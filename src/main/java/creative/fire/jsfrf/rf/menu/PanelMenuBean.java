@@ -8,6 +8,7 @@ import javax.faces.event.ActionEvent;
 import org.apache.log4j.Logger;
 import org.richfaces.component.UIPanelMenuGroup;
 import org.richfaces.component.UIPanelMenuItem;
+import org.richfaces.component.UITogglePanelItem;
 import org.richfaces.event.ItemChangeEvent;
 
 /**
@@ -44,6 +45,10 @@ public class PanelMenuBean {
 			org.richfaces.component.UIPanelMenuItem menuItem = (UIPanelMenuItem) component;
 			logger.debug(menuItem.getClientId());
 			menuSelected = event.getNewItemName() + " " + menuItem.getLabel();
+		}
+		if (component.getClass() == UITogglePanelItem.class) {
+			UITogglePanelItem panelItem = (UITogglePanelItem) component;
+			logger.debug(panelItem.getId());
 		}
 	}
 

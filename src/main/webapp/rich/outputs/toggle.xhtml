@@ -5,18 +5,30 @@
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<h:outputStylesheet >
+	<h:outputStylesheet>
 	a{
 	font-size:11px;
 	}
 	</h:outputStylesheet>
+	<h:outputScript>
+	function test(){
+		var togglePanel= RichFaces.$('toggleP');
+		var items =togglePanel.getItems();
+		var itemsNames=togglePanel.getItemsNames();
+		alert(items[0].name);
+		alert(itemsNames);
+	}
+	</h:outputScript>
+
 	<title>Richfaces4 rich标签库</title>
 </h:head>
 
 <h:body>
-	<h:form id="toggleForm">
+	<h:link value="测试脚本函数" onclick="test();return false;" />
+	<h:form prependId="false">
 		<rich:panel header="使用指南" style="width:330px">
-			<rich:togglePanel id="toggleP" switchType="ajax">
+			<rich:togglePanel id="toggleP" switchType="ajax" onbeforeitemchange="alert('onbeforeitemchange');"
+				onitemchange="alert('onitemchange');" itemChangeListener="#{panelMenuBean.itemChange}">
 				<rich:togglePanelItem id="toggleI1">
 					<rich:panel header="JSF">
 						<h:graphicImage
@@ -31,10 +43,10 @@
 					<rich:panel header="RichFaces">
 						<h:graphicImage url="http://upload.wikimedia.org/wikipedia/commons/5/5e/Richfaces_logo.gif" width="200px" />
 					</rich:panel>
-					<h:commandLink value="上一步"  style="margin-left:200px;">
+					<h:commandLink value="上一步" style="margin-left:200px;">
 						<rich:toggleControl targetItem="@prev" />
 					</h:commandLink>
-					<h:commandLink value="下一步"  style="margin-left:20px;">
+					<h:commandLink value="下一步" style="margin-left:20px;">
 						<rich:toggleControl targetItem="@next" />
 					</h:commandLink>
 				</rich:togglePanelItem>
