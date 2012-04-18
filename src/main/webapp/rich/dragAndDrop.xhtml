@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
@@ -19,11 +19,11 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich">
 		<h:link value="rich:dragSource" />
 		<h:link value="rich:dropTarget" />
 	</h:panelGrid>
-	 <rich:dragIndicator id="ind">
-        拖拽中……
+	<rich:dragIndicator id="ind">
+    	<h:outputText value="拖拽中……" />
     </rich:dragIndicator>
 
-	 <h:form id="ddForm">
+	<h:form id="ddForm">
 		<rich:dataGrid value="#{onePagination.list}" var="yi" columns="4" elements="16" border="0">
 			<rich:panel header="#{yi.name}">
 				<rich:dragSource type="yijing" dragIndicator="ind" dragValue="#{yi}" />
@@ -36,7 +36,7 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich">
 				<rich:dataScroller />
 			</f:facet>
 		</rich:dataGrid>
-	 
+
 		<rich:panel header="回收" style="width:300px">
 			<rich:dropTarget acceptedTypes="yijing" render="@form" dropListener="#{dragDropBean.acceptDrop}" />
 		</rich:panel>

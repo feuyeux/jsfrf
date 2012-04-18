@@ -4,22 +4,18 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 </h:head>
 <h:body>
-	<h:form>
-		<a4j:poll id="poll1" interval="2000" render="out" enabled="#{a4jBean.enabled}" />
-	</h:form>
+	<h:form id="aForm">
+		<h:commandButton id="btn" value="测试">
+			<a4j:actionListener listener="#{text.update1}" />
+			<a4j:actionListener type="creative.fire.jsfrf.jsf.event.TestActionListener" />
 
-	<h:form id="pollForm">
-		<h:panelGrid>
-			<h:outputText id="out" value="#{a4jBean.value}" />
-			<a4j:commandButton value="开始向服务器取值" action="#{a4jBean.update('1')}" render="poll1" />
-			<a4j:commandButton value="结束向服务器取值" action="#{a4jBean.update('0')}" render="poll1" />
-		</h:panelGrid>
+		</h:commandButton>
 	</h:form>
 	<br />
-	<h:link value="返回" outcome="/a4j/actions" />
+	<h:link value="返回" outcome="/welcome" />
 </h:body>
 </html>

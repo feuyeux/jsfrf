@@ -34,7 +34,7 @@
 			headerLocation="center" onbeforeitemchange="alert('beforeitemchange');" onitemchange="alert('itemchange');"
 			itemChangeListener="#{tabBean.doItemChanging}" style="width:400px">
 
-			<rich:tab name="qian">
+			<rich:tab name="qian" onenter="alert('onenter');" onleave="alert('onleave');">
 				<f:facet name="header">
 					乾
 				</f:facet>
@@ -96,7 +96,7 @@
 		</rich:tabPanel>
 
 		<a4j:commandButton value="切换到离" onclick="switchLi()" immediate="true" />
-		<a4j:commandButton value="切换到第一项" onclick="switchFirst()" immediate="true" render="bgTab"/>
+		<a4j:commandButton value="切换到第一项" onclick="switchFirst()" immediate="true" render="bgTab" />
 	</h:form>
 	<br />
 	<h:link value="返回列表" outcome="/rich/outputs" />

@@ -1,23 +1,90 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>Richfaces4 rich标签库 树组件</title>
+	<h:outputStylesheet>
+	.top {
+		vertical-align: top;
+	}
+	</h:outputStylesheet>
 </h:head>
 
-<h:body>
-	<h:panelGrid styleClass="jsfrfPanel">
-		<h:link value="treenode" outcome="/rich/trees/treeNode" />
-		<!-- 
-rich:tree
-rich:treeModelAdaptor
-rich:treeModelRecursiveAdaptor
-rich:treeNode
-rich:treeSelectionChangeListener
-rich:treeToggleListener
--->
-	</h:panelGrid>
+<h:body id="treeBody">
+	<h:panelGroup styleClass="jsfrfPanel">
+		<h:link value="treenode" />
+		<h:link value="rich:tree" />
+		<h:link value="rich:treeModelAdaptor" />
+		<h:link value="rich:treeModelRecursiveAdaptor" />
+		<h:link value="rich:treeNode" />
+		<h:link value="rich:treeSelectionChangeListener" />
+		<h:link value="rich:treeToggleListener" />
+	</h:panelGroup>
+
+	<rich:tree id="tree0" value="#{treeNodeBean.rootNode}" var="node">
+		<rich:treeNode id="node">
+			<h:outputText id="nodeText" value="#{node.data}" />
+		</rich:treeNode>
+	</rich:tree>
+
+	<a4j:commandButton value="测试选择监听" onclick="#{rich:component('treePopup1')}.show()" />
+	<a4j:commandButton value="测试切换监听" onclick="#{rich:component('treePopup2')}.show()" />
+
+	<rich:popupPanel id="treePopup1" moveable="true" resizeable="false" minWidth="330" minHeight="500">
+		<f:facet name="controls">
+			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer"
+				onclick="#{rich:component('treePopup1')}.hide()" />
+		</f:facet>
+
+		<rich:panel header="树结点选择测试">
+			<h:panelGrid columns="2" columnClasses="top, top">
+				<h:form>
+					<rich:tree id="tree1" value="#{treeNodeBean.rootNode}" var="node" toggleType="client" selectionType="ajax"
+						selection="#{treeNodeBean.selection}" selectionChangeListener="#{treeNodeBean.selectionChanged}">
+						<rich:treeNode>
+							<h:outputLabel value="#{node.data}" />
+						</rich:treeNode>
+						<rich:treeSelectionChangeListener for="tree1" listener="#{treeNodeBean.selectionChanged0}" />
+					</rich:tree>
+				</h:form>
+				<a4j:outputPanel layout="block" ajaxRendered="true">
+					<rich:panel header="当前已选项:" rendered="#{not empty treeNodeBean.selecting}">
+						<a4j:repeat value="#{treeNodeBean.selecting}" var="nodeData">
+							<h:outputLabel value="#{nodeData}" />
+						</a4j:repeat>
+					</rich:panel>
+				</a4j:outputPanel>
+			</h:panelGrid>
+		</rich:panel>
+	</rich:popupPanel>
+
+
+	<rich:popupPanel id="treePopup2" moveable="true" resizeable="false" minWidth="330" minHeight="500">
+		<f:facet name="controls">
+			<h:graphicImage value="/resources/img/close.png" style="cursor:pointer"
+				onclick="#{rich:component('treePopup2')}.hide()" />
+		</f:facet>
+
+		<rich:panel header="树结点切换测试">
+			<h:panelGrid columns="2" columnClasses="top, top">
+				<h:form>
+					<rich:tree id="tree2" value="#{treeNodeBean.rootNode}" var="node" toggleType="ajax"
+						toggleListener="#{treeNodeBean.nodeToggled}">
+						<rich:treeNode>
+							<h:outputLabel value="#{node.data}" />
+						</rich:treeNode>
+					</rich:tree>
+				</h:form>
+
+				<a4j:outputPanel layout="block" ajaxRendered="true">
+					<h:outputText value="切换结点: #{treeNodeBean.toggledNodeData}" rendered="#{not empty treeNodeBean.toggledNodeData}" />
+				</a4j:outputPanel>
+			</h:panelGrid>
+		</rich:panel>
+	</rich:popupPanel>
+
 	<br />
 	<h:link value="返回" outcome="/welcome" />
 </h:body>

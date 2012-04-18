@@ -5,7 +5,7 @@
 <h:head>
 	<link rel="shortcut icon" href="#{jsfrfEnv.imagePath}favicon.ico" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
-	<h:outputStylesheet >
+	<h:outputStylesheet>
 	a{
 	font-size:11px;
 	}
@@ -27,7 +27,8 @@
 			</h:outputLink>
 		</h:panelGrid>
 		<h:outputStylesheet id="loadCss" name="jsfrf.css" library="css" />
-		<rich:popupPanel id="popupWindow" width="200" height="100" modal="true" moveable="false">
+
+		<rich:popupPanel id="popupWindow" width="200" height="100" modal="false" moveable="false">
 			<f:facet name="header">
 				<h:outputText value="弹出窗口标题" />
 			</f:facet>
@@ -44,6 +45,15 @@
 			</h:panelGrid>
 		</rich:popupPanel>
 	</h:form>
+
+	<h:outputScript>
+		function getPopInfo(){
+			var popup=RichFaces.$('popupForm:popupWindow');
+			alert('top='+popup.getTop()+'left='+popup.getLeft());
+		}
+	</h:outputScript>
+	<h:link value="test" onclick="getPopInfo();" />
+
 	<br />
 	<h:link value="返回列表" outcome="/rich/outputs" />
 </h:body>
