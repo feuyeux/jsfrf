@@ -6,11 +6,11 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<h:outputStylesheet name="jsfrf.css" library="css" />
 	<title>JavaServer Faces EL</title>
-
 </h:head>
 <h:body>
-	<h:form>
-		<h:commandLink value="download" action="#{pdfDownLoad.generatePDF('head','content')}" />
+	<h:form><h:panelGrid>
+		<h:commandLink value="下载测试" action="#{pdfDownLoad.generatePDF('','Hello World')}" style="margin:20 0"/>
+		<h:commandButton value="下载测试" action="#{pdfDownLoad.generatePDF('head','content')}"/></h:panelGrid>
 	</h:form>
 	<h:link value="返回" outcome="/welcome" />
 </h:body>
