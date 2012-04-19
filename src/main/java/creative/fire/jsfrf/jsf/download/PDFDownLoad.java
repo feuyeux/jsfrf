@@ -16,6 +16,8 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
+
 import creative.fire.jsfrf.global.JSFRFFaces;
 
 @ManagedBean(name = "pdfDownLoad")
@@ -35,15 +37,17 @@ public class PDFDownLoad {
 
 	private void generatePDFReport(String head, String body, BufferedOutputStream output) throws DocumentException {
 		Document document = new Document();
-		//PdfWriter writer = PdfWriter.getInstance(document, output);
+		PdfWriter.getInstance(document, output);
 		document.open();
 		document.newPage();
 		Font headerFont = new Font();
 		Paragraph text = new Paragraph(head, headerFont);
+		text.add("--标题");
 		document.add(text);
 		Paragraph titleText = new Paragraph(body);
 		titleText.setAlignment(Element.ALIGN_CENTER);
 		titleText.setSpacingAfter(5);
+		titleText.add("--内容");
 		document.add(titleText);
 		document.close();
 	}
