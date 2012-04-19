@@ -3,6 +3,7 @@ package creative.fire.jsfrf.rf.output;
 import javax.faces.event.AbortProcessingException;
 
 import org.apache.log4j.Logger;
+import org.richfaces.event.PanelToggleEvent;
 
 /**
  * @author feuyeux@gmail.com
@@ -12,7 +13,8 @@ public class JSFRFToggledListener implements org.richfaces.event.PanelToggleList
 	private transient Logger logger = Logger.getLogger(JSFRFToggledListener.class);
 
 	@Override
-	public void processPanelToggle(org.richfaces.event.PanelToggleEvent event) throws AbortProcessingException {
+	public void processPanelToggle(PanelToggleEvent event) throws AbortProcessingException {
 		logger.debug(event.getComponent().getClientId());
 	}
+
 }
