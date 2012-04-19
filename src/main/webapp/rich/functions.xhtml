@@ -8,7 +8,10 @@
 </h:head>
 
 <h:body>
-	<h:panelGrid id="pg" columns="2" styleClass="jsfrfPanel">
+	<h:form id="fForm">
+		<h:panelGrid id="pg" />
+	</h:form>
+	<h:panelGrid id="pg1" columns="2" styleClass="jsfrfPanel">
 		<h:outputText value="rich:clientId('pg')" />
 		<h:outputText value="client id= #{rich:clientId('pg')}" />
 
