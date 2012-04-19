@@ -11,11 +11,11 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lowagie.text.Document;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.Element;
-import com.lowagie.text.Font;
-import com.lowagie.text.Paragraph;
+//import com.lowagie.text.Document;
+//import com.lowagie.text.DocumentException;
+//import com.lowagie.text.Element;
+//import com.lowagie.text.Font;
+//import com.lowagie.text.Paragraph;
 import creative.fire.jsfrf.global.JSFRFFaces;
 
 @ManagedBean(name = "pdfDownLoad")
@@ -25,28 +25,28 @@ public class PDFDownLoad {
 	private final String prefixDir = JSFRFFaces.getRealPath("") + "file" + SYS_SEPEARTOR;
 	private String pdfFileName;
 
-	public void generatePDF(String head, String body) throws Exception {
-		pdfFileName = "jsfrf_" + System.currentTimeMillis() + ".pdf";
-		BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(prefixDir + pdfFileName));
-		generatePDFReport(head, body, output);
-		output.close();
-		pushDownload(pdfFileName);
-	}
-
-	private void generatePDFReport(String head, String body, BufferedOutputStream output) throws DocumentException {
-		Document document = new Document();
-		//PdfWriter writer = PdfWriter.getInstance(document, output);
-		document.open();
-		document.newPage();
-		Font headerFont = new Font();
-		Paragraph text = new Paragraph(head, headerFont);
-		document.add(text);
-		Paragraph titleText = new Paragraph(body);
-		titleText.setAlignment(Element.ALIGN_CENTER);
-		titleText.setSpacingAfter(5);
-		document.add(titleText);
-		document.close();
-	}
+//	public void generatePDF(String head, String body) throws Exception {
+//		pdfFileName = "jsfrf_" + System.currentTimeMillis() + ".pdf";
+//		BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(prefixDir + pdfFileName));
+//		generatePDFReport(head, body, output);
+//		output.close();
+//		pushDownload(pdfFileName);
+//	}
+//
+//	private void generatePDFReport(String head, String body, BufferedOutputStream output) throws DocumentException {
+//		Document document = new Document();
+//		//PdfWriter writer = PdfWriter.getInstance(document, output);
+//		document.open();
+//		document.newPage();
+//		Font headerFont = new Font();
+//		Paragraph text = new Paragraph(head, headerFont);
+//		document.add(text);
+//		Paragraph titleText = new Paragraph(body);
+//		titleText.setAlignment(Element.ALIGN_CENTER);
+//		titleText.setSpacingAfter(5);
+//		document.add(titleText);
+//		document.close();
+//	}
 
 	private HttpServletResponse obtainResponse(String fileName) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
