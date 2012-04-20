@@ -36,6 +36,8 @@ public class TextBean implements Serializable {
 	private Map<String, String> testMap;
 	@ManagedProperty(value = "1")
 	private int intValue;
+	@ManagedProperty(value = "请输入邮箱地址")
+	private String email;
 
 	public void foo() {
 		TextBean.logger.info(value);
@@ -166,4 +168,13 @@ public class TextBean implements Serializable {
 		logger.debug(x1);
 		logger.debug(now.getTime());
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 }
