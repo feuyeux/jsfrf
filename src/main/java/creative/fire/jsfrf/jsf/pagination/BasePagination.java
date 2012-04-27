@@ -15,7 +15,7 @@ public abstract class BasePagination implements IPagination {
 	transient static Logger log = Logger.getLogger(BasePagination.class);
 	protected int pageIndex = 1;// 当前页号
 	protected int pageSize;// 每页显示多少项
-	protected int pageCount;// 共有多少页
+	//protected int pageCount;// 共有多少页
 	protected int totalSize;// 共有多少项
 
 	private final int left = 4;
@@ -75,15 +75,18 @@ public abstract class BasePagination implements IPagination {
 
 		int pageStart = pageIndex - left;
 		int pageEnd = pageIndex + right;
+		int pageCount = getPageCount();
 
 		if (pageStart < 1) {
 			pageStart = 1;
-		}
-
-		if (pageEnd > getPageCount()) {
-			pageEnd = getPageCount();
-		} else if (pageEnd < pagePageSize && getPageCount() >= pagePageSize) {
+		} else if (pageStart > 1 && pageCount <= pagePageSize)
+			pageStart = 1;
+		if (pageEnd > pageCount) {
+			pageEnd = pageCount;
+		} else if (pageEnd < pagePageSize && pageCount >= pagePageSize) {
 			pageEnd = pagePageSize;
+		} else if (pageEnd < pageCount && pageEnd < pagePageSize) {
+			pageEnd = pageCount;
 		}
 
 		if (pageEnd > totalSize) {
@@ -107,7 +110,7 @@ public abstract class BasePagination implements IPagination {
 	@Override
 	public int getPageCount() {
 		int mod = getTotalSize() % pageSize;
-		pageCount = getTotalSize() / pageSize;
+		int pageCount = getTotalSize() / pageSize;
 		if (mod > 0) {
 			pageCount++;
 		}
