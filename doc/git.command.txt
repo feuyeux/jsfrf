@@ -1,5 +1,5 @@
 12/29 2011
-This project is a demo for study JSF2.1.x(2.1.7) and Richfaces4.x(4.2)
+This project is a demo for study JSF2.1.x(2.1.7) and Richfaces4.x(4.2.1)
 
 git daily commands：
 git clone git@github.com:feuyeux/jsfrf.git
@@ -23,6 +23,18 @@ git merge push/master
 12/31 2011
 git reset --hard HEAD~2
 git push origin master --force
+--
+05/10 2012
+1.Working Tree
+2.Index files
+3.Repository
+
+git diff 1-2
+git diff cache 2-3
+git diff HEAD 1-3
+git reset --sfot HEAD^	=rollback 3
+git reset --mixed HEAD^	=rollback 2+3
+git reset --hard HEAD^	=rollback 1+2+3
 --
 https://github.com/feuyeux/jsfrf/graphs/punch_card
 --
