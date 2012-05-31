@@ -31,6 +31,21 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 		OnePagination.log.debug("构造");
 	}
 
+	@Override
+	@PostConstruct
+	public void init() {
+		OnePagination.log.debug("init");
+		super.init();
+		initializeList();
+	}
+
+	private void initializeList() {
+		list = YijingCollection.getYijings();
+		showList = new ArrayList<Yijing>();
+		totalSize = list.size();
+		flipover();
+	}
+
 	public ArrayList<Yijing> autocomplete(String prefix) {
 		ArrayList<Yijing> result = new ArrayList<Yijing>();
 		for (Yijing suggestYi : list) {
@@ -48,7 +63,7 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 			if (requestIndex != null) {
 				pageIndex = Integer.valueOf(requestIndex);
 			}
-
+			totalSize = list.size();
 			int from = (getPageIndex() - 1) * getPageSize();
 			int to = getPageIndex() * getPageSize();
 
@@ -75,21 +90,6 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 
 	public ArrayList<Yijing> getShowList() {
 		return showList;
-	}
-
-	@Override
-	@PostConstruct
-	public void init() {
-		OnePagination.log.debug("init");
-		super.init();
-		initializeList();
-	}
-
-	private void initializeList() {
-		list = YijingCollection.getYijings();
-		showList = new ArrayList<Yijing>();
-		totalSize = list.size();
-		flipover();
 	}
 
 	public void setSequenceOrder(SortOrder sequenceOrder) {
@@ -120,5 +120,16 @@ public class OnePagination extends BasePagination implements java.io.Serializabl
 				}
 			}
 		};
+	}
+
+	public void removeMore() {
+		list.clear();
+		list.add(new Yijing("1", "乾", "qián"));
+		flipover();
+	}
+
+	public void restore() {
+		list = YijingCollection.getYijings(true);
+		flipover();
 	}
 }

@@ -72,7 +72,7 @@
 	overflow: hidden;
 }
 </style>
-	<rich:panel style="border:none;padding:0;margin-top:2px" styleClass="pageBtn">
+	<rich:panel id="paginationPanel2" style="border:none;padding:0;margin-top:2px" styleClass="pageBtn">
 		<a4j:commandLink id="previousLink" value="#{jsfrfMsg.Previous}" action="#{paginationBean.previous}" render="#{rendpart}" rendered="#{not paginationBean.disabledFirst}"/>
 		<a4j:repeat id="pageRepeat" value="#{paginationBean.pageNumbers}" var="number">
 			<a4j:commandLink id="#{number}Link" value="#{number}" action="#{paginationBean.flipover}" render="#{rendpart}"

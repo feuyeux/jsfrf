@@ -54,6 +54,9 @@
 			<ui:param name="paginationBean" value="#{onePagination}" />
 			<ui:param name="rendpart" value="tableForm" />
 		</ui:include>
+		
+		<a4j:commandButton value="删除测试" action="#{onePagination.removeMore}" render="tableForm paginationPanel paginationPanel2"/>
+		<a4j:commandButton value="恢复" action="#{onePagination.restore}" render="tableForm paginationPanel paginationPanel2"/>
 	</h:form>
 	<br />
 	<h:link value="返回" outcome="/welcome" />

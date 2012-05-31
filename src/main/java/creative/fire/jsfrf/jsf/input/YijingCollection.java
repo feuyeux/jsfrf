@@ -6,10 +6,20 @@ public class YijingCollection {
 	private static ArrayList<Yijing> list;
 
 	public static synchronized ArrayList<Yijing> getYijings() {
+		return getYijings(false);
+	}
+
+	public static synchronized ArrayList<Yijing> getYijings(boolean forced) {
 		if (YijingCollection.list != null) {
-			return YijingCollection.list;
+			if (!forced) {
+				return YijingCollection.list;
+			} else {
+				YijingCollection.list.clear();
+			}
+		} else {
+			YijingCollection.list = new ArrayList<Yijing>();
 		}
-		YijingCollection.list = new ArrayList<Yijing>();
+
 		YijingCollection.list.add(new Yijing("1", "乾", "qián"));
 		YijingCollection.list.add(new Yijing("2", "坤", "kūn"));
 		YijingCollection.list.add(new Yijing("3", "屯", "zhūn"));
