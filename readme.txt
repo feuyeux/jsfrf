@@ -4,6 +4,10 @@
 													feuyeux@yahoo.com
 													March 2012
 =====================================================================
+2013.06.27
+JSF upgrade: 2.1.7 -> 2.1.19
+RichFaces upgrade: 4.2.1.Final -> 4.3.2.Final
+
 2010.3.15
 JSF:
 	Mojarra:
