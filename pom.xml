@@ -12,10 +12,9 @@
 	<name>jsfrf</name>
 
 	<properties>
-		<jsf.version>2.1.19</jsf.version>
+		<jsf.version>2.2.4</jsf.version>
 		<myfaces.version>2.1.6</myfaces.version>
-		<rf.version>4.3.2.Final</rf.version>
-		<nb.server>gfv3ee6</nb.server>
+		<rf.version>4.3.4.Final</rf.version>
 	</properties>
 
 	<dependencies>
@@ -121,7 +120,6 @@
 					<configuration>
 						<downloadSources>false</downloadSources>
 						<wtpversion>2.0</wtpversion>
-						<encoding>utf-8</encoding>
 					</configuration>
 				</plugin>
 			</plugins>

@@ -2,8 +2,12 @@
 												   JSFRF Demonstration Project
 
 													feuyeux@yahoo.com
-													March 2012
+													from March 2012
 =====================================================================
+2013.12.19
+JSF upgrade: 2.1.19 -> 2.2.4
+RichFaces upgrade: 4.3.2.Final -> 4.3.4.Final
+
 2013.06.27
 JSF upgrade: 2.1.7 -> 2.1.19
 RichFaces upgrade: 4.2.1.Final -> 4.3.2.Final
